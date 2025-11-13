@@ -1,0 +1,98 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\REPOS\\Dev Edu main\\DevEdu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|d:\\repos\\dev edu main\\devedu\\login v1\\datagridalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\datagridalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|D:\\REPOS\\Dev Edu main\\DevEdu\\login v1\\devex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\devex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|D:\\REPOS\\Dev Edu main\\DevEdu\\login v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\Arrays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:Login V1\\Arrays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|D:\\REPOS\\Dev Edu main\\DevEdu\\login v1\\arrays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\arrays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 675,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\Program.cs",
+              "RelativeDocumentMoniker": "Login V1\\Program.cs",
+              "ToolTip": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\Program.cs",
+              "RelativeToolTip": "Login V1\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T05:14:58.848Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DevEx.cs [Design]",
+              "DocumentMoniker": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\DevEx.cs",
+              "RelativeDocumentMoniker": "Login V1\\DevEx.cs",
+              "ToolTip": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\DevEx.cs [Design]",
+              "RelativeToolTip": "Login V1\\DevEx.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T04:04:17.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatagridAlumnos.cs [Design]",
+              "DocumentMoniker": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\DatagridAlumnos.cs",
+              "RelativeDocumentMoniker": "Login V1\\DatagridAlumnos.cs",
+              "ToolTip": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\DatagridAlumnos.cs [Design]",
+              "RelativeToolTip": "Login V1\\DatagridAlumnos.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T03:00:52.775Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Arrays.cs",
+              "DocumentMoniker": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\Arrays.cs",
+              "RelativeDocumentMoniker": "Login V1\\Arrays.cs",
+              "ToolTip": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\Arrays.cs",
+              "RelativeToolTip": "Login V1\\Arrays.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T19:53:22.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Arrays.cs [Design]",
+              "DocumentMoniker": "D:\\REPOS\\Dev Edu main\\DevEdu\\Login V1\\Arrays.cs",
+              "RelativeDocumentMoniker": "Login V1\\Arrays.cs",
+              "ToolTip": "D:\\REPOS\\Dev Edu Windows Form (Struct_End, UI update)\\DevEdu\\Login V1\\Arrays.cs [Design]",
+              "RelativeToolTip": "..\\..\\Dev Edu Windows Form (Struct_End, UI update)\\DevEdu\\Login V1\\Arrays.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T19:53:21.457Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

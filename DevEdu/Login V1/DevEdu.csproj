@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Login_V1</RootNamespace>
+    <AssemblyName>Login V1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arrays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Arrays.Designer.cs">
+      <DependentUpon>Arrays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatagridAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatagridAlumnos.Designer.cs">
+      <DependentUpon>DatagridAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatagridMaestros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatagridMaestros.Designer.cs">
+      <DependentUpon>DatagridMaestros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevbotChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevbotChat.Designer.cs">
+      <DependentUpon>DevbotChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevEx.Designer.cs">
+      <DependentUpon>DevEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevEx_1_Exp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevEx_1_Exp.Designer.cs">
+      <DependentUpon>DevEx_1_Exp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevHubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevHubMenu.Designer.cs">
+      <DependentUpon>DevHubMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTriviaFacil_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTriviaFacil_1.Designer.cs">
+      <DependentUpon>DevTriviaFacil_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTriviaMedio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTriviaMedio.Designer.cs">
+      <DependentUpon>DevTriviaMedio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTriviaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTriviaMenu.Designer.cs">
+      <DependentUpon>DevTriviaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTrivia_F_Ex1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTrivia_F_Ex1.Designer.cs">
+      <DependentUpon>DevTrivia_F_Ex1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTrivia_M_Ex1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTrivia_M_Ex1.Designer.cs">
+      <DependentUpon>DevTrivia_M_Ex1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevVisMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevVisMenu.Designer.cs">
+      <DependentUpon>DevVisMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevVis_Bucles_Ej1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevVis_Bucles_Ej1.Designer.cs">
+      <DependentUpon>DevVis_Bucles_Ej1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevVis_ESTDTS_ej1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevVis_ESTDTS_ej1.Designer.cs">
+      <DependentUpon>DevVis_ESTDTS_ej1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistro.Designer.cs">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Welcome Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome Splash.Designer.cs">
+      <DependentUpon>Welcome Splash.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Arrays.resx">
+      <DependentUpon>Arrays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatagridAlumnos.resx">
+      <DependentUpon>DatagridAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatagridMaestros.resx">
+      <DependentUpon>DatagridMaestros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevbotChat.resx">
+      <DependentUpon>DevbotChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevEx.resx">
+      <DependentUpon>DevEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevEx_1_Exp.resx">
+      <DependentUpon>DevEx_1_Exp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevHubMenu.resx">
+      <DependentUpon>DevHubMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTriviaFacil_1.resx">
+      <DependentUpon>DevTriviaFacil_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTriviaMedio.resx">
+      <DependentUpon>DevTriviaMedio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTriviaMenu.resx">
+      <DependentUpon>DevTriviaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTrivia_F_Ex1.resx">
+      <DependentUpon>DevTrivia_F_Ex1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTrivia_M_Ex1.resx">
+      <DependentUpon>DevTrivia_M_Ex1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevVisMenu.resx">
+      <DependentUpon>DevVisMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevVis_Bucles_Ej1.resx">
+      <DependentUpon>DevVis_Bucles_Ej1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevVis_ESTDTS_ej1.resx">
+      <DependentUpon>DevVis_ESTDTS_ej1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistro.resx">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Welcome Splash.resx">
+      <DependentUpon>Welcome Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blucleimg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profilepicblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picEstDts.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profilepicgray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\algoritmoimg.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
