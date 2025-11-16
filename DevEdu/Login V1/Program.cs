@@ -13,7 +13,7 @@ namespace Login_V1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DevVis_ESTDTS_ej2());
+            Application.Run(new FrmMainMenu());
         }
     }
 }
