@@ -174,5 +174,13 @@ namespace Login_V1
                 colorr = Color.Green;
             }
         }
+
+        private void btn_siguiente_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DevVis_ESTDTS_ej2 Principal = new DevVis_ESTDTS_ej2();
+            Principal.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -298,3 +298,36 @@ D:\REPOS\Dev Edu main\DevEdu\Login V1\obj\Debug\DevEdu.csproj.CoreCompileInputs.
 D:\REPOS\Dev Edu main\DevEdu\Login V1\obj\Debug\DevEdu.csproj.Up2Date
 D:\REPOS\Dev Edu main\DevEdu\Login V1\obj\Debug\Login V1.exe
 D:\REPOS\Dev Edu main\DevEdu\Login V1\obj\Debug\Login V1.pdb
+C:\Users\marth\DevEdu\DevEdu\Login V1\bin\Debug\Login V1.exe.config
+C:\Users\marth\DevEdu\DevEdu\Login V1\bin\Debug\Login V1.exe
+C:\Users\marth\DevEdu\DevEdu\Login V1\bin\Debug\Login V1.pdb
+C:\Users\marth\DevEdu\DevEdu\Login V1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\marth\DevEdu\DevEdu\Login V1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\DevEdu.csproj.AssemblyReference.cache
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login V1.exe.config
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.Arrays.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DatagridAlumnos.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DatagridMaestros.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevbotChat.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevEx.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevEx_1_Exp.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevHubMenu.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaFacil_1.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaMedio.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaMenu.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTrivia_F_Ex1.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTrivia_M_Ex1.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevVisMenu.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevVis_Bucles_Ej1.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevVis_ESTDTS_ej1.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevVis_ESTDTS_ej2.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.FrmMainMenu.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.FrmRegistro.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.Login.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.Properties.Resources.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.Welcome_Splash.resources
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\DevEdu.csproj.GenerateResource.cache
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\DevEdu.csproj.CoreCompileInputs.cache
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\DevEdu.csproj.Up2Date
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login V1.exe
+C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login V1.pdb

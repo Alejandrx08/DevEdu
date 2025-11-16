@@ -50,6 +50,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_color = new System.Windows.Forms.Button();
+            this.btn_siguiente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -290,12 +291,25 @@
             this.btn_color.UseVisualStyleBackColor = false;
             this.btn_color.Click += new System.EventHandler(this.btn_color_Click);
             // 
+            // btn_siguiente
+            // 
+            this.btn_siguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.btn_siguiente.ForeColor = System.Drawing.Color.White;
+            this.btn_siguiente.Location = new System.Drawing.Point(704, 415);
+            this.btn_siguiente.Name = "btn_siguiente";
+            this.btn_siguiente.Size = new System.Drawing.Size(75, 23);
+            this.btn_siguiente.TabIndex = 58;
+            this.btn_siguiente.Text = "Siguiente";
+            this.btn_siguiente.UseVisualStyleBackColor = false;
+            this.btn_siguiente.Click += new System.EventHandler(this.btn_siguiente_Click);
+            // 
             // DevVis_ESTDTS_ej1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_siguiente);
             this.Controls.Add(this.btn_color);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -352,5 +366,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_color;
+        private System.Windows.Forms.Button btn_siguiente;
     }
 }

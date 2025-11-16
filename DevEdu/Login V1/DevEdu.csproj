@@ -139,6 +139,12 @@
     <Compile Include="DevVis_ESTDTS_ej1.Designer.cs">
       <DependentUpon>DevVis_ESTDTS_ej1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DevVis_ESTDTS_ej2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevVis_ESTDTS_ej2.Designer.cs">
+      <DependentUpon>DevVis_ESTDTS_ej2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DevVis_ESTDTS_ej1.resx">
       <DependentUpon>DevVis_ESTDTS_ej1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevVis_ESTDTS_ej2.resx">
+      <DependentUpon>DevVis_ESTDTS_ej2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
