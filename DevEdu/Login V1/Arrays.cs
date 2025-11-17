@@ -20,7 +20,7 @@ namespace Login_V1
             txtbx_prom.Enabled = false;
         }
 
-        String[] Materias = {"SQL Server", "Linux", "Phyton", "Cyber Seguridad"};
+        String[] Materias = new string[5];
 
         private void btn_materias_Click(object sender, EventArgs e)
         {
@@ -165,6 +165,30 @@ namespace Login_V1
         private void label12_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_agregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtbx_agg.Text))
+            {
+                MessageBox.Show("Por favor ingrese una materia");
+                txtbx_agg.Focus();
+                return;
+            }
+            else 
+            {
+                for (int i = 0; i < Materias.Length; i++)
+                {
+                    if (string.IsNullOrEmpty(Materias[i]))
+                    {
+                        Materias[i] = txtbx_agg.Text;
+                        MessageBox.Show("Materia agregada en la posicion " + i.ToString());
+                        txtbx_agg.Clear();
+                        return;
+                    }
+                }
+                MessageBox.Show("No hay espacio dentro del arreglo para agregar más materias.");
+            }
         }
     }
 }

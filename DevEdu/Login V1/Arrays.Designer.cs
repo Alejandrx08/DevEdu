@@ -61,6 +61,9 @@
             this.Arreg = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtbx_agg = new System.Windows.Forms.TextBox();
+            this.btn_agregar = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.Arreg.SuspendLayout();
@@ -277,9 +280,9 @@
             // btn_ordenar
             // 
             this.btn_ordenar.ForeColor = System.Drawing.Color.Navy;
-            this.btn_ordenar.Location = new System.Drawing.Point(565, 57);
+            this.btn_ordenar.Location = new System.Drawing.Point(647, 57);
             this.btn_ordenar.Name = "btn_ordenar";
-            this.btn_ordenar.Size = new System.Drawing.Size(148, 25);
+            this.btn_ordenar.Size = new System.Drawing.Size(66, 25);
             this.btn_ordenar.TabIndex = 25;
             this.btn_ordenar.Text = "ordenar";
             this.btn_ordenar.UseVisualStyleBackColor = true;
@@ -338,6 +341,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Navy;
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.btn_agregar);
+            this.groupBox1.Controls.Add(this.txtbx_agg);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtbx_materias);
@@ -405,6 +411,35 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "calculadora de promedio";
             // 
+            // txtbx_agg
+            // 
+            this.txtbx_agg.Location = new System.Drawing.Point(397, 25);
+            this.txtbx_agg.Name = "txtbx_agg";
+            this.txtbx_agg.Size = new System.Drawing.Size(88, 22);
+            this.txtbx_agg.TabIndex = 26;
+            // 
+            // btn_agregar
+            // 
+            this.btn_agregar.ForeColor = System.Drawing.Color.Navy;
+            this.btn_agregar.Location = new System.Drawing.Point(565, 57);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(76, 25);
+            this.btn_agregar.TabIndex = 27;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(309, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(81, 25);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Agregar";
+            // 
             // Arrays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,5 +504,8 @@
         private System.Windows.Forms.GroupBox Arreg;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btn_agregar;
+        private System.Windows.Forms.TextBox txtbx_agg;
     }
 }
