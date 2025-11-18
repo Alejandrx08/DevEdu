@@ -13,7 +13,9 @@ namespace Login_V1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMainMenu());
+            Application.Run(new Welcome_Splash());
         }
     }
 }
+
+// This proyect was created by an student for a university project (learning purposes only).
