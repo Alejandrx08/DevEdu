@@ -21,7 +21,7 @@ namespace Login_V1
 
         int indice; 
 
-        private void Colorr() 
+        private void Colorr() //cambia el color de la flecha y el texto al original
         {
             bx1.ForeColor = Color.Black;
             bx1.BackColor = Color.White;
@@ -223,7 +223,7 @@ namespace Login_V1
 
         private void btn_insertar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtbx_valornodo.Text)) // se ejecuta un if else siendo el primero una validacion.
+            if (String.IsNullOrWhiteSpace(txtbx_valornodo.Text)) // se ejecuta un if else de todos los casos posibles siendo el primero una validacion.
             {
                 MessageBox.Show("Complete el campo Valor del nodo", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtbx_valornodo.Focus();
@@ -257,7 +257,7 @@ namespace Login_V1
                 bx7.Text = txtbx_valornodo.Text;
             }
 
-            indice = 0; //  para deseleccionar cualquier nodo
+            indice = 0; // independientemente del caso al final el indic, para deseleccionar cualquier nodo
             Colorr();
             clear();
         }
@@ -273,6 +273,7 @@ namespace Login_V1
             bx6.Text = "F";
             bx7.Text = "G";
             clear();
+            indice = 0; 
         }
     }
 }
