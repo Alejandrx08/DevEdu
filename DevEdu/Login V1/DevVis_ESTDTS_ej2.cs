@@ -58,7 +58,7 @@ namespace Login_V1
 
 
 
-        private void bx1_Click(object sender, EventArgs e)
+        private void bx1_Click(object sender, EventArgs e) // cuando se le da click
         {
             if (bx1.ForeColor == Color.Black)
             {
@@ -228,7 +228,7 @@ namespace Login_V1
                 MessageBox.Show("Complete el campo Valor del nodo", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtbx_valornodo.Focus();
             }
-            else if (indice == 1) 
+            else if (indice == 1) //si es asi el
             { 
                 bx1.Text = txtbx_valornodo.Text;
             }
