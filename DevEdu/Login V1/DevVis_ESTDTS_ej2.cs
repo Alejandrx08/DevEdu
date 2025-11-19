@@ -16,12 +16,12 @@ namespace Login_V1
         public DevVis_ESTDTS_ej2()
         {
             InitializeComponent();
-            txtbx_slctnodo.Enabled = false;
+            txtbx_slctnodo.Enabled = false; // se desactiva el texbox select  nodo
         }
 
-        int indice;
+        int indice; 
 
-        private void Colorr()
+        private void Colorr() 
         {
             bx1.ForeColor = Color.Black;
             bx1.BackColor = Color.White;
@@ -64,7 +64,7 @@ namespace Login_V1
             {
                 Colorr();
                 bx1C();
-                txtbx_slctnodo.Text = bx1.Text;
+                txtbx_slctnodo.Text = bx1.Text; // el texto de select nodo va a ser igual al texto de bx1 
                 indice = 1;
 
             }
@@ -223,7 +223,7 @@ namespace Login_V1
 
         private void btn_insertar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtbx_valornodo.Text))
+            if (String.IsNullOrWhiteSpace(txtbx_valornodo.Text)) // se ejecuta un if else siendo el primero una validacion.
             {
                 MessageBox.Show("Complete el campo Valor del nodo", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtbx_valornodo.Focus();
@@ -257,8 +257,9 @@ namespace Login_V1
                 bx7.Text = txtbx_valornodo.Text;
             }
 
-            indice = 0;
+            indice = 0; //  para deseleccionar cualquier nodo
             Colorr();
+            clear();
         }
 
         private void btn_restart_Click(object sender, EventArgs e)
@@ -271,6 +272,7 @@ namespace Login_V1
             bx5.Text = "E";
             bx6.Text = "F";
             bx7.Text = "G";
+            clear();
         }
     }
 }

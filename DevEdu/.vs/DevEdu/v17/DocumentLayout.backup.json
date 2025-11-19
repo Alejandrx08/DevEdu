@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\marth\\DevEdu\\DevEdu\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|c:\\users\\marth\\devedu\\devedu\\login v1\\devvis_estdts_ej2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\devvis_estdts_ej2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|c:\\users\\marth\\devedu\\devedu\\login v1\\devvis_estdts_ej2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\devvis_estdts_ej2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|c:\\users\\marth\\devedu\\devedu\\login v1\\arrays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\arrays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|C:\\Users\\marth\\DevEdu\\DevEdu\\login v1\\datagridalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\datagridalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|C:\\Users\\marth\\DevEdu\\DevEdu\\login v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}|Login V1\\DevEdu.csproj|solutionrelative:login v1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 675,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\Program.cs",
               "RelativeDocumentMoniker": "Login V1\\Program.cs",
               "ToolTip": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\Program.cs",
               "RelativeToolTip": "Login V1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T05:14:58.848Z",
               "IsPinned": true,
@@ -37,6 +53,55 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DevVis_ESTDTS_ej2.cs",
+              "DocumentMoniker": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\DevVis_ESTDTS_ej2.cs",
+              "RelativeDocumentMoniker": "Login V1\\DevVis_ESTDTS_ej2.cs",
+              "ToolTip": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\DevVis_ESTDTS_ej2.cs",
+              "RelativeToolTip": "Login V1\\DevVis_ESTDTS_ej2.cs",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAUwAUBAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T02:38:39.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DevVis_ESTDTS_ej2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\DevVis_ESTDTS_ej2.cs",
+              "RelativeDocumentMoniker": "Login V1\\DevVis_ESTDTS_ej2.cs",
+              "ToolTip": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\DevVis_ESTDTS_ej2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Login V1\\DevVis_ESTDTS_ej2.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T02:35:06.505Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Arrays.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\Arrays.cs",
+              "RelativeDocumentMoniker": "Login V1\\Arrays.cs",
+              "ToolTip": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\Arrays.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Login V1\\Arrays.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T02:34:57.736Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatagridAlumnos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\DatagridAlumnos.cs",
+              "RelativeDocumentMoniker": "Login V1\\DatagridAlumnos.cs",
+              "ToolTip": "C:\\Users\\marth\\DevEdu\\DevEdu\\Login V1\\DatagridAlumnos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Login V1\\DatagridAlumnos.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T00:51:35.349Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         },
