@@ -190,5 +190,13 @@ namespace Login_V1
                 MessageBox.Show("No hay espacio dentro del arreglo para agregar más materias.");
             }
         }
+
+        private void btn_return_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmMainMenu Principal = new FrmMainMenu();
+            Principal.ShowDialog();
+            this.Close();
+        }
     }
 }

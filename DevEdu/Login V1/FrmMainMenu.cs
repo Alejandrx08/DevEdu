@@ -124,5 +124,22 @@ namespace Login_V1
         {
 
         }
+        private void arraysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Arrays Principal = new Arrays();
+            Principal.ShowDialog();
+            this.Close();
+        }
+        private void alumnosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            DatagridAlumnos Principal = new DatagridAlumnos();
+            Principal.ShowDialog();
+        }
+        private void maestrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DatagridMaestros Principal = new DatagridMaestros();
+            Principal.ShowDialog();
+        }
     }
 }

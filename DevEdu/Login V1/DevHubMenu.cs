@@ -41,32 +41,15 @@ namespace Login_V1
             Principal.ShowDialog();
             this.Close();
         }
-
-        private void maestrosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DatagridMaestros Principal = new DatagridMaestros();
-            Principal.ShowDialog();
-        }
-
-        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DatagridAlumnos Principal = new DatagridAlumnos();
-            Principal.ShowDialog();
-        }
-
-        private void arrayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           this.Hide();
-            Arrays Principal = new Arrays();
-            Principal.ShowDialog();
-            this.Close();
-        }
-
         private void DevHubMenu_Load(object sender, EventArgs e)
         {
 
         }
         private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

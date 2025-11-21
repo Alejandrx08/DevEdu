@@ -331,3 +331,4 @@ C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\DevEdu.csproj.CoreCompileInputs.
 C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\DevEdu.csproj.Up2Date
 C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login V1.exe
 C:\Users\marth\DevEdu\DevEdu\Login V1\obj\Debug\Login V1.pdb
+D:\REPOS\Dev Edu main\DevEdu\Login V1\obj\Debug\Login_V1.DevVis_ESTDTS_ej2.resources
