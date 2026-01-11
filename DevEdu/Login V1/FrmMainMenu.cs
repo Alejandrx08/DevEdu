@@ -20,7 +20,13 @@ namespace Login_V1
 
         private void FrmMainMenu_Load(object sender, EventArgs e)
         {
-
+            if (!Sesion.EsAdmin)
+            {
+                menuStrip1.Enabled = false;
+                maestrosToolStripMenuItem.Enabled = false;
+                alumnosToolStripMenuItem.Enabled=false;
+                arraysToolStripMenuItem.Enabled = false;
+            }
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -140,6 +146,10 @@ namespace Login_V1
         {
             DatagridMaestros Principal = new DatagridMaestros();
             Principal.ShowDialog();
+        }
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

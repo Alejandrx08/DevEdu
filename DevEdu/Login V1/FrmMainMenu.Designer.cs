@@ -387,6 +387,7 @@
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.usuariosToolStripMenuItem.Text = "usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // maestrosToolStripMenuItem
             // 

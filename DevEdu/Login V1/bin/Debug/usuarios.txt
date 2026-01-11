@@ -1,4 +1,0 @@
-Alejandro,Ibarra,Harryibarra@gmail.com,123456
-Fakiu,nigga,fakiu123@gmail.com,123456
-will,rivas,WilliamRivas123@gmail.com,789456
-Alejandro,Ibarra,AlejoIb@gmail.com,987654

@@ -24,8 +24,12 @@ namespace Login_V1
         {
             if (intentos >= 1)
             {
+                // Usuario admin
                 if (txt_username.Text == "useradmin@unan.edu.ni" && txt_Password.Text == "123456")
                 {
+                    Sesion.Usuario = txt_username.Text;
+                    Sesion.EsAdmin = true; // MARCAMOS COMO ADMIN
+
                     this.Hide();
                     FrmMainMenu Principal = new FrmMainMenu();
                     Principal.ShowDialog();
@@ -33,6 +37,7 @@ namespace Login_V1
                     return;
                 }
 
+                // Usuarios regulares desde archivo
                 string rutaArchivo = @"C:\DevEdu\Usuarios.txt";
                 if (System.IO.File.Exists(rutaArchivo))
                 {
@@ -55,6 +60,9 @@ namespace Login_V1
 
                     if (encontrado)
                     {
+                        Sesion.Usuario = txt_username.Text;
+                        Sesion.EsAdmin = false; // Usuario normal
+
                         this.Hide();
                         FrmMainMenu Principal = new FrmMainMenu();
                         Principal.ShowDialog();
@@ -72,6 +80,7 @@ namespace Login_V1
                 Close();
             }
         }
+
         private void Link_registro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();

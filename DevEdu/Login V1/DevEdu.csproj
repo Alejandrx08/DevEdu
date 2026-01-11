@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminVerify.cs" />
     <Compile Include="Arrays.cs">
       <SubType>Form</SubType>
     </Compile>
