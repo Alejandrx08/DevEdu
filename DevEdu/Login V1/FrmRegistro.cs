@@ -39,6 +39,12 @@ namespace Login_V1
             if (txtbx_contrasena.Text == txtbx_confirmacion.Text)
             {
                 string rutaArchivo = @"C:\DevEdu\Usuarios.txt";
+                string carpeta = System.IO.Path.GetDirectoryName(rutaArchivo); // se le asigna el nombre del directorio a la variable
+                if (!System.IO.Directory.Exists(carpeta)) // verifica si el directotio no existe
+                {
+                    System.IO.Directory.CreateDirectory(carpeta); //  en ese caso se crea
+                }
+
                 string datosUsuario = $"{txtbx_nombre.Text},{txtbx_apellido.Text},{txtbx_correo.Text},{txtbx_contrasena.Text}";
                 System.IO.File.AppendAllText(rutaArchivo, datosUsuario + Environment.NewLine);
 
