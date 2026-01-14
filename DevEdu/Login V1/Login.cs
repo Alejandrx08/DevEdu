@@ -104,5 +104,23 @@ namespace Login_V1
         private void label3_Click(object sender, EventArgs e)
         {
         }
+
+        private void txt_Password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_Log_Click_1(sender, e);
+            }
+        }
+
+        private void txt_username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                txt_Password.Focus();
+            }
+        }
     }
 }

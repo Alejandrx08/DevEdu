@@ -158,14 +158,6 @@ namespace Login_V1
                 MessageBox.Show("Horario no encontrado para ese día.");
             }
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
@@ -197,6 +189,15 @@ namespace Login_V1
             FrmMainMenu Principal = new FrmMainMenu();
             Principal.ShowDialog();
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

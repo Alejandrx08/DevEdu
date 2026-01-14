@@ -16,6 +16,7 @@ namespace Login_V1
         {
             InitializeComponent();
         }
+
         private void Btn_BucleFor_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Respuesta Correcta", "DevTrivia");
@@ -24,6 +25,7 @@ namespace Login_V1
             Principal.ShowDialog();
             this.Close();
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -31,18 +33,22 @@ namespace Login_V1
             principal.ShowDialog();
             this.Close();
         }
+
         private void message()
         {
             MessageBox.Show("Respuesta Incorrecta, intente otra vez.", "DevTrivia");
         }
+
         private void Btn_Matriz_Click(object sender, EventArgs e)
         {
             message();
         }
+
         private void Btn_BucleWhile_Click(object sender, EventArgs e)
         {
             message();
         }
+
         private void Btn_Algoritmo_Click(object sender, EventArgs e)
         {
            message();
@@ -57,14 +63,6 @@ namespace Login_V1
 
         }
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }

@@ -52,17 +52,14 @@ namespace Login_V1
         {
             Bucles();
         }
-
         private void btn_estructurasDTS_Click(object sender, EventArgs e)
         {
             estructurasDTS();
         }
-
         private void picbx_EstDts_Click(object sender, EventArgs e)
         {
             estructurasDTS();
         }
-
         private void DevVisMenu_Load(object sender, EventArgs e)
         {
 

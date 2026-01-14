@@ -83,6 +83,12 @@ namespace Login_V1
 
         private void txtbx_apellido_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                txtbx_correo.Focus();
+            }
+
             if (char.IsControl(e.KeyChar))
                 return;
 
@@ -111,6 +117,46 @@ namespace Login_V1
             this.Close();
         }
 
+        private void txtbx_nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                txtbx_apellido.Focus();
+            }
+        }
+
+        private void txtbx_correo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                txtbx_contrasena.Focus();
+            }
+        }
+
+        private void txtbx_contrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                txtbx_confirmacion.Focus();
+            }
+        }
+
+        private void txtbx_confirmacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_Registrar_Click(sender, e);
+            }
+        }
+
+        private void txtbx_correo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 

@@ -54,7 +54,6 @@ namespace Login_V1
 
         private void Btn_ok_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(TxtBox_a.Text) && string.IsNullOrEmpty(TxtBox_b.Text))
             {
                 MessageBox.Show("Por favor, complete Ambos campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

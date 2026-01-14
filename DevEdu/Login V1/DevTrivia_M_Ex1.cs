@@ -17,17 +17,17 @@ namespace Login_V1
             InitializeComponent();
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btn_Ok_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrmMainMenu principal = new FrmMainMenu();
             principal.ShowDialog();
             this.Close();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,23 +17,6 @@ namespace Login_V1
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -41,6 +24,7 @@ namespace Login_V1
             Principal.ShowDialog();
             this.Close();
         }
+
         private void DevHubMenu_Load(object sender, EventArgs e)
         {
 
@@ -49,7 +33,15 @@ namespace Login_V1
         {
 
         }
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }

@@ -55,6 +55,7 @@
             this.txtbx_nombre.Size = new System.Drawing.Size(221, 22);
             this.txtbx_nombre.TabIndex = 0;
             this.txtbx_nombre.TextChanged += new System.EventHandler(this.txtbx_nombre_TextChanged);
+            this.txtbx_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_nombre_KeyPress);
             // 
             // txtbx_apellido
             // 
@@ -71,6 +72,8 @@
             this.txtbx_correo.Name = "txtbx_correo";
             this.txtbx_correo.Size = new System.Drawing.Size(221, 22);
             this.txtbx_correo.TabIndex = 2;
+            this.txtbx_correo.TextChanged += new System.EventHandler(this.txtbx_correo_TextChanged);
+            this.txtbx_correo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_correo_KeyPress);
             // 
             // txtbx_contrasena
             // 
@@ -78,6 +81,7 @@
             this.txtbx_contrasena.Name = "txtbx_contrasena";
             this.txtbx_contrasena.Size = new System.Drawing.Size(221, 22);
             this.txtbx_contrasena.TabIndex = 3;
+            this.txtbx_contrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_contrasena_KeyPress);
             // 
             // txtbx_confirmacion
             // 
@@ -85,6 +89,7 @@
             this.txtbx_confirmacion.Name = "txtbx_confirmacion";
             this.txtbx_confirmacion.Size = new System.Drawing.Size(221, 22);
             this.txtbx_confirmacion.TabIndex = 4;
+            this.txtbx_confirmacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_confirmacion_KeyPress);
             // 
             // label1
             // 

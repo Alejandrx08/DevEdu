@@ -20,21 +20,13 @@ namespace Login_V1
 
         private void FrmMainMenu_Load(object sender, EventArgs e)
         {
-            if (!Sesion.EsAdmin)
-            {
+            if (!Sesion.EsAdmin){ 
+                menuStrip1.Visible = false;
                 menuStrip1.Enabled = false;
                 maestrosToolStripMenuItem.Enabled = false;
                 alumnosToolStripMenuItem.Enabled=false;
                 arraysToolStripMenuItem.Enabled = false;
             }
-        }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void txt_username_menu_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void devtrivia()
@@ -60,6 +52,7 @@ namespace Login_V1
             Principal.ShowDialog();
             this.Close();
         }
+
         private void devbot()
         {
             this.Hide();
@@ -125,7 +118,6 @@ namespace Login_V1
         {
             devhub();
         }
-
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
@@ -148,6 +140,14 @@ namespace Login_V1
             Principal.ShowDialog();
         }
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void txt_username_menu_Click(object sender, EventArgs e)
         {
 
         }

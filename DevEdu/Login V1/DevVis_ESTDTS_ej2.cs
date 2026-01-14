@@ -56,8 +56,6 @@ namespace Login_V1
             txtbx_valornodo.Text = "";
         }
 
-
-
         private void bx1_Click(object sender, EventArgs e) // cuando se le da click
         {
             if (bx1.ForeColor == Color.Black)
