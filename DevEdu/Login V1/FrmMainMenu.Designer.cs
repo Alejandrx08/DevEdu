@@ -393,21 +393,21 @@
             // 
             this.maestrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.maestrosToolStripMenuItem.Name = "maestrosToolStripMenuItem";
-            this.maestrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.maestrosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.maestrosToolStripMenuItem.Text = "Maestros";
             this.maestrosToolStripMenuItem.Click += new System.EventHandler(this.maestrosToolStripMenuItem_Click);
             // 
             // alumnosToolStripMenuItem
             // 
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
-            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.alumnosToolStripMenuItem.Text = "Alumnos";
             this.alumnosToolStripMenuItem.Click += new System.EventHandler(this.alumnosToolStripMenuItem_Click_1);
             // 
             // arraysToolStripMenuItem
             // 
             this.arraysToolStripMenuItem.Name = "arraysToolStripMenuItem";
-            this.arraysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.arraysToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.arraysToolStripMenuItem.Text = "Array";
             this.arraysToolStripMenuItem.Click += new System.EventHandler(this.arraysToolStripMenuItem_Click);
             // 

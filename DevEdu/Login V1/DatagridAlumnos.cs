@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using static Login_V1.DatagridAlumnos;
 
 namespace Login_V1
@@ -17,83 +18,156 @@ namespace Login_V1
         public DatagridAlumnos()
         {
             InitializeComponent();
-
             dataGridViewAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewAlumnos.Columns.Add("Primer Nombre", "Primer Nombre");
-            dataGridViewAlumnos.Columns.Add("Segundo Nombre", "Segundo Nombre");
-            dataGridViewAlumnos.Columns.Add("Correo", "Correo");
-            dataGridViewAlumnos.Rows.Clear();
+            CargarDatos();
         }
 
-        public struct Alumnos   
+        string conexion = "server=localhost;database=basealumnos;user=root;password=123456;";
+
+        private void CargarDatos()
         {
-            public int ID;
-            public string Nombre;
-            public string Apellido;
+            using (MySqlConnection conn = new MySqlConnection(conexion))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = "SELECT * FROM ALUMNOS";
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dataGridViewAlumnos.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
 
-        List<Alumnos> listaAlumnos = new List<Alumnos>();
 
-        private void btnagg_Click(object sender, EventArgs e)
+
+        private void LimpiarCampos()
         {
-            if (txtbx_ID.Text == "" || txtbx_Nombre.Text == "" || txtbx_Apellido.Text == "")
-            {
-                MessageBox.Show("Complete todos los campos.");
-            }
-            else if (!int.TryParse(txtbx_ID.Text, out int X))
-            {
-                MessageBox.Show("El Id solo puede contener numeros.");
-            }
-            else if (int.TryParse(txtbx_Apellido.Text, out _) || int.TryParse(txtbx_Nombre.Text, out _))
-            {
-                MessageBox.Show("El nombre no puede contener números.");
-            }
-            else
-            {
-                Alumnos Alumno;
-                Alumno.ID = X;
-                Alumno.Nombre = txtbx_Nombre.Text;
-                Alumno.Apellido = txtbx_Apellido.Text;
-                listaAlumnos.Add(Alumno);
+            txtbx_Nombre.Clear();
+            txtbx_Apellido.Clear();
+            txtbx_ID.Clear();
+        }
 
-                txtbx_ID.Clear();
-                txtbx_Nombre.Clear();
-                txtbx_Apellido.Clear();
 
-                MessageBox.Show("El alumno ha sido agregado exitosamente.");
+        private void AgregarDato()
+        {
+            using (MySqlConnection conx = new MySqlConnection(conexion))
+            {
+                try
+                {
+                    conx.Open();
+
+                    string query = @"INSERT INTO alumnos (nombre, apellido)
+                             VALUES (@nombre, @apellido)";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conx);
+                    cmd.Parameters.AddWithValue("@nombre", txtbx_Nombre.Text);
+                    cmd.Parameters.AddWithValue("@apellido", txtbx_Apellido.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Dato agregado correctamente");
+
+                    LimpiarCampos();
+                    CargarDatos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
         }
+
+        private void EliminarDato()
+        {
+            DialogResult r = MessageBox.Show(
+                "deseas eliminar este registro?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (r == DialogResult.No) return;
+
+            using (MySqlConnection conx = new MySqlConnection(conexion))
+            {
+                try
+                {
+                    conx.Open();
+
+                    string query = "DELETE FROM ALUMNOS WHERE Id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, conx);
+                    cmd.Parameters.AddWithValue("@id", txtbx_ID.Text);
+
+                    int filas = cmd.ExecuteNonQuery();
+
+                    if (filas > 0)
+                        MessageBox.Show("Registro eliminado");
+                    else
+                        MessageBox.Show("No existe ese ID");
+
+                    LimpiarCampos();
+                    CargarDatos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+
 
         private void btnview_Click_1(object sender, EventArgs e)
         {
-            dataGridViewAlumnos.Rows.Clear();
+            CargarDatos();
+        }
 
-            foreach (var Alumno in listaAlumnos)
+        private void btnagg_Click(object sender, EventArgs e)
+        {
+            if (!txtbx_Nombre.Text.All(char.IsLetter))
             {
-                dataGridViewAlumnos.Rows.Add(Alumno.ID, Alumno.Nombre, Alumno.Apellido);
+                MessageBox.Show("El nombre solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbx_Nombre.Focus();
+                return;
+            }
+
+            else if (!txtbx_Apellido.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El Apellido solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbx_Apellido.Focus();
+                return;
+            }
+            else
+            {
+                AgregarDato();
             }
         }
 
         private void btnDel_Click_1(object sender, EventArgs e)
         {
-            if (dataGridViewAlumnos.SelectedRows.Count > 0)
+            if (txtbx_ID.Text == "")
             {
-                foreach (DataGridViewRow fila in dataGridViewAlumnos.SelectedRows)
-                {
-                    int ix = fila.Index;
-
-                    if (ix >= 0 && ix < listaAlumnos.Count)
-                    {
-                        listaAlumnos.RemoveAt(ix);
-                        dataGridViewAlumnos.Rows.RemoveAt(ix);
-                    }
-                }
-
-                MessageBox.Show("fila eliminada correctamente");
+                MessageBox.Show("El ID no puede estar vacio");
+                return;
+            }
+            else if (!txtbx_ID.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("El ID solo puede contener numeros.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbx_ID.Focus();
+                return;
             }
             else
             {
-                MessageBox.Show("Seleccione al menos una fila para eliminar");
+                EliminarDato();
             }
         }
     }
