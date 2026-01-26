@@ -42,7 +42,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@
             this.dataGridViewAlumnos.Name = "dataGridViewAlumnos";
             this.dataGridViewAlumnos.Size = new System.Drawing.Size(500, 150);
             this.dataGridViewAlumnos.TabIndex = 0;
+            this.dataGridViewAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAlumnos_CellClick);
             // 
             // txtbx_ID
             // 
@@ -91,7 +94,7 @@
             // 
             this.btnDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
             this.btnDel.ForeColor = System.Drawing.Color.White;
-            this.btnDel.Location = new System.Drawing.Point(524, 108);
+            this.btnDel.Location = new System.Drawing.Point(464, 46);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(111, 23);
             this.btnDel.TabIndex = 5;
@@ -103,7 +106,7 @@
             // 
             this.btnview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
             this.btnview.ForeColor = System.Drawing.Color.White;
-            this.btnview.Location = new System.Drawing.Point(524, 161);
+            this.btnview.Location = new System.Drawing.Point(464, 104);
             this.btnview.Name = "btnview";
             this.btnview.Size = new System.Drawing.Size(111, 23);
             this.btnview.TabIndex = 6;
@@ -146,6 +149,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnEdit);
+            this.groupBox1.Controls.Add(this.btnDel);
+            this.groupBox1.Controls.Add(this.btnview);
             this.groupBox1.Location = new System.Drawing.Point(60, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(647, 397);
@@ -173,6 +179,18 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "DevEdu";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(464, 75);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(111, 23);
+            this.btnEdit.TabIndex = 12;
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // DatagridAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,8 +201,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ID);
-            this.Controls.Add(this.btnview);
-            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnagg);
             this.Controls.Add(this.txtbx_Nombre);
             this.Controls.Add(this.txtbx_Apellido);
@@ -196,6 +212,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DevEdu";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,5 +234,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

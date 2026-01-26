@@ -32,7 +32,7 @@ namespace Login_V1
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM ALUMNOS";
+                    string query = "SELECT ID, Nombre, Apellido FROM ALUMNOS";
                     MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
 
                     DataTable dt = new DataTable();
@@ -47,7 +47,50 @@ namespace Login_V1
             }
         }
 
+        private bool VALIDACIONES()
+        {
+            if (txtbx_Nombre.Text == "")
+            {
+                MessageBox.Show("El Campo 'Nombre' no puede estar vacio");
+                return false;
+            }
+            else if (txtbx_Apellido.Text == "")
+            {
+                MessageBox.Show("El campo 'Apellido' no puede estar vacio");
+                return  false;
+            }
+            else if (!txtbx_Nombre.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El nombre solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbx_Nombre.Focus();
+                return false;
+            }
+            else if (!txtbx_Apellido.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El Apellido solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbx_Apellido.Focus();
+                return false;
+            }
 
+            return true;
+        }
+
+        private bool ValidarID()
+        {
+            if (string.IsNullOrWhiteSpace(txtbx_ID.Text))
+            {
+                MessageBox.Show("El ID es obligatorio");
+                return false;
+            }
+
+            if (!int.TryParse(txtbx_ID.Text, out _))
+            {
+                MessageBox.Show("El ID debe ser numérico");
+                return false;
+            }
+
+            return true;
+        }
 
         private void LimpiarCampos()
         {
@@ -55,7 +98,6 @@ namespace Login_V1
             txtbx_Apellido.Clear();
             txtbx_ID.Clear();
         }
-
 
         private void AgregarDato()
         {
@@ -124,7 +166,36 @@ namespace Login_V1
             }
         }
 
+        private void EditarDatos()
+        {
+            using (MySqlConnection conx = new MySqlConnection(conexion))
+            {
+                try
+                {
+                    conx.Open();
 
+                    string query = @"Update Alumnos
+                                    set nombre=@nombre, apellido=@apellido
+                                    where ID=@id;";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conx);
+                    cmd.Parameters.AddWithValue("@id", txtbx_ID.Text);
+                    cmd.Parameters.AddWithValue("@nombre", txtbx_Nombre.Text);
+                    cmd.Parameters.AddWithValue("@apellido", txtbx_Apellido.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Dato Actualizado correctamente");
+
+                    LimpiarCampos();
+                    CargarDatos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
 
         private void btnview_Click_1(object sender, EventArgs e)
         {
@@ -133,20 +204,7 @@ namespace Login_V1
 
         private void btnagg_Click(object sender, EventArgs e)
         {
-            if (!txtbx_Nombre.Text.All(char.IsLetter))
-            {
-                MessageBox.Show("El nombre solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtbx_Nombre.Focus();
-                return;
-            }
-
-            else if (!txtbx_Apellido.Text.All(char.IsLetter))
-            {
-                MessageBox.Show("El Apellido solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtbx_Apellido.Focus();
-                return;
-            }
-            else
+            if (VALIDACIONES())
             {
                 AgregarDato();
             }
@@ -154,20 +212,27 @@ namespace Login_V1
 
         private void btnDel_Click_1(object sender, EventArgs e)
         {
-            if (txtbx_ID.Text == "")
-            {
-                MessageBox.Show("El ID no puede estar vacio");
-                return;
-            }
-            else if (!txtbx_ID.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("El ID solo puede contener numeros.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtbx_ID.Focus();
-                return;
-            }
-            else
+            if (ValidarID())
             {
                 EliminarDato();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (ValidarID() && VALIDACIONES())
+            {
+                EditarDatos();
+            }
+        }
+
+        private void dataGridViewAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtbx_ID.Text = dataGridViewAlumnos.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                txtbx_Nombre.Text = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                txtbx_Apellido.Text = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Apellido"].Value.ToString();
             }
         }
     }
