@@ -33,9 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_nuevo = new System.Windows.Forms.Button();
-            this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_buscar = new System.Windows.Forms.Button();
+            this.btn_agregar = new System.Windows.Forms.Button();
             this.DataGrid = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_eliminar = new System.Windows.Forms.Button();
@@ -45,6 +43,8 @@
             this.txtbox_ID = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_Editar = new System.Windows.Forms.Button();
+            this.btn_Mostrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -74,7 +74,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.label3.Location = new System.Drawing.Point(6, 141);
+            this.label3.Location = new System.Drawing.Point(6, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 6;
@@ -84,68 +84,45 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.label4.Location = new System.Drawing.Point(6, 200);
+            this.label4.Location = new System.Drawing.Point(6, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Asignatura";
             // 
-            // btn_nuevo
+            // btn_agregar
             // 
-            this.btn_nuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.btn_nuevo.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.Location = new System.Drawing.Point(9, 276);
-            this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(75, 23);
-            this.btn_nuevo.TabIndex = 8;
-            this.btn_nuevo.Text = "Nuevo";
-            this.btn_nuevo.UseVisualStyleBackColor = false;
-            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
-            // 
-            // btn_guardar
-            // 
-            this.btn_guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Location = new System.Drawing.Point(90, 276);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
-            this.btn_guardar.TabIndex = 9;
-            this.btn_guardar.Text = "Guardar";
-            this.btn_guardar.UseVisualStyleBackColor = false;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.btn_buscar.ForeColor = System.Drawing.Color.White;
-            this.btn_buscar.Location = new System.Drawing.Point(171, 276);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 10;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = false;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
+            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Location = new System.Drawing.Point(9, 276);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(75, 23);
+            this.btn_agregar.TabIndex = 8;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // DataGrid
             // 
             this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGrid.Location = new System.Drawing.Point(350, 62);
+            this.DataGrid.Location = new System.Drawing.Point(350, 80);
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.Size = new System.Drawing.Size(415, 313);
             this.DataGrid.TabIndex = 11;
+            this.DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellClick);
             this.DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_Mostrar);
+            this.groupBox1.Controls.Add(this.btn_Editar);
             this.groupBox1.Controls.Add(this.btn_eliminar);
             this.groupBox1.Controls.Add(this.txtbox_Asignatura);
             this.groupBox1.Controls.Add(this.txtbox_Apellido);
             this.groupBox1.Controls.Add(this.txtbox_Nombre);
             this.groupBox1.Controls.Add(this.txtbox_ID);
-            this.groupBox1.Controls.Add(this.btn_buscar);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btn_guardar);
-            this.groupBox1.Controls.Add(this.btn_nuevo);
+            this.groupBox1.Controls.Add(this.btn_agregar);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -171,14 +148,14 @@
             // 
             // txtbox_Asignatura
             // 
-            this.txtbox_Asignatura.Location = new System.Drawing.Point(6, 216);
+            this.txtbox_Asignatura.Location = new System.Drawing.Point(6, 214);
             this.txtbox_Asignatura.Name = "txtbox_Asignatura";
             this.txtbox_Asignatura.Size = new System.Drawing.Size(249, 22);
             this.txtbox_Asignatura.TabIndex = 16;
             // 
             // txtbox_Apellido
             // 
-            this.txtbox_Apellido.Location = new System.Drawing.Point(6, 157);
+            this.txtbox_Apellido.Location = new System.Drawing.Point(6, 156);
             this.txtbox_Apellido.Name = "txtbox_Apellido";
             this.txtbox_Apellido.Size = new System.Drawing.Size(249, 22);
             this.txtbox_Apellido.TabIndex = 15;
@@ -218,6 +195,30 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "DevEdu";
             // 
+            // btn_Editar
+            // 
+            this.btn_Editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.btn_Editar.ForeColor = System.Drawing.Color.White;
+            this.btn_Editar.Location = new System.Drawing.Point(90, 276);
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Editar.TabIndex = 18;
+            this.btn_Editar.Text = "Editar";
+            this.btn_Editar.UseVisualStyleBackColor = false;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
+            // 
+            // btn_Mostrar
+            // 
+            this.btn_Mostrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.btn_Mostrar.ForeColor = System.Drawing.Color.White;
+            this.btn_Mostrar.Location = new System.Drawing.Point(171, 276);
+            this.btn_Mostrar.Name = "btn_Mostrar";
+            this.btn_Mostrar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Mostrar.TabIndex = 19;
+            this.btn_Mostrar.Text = "Mostrar";
+            this.btn_Mostrar.UseVisualStyleBackColor = false;
+            this.btn_Mostrar.Click += new System.EventHandler(this.btn_Mostrar_Click);
+            // 
             // DatagridMaestros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,11 +248,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btn_nuevo;
-        private System.Windows.Forms.Button btn_buscar;
+        private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.DataGridView DataGrid;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.TextBox txtbox_Asignatura;
         private System.Windows.Forms.TextBox txtbox_Apellido;
         private System.Windows.Forms.TextBox txtbox_Nombre;
@@ -259,5 +258,7 @@
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_Editar;
+        private System.Windows.Forms.Button btn_Mostrar;
     }
 }

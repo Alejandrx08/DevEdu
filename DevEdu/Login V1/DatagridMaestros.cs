@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,178 +16,229 @@ namespace Login_V1
         public DatagridMaestros()
         {
             InitializeComponent();
-            btn_buscar.Enabled = false;
-            btn_guardar.Enabled = false;
-
-            DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DataGrid.Columns.Clear();
-            DataGrid.Columns.Add("ID", "ID");
-            DataGrid.Columns.Add("Nombre", "Nombre");
-            DataGrid.Columns.Add("Apellido", "Apellido");
-            DataGrid.Columns.Add("Asignatura", "Asignatura");
+            CargarDatos();
         }
 
-        //programacion modular con parametros
-        private void GuardarEnArchivo(string id, string nombre, string apellido, string asignatura)
-        {
-            string rutaArchivo = @"C:\DevEdu\estudiantes.txt"; // se asigna el directorio en la variable
+        string conexion = "server=localhost;database=basemaestros;user=root;password=123456;";
 
-            string carpeta = System.IO.Path.GetDirectoryName(rutaArchivo); // se le asigna el nombre del directorio a la variable
-            if (!System.IO.Directory.Exists(carpeta)) // verifica si el directotio no existe
-            {
-                System.IO.Directory.CreateDirectory(carpeta); //  en ese caso se crea
-            }
-            
-            string linea = $"{id},{nombre},{apellido},{asignatura}"; // se guardan los datos de los parametros en la variable
-            System.IO.File.AppendAllText(rutaArchivo, linea + Environment.NewLine); // se guardan los datos de la variable "linea"en el archivo
-                                                                                    // luego pasa a la siguiente linea para evitar sobreescribir
-        }
-
-        //programacion modular sin parametros
-        private void CargarDesdeArchivo()
+        private void CargarDatos()
         {
-            string rutaArchivo = @"C:\DevEdu\estudiantes.txt";
-            if (System.IO.File.Exists(rutaArchivo))
+            using (MySqlConnection conn = new MySqlConnection(conexion))
             {
-                string[] lineas = System.IO.File.ReadAllLines(rutaArchivo);
-                foreach (string linea in lineas)
+                try
                 {
-                    string[] datos = linea.Split(',');
-                    if (datos.Length == 4)
-                    {
-                        DataGrid.Rows.Add(datos[0], datos[1], datos[2], datos[3]);
-                    }
+                    conn.Open();
+
+                    string query = "SELECT ID, Nombre, Apellido, Asignatura FROM Maestros";
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DataGrid.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
 
-        private void ActualizarArchivo()
+        private bool VALIDACIONES()
         {
-            string rutaArchivo = @"C:\DevEdu\estudiantes.txt";
-            List<string> lineas = new List<string>();
-
-            foreach (DataGridViewRow fila in DataGrid.Rows)
+            if (txtbox_Nombre.Text == "")
             {
-                if (fila.IsNewRow) continue;
-                string linea = $"{fila.Cells[0].Value},{fila.Cells[1].Value},{fila.Cells[2].Value},{fila.Cells[3].Value}";
-                lineas.Add(linea);
+                MessageBox.Show("El Campo 'Nombre' no puede estar vacio");
+                return false;
             }
-
-            System.IO.File.WriteAllLines(rutaArchivo, lineas);
-        }
-        //fin programacion modular
-
-        private void DatagripMaestros_Load(object sender, EventArgs e)
-        {
-            CargarDesdeArchivo();
-        }
-
-        private void btn_nuevo_Click(object sender, EventArgs e)
-        {
-            btn_guardar.Enabled = true;
-            btn_buscar.Enabled = true;
-        }
-
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtbox_ID.Text) ||
-                string.IsNullOrWhiteSpace(txtbox_Nombre.Text) ||
-                string.IsNullOrWhiteSpace(txtbox_Apellido.Text) ||
-                string.IsNullOrWhiteSpace(txtbox_Asignatura.Text))
+            else if (txtbox_Apellido.Text == "")
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("El campo 'Apellido' no puede estar vacio");
+                return false;
             }
-            else if (!int.TryParse(txtbox_ID.Text, out _))
+            else if (txtbox_Asignatura.Text == "")
             {
-                MessageBox.Show("El ID debe ser de valor numerico.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtbox_ID.Focus();
-                return;
+                MessageBox.Show("El campo 'Asignatura' no puede estar vacio");
+                return false;
             }
             else if (!txtbox_Nombre.Text.All(char.IsLetter))
             {
                 MessageBox.Show("El nombre solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtbox_Nombre.Focus();
-                return;
+                return false;
             }
-
             else if (!txtbox_Apellido.Text.All(char.IsLetter))
             {
                 MessageBox.Show("El Apellido solo puede contener letras.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtbox_Apellido.Focus();
-                return;
+                return false;
             }
-            else
+
+            return true;
+        }
+
+        private bool ValidarID()
+        {
+            if (string.IsNullOrWhiteSpace(txtbox_ID.Text))
+            {
+                MessageBox.Show("El ID es obligatorio");
+                return false;
+            }
+
+            if (!int.TryParse(txtbox_ID.Text, out _))
+            {
+                MessageBox.Show("El ID debe ser numérico");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtbox_Nombre.Clear();
+            txtbox_Apellido.Clear();
+            txtbox_ID.Clear();
+            txtbox_Asignatura.Clear();
+        }
+
+        private void AgregarDato()
+        {
+            using (MySqlConnection conx = new MySqlConnection(conexion))
             {
                 try
                 {
-                    GuardarEnArchivo(txtbox_ID.Text, txtbox_Nombre.Text, txtbox_Apellido.Text, txtbox_Asignatura.Text);
-                    DataGrid.Rows.Add(txtbox_ID.Text, txtbox_Nombre.Text, txtbox_Apellido.Text, txtbox_Asignatura.Text);
+                    conx.Open();
+
+                    string query = @"INSERT INTO maestros (nombre, apellido, asignatura)
+                             VALUES (@nombre, @apellido,@asignatura)";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conx);
+                    cmd.Parameters.AddWithValue("@nombre", txtbox_Nombre.Text);
+                    cmd.Parameters.AddWithValue("@apellido", txtbox_Apellido.Text);
+                    cmd.Parameters.AddWithValue("@asignatura", txtbox_Asignatura.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Dato agregado correctamente");
+
+                    LimpiarCampos();
+                    CargarDatos();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Ocurrió un error al guardar.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
-                txtbox_ID.Clear();
-                txtbox_Nombre.Clear();
-                txtbox_Apellido.Clear();
-                txtbox_Asignatura.Clear();
-                txtbox_ID.Focus();
             }
         }
-   
-        private void btn_buscar_Click(object sender, EventArgs e)
+
+        private void EliminarDato()
         {
-            string criterio = txtbox_ID.Text.Trim();
-            if (string.IsNullOrEmpty(criterio))
-            {
-                MessageBox.Show("Ingrese un valor para buscar.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            DialogResult r = MessageBox.Show(
+                "deseas eliminar este registro?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
 
-            bool encontrado = false;
-            foreach (DataGridViewRow row in DataGrid.Rows)
-            {
-                if (row.IsNewRow) continue;
+            if (r == DialogResult.No) return;
 
-                foreach (DataGridViewCell cell in row.Cells)
+            using (MySqlConnection conx = new MySqlConnection(conexion))
+            {
+                try
                 {
-                    if (cell.Value != null && cell.Value.ToString().IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-                        row.Selected = true;
-                        DataGrid.CurrentCell = cell;
-                        encontrado = true;
-                        break;
-                    }
-                }
-                if (encontrado) break;
-            }
+                    conx.Open();
 
-            if (!encontrado)
+                    string query = "DELETE FROM MAESTROS WHERE Id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, conx);
+                    cmd.Parameters.AddWithValue("@id", txtbox_ID.Text);
+
+                    int filas = cmd.ExecuteNonQuery();
+
+                    if (filas > 0)
+                        MessageBox.Show("Registro eliminado");
+                    else
+                        MessageBox.Show("No existe ese ID");
+
+                    LimpiarCampos();
+                    CargarDatos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void EditarDatos()
+        {
+            using (MySqlConnection conx = new MySqlConnection(conexion))
             {
-                MessageBox.Show("No se encontraron resultados.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    conx.Open();
+
+                    string query = @"Update maestros
+                                    set nombre=@nombre, apellido=@apellido, asignatura=@asignatura
+                                    where ID=@id;";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conx);
+                    cmd.Parameters.AddWithValue("@id", txtbox_ID.Text);
+                    cmd.Parameters.AddWithValue("@nombre", txtbox_Nombre.Text);
+                    cmd.Parameters.AddWithValue("@apellido", txtbox_Apellido.Text);
+                    cmd.Parameters.AddWithValue("@asignatura", txtbox_Asignatura.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Dato Actualizado correctamente");
+
+                    LimpiarCampos();
+                    CargarDatos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            if (VALIDACIONES()) 
+            { 
+                AgregarDato();
+            }
+        }
+
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
+            if (ValidarID() && VALIDACIONES())
+            {
+                EditarDatos();
             }
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            if (DataGrid.SelectedRows.Count > 0)
+            if (ValidarID())
             {
-                foreach (DataGridViewRow fila in DataGrid.SelectedRows)
-                {
-                    if (!fila.IsNewRow)
-                    {
-                        DataGrid.Rows.Remove(fila);
-                    }
-                }
-
-                ActualizarArchivo();
-
-                MessageBox.Show("Registro eliminado de la base de datos.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                EliminarDato();
             }
-            else
+        }
+
+        private void btn_Mostrar_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
-                MessageBox.Show("Seleccione al menos una fila para eliminar.", "DevEdu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbox_ID.Text = DataGrid.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                txtbox_Nombre.Text = DataGrid.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                txtbox_Apellido.Text = DataGrid.Rows[e.RowIndex].Cells["Apellido"].Value.ToString();
+                txtbox_Asignatura.Text = DataGrid.Rows[e.RowIndex].Cells["Asignatura"].Value.ToString();
             }
         }
 
@@ -197,6 +249,9 @@ namespace Login_V1
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+        private void DatagripMaestros_Load(object sender, EventArgs e)
+        {
         }
     }
 }
