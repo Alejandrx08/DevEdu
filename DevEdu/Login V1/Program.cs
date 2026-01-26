@@ -13,7 +13,7 @@ namespace Login_V1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DatagridMaestros());
+            Application.Run(new Welcome_Splash());
         }
     }
 }
