@@ -30,9 +30,11 @@ namespace Login_V1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevEx));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Btn_ok = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtBox_b = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,7 +49,8 @@ namespace Login_V1
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.Btn_ok = new System.Windows.Forms.Button();
+            this.MoreInfo = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -68,6 +71,7 @@ namespace Login_V1
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.MoreInfo);
             this.groupBox1.Controls.Add(this.Btn_ok);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.TxtBox_b);
@@ -88,6 +92,18 @@ namespace Login_V1
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ejercicio #1";
+            // 
+            // Btn_ok
+            // 
+            this.Btn_ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.Btn_ok.ForeColor = System.Drawing.Color.White;
+            this.Btn_ok.Location = new System.Drawing.Point(149, 265);
+            this.Btn_ok.Name = "Btn_ok";
+            this.Btn_ok.Size = new System.Drawing.Size(75, 29);
+            this.Btn_ok.TabIndex = 14;
+            this.Btn_ok.Text = "OK";
+            this.Btn_ok.UseVisualStyleBackColor = false;
+            this.Btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
             // 
             // label8
             // 
@@ -245,17 +261,20 @@ namespace Login_V1
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Btn_ok
+            // MoreInfo
             // 
-            this.Btn_ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.Btn_ok.ForeColor = System.Drawing.Color.White;
-            this.Btn_ok.Location = new System.Drawing.Point(149, 265);
-            this.Btn_ok.Name = "Btn_ok";
-            this.Btn_ok.Size = new System.Drawing.Size(75, 29);
-            this.Btn_ok.TabIndex = 14;
-            this.Btn_ok.Text = "OK";
-            this.Btn_ok.UseVisualStyleBackColor = false;
-            this.Btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
+            this.MoreInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MoreInfo.AutoSize = true;
+            this.MoreInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.MoreInfo.ForeColor = System.Drawing.Color.White;
+            this.MoreInfo.Location = new System.Drawing.Point(360, 9);
+            this.MoreInfo.Name = "MoreInfo";
+            this.MoreInfo.Size = new System.Drawing.Size(16, 17);
+            this.MoreInfo.TabIndex = 6;
+            this.MoreInfo.Text = " !";
+            this.MoreInfo.Click += new System.EventHandler(this.MoreInfo_Click);
             // 
             // DevEx
             // 
@@ -303,5 +322,7 @@ namespace Login_V1
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Btn_ok;
+        private System.Windows.Forms.Label MoreInfo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Login_V1
 {
-    internal class AdminVerify
+    internal class Session 
     {
+
     }
     public static class Sesion
     {
-        public static string Usuario { get; set; }
-        public static bool EsAdmin { get; set; }
+        public static int IdUsuario;
+        public static string Nombre;
+        public static string Rango;
+        public static string Tipo;
     }
-
 }

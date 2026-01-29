@@ -21,13 +21,24 @@ namespace Login_V1
 
         private void FrmMainMenu_Load(object sender, EventArgs e)
         {
-            if (!Sesion.EsAdmin){ 
-                menuStrip1.Visible = false;
-                menuStrip1.Enabled = false;
-                maestrosToolStripMenuItem.Enabled = false;
-                alumnosToolStripMenuItem.Enabled=false;
-                arraysToolStripMenuItem.Enabled = false;
+            AplicarRango();
+        }
+
+        private void AplicarRango() {
+
+            switch(Sesion.Rango){
+                
+                case "SuperSU":
+                    usuariosToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Regular"
+                    :
+                    usuariosToolStripMenuItem.Visible = false;
+                    usuariosToolStripMenuItem.Enabled = false;
+                    break;
             }
+
         }
 
         private void devtrivia()
@@ -119,17 +130,7 @@ namespace Login_V1
         {
             devhub();
         }
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
 
-        }
-        private void arraysToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Arrays Principal = new Arrays();
-            Principal.ShowDialog();
-            this.Close();
-        }
         private void alumnosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             DatagridAlumnos Principal = new DatagridAlumnos();
@@ -140,15 +141,17 @@ namespace Login_V1
             DatagridMaestros Principal = new DatagridMaestros();
             Principal.ShowDialog();
         }
+        private void generalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataDridGeneral Principal = new DataDridGeneral();
+            Principal.ShowDialog();
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void txt_username_menu_Click(object sender, EventArgs e)
         {
 
         }

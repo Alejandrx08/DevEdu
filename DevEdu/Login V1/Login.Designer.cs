@@ -92,6 +92,7 @@
             this.txt_Password.PasswordChar = '*';
             this.txt_Password.Size = new System.Drawing.Size(280, 26);
             this.txt_Password.TabIndex = 2;
+            this.txt_Password.TextChanged += new System.EventHandler(this.txt_Password_TextChanged);
             this.txt_Password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Password_KeyPress);
             // 
             // txt_username

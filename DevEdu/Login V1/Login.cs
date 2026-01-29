@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,66 +19,55 @@ namespace Login_V1
             InitializeComponent();
         }
 
-        int intentos = 3;
-
         private void btn_Log_Click_1(object sender, EventArgs e)
         {
-            if (intentos >= 1)
+            string correo = txt_username.Text.Trim();
+            string pass = txt_Password.Text;
+
+            if (correo == "" || pass == "")
             {
-                // Usuario admin
-                if (txt_username.Text == "useradmin@unan.edu.ni" && txt_Password.Text == "123456")
+                MessageBox.Show("Ingresa correo y contraseña");
+                return;
+            }
+
+            string conexion = "Server=localhost;Database=baseusuarios;Uid=root;password=123456;";
+
+            using (MySqlConnection conn = new MySqlConnection(conexion))
+            {
+                conn.Open();
+
+                string query = @"SELECT id, nombre, rango, tipo
+                       FROM usuarios
+                       WHERE correo = @correo
+                         AND contrasena = @pass
+                         AND activo = 1";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@correo", correo);
+                cmd.Parameters.AddWithValue("@pass", pass);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
                 {
-                    Sesion.Usuario = txt_username.Text;
-                    Sesion.EsAdmin = true; // MARCAMOS COMO ADMIN
+                    Sesion.IdUsuario = dr.GetInt32("id");
+                    Sesion.Nombre = dr.GetString("nombre");
+                    Sesion.Rango = dr.GetString("rango");
+                    Sesion.Tipo = dr.IsDBNull(dr.GetOrdinal("tipo"))
+                                    ? null
+                                    : dr.GetString("tipo");
+
+                    MessageBox.Show("Bienvenido " + Sesion.Nombre);
 
                     this.Hide();
                     FrmMainMenu Principal = new FrmMainMenu();
                     Principal.ShowDialog();
                     this.Close();
-                    return;
                 }
-
-                // Usuarios regulares desde archivo
-                string rutaArchivo = @"C:\DevEdu\Usuarios.txt";
-                if (System.IO.File.Exists(rutaArchivo))
+                else
                 {
-                    var lineas = System.IO.File.ReadAllLines(rutaArchivo);
-                    bool encontrado = false;
-                    foreach (var linea in lineas)
-                    {
-                        var datos = linea.Split(',');
-                        if (datos.Length >= 4)
-                        {
-                            string correo = datos[2];
-                            string contrasena = datos[3];
-                            if (txt_username.Text == correo && txt_Password.Text == contrasena)
-                            {
-                                encontrado = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (encontrado)
-                    {
-                        Sesion.Usuario = txt_username.Text;
-                        Sesion.EsAdmin = false; // Usuario normal
-
-                        this.Hide();
-                        FrmMainMenu Principal = new FrmMainMenu();
-                        Principal.ShowDialog();
-                        this.Close();
-                        return;
-                    }
+                    MessageBox.Show("Correo o contraseña incorrectos");
                 }
-
-                intentos--;
-                MessageBox.Show($"Usuario o contraseña inválida, intentos restantes {intentos}", "DevEdu");
-            }
-            else
-            {
-                MessageBox.Show("Has excedido la cantidad de intentos", "Confirmar", MessageBoxButtons.OK);
-                Close();
             }
         }
 
@@ -87,22 +77,6 @@ namespace Login_V1
             FrmRegistro Principal = new FrmRegistro();
             Principal.ShowDialog();
             this.Close();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
         }
 
         private void txt_Password_KeyPress(object sender, KeyPressEventArgs e)
@@ -121,6 +95,26 @@ namespace Login_V1
                 e.Handled = true;
                 txt_Password.Focus();
             }
+        }
+
+        private void txt_Password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
         }
     }
 }

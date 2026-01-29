@@ -34,7 +34,7 @@ namespace Login_V1
         private void btn_Medio_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DevTriviaMedio Principal = new DevTriviaMedio();
+            DevTriviaMedio_1 Principal = new DevTriviaMedio_1();
             Principal.ShowDialog();
             this.Close();
         }

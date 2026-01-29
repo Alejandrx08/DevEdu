@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Login_V1
         public DevEx()
         {
             InitializeComponent();
+            toolTip1.SetToolTip(MoreInfo, "Sera redirigido a un video explicativo.");
         }
 
         private void validacion_Number(KeyPressEventArgs e)
@@ -75,6 +77,15 @@ namespace Login_V1
             {
                 respuesta();
             }
+        }
+
+        private void MoreInfo_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://youtu.be/abKLLfMn-pI?si=iSTn8Dqy8spqaSyX",
+                UseShellExecute = true
+            });
         }
 
         private void TxtBox_a_KeyPress(object sender, KeyPressEventArgs e)

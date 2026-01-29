@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,30 +35,87 @@ namespace Login_V1
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
-            if (ValidacionVacio())
+            string nombre = txtbx_nombre.Text.Trim();
+            string apellido = txtbx_apellido.Text.Trim();
+            string correo = txtbx_correo.Text.Trim();  
+            string pass = txtbx_contrasena.Text;
+
+
+            ValidacionVacio();
+
+            if (!Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Correo inválido.");
                 return;
-
-            if (txtbx_contrasena.Text == txtbx_confirmacion.Text)
-            {
-                string rutaArchivo = @"C:\DevEdu\Usuarios.txt";
-                string carpeta = System.IO.Path.GetDirectoryName(rutaArchivo); // se le asigna el nombre del directorio a la variable
-                if (!System.IO.Directory.Exists(carpeta)) // verifica si el directotio no existe
-                {
-                    System.IO.Directory.CreateDirectory(carpeta); //  en ese caso se crea
-                }
-
-                string datosUsuario = $"{txtbx_nombre.Text},{txtbx_apellido.Text},{txtbx_correo.Text},{txtbx_contrasena.Text}";
-                System.IO.File.AppendAllText(rutaArchivo, datosUsuario + Environment.NewLine);
-
-                MessageBox.Show("Usuario registrado con éxito");
-                this.Hide();
-                Login Principal = new Login();
-                Principal.ShowDialog();
-                this.Close();
             }
-            else
+            if (pass.Length < 6)
             {
-                MessageBox.Show("Las contraseñas no coinciden");
+                MessageBox.Show("La contraseña debe tener al menos 6 caracteres.");
+                return;
+            }
+            if (pass != txtbx_confirmacion.Text)
+            {
+                MessageBox.Show("Las contraseñas no coinciden.");
+                return;
+            }
+            string conexion = "Server=localhost;Database=baseusuarios;Uid=root;password=123456;";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(conexion))
+                {
+                    conn.Open();
+
+                    using (MySqlCommand checkCmd = new MySqlCommand(
+                        "SELECT COUNT(*) FROM usuarios WHERE correo=@correo;", conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@correo", correo);
+
+                        long existe = (long)checkCmd.ExecuteScalar();
+                        if (existe > 0)
+                        {
+                            MessageBox.Show("Ese correo ya está registrado.");
+                            return;
+                        }
+                    }
+
+                    string query = @"INSERT INTO usuarios (nombre, apellido, correo, contrasena, rango, tipo, activo)
+                           VALUES (@nombre, @apellido, @correo, @pass, 'Regular', NULL, 1);";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nombre", nombre);
+                        cmd.Parameters.AddWithValue("@apellido", apellido);
+                        cmd.Parameters.AddWithValue("@correo", correo);
+                        cmd.Parameters.AddWithValue("@pass", pass);
+
+                        int filas = cmd.ExecuteNonQuery();
+
+                        if (filas > 0)
+                        {
+                            MessageBox.Show("Registro exitoso. Ya puedes iniciar sesión.");
+
+                            txtbx_nombre.Clear();
+                            txtbx_apellido.Clear();
+                            txtbx_correo.Clear();
+                            txtbx_contrasena.Clear();
+                            txtbx_confirmacion.Clear();
+                            txtbx_nombre.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo registrar. Intenta de nuevo.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error MySQL: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

@@ -3,7 +3,6 @@ D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\Login V1.exe
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\Login V1.pdb
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\Newtonsoft.Json.dll
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\DevEdu.csproj.AssemblyReference.cache
-D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.Arrays.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DatagridAlumnos.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DatagridMaestros.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevbotChat.resources
@@ -11,7 +10,6 @@ D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevEx.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevEx_1_Exp.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevHubMenu.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaFacil_1.resources
-D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaMedio.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaMenu.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTrivia_F_Ex1.resources
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTrivia_M_Ex1.resources
@@ -59,3 +57,5 @@ D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\System.Memory.xml
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\System.Numerics.Vectors.xml
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaMedio_1.resources
+D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DataDridGeneral.resources

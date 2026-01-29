@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using static Login_V1.DatagridAlumnos;
 
 namespace Login_V1
 {
@@ -19,10 +18,33 @@ namespace Login_V1
         {
             InitializeComponent();
             dataGridViewAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void DatagridAlumnos_Load(object sender, EventArgs e)
+        {
+            permisos();
             CargarDatos();
         }
 
-        string conexion = "server=localhost;database=basealumnos;user=root;password=123456;";
+        private void permisos() {
+            if (Sesion.Rango == "Regular")
+            {
+                MessageBox.Show("Acceso denegado.");
+                Close();
+                return;
+            }
+            if (Sesion.Rango == "Supervision")
+            {
+                btnEdit.Enabled = false;
+                btnDel.Enabled = false;
+                txtbx_Nombre.ReadOnly = true;
+                txtbx_Apellido.ReadOnly = true;
+                txtbx_Correo.ReadOnly = true;
+                dataGridViewAlumnos.ReadOnly = true;
+            }
+        }
+        
+        string conexion = "server=localhost;database=baseusuarios;user=root;password=123456;";
 
         private void CargarDatos()
         {
@@ -32,9 +54,17 @@ namespace Login_V1
                 {
                     conn.Open();
 
-                    string query = "SELECT ID, Nombre, Apellido FROM ALUMNOS";
-                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                    string query = @"SELECT 
+                                u.id AS ID,
+                                u.nombre AS Nombre,
+                                u.apellido AS Apellido,
+                                u.correo AS Correo,
+                                u.rango AS Rango
+                             FROM usuarios u
+                             INNER JOIN alumnos a ON a.usuario_id = u.id
+                             WHERE u.activo = 1;";
 
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
@@ -43,6 +73,41 @@ namespace Login_V1
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private bool ValidarCorreo()
+        {
+            string correo = txtbx_Correo.Text.Trim();
+
+            if (correo == "")
+            {
+                MessageBox.Show("El correo es obligatorio");
+                txtbx_Correo.Focus();
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Correo inválido");
+                txtbx_Correo.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        private bool CorreoDisponible(string correo, int idUsuario)
+        {
+            using (var conn = new MySqlConnection(conexion))
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand("SELECT COUNT(*) FROM usuarios WHERE correo=@c AND id<>@id;", conn))
+                {
+                    cmd.Parameters.AddWithValue("@c", correo);
+                    cmd.Parameters.AddWithValue("@id", idUsuario);
+
+                    long existe = (long)cmd.ExecuteScalar();
+                    return existe == 0;
                 }
             }
         }
@@ -97,44 +162,13 @@ namespace Login_V1
             txtbx_Nombre.Clear();
             txtbx_Apellido.Clear();
             txtbx_ID.Clear();
-        }
-
-        private void AgregarDato()
-        {
-            using (MySqlConnection conx = new MySqlConnection(conexion))
-            {
-                try
-                {
-                    conx.Open();
-
-                    string query = @"INSERT INTO alumnos (nombre, apellido)
-                             VALUES (@nombre, @apellido)";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conx);
-                    cmd.Parameters.AddWithValue("@nombre", txtbx_Nombre.Text);
-                    cmd.Parameters.AddWithValue("@apellido", txtbx_Apellido.Text);
-
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Dato agregado correctamente");
-
-                    LimpiarCampos();
-                    CargarDatos();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
+            txtbx_Correo.Clear();
         }
 
         private void EliminarDato()
         {
             DialogResult r = MessageBox.Show(
-                "deseas eliminar este registro?",
-                "Confirmar",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
+                "¿Deseas quitar el rol a este usuario?","Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Warning
             );
 
             if (r == DialogResult.No) return;
@@ -145,16 +179,21 @@ namespace Login_V1
                 {
                     conx.Open();
 
-                    string query = "DELETE FROM ALUMNOS WHERE Id = @id";
-                    MySqlCommand cmd = new MySqlCommand(query, conx);
-                    cmd.Parameters.AddWithValue("@id", txtbx_ID.Text);
+                    using (var tx = conx.BeginTransaction())
+                    {
+                        var cmd1 = new MySqlCommand("DELETE FROM alumnos WHERE usuario_id=@id;", conx, tx);
+                        cmd1.Parameters.AddWithValue("@id", txtbx_ID.Text);
+                        int filas = cmd1.ExecuteNonQuery();
 
-                    int filas = cmd.ExecuteNonQuery();
+                        var cmd2 = new MySqlCommand("UPDATE usuarios SET tipo=NULL WHERE id=@id;", conx, tx);
+                        cmd2.Parameters.AddWithValue("@id", txtbx_ID.Text);
+                        cmd2.ExecuteNonQuery();
 
-                    if (filas > 0)
-                        MessageBox.Show("Registro eliminado");
-                    else
-                        MessageBox.Show("No existe ese ID");
+                        tx.Commit();
+
+                        if (filas > 0) MessageBox.Show("Rol alumno removido (ahora es pendiente).");
+                        else MessageBox.Show("Ese ID no está asignado como alumno.");
+                    }
 
                     LimpiarCampos();
                     CargarDatos();
@@ -168,27 +207,51 @@ namespace Login_V1
 
         private void EditarDatos()
         {
+            int id = int.Parse(txtbx_ID.Text);
+            string nombre = txtbx_Nombre.Text.Trim();
+            string apellido = txtbx_Apellido.Text.Trim();
+            string correo = txtbx_Correo.Text.Trim();
+
+            if (!ValidarCorreo()) return;
+
+            if (!CorreoDisponible(correo, id))
+            {
+                MessageBox.Show("Ese correo ya está registrado en otro usuario.");
+                txtbx_Correo.Focus();
+                return;
+            }
+
             using (MySqlConnection conx = new MySqlConnection(conexion))
             {
                 try
                 {
                     conx.Open();
 
-                    string query = @"Update Alumnos
-                                    set nombre=@nombre, apellido=@apellido
-                                    where ID=@id;";
+                    string query = @"UPDATE usuarios
+                             SET nombre=@nombre, apellido=@apellido, correo=@correo
+                             WHERE id=@id;";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conx);
-                    cmd.Parameters.AddWithValue("@id", txtbx_ID.Text);
-                    cmd.Parameters.AddWithValue("@nombre", txtbx_Nombre.Text);
-                    cmd.Parameters.AddWithValue("@apellido", txtbx_Apellido.Text);
+                    using (MySqlCommand cmd = new MySqlCommand(query, conx))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@nombre", nombre);
+                        cmd.Parameters.AddWithValue("@apellido", apellido);
+                        cmd.Parameters.AddWithValue("@correo", correo);
 
-                    cmd.ExecuteNonQuery();
+                        int filas = cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Dato Actualizado correctamente");
+                        if (filas > 0)
+                            MessageBox.Show("Dato actualizado correctamente");
+                        else
+                            MessageBox.Show("No se encontró el usuario para actualizar");
+                    }
 
                     LimpiarCampos();
                     CargarDatos();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error MySQL: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
@@ -202,14 +265,6 @@ namespace Login_V1
             CargarDatos();
         }
 
-        private void btnagg_Click(object sender, EventArgs e)
-        {
-            if (VALIDACIONES())
-            {
-                AgregarDato();
-            }
-        }
-
         private void btnDel_Click_1(object sender, EventArgs e)
         {
             if (ValidarID())
@@ -220,7 +275,7 @@ namespace Login_V1
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (ValidarID() && VALIDACIONES())
+            if (ValidarID() && VALIDACIONES() && ValidarCorreo())
             {
                 EditarDatos();
             }
@@ -233,6 +288,7 @@ namespace Login_V1
                 txtbx_ID.Text = dataGridViewAlumnos.Rows[e.RowIndex].Cells["ID"].Value.ToString();
                 txtbx_Nombre.Text = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
                 txtbx_Apellido.Text = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Apellido"].Value.ToString();
+                txtbx_Correo.Text = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Login_V1
 {
-    partial class DevTriviaMedio
+    partial class DevTriviaMedio_1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevTriviaMedio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevTriviaMedio_1));
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DevEdu_txt = new System.Windows.Forms.Label();

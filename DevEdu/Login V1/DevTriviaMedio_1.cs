@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Login_V1
 {
-    public partial class DevTriviaMedio : Form
+    public partial class DevTriviaMedio_1 : Form
     {
-        public DevTriviaMedio()
+        public DevTriviaMedio_1()
         {
             InitializeComponent();
         }
