@@ -143,7 +143,7 @@ namespace Login_V1
         }
         private void generalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataDridGeneral Principal = new DataDridGeneral();
+            DataGridGeneral Principal = new DataGridGeneral();
             Principal.ShowDialog();
         }
 

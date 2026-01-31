@@ -58,4 +58,5 @@ D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\System.Numerics.Vectors.xml
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DevTriviaMedio_1.resources
-D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DataDridGeneral.resources
+D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DataGridGeneral.resources
+D:\Repos\DevEdu\DevEdu\DevEdu\Login V1\obj\Debug\Login_V1.DgvGeneralAdd.resources
