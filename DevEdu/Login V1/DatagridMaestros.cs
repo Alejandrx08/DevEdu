@@ -21,7 +21,34 @@ namespace Login_V1
         private void DatagripMaestros_Load(object sender, EventArgs e)
         {
             if (!permisos()) return;
+            
+            txtCount.Enabled = false;
+
+            txtbox_ID.ReadOnly = true;
+
+            DataGrid.EnableHeadersVisualStyles = false;
+
             CargarDatos();
+
+            UsuariosCount();
+        }
+
+        string conexion = "server=localhost;database=baseusuarios;user=root;password=123456;";
+
+        private void UsuariosCount()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conexion))
+            {
+                conn.Open();
+
+                using (MySqlCommand checkCmd = new MySqlCommand(
+                    "SELECT COUNT(*) FROM maestros;", conn))
+                {
+
+                    long existe = (long)checkCmd.ExecuteScalar();
+                    txtCount.Text = $"Usuarios: " + existe.ToString();
+                }
+            }
         }
 
         private bool permisos()
@@ -45,8 +72,6 @@ namespace Login_V1
             }
             return true;
         }
-
-        string conexion = "server=localhost;database=baseusuarios;user=root;password=123456;";
 
         private void CargarDatos()
         {
@@ -72,6 +97,8 @@ namespace Login_V1
 
                     DataGrid.DataSource = dt;
                     DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                    UsuariosCount();
                 }
                 catch (Exception ex)
                 {

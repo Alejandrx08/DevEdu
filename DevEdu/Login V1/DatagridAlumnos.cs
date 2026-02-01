@@ -22,8 +22,33 @@ namespace Login_V1
 
         private void DatagridAlumnos_Load(object sender, EventArgs e)
         {
+            txtCount.Enabled = false;
+
+            dataGridViewAlumnos.EnableHeadersVisualStyles = false;
+
+            txtbx_ID.ReadOnly = true;
+
             permisos();
+
             CargarDatos();
+
+            UsuariosCount();
+        }
+
+        private void UsuariosCount()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conexion))
+            {
+                conn.Open();
+
+                using (MySqlCommand checkCmd = new MySqlCommand(
+                    "SELECT COUNT(*) FROM Alumnos;", conn))
+                {
+
+                    long existe = (long)checkCmd.ExecuteScalar();
+                    txtCount.Text = $"Usuarios: " + existe.ToString();
+                }
+            }
         }
 
         private void permisos() {

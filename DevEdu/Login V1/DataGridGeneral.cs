@@ -31,6 +31,8 @@ namespace Login_V1
 
             DgvGeneral.EnableHeadersVisualStyles = false;
 
+            txtCount.Enabled= false;
+
             UsuariosCount();
 
             CargarUsuariosGeneral();
