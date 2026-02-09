@@ -1,0 +1,30 @@
+﻿# Visual Studio
+.vs/
+.vscode/
+
+# Build
+bin/
+obj/
+
+# NuGet
+**/packages/
+
+# User / cache
+*.user
+*.suo
+*.cache
+*.log
+
+# Compiled
+*.exe
+*.dll
+*.pdb
+
+# Temp
+*.tmp
+*.temp
+
+# Others
+*.tmp
+*.temp
+

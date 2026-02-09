@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2E40B79-D501-49FF-B359-DA6AF9BD4EF0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DevEdu</RootNamespace>
+    <AssemblyName>DevEdu</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.33.5.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Google.Protobuf.3.33.5\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.2\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=9.6.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MySql.Data.9.6.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Configuration.ConfigurationManager.10.0.2\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Pipelines, Version=10.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Pipelines.10.0.2\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.8.7.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZstdSharp.Port.0.8.7\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infraestructure\DB\Db.cs" />
+    <Compile Include="Infraestructure\DB\DbConfig.cs" />
+    <Compile Include="UI\Forms\Admin\DataGridGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DataGridGeneral.Designer.cs">
+      <DependentUpon>DataGridGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DatagridAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DatagridAlumnos.Designer.cs">
+      <DependentUpon>DatagridAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DatagridMaestros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DatagridMaestros.Designer.cs">
+      <DependentUpon>DatagridMaestros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevBot\DevbotChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevBot\DevbotChat.Designer.cs">
+      <DependentUpon>DevbotChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevEx\DevEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevEx\DevEx.Designer.cs">
+      <DependentUpon>DevEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevEx\DevEx2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevEx\DevEx2.Designer.cs">
+      <DependentUpon>DevEx2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevEx\DevEx_1_Exp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevEx\DevEx_1_Exp.Designer.cs">
+      <DependentUpon>DevEx_1_Exp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevHub\DevHubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevHub\DevHubMenu.Designer.cs">
+      <DependentUpon>DevHubMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaFacil_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaFacil_1.Designer.cs">
+      <DependentUpon>DevTriviaFacil_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaMedio_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaMedio_1.Designer.cs">
+      <DependentUpon>DevTriviaMedio_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaMenu.Designer.cs">
+      <DependentUpon>DevTriviaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.Designer.cs">
+      <DependentUpon>DevTrivia_F_Ex1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTrivia_M_Ex1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTrivia_M_Ex1.Designer.cs">
+      <DependentUpon>DevTrivia_M_Ex1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVisMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVisMenu.Designer.cs">
+      <DependentUpon>DevVisMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVis_Bucles_Ej1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVis_Bucles_Ej1.Designer.cs">
+      <DependentUpon>DevVis_Bucles_Ej1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVis_ESTDTS_ej1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVis_ESTDTS_ej1.Designer.cs">
+      <DependentUpon>DevVis_ESTDTS_ej1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVis_ESTDTS_ej2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevVis\DevVis_ESTDTS_ej2.Designer.cs">
+      <DependentUpon>DevVis_ESTDTS_ej2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DgvGeneralAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DgvGeneralAdd.Designer.cs">
+      <DependentUpon>DgvGeneralAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Main\FrmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Main\FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Auth\FrmRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Auth\FrmRegistro.Designer.cs">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Auth\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Auth\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="UI\Forms\Main\Welcome Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Main\Welcome Splash.Designer.cs">
+      <DependentUpon>Welcome Splash.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Forms\Admin\DataGridGeneral.resx">
+      <DependentUpon>DataGridGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Admin\DatagridAlumnos.resx">
+      <DependentUpon>DatagridAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Admin\DatagridMaestros.resx">
+      <DependentUpon>DatagridMaestros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevBot\DevbotChat.resx">
+      <DependentUpon>DevbotChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevEx\DevEx.resx">
+      <DependentUpon>DevEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevEx\DevEx2.resx">
+      <DependentUpon>DevEx2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevEx\DevEx_1_Exp.resx">
+      <DependentUpon>DevEx_1_Exp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevHub\DevHubMenu.resx">
+      <DependentUpon>DevHubMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaFacil_1.resx">
+      <DependentUpon>DevTriviaFacil_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaMedio_1.resx">
+      <DependentUpon>DevTriviaMedio_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaMenu.resx">
+      <DependentUpon>DevTriviaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.resx">
+      <DependentUpon>DevTrivia_F_Ex1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTrivia_M_Ex1.resx">
+      <DependentUpon>DevTrivia_M_Ex1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevVis\DevVisMenu.resx">
+      <DependentUpon>DevVisMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevVis\DevVis_Bucles_Ej1.resx">
+      <DependentUpon>DevVis_Bucles_Ej1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevVis\DevVis_ESTDTS_ej1.resx">
+      <DependentUpon>DevVis_ESTDTS_ej1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevVis\DevVis_ESTDTS_ej2.resx">
+      <DependentUpon>DevVis_ESTDTS_ej2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Admin\DgvGeneralAdd.resx">
+      <DependentUpon>DgvGeneralAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Main\FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Auth\FrmRegistro.resx">
+      <DependentUpon>FrmRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Auth\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Forms\Main\Welcome Splash.resx">
+      <DependentUpon>Welcome Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blucleimg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profilepicblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picEstDts.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profilepicgray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\algoritmoimg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Aplication\Dtos\" />
+    <Folder Include="Aplication\Services\" />
+    <Folder Include="Infraestructure\Repositories\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
