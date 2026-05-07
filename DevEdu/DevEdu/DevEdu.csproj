@@ -102,8 +102,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infraestructure\DB\Db.cs" />
-    <Compile Include="Infraestructure\DB\DbConfig.cs" />
+    <Compile Include="Core\Models\Conexion.cs" />
+    <Compile Include="Core\Models\Usuario.cs" />
     <Compile Include="UI\Forms\Admin\DataGridGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +152,12 @@
     <Compile Include="UI\Forms\DevHub\DevHubMenu.Designer.cs">
       <DependentUpon>DevHubMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaDificil_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTriviaDificil_1.Designer.cs">
+      <DependentUpon>DevTriviaDificil_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\DevTrivia\DevTriviaFacil_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,12 @@
     </Compile>
     <Compile Include="UI\Forms\DevTrivia\DevTriviaMenu.Designer.cs">
       <DependentUpon>DevTriviaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTrivia_D_Ex1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\DevTrivia\DevTrivia_D_Ex1.Designer.cs">
+      <DependentUpon>DevTrivia_D_Ex1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.cs">
       <SubType>Form</SubType>
@@ -263,6 +275,9 @@
     <EmbeddedResource Include="UI\Forms\DevHub\DevHubMenu.resx">
       <DependentUpon>DevHubMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaDificil_1.resx">
+      <DependentUpon>DevTriviaDificil_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaFacil_1.resx">
       <DependentUpon>DevTriviaFacil_1.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaMenu.resx">
       <DependentUpon>DevTriviaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTrivia_D_Ex1.resx">
+      <DependentUpon>DevTrivia_D_Ex1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.resx">
       <DependentUpon>DevTrivia_F_Ex1.cs</DependentUpon>
@@ -345,9 +363,7 @@
     <None Include="Resources\algoritmoimg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aplication\Dtos\" />
-    <Folder Include="Aplication\Services\" />
-    <Folder Include="Infraestructure\Repositories\" />
+    <Folder Include="Core\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

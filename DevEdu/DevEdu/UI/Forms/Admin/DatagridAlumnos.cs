@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using DevEdu.Core.Models;
+using DevEdu.Models;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace DevEdu
 {
@@ -35,9 +37,20 @@ namespace DevEdu
             UsuariosCount();
         }
 
+        private Usuario ObtenerUsuario()
+        {
+            return new Usuario
+            {
+                Id = int.Parse(txtbx_ID.Text),
+                Nombre = txtbx_Nombre.Text.Trim(),
+                Apellido = txtbx_Apellido.Text.Trim(),
+                Correo = txtbx_Correo.Text.Trim()
+            };
+        }
+
         private void UsuariosCount()
         {
-            using (MySqlConnection conn = new MySqlConnection(conexion))
+            using (MySqlConnection conn = db.ObtenerConexion())
             {
                 conn.Open();
 
@@ -68,12 +81,12 @@ namespace DevEdu
                 dataGridViewAlumnos.ReadOnly = true;
             }
         }
-        
-        string conexion = "server=localhost;database=baseusuarios;user=root;password=123456;";
+
+        ConexionDB db = new ConexionDB();
 
         private void CargarDatos()
         {
-            using (MySqlConnection conn = new MySqlConnection(conexion))
+            using (MySqlConnection conn = db.ObtenerConexion())
             {
                 try
                 {
@@ -121,15 +134,15 @@ namespace DevEdu
             return true;
         }
 
-        private bool CorreoDisponible(string correo, int idUsuario)
+        private bool CorreoDisponible(Usuario usuario)
         {
-            using (var conn = new MySqlConnection(conexion))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
                 using (var cmd = new MySqlCommand("SELECT COUNT(*) FROM usuarios WHERE correo=@c AND id<>@id;", conn))
                 {
-                    cmd.Parameters.AddWithValue("@c", correo);
-                    cmd.Parameters.AddWithValue("@id", idUsuario);
+                    cmd.Parameters.AddWithValue("@c", usuario.Correo);
+                    cmd.Parameters.AddWithValue("@id", usuario.Id);
 
                     long existe = (long)cmd.ExecuteScalar();
                     return existe == 0;
@@ -198,8 +211,9 @@ namespace DevEdu
 
             if (r == DialogResult.No) return;
 
-            using (MySqlConnection conx = new MySqlConnection(conexion))
+            using (MySqlConnection conx = db.ObtenerConexion())
             {
+
                 try
                 {
                     conx.Open();
@@ -232,21 +246,18 @@ namespace DevEdu
 
         private void EditarDatos()
         {
-            int id = int.Parse(txtbx_ID.Text);
-            string nombre = txtbx_Nombre.Text.Trim();
-            string apellido = txtbx_Apellido.Text.Trim();
-            string correo = txtbx_Correo.Text.Trim();
+            Usuario usuario = ObtenerUsuario();
 
             if (!ValidarCorreo()) return;
 
-            if (!CorreoDisponible(correo, id))
+            if (!CorreoDisponible(usuario))
             {
                 MessageBox.Show("Ese correo ya está registrado en otro usuario.");
                 txtbx_Correo.Focus();
                 return;
             }
 
-            using (MySqlConnection conx = new MySqlConnection(conexion))
+            using (MySqlConnection conx = db.ObtenerConexion())
             {
                 try
                 {
@@ -258,10 +269,10 @@ namespace DevEdu
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conx))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
-                        cmd.Parameters.AddWithValue("@nombre", nombre);
-                        cmd.Parameters.AddWithValue("@apellido", apellido);
-                        cmd.Parameters.AddWithValue("@correo", correo);
+                        cmd.Parameters.AddWithValue("@id", usuario.Id);
+                        cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                        cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
+                        cmd.Parameters.AddWithValue("@correo", usuario.Correo);
 
                         int filas = cmd.ExecuteNonQuery();
 

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DevEdu.Core.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,11 +59,12 @@ namespace DevEdu
                 MessageBox.Show("Las contraseñas no coinciden.");
                 return;
             }
-            string conexion = "Server=localhost;Database=baseusuarios;Uid=root;password=123456;";
+
+            ConexionDB db = new ConexionDB();
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(conexion))
+                using (MySqlConnection conn = db.ObtenerConexion())
                 {
                     conn.Open();
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevEdu.UI.Forms.DevTrivia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,7 +62,10 @@ namespace DevEdu
         }
         private void btn_Dificil_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            DevTriviaDificil_1 Principal = new DevTriviaDificil_1();
+            Principal.ShowDialog();
+            this.Close();
         }
     }
 }

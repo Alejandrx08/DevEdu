@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DevEdu.Core.Models;
+using DevEdu.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,8 @@ namespace DevEdu
         {
             InitializeComponent();
         }
-        private string conx = "Server=localhost;Database=baseusuarios;Uid=root;password=123456;";
+
+        ConexionDB db = new ConexionDB();
 
         private void DataDridGeneral_Load(object sender, EventArgs e)
         {
@@ -40,9 +43,37 @@ namespace DevEdu
 
         private DataTable dtUsuarios;
 
+        private Usuario ObtenerUsuarioSeleccionado()
+        {
+            Usuario usuario = new Usuario();
+
+            usuario.Id = Convert.ToInt32(
+                DgvGeneral.CurrentRow.Cells["id"].Value);
+
+            usuario.Nombre =
+                DgvGeneral.CurrentRow.Cells["nombre"].Value?.ToString() ?? "";
+
+            usuario.Apellido =
+                DgvGeneral.CurrentRow.Cells["apellido"].Value?.ToString() ?? "";
+
+            usuario.Correo =
+                DgvGeneral.CurrentRow.Cells["correo"].Value?.ToString() ?? "";
+
+            usuario.Rango =
+                DgvGeneral.CurrentRow.Cells["rango"].Value?.ToString() ?? "";
+
+            usuario.Estado =
+                DgvGeneral.CurrentRow.Cells["estado"].Value?.ToString() ?? "";
+
+            usuario.Activo = Convert.ToBoolean(
+                DgvGeneral.CurrentRow.Cells["activo"].Value);
+
+            return usuario;
+        }
+
         private void UsuariosCount()
         {
-            using (MySqlConnection conn = new MySqlConnection(conx))
+            using (MySqlConnection conn = db.ObtenerConexion())
             {
                 conn.Open();
 
@@ -68,7 +99,7 @@ namespace DevEdu
                       u.activo
                    FROM usuarios u;";
 
-            using (var conn = new MySqlConnection(conx))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
                 using (var da = new MySqlDataAdapter(query, conn))
@@ -96,17 +127,17 @@ namespace DevEdu
                 return;
             }
 
-            int id = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["id"].Value);
+            Usuario usuario = ObtenerUsuarioSeleccionado();
 
             var r = MessageBox.Show(
-                $"¿Deseas ELIMINAR el usuario con ID {id}?\n\nEsta acción no se puede deshacer.",
+                $"¿Deseas ELIMINAR el usuario {usuario.ObtenerNombreCompleto()} con ID {usuario.Id}?\n\nEsta acción no se puede deshacer.",
                 "Confirmar eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
             if (r != DialogResult.Yes) return;
 
-            using (var conn = new MySqlConnection(conx))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
                 using (var tx = conn.BeginTransaction())
@@ -114,15 +145,14 @@ namespace DevEdu
                     try
                     {
                         using (var cmd = new MySqlCommand("DELETE FROM alumnos WHERE usuario_id=@id;", conn, tx))
-                        { cmd.Parameters.AddWithValue("@id", id); cmd.ExecuteNonQuery(); }
+                        { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
 
                         using (var cmd = new MySqlCommand("DELETE FROM maestros WHERE usuario_id=@id;", conn, tx))
-                        { cmd.Parameters.AddWithValue("@id", id); cmd.ExecuteNonQuery(); }
+                        { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
 
                         int filas;
                         using (var cmd = new MySqlCommand("DELETE FROM usuarios WHERE id=@id;", conn, tx))
-                        { cmd.Parameters.AddWithValue("@id", id); filas = cmd.ExecuteNonQuery(); }
-
+                        { cmd.Parameters.AddWithValue("@id", usuario.Id); filas = cmd.ExecuteNonQuery(); }
                         tx.Commit();
 
                         if (filas > 0)
@@ -149,24 +179,21 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            int id = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["id"].Value);
+            Usuario usuario = ObtenerUsuarioSeleccionado();
 
-            string nombre = DgvGeneral.CurrentRow.Cells["nombre"].Value?.ToString() ?? "";
-            string apellido = DgvGeneral.CurrentRow.Cells["apellido"].Value?.ToString() ?? "";
-            string correo = DgvGeneral.CurrentRow.Cells["correo"].Value?.ToString() ?? "";
-            string rango = DgvGeneral.CurrentRow.Cells["rango"].Value?.ToString() ?? "";
-            int activo = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["activo"].Value ?? 0);
-
-            using (var conn = new MySqlConnection(conx))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
 
                 using (var check = new MySqlCommand(
                     "SELECT COUNT(*) FROM usuarios WHERE correo=@correo AND id<>@id;", conn))
                 {
-                    check.Parameters.AddWithValue("@correo", correo);
-                    check.Parameters.AddWithValue("@id", id);
+                    check.Parameters.AddWithValue("@correo", usuario.Correo);
+
+                    check.Parameters.AddWithValue("@id", usuario.Id);
+
                     long existe = (long)check.ExecuteScalar();
+
                     if (existe > 0)
                     {
                         MessageBox.Show("Ese correo ya existe en otro usuario.");
@@ -175,22 +202,27 @@ namespace DevEdu
                 }
 
                 string query = @"UPDATE usuarios 
-                       SET nombre=@nombre, apellido=@apellido, correo=@correo, rango=@rango, activo=@activo
-                       WHERE id=@id;";
+                SET nombre=@nombre,
+                    apellido=@apellido,
+                    correo=@correo,
+                    rango=@rango,
+                    activo=@activo
+                WHERE id=@id;";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", nombre);
-                    cmd.Parameters.AddWithValue("@apellido", apellido);
-                    cmd.Parameters.AddWithValue("@correo", correo);
-                    cmd.Parameters.AddWithValue("@rango", rango);
-                    cmd.Parameters.AddWithValue("@activo", activo);
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                    cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
+                    cmd.Parameters.AddWithValue("@correo", usuario.Correo);
+                    cmd.Parameters.AddWithValue("@rango", usuario.Rango);
+                    cmd.Parameters.AddWithValue("@activo", usuario.Activo);
+                    cmd.Parameters.AddWithValue("@id", usuario.Id);
                     cmd.ExecuteNonQuery();
                 }
             }
 
             MessageBox.Show("Cambios guardados.");
+
             CargarUsuariosGeneral();
         }
 
@@ -198,16 +230,15 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            int id = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["id"].Value);
-            string estado = DgvGeneral.CurrentRow.Cells["estado"].Value.ToString();
+            Usuario usuario = ObtenerUsuarioSeleccionado();
 
-            if (estado != "pendiente")
+            if (usuario.Estado != "pendiente")
             {
-                MessageBox.Show("Ya tiene rol: " + estado);
+                MessageBox.Show("Ya tiene rol: " + usuario.Estado);
                 return;
             }
 
-            using (var conn = new MySqlConnection(conx))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
                 using (var tx = conn.BeginTransaction())
@@ -217,14 +248,14 @@ namespace DevEdu
                         using (var cmd1 = new MySqlCommand(
                             "INSERT INTO alumnos (usuario_id) VALUES (@id);", conn, tx))
                         {
-                            cmd1.Parameters.AddWithValue("@id", id);
+                            cmd1.Parameters.AddWithValue("@id", usuario.Id);
                             cmd1.ExecuteNonQuery();
                         }
 
                         using (var cmd2 = new MySqlCommand(
                             "UPDATE usuarios SET tipo='Alumno' WHERE id=@id;", conn, tx))
                         {
-                            cmd2.Parameters.AddWithValue("@id", id);
+                            cmd2.Parameters.AddWithValue("@id", usuario.Id);
                             cmd2.ExecuteNonQuery();
                         }
 
@@ -246,16 +277,15 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            int id = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["id"].Value);
-            string estado = DgvGeneral.CurrentRow.Cells["estado"].Value.ToString();
+            Usuario usuario = ObtenerUsuarioSeleccionado();
 
-            if (estado != "pendiente")
+            if (usuario.Estado != "pendiente")
             {
-                MessageBox.Show("Ya tiene rol: " + estado);
+                MessageBox.Show("Ya tiene rol: " + usuario.Estado);
                 return;
             }
 
-            using (var conn = new MySqlConnection(conx))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
                 using (var tx = conn.BeginTransaction())
@@ -265,14 +295,14 @@ namespace DevEdu
                         using (var cmd1 = new MySqlCommand(
                             "INSERT INTO maestros (usuario_id) VALUES (@id);", conn, tx))
                         {
-                            cmd1.Parameters.AddWithValue("@id", id);
+                            cmd1.Parameters.AddWithValue("@id", usuario.Id);
                             cmd1.ExecuteNonQuery();
                         }
 
                         using (var cmd2 = new MySqlCommand(
                             "UPDATE usuarios SET tipo='Maestro' WHERE id=@id;", conn, tx))
                         {
-                            cmd2.Parameters.AddWithValue("@id", id);
+                            cmd2.Parameters.AddWithValue("@id", usuario.Id);
                             cmd2.ExecuteNonQuery();
                         }
 
@@ -294,16 +324,15 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            int id = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["id"].Value);
-            string estado = DgvGeneral.CurrentRow.Cells["estado"].Value.ToString();
+            Usuario usuario = ObtenerUsuarioSeleccionado();
 
-            if (estado != "pendiente")
+            if (usuario.Estado != "pendiente")
             {
-                MessageBox.Show("Ya tiene rol: " + estado);
+                MessageBox.Show("Ya tiene rol: " + usuario.Estado);
                 return;
             }
 
-            using (var conn = new MySqlConnection(conx))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
                 using (var tx = conn.BeginTransaction())
@@ -313,7 +342,7 @@ namespace DevEdu
                         using (var cmd = new MySqlCommand(
                             "UPDATE usuarios SET tipo='Admin' WHERE id=@id;", conn, tx))
                         {
-                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.Parameters.AddWithValue("@id", usuario.Id);
                             cmd.ExecuteNonQuery();
                         }
 
@@ -335,37 +364,36 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            int id = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["id"].Value);
-            string estado = DgvGeneral.CurrentRow.Cells["estado"].Value.ToString();
+            Usuario usuario = ObtenerUsuarioSeleccionado();
 
-            if (estado == "pendiente")
+            if (usuario.Estado == "pendiente")
             {
                 MessageBox.Show("Ya es pendiente.");
                 return;
             }
 
-            using (var conn = new MySqlConnection(conx))
+            using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
                 using (var tx = conn.BeginTransaction())
                 {
                     try
                     {
-                        if (estado == "Alumno")
+                        if (usuario.Estado == "Alumno")
                         {
                             using (var cmd = new MySqlCommand(
                                 "DELETE FROM alumnos WHERE usuario_id=@id;", conn, tx))
                             {
-                                cmd.Parameters.AddWithValue("@id", id);
+                                cmd.Parameters.AddWithValue("@id", usuario.Id);
                                 cmd.ExecuteNonQuery();
                             }
                         }
-                        else if (estado == "Maestro")
+                        else if (usuario.Estado == "Maestro")
                         {
                             using (var cmd = new MySqlCommand(
                                 "DELETE FROM maestros WHERE usuario_id=@id;", conn, tx))
                             {
-                                cmd.Parameters.AddWithValue("@id", id);
+                                cmd.Parameters.AddWithValue("@id", usuario.Id);
                                 cmd.ExecuteNonQuery();
                             }
                         }
@@ -373,7 +401,7 @@ namespace DevEdu
                         using (var cmd2 = new MySqlCommand(
                             "UPDATE usuarios SET tipo=NULL WHERE id=@id;", conn, tx))
                         {
-                            cmd2.Parameters.AddWithValue("@id", id);
+                            cmd2.Parameters.AddWithValue("@id", usuario.Id);
                             cmd2.ExecuteNonQuery();
                         }
 

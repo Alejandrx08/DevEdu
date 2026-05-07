@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevVis_Bucles_Ej1));
             this.TxtBox0_DevVis = new System.Windows.Forms.TextBox();
             this.Btn_Iniciar_DevVis = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.MoreInfo = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -192,11 +195,27 @@
             this.label3.TabIndex = 30;
             this.label3.Text = "Visualización de Bucle For";
             // 
+            // MoreInfo
+            // 
+            this.MoreInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MoreInfo.AutoSize = true;
+            this.MoreInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
+            this.MoreInfo.ForeColor = System.Drawing.Color.White;
+            this.MoreInfo.Location = new System.Drawing.Point(629, 129);
+            this.MoreInfo.Name = "MoreInfo";
+            this.MoreInfo.Size = new System.Drawing.Size(13, 13);
+            this.MoreInfo.TabIndex = 31;
+            this.MoreInfo.Text = " !";
+            this.MoreInfo.Click += new System.EventHandler(this.MoreInfo_Click);
+            // 
             // DevVis_Bucles_Ej1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MoreInfo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
@@ -240,5 +259,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label MoreInfo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DevEdu
 {
@@ -21,6 +23,8 @@ namespace DevEdu
             timer = new Timer();
             timer.Interval = 500;
             timer.Tick += Timer_Tick;
+
+            toolTip1.SetToolTip(MoreInfo, "Sera redirigido a un video explicativo.");
         }
 
         private void limpiar()
@@ -83,6 +87,15 @@ namespace DevEdu
             this.Close();
         }
 
+        private void MoreInfo_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://youtu.be/abKLLfMn-pI?si=iSTn8Dqy8spqaSyX",
+                UseShellExecute = true
+            });
+        }
+
         private void DevVis_Bucles_Ej1_Load(object sender, EventArgs e)
         {
 
@@ -99,5 +112,6 @@ namespace DevEdu
         {
 
         }
+
     }
 }

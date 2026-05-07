@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace DevEdu
 {
-    internal class Session 
-    {
-
-    }
     public static class Sesion
     {
         public static int IdUsuario;
