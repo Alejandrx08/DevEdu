@@ -2,7 +2,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-1.0-orange)
+![Version](https://img.shields.io/badge/Version-Pre--Alpha-red)
 
 # DevEdu
 
@@ -38,10 +38,11 @@ DevEdu provides a structured environment where students can learn programming co
 
 The project follows a modular layered structure:
 
-* **UI Layer** – Windows Forms (Interface & Interaction)
-* **Infrastructure Layer** – Database & configuration
-* **Core Logic** – Session, system behavior, and rules
-* **Database** – MySQL persistence layer
+- Separation of concerns
+- Modular design
+- Reusable components
+- Database abstraction
+- Session-based state management
 
 ---
 
