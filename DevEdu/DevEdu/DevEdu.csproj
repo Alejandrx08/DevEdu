@@ -102,8 +102,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Models\Alumno.cs" />
     <Compile Include="Core\Models\Conexion.cs" />
-    <Compile Include="Core\Models\Usuario.cs" />
+    <Compile Include="Core\Models\Curso.cs" />
+    <Compile Include="Core\Models\Maestro.cs" />
+    <Compile Include="Core\Models\Persona.cs" />
     <Compile Include="UI\Forms\Admin\DataGridGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,7 +247,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Session.cs" />
+    <Compile Include="Core\Models\Session.cs" />
     <Compile Include="UI\Forms\Main\Welcome Splash.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -43,9 +43,9 @@ namespace DevEdu
 
         private DataTable dtUsuarios;
 
-        private Usuario ObtenerUsuarioSeleccionado()
+        private Persona ObtenerUsuarioSeleccionado()
         {
-            Usuario usuario = new Usuario();
+            Persona usuario = new Persona();
 
             usuario.Id = Convert.ToInt32(
                 DgvGeneral.CurrentRow.Cells["id"].Value);
@@ -127,7 +127,7 @@ namespace DevEdu
                 return;
             }
 
-            Usuario usuario = ObtenerUsuarioSeleccionado();
+            Persona usuario = ObtenerUsuarioSeleccionado();
 
             var r = MessageBox.Show(
                 $"¿Deseas ELIMINAR el usuario {usuario.ObtenerNombreCompleto()} con ID {usuario.Id}?\n\nEsta acción no se puede deshacer.",
@@ -179,7 +179,7 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            Usuario usuario = ObtenerUsuarioSeleccionado();
+            Persona usuario = ObtenerUsuarioSeleccionado();
 
             using (var conn = db.ObtenerConexion())
             {
@@ -230,7 +230,7 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            Usuario usuario = ObtenerUsuarioSeleccionado();
+            Persona usuario = ObtenerUsuarioSeleccionado();
 
             if (usuario.Estado != "pendiente")
             {
@@ -277,7 +277,7 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            Usuario usuario = ObtenerUsuarioSeleccionado();
+            Persona usuario = ObtenerUsuarioSeleccionado();
 
             if (usuario.Estado != "pendiente")
             {
@@ -324,7 +324,7 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            Usuario usuario = ObtenerUsuarioSeleccionado();
+            Persona usuario = ObtenerUsuarioSeleccionado();
 
             if (usuario.Estado != "pendiente")
             {
@@ -364,7 +364,7 @@ namespace DevEdu
         {
             if (DgvGeneral.CurrentRow == null) return;
 
-            Usuario usuario = ObtenerUsuarioSeleccionado();
+            Persona usuario = ObtenerUsuarioSeleccionado();
 
             if (usuario.Estado == "pendiente")
             {

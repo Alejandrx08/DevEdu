@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevEdu.Models
 {
-    public class Usuario
+    public class Persona
     {
         public int Id { get; set; }
 

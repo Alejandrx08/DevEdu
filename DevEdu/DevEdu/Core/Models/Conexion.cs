@@ -10,7 +10,7 @@ namespace DevEdu.Core.Models
     public class ConexionDB
     {
         private string conexion =
-            "server=localhost;database=baseusuarios;user=root;password=123456;";
+            "server=localhost;database=usuario;user=root;password=123456;";
 
         public MySqlConnection ObtenerConexion()
         {

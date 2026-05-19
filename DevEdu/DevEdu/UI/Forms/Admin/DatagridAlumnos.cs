@@ -37,9 +37,9 @@ namespace DevEdu
             UsuariosCount();
         }
 
-        private Usuario ObtenerUsuario()
+        private Alumno ObtenerUsuario()
         {
-            return new Usuario
+            return new Alumno
             {
                 Id = int.Parse(txtbx_ID.Text),
                 Nombre = txtbx_Nombre.Text.Trim(),
@@ -134,7 +134,7 @@ namespace DevEdu
             return true;
         }
 
-        private bool CorreoDisponible(Usuario usuario)
+        private bool CorreoDisponible(Persona usuario)
         {
             using (var conn = db.ObtenerConexion())
             {
@@ -246,7 +246,7 @@ namespace DevEdu
 
         private void EditarDatos()
         {
-            Usuario usuario = ObtenerUsuario();
+            Alumno usuario = ObtenerUsuario();
 
             if (!ValidarCorreo()) return;
 
