@@ -1,6 +1,6 @@
 ﻿using DevEdu.Core.Models;
 using DevEdu.Models;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,15 +23,11 @@ namespace DevEdu
         private void DatagripMaestros_Load(object sender, EventArgs e)
         {
             if (!permisos()) return;
-            
+
             txtCount.Enabled = false;
-
             txtbox_ID.ReadOnly = true;
-
             DataGrid.EnableHeadersVisualStyles = false;
-
             CargarDatos();
-
             UsuariosCount();
         }
 
@@ -48,19 +44,16 @@ namespace DevEdu
 
         ConexionDB db = new ConexionDB();
 
-
         private void UsuariosCount()
         {
-            using (MySqlConnection conn = db.ObtenerConexion())
+            using (SqlConnection conn = db.ObtenerConexion())
             {
                 conn.Open();
-
-                using (MySqlCommand checkCmd = new MySqlCommand(
+                using (SqlCommand checkCmd = new SqlCommand(
                     "SELECT COUNT(*) FROM maestros;", conn))
                 {
-
-                    long existe = (long)checkCmd.ExecuteScalar();
-                    txtCount.Text = $"Usuarios: " + existe.ToString();
+                    int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    txtCount.Text = "Usuarios: " + existe.ToString();
                 }
             }
         }
@@ -77,11 +70,9 @@ namespace DevEdu
             {
                 btn_Editar.Enabled = false;
                 btn_eliminar.Enabled = false;
-
                 txtbox_Nombre.ReadOnly = true;
                 txtbox_Apellido.ReadOnly = true;
                 txtbox_Correo.ReadOnly = true;
-
                 DataGrid.ReadOnly = true;
             }
             return true;
@@ -89,23 +80,23 @@ namespace DevEdu
 
         private void CargarDatos()
         {
-            using (MySqlConnection conn = db.ObtenerConexion())
+            using (SqlConnection conn = db.ObtenerConexion())
             {
                 try
                 {
                     conn.Open();
 
                     string query = @"SELECT 
-                                u.id AS ID,
-                                u.nombre AS Nombre,
+                                u.id       AS ID,
+                                u.nombre   AS Nombre,
                                 u.apellido AS Apellido,
-                                u.correo AS Correo,
-                                u.rango AS Rango
+                                u.correo   AS Correo,
+                                u.rango    AS Rango
                              FROM usuarios u
                              INNER JOIN maestros m ON m.usuario_id = u.id
-                             WHERE u.activo = 1;";
+                             WHERE u.activo = 1";
 
-                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
@@ -145,7 +136,6 @@ namespace DevEdu
                 txtbox_Apellido.Focus();
                 return false;
             }
-
             return true;
         }
 
@@ -156,20 +146,17 @@ namespace DevEdu
                 MessageBox.Show("El ID es obligatorio");
                 return false;
             }
-
             if (!int.TryParse(txtbox_ID.Text, out _))
             {
                 MessageBox.Show("El ID debe ser numérico");
                 return false;
             }
-
             return true;
         }
 
         private bool ValidarCorreo()
         {
             string correo = txtbox_Correo.Text.Trim();
-
             if (correo == "")
             {
                 MessageBox.Show("El correo es obligatorio");
@@ -190,15 +177,13 @@ namespace DevEdu
             using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
-
-                using (var cmd = new MySqlCommand(
+                using (var cmd = new SqlCommand(
                     "SELECT COUNT(*) FROM usuarios WHERE correo=@c AND id<>@id;", conn))
                 {
                     cmd.Parameters.AddWithValue("@c", usuario.Correo);
                     cmd.Parameters.AddWithValue("@id", usuario.Id);
 
-                    long existe = (long)cmd.ExecuteScalar();
-
+                    int existe = Convert.ToInt32(cmd.ExecuteScalar());
                     return existe == 0;
                 }
             }
@@ -215,35 +200,32 @@ namespace DevEdu
         private void EliminarDato()
         {
             DialogResult r = MessageBox.Show(
-                "¿Deseas quitar el rol de maestro a este usuario?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning
-            );
+                "¿Deseas quitar el rol de maestro a este usuario?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (r == DialogResult.No) return;
 
-            using (MySqlConnection conx = db.ObtenerConexion())
+            using (SqlConnection conx = db.ObtenerConexion())
             {
                 try
                 {
                     conx.Open();
-
                     using (var tx = conx.BeginTransaction())
                     {
-                        var cmd1 = new MySqlCommand(
+                        var cmd1 = new SqlCommand(
                             "DELETE FROM maestros WHERE usuario_id=@id;", conx, tx);
                         cmd1.Parameters.AddWithValue("@id", txtbox_ID.Text);
                         int filas = cmd1.ExecuteNonQuery();
 
-                        var cmd2 = new MySqlCommand(
+                        var cmd2 = new SqlCommand(
                             "UPDATE usuarios SET tipo=NULL WHERE id=@id;", conx, tx);
                         cmd2.Parameters.AddWithValue("@id", txtbox_ID.Text);
                         cmd2.ExecuteNonQuery();
 
                         tx.Commit();
 
-                        if (filas > 0)
-                            MessageBox.Show("Rol maestro removido (ahora es pendiente).");
-                        else
-                            MessageBox.Show("Ese ID no está asignado como maestro.");
+                        if (filas > 0) MessageBox.Show("Rol maestro removido (ahora es pendiente).");
+                        else MessageBox.Show("Ese ID no está asignado como maestro.");
                     }
 
                     LimpiarCampos();
@@ -269,7 +251,7 @@ namespace DevEdu
                 return;
             }
 
-            using (MySqlConnection conx = db.ObtenerConexion())
+            using (SqlConnection conx = db.ObtenerConexion())
             {
                 try
                 {
@@ -279,9 +261,9 @@ namespace DevEdu
                      SET nombre=@nombre,
                          apellido=@apellido,
                          correo=@correo
-                     WHERE id=@id;";
+                     WHERE id=@id";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conx))
+                    using (SqlCommand cmd = new SqlCommand(query, conx))
                     {
                         cmd.Parameters.AddWithValue("@id", usuario.Id);
                         cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
@@ -290,10 +272,8 @@ namespace DevEdu
 
                         int filas = cmd.ExecuteNonQuery();
 
-                        if (filas > 0)
-                            MessageBox.Show("Dato actualizado correctamente");
-                        else
-                            MessageBox.Show("No se encontró el maestro");
+                        if (filas > 0) MessageBox.Show("Dato actualizado correctamente");
+                        else MessageBox.Show("No se encontró el maestro");
                     }
 
                     LimpiarCampos();
@@ -308,24 +288,15 @@ namespace DevEdu
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-            if (ValidarID() && VALIDACIONES() && ValidarCorreo())
-            {
-                EditarDatos();
-            }
+            if (ValidarID() && VALIDACIONES() && ValidarCorreo()) EditarDatos();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            if (ValidarID())
-            {
-                EliminarDato();
-            }
+            if (ValidarID()) EliminarDato();
         }
 
-        private void btn_Mostrar_Click(object sender, EventArgs e)
-        {
-            CargarDatos();
-        }
+        private void btn_Mostrar_Click(object sender, EventArgs e) => CargarDatos();
 
         private void DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -338,21 +309,9 @@ namespace DevEdu
             }
         }
 
-        private void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-        private void txtbox_ID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void groupBox1_Enter(object sender, EventArgs e) { }
+        private void txtbox_ID_TextChanged(object sender, EventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
     }
 }

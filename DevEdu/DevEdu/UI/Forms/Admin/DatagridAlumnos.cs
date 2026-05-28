@@ -1,6 +1,6 @@
 ﻿using DevEdu.Core.Models;
 using DevEdu.Models;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,15 +25,10 @@ namespace DevEdu
         private void DatagridAlumnos_Load(object sender, EventArgs e)
         {
             txtCount.Enabled = false;
-
             dataGridViewAlumnos.EnableHeadersVisualStyles = false;
-
             txtbx_ID.ReadOnly = true;
-
             permisos();
-
             CargarDatos();
-
             UsuariosCount();
         }
 
@@ -50,21 +45,20 @@ namespace DevEdu
 
         private void UsuariosCount()
         {
-            using (MySqlConnection conn = db.ObtenerConexion())
+            using (SqlConnection conn = db.ObtenerConexion())
             {
                 conn.Open();
-
-                using (MySqlCommand checkCmd = new MySqlCommand(
-                    "SELECT COUNT(*) FROM Alumnos;", conn))
+                using (SqlCommand checkCmd = new SqlCommand(
+                    "SELECT COUNT(*) FROM alumnos;", conn))
                 {
-
-                    long existe = (long)checkCmd.ExecuteScalar();
-                    txtCount.Text = $"Usuarios: " + existe.ToString();
+                    int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    txtCount.Text = "Usuarios: " + existe.ToString();
                 }
             }
         }
 
-        private void permisos() {
+        private void permisos()
+        {
             if (Sesion.Rango == "Regular")
             {
                 MessageBox.Show("Acceso denegado.");
@@ -86,26 +80,25 @@ namespace DevEdu
 
         private void CargarDatos()
         {
-            using (MySqlConnection conn = db.ObtenerConexion())
+            using (SqlConnection conn = db.ObtenerConexion())
             {
                 try
                 {
                     conn.Open();
 
                     string query = @"SELECT 
-                                u.id AS ID,
-                                u.nombre AS Nombre,
+                                u.id       AS ID,
+                                u.nombre   AS Nombre,
                                 u.apellido AS Apellido,
-                                u.correo AS Correo,
-                                u.rango AS Rango
+                                u.correo   AS Correo,
+                                u.rango    AS Rango
                              FROM usuarios u
                              INNER JOIN alumnos a ON a.usuario_id = u.id
-                             WHERE u.activo = 1;";
+                             WHERE u.activo = 1";
 
-                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-
                     dataGridViewAlumnos.DataSource = dt;
                 }
                 catch (Exception ex)
@@ -118,7 +111,6 @@ namespace DevEdu
         private bool ValidarCorreo()
         {
             string correo = txtbx_Correo.Text.Trim();
-
             if (correo == "")
             {
                 MessageBox.Show("El correo es obligatorio");
@@ -139,12 +131,13 @@ namespace DevEdu
             using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
-                using (var cmd = new MySqlCommand("SELECT COUNT(*) FROM usuarios WHERE correo=@c AND id<>@id;", conn))
+                using (var cmd = new SqlCommand(
+                    "SELECT COUNT(*) FROM usuarios WHERE correo=@c AND id<>@id;", conn))
                 {
                     cmd.Parameters.AddWithValue("@c", usuario.Correo);
                     cmd.Parameters.AddWithValue("@id", usuario.Id);
 
-                    long existe = (long)cmd.ExecuteScalar();
+                    int existe = Convert.ToInt32(cmd.ExecuteScalar());
                     return existe == 0;
                 }
             }
@@ -160,7 +153,7 @@ namespace DevEdu
             else if (txtbx_Apellido.Text == "")
             {
                 MessageBox.Show("El campo 'Apellido' no puede estar vacio");
-                return  false;
+                return false;
             }
             else if (!txtbx_Nombre.Text.All(char.IsLetter))
             {
@@ -174,7 +167,6 @@ namespace DevEdu
                 txtbx_Apellido.Focus();
                 return false;
             }
-
             return true;
         }
 
@@ -185,13 +177,11 @@ namespace DevEdu
                 MessageBox.Show("El ID es obligatorio");
                 return false;
             }
-
             if (!int.TryParse(txtbx_ID.Text, out _))
             {
                 MessageBox.Show("El ID debe ser numérico");
                 return false;
             }
-
             return true;
         }
 
@@ -206,25 +196,23 @@ namespace DevEdu
         private void EliminarDato()
         {
             DialogResult r = MessageBox.Show(
-                "¿Deseas quitar el rol a este usuario?","Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Warning
-            );
+                "¿Deseas quitar el rol a este usuario?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (r == DialogResult.No) return;
 
-            using (MySqlConnection conx = db.ObtenerConexion())
+            using (SqlConnection conx = db.ObtenerConexion())
             {
-
                 try
                 {
                     conx.Open();
-
                     using (var tx = conx.BeginTransaction())
                     {
-                        var cmd1 = new MySqlCommand("DELETE FROM alumnos WHERE usuario_id=@id;", conx, tx);
+                        var cmd1 = new SqlCommand("DELETE FROM alumnos WHERE usuario_id=@id;", conx, tx);
                         cmd1.Parameters.AddWithValue("@id", txtbx_ID.Text);
                         int filas = cmd1.ExecuteNonQuery();
 
-                        var cmd2 = new MySqlCommand("UPDATE usuarios SET tipo=NULL WHERE id=@id;", conx, tx);
+                        var cmd2 = new SqlCommand("UPDATE usuarios SET tipo=NULL WHERE id=@id;", conx, tx);
                         cmd2.Parameters.AddWithValue("@id", txtbx_ID.Text);
                         cmd2.ExecuteNonQuery();
 
@@ -257,7 +245,7 @@ namespace DevEdu
                 return;
             }
 
-            using (MySqlConnection conx = db.ObtenerConexion())
+            using (SqlConnection conx = db.ObtenerConexion())
             {
                 try
                 {
@@ -265,9 +253,9 @@ namespace DevEdu
 
                     string query = @"UPDATE usuarios
                              SET nombre=@nombre, apellido=@apellido, correo=@correo
-                             WHERE id=@id;";
+                             WHERE id=@id";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conx))
+                    using (SqlCommand cmd = new SqlCommand(query, conx))
                     {
                         cmd.Parameters.AddWithValue("@id", usuario.Id);
                         cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
@@ -276,18 +264,16 @@ namespace DevEdu
 
                         int filas = cmd.ExecuteNonQuery();
 
-                        if (filas > 0)
-                            MessageBox.Show("Dato actualizado correctamente");
-                        else
-                            MessageBox.Show("No se encontró el usuario para actualizar");
+                        if (filas > 0) MessageBox.Show("Dato actualizado correctamente");
+                        else MessageBox.Show("No se encontró el usuario para actualizar");
                     }
 
                     LimpiarCampos();
                     CargarDatos();
                 }
-                catch (MySqlException ex)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Error MySQL: " + ex.Message);
+                    MessageBox.Show("Error SQL: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
@@ -296,25 +282,16 @@ namespace DevEdu
             }
         }
 
-        private void btnview_Click_1(object sender, EventArgs e)
-        {
-            CargarDatos();
-        }
+        private void btnview_Click_1(object sender, EventArgs e) => CargarDatos();
 
         private void btnDel_Click_1(object sender, EventArgs e)
         {
-            if (ValidarID())
-            {
-                EliminarDato();
-            }
+            if (ValidarID()) EliminarDato();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (ValidarID() && VALIDACIONES() && ValidarCorreo())
-            {
-                EditarDatos();
-            }
+            if (ValidarID() && VALIDACIONES() && ValidarCorreo()) EditarDatos();
         }
 
         private void dataGridViewAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)

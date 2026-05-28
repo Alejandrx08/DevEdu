@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DevEdu.Core.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace DevEdu
             InitializeComponent();
         }
 
-        string conexion = "Server=localhost;Database=baseusuarios;Uid=root;password=123456;";
+        ConexionDB db = new ConexionDB();
 
         private void DgvGeneralAdd_Load(object sender, EventArgs e)
         {
@@ -40,7 +41,7 @@ namespace DevEdu
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            ValidacionVacio();
+            if (ValidacionVacio()) return;
 
             if (int.TryParse(txtbx_nombre.Text, out _))
             {
@@ -72,16 +73,16 @@ namespace DevEdu
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(conexion))
+                using (SqlConnection conn = db.ObtenerConexion())
                 {
                     conn.Open();
 
-                    using (MySqlCommand checkCmd = new MySqlCommand(
+                    using (SqlCommand checkCmd = new SqlCommand(
                         "SELECT COUNT(*) FROM usuarios WHERE correo=@correo;", conn))
                     {
                         checkCmd.Parameters.AddWithValue("@correo", correo);
 
-                        long existe = (long)checkCmd.ExecuteScalar();
+                        int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
                         if (existe > 0)
                         {
                             MessageBox.Show("Ese correo ya está registrado.");
@@ -92,7 +93,7 @@ namespace DevEdu
                     string query = @"INSERT INTO usuarios (nombre, apellido, correo, contrasena, rango, tipo, activo)
                            VALUES (@nombre, @apellido, @correo, @pass, 'Regular', NULL, 1);";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@nombre", nombre);
                         cmd.Parameters.AddWithValue("@apellido", apellido);
@@ -103,8 +104,7 @@ namespace DevEdu
 
                         if (filas > 0)
                         {
-                            MessageBox.Show("Usuario agregado con exito.");
-
+                            MessageBox.Show("Usuario agregado con éxito.");
                             txtbx_nombre.Clear();
                             txtbx_apellido.Clear();
                             txtbx_correo.Clear();
@@ -118,9 +118,9 @@ namespace DevEdu
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Error MySQL: " + ex.Message);
+                MessageBox.Show("Error SQL: " + ex.Message);
             }
             catch (Exception ex)
             {

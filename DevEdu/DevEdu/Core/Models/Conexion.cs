@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,11 @@ namespace DevEdu.Core.Models
     public class ConexionDB
     {
         private string conexion =
-            "server=localhost;database=usuario;user=root;password=123456;";
+            "Server=.;Database=devedu;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        public MySqlConnection ObtenerConexion()
+        public SqlConnection ObtenerConexion()
         {
-            return new MySqlConnection(conexion);
+            return new SqlConnection(conexion);
         }
     }
 }

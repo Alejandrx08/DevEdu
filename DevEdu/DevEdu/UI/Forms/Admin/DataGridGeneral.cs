@@ -1,6 +1,6 @@
 ﻿using DevEdu.Core.Models;
 using DevEdu.Models;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,17 +27,14 @@ namespace DevEdu
         {
             if (Sesion.Rango != "SuperSU")
             {
-             MessageBox.Show("Acceso denegado.");
-             Close();
-             return;
+                MessageBox.Show("Acceso denegado.");
+                Close();
+                return;
             }
 
             DgvGeneral.EnableHeadersVisualStyles = false;
-
-            txtCount.Enabled= false;
-
+            txtCount.Enabled = false;
             UsuariosCount();
-
             CargarUsuariosGeneral();
         }
 
@@ -73,16 +70,14 @@ namespace DevEdu
 
         private void UsuariosCount()
         {
-            using (MySqlConnection conn = db.ObtenerConexion())
+            using (SqlConnection conn = db.ObtenerConexion())
             {
                 conn.Open();
-
-                using (MySqlCommand checkCmd = new MySqlCommand(
+                using (SqlCommand checkCmd = new SqlCommand(
                     "SELECT COUNT(*) FROM usuarios;", conn))
                 {
-
-                    long existe = (long)checkCmd.ExecuteScalar();
-                    txtCount.Text = $"Usuarios: " + existe.ToString();
+                    int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    txtCount.Text = "Usuarios: " + existe.ToString();
                 }
             }
         }
@@ -95,14 +90,14 @@ namespace DevEdu
                       u.apellido,
                       u.correo,
                       u.rango,
-                      IFNULL(u.tipo, 'pendiente') AS estado,
+                      ISNULL(u.tipo, 'pendiente') AS estado,
                       u.activo
-                   FROM usuarios u;";
+                   FROM usuarios u";
 
             using (var conn = db.ObtenerConexion())
             {
                 conn.Open();
-                using (var da = new MySqlDataAdapter(query, conn))
+                using (var da = new SqlDataAdapter(query, conn))
                 {
                     dtUsuarios = new DataTable();
                     da.Fill(dtUsuarios);
@@ -113,9 +108,7 @@ namespace DevEdu
             DgvGeneral.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DgvGeneral.MultiSelect = false;
             DgvGeneral.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             DgvGeneral.Columns["estado"].ReadOnly = true;
-
             DgvGeneral.Columns["id"].ReadOnly = true;
         }
 
@@ -144,15 +137,16 @@ namespace DevEdu
                 {
                     try
                     {
-                        using (var cmd = new MySqlCommand("DELETE FROM alumnos WHERE usuario_id=@id;", conn, tx))
+                        using (var cmd = new SqlCommand("DELETE FROM alumnos WHERE usuario_id=@id;", conn, tx))
                         { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
 
-                        using (var cmd = new MySqlCommand("DELETE FROM maestros WHERE usuario_id=@id;", conn, tx))
+                        using (var cmd = new SqlCommand("DELETE FROM maestros WHERE usuario_id=@id;", conn, tx))
                         { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
 
                         int filas;
-                        using (var cmd = new MySqlCommand("DELETE FROM usuarios WHERE id=@id;", conn, tx))
+                        using (var cmd = new SqlCommand("DELETE FROM usuarios WHERE id=@id;", conn, tx))
                         { cmd.Parameters.AddWithValue("@id", usuario.Id); filas = cmd.ExecuteNonQuery(); }
+
                         tx.Commit();
 
                         if (filas > 0)
@@ -185,15 +179,13 @@ namespace DevEdu
             {
                 conn.Open();
 
-                using (var check = new MySqlCommand(
+                using (var check = new SqlCommand(
                     "SELECT COUNT(*) FROM usuarios WHERE correo=@correo AND id<>@id;", conn))
                 {
                     check.Parameters.AddWithValue("@correo", usuario.Correo);
-
                     check.Parameters.AddWithValue("@id", usuario.Id);
 
-                    long existe = (long)check.ExecuteScalar();
-
+                    int existe = Convert.ToInt32(check.ExecuteScalar());
                     if (existe > 0)
                     {
                         MessageBox.Show("Ese correo ya existe en otro usuario.");
@@ -207,9 +199,9 @@ namespace DevEdu
                     correo=@correo,
                     rango=@rango,
                     activo=@activo
-                WHERE id=@id;";
+                WHERE id=@id";
 
-                using (var cmd = new MySqlCommand(query, conn))
+                using (var cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
                     cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
@@ -222,7 +214,6 @@ namespace DevEdu
             }
 
             MessageBox.Show("Cambios guardados.");
-
             CargarUsuariosGeneral();
         }
 
@@ -245,19 +236,13 @@ namespace DevEdu
                 {
                     try
                     {
-                        using (var cmd1 = new MySqlCommand(
+                        using (var cmd1 = new SqlCommand(
                             "INSERT INTO alumnos (usuario_id) VALUES (@id);", conn, tx))
-                        {
-                            cmd1.Parameters.AddWithValue("@id", usuario.Id);
-                            cmd1.ExecuteNonQuery();
-                        }
+                        { cmd1.Parameters.AddWithValue("@id", usuario.Id); cmd1.ExecuteNonQuery(); }
 
-                        using (var cmd2 = new MySqlCommand(
+                        using (var cmd2 = new SqlCommand(
                             "UPDATE usuarios SET tipo='Alumno' WHERE id=@id;", conn, tx))
-                        {
-                            cmd2.Parameters.AddWithValue("@id", usuario.Id);
-                            cmd2.ExecuteNonQuery();
-                        }
+                        { cmd2.Parameters.AddWithValue("@id", usuario.Id); cmd2.ExecuteNonQuery(); }
 
                         tx.Commit();
                     }
@@ -292,19 +277,13 @@ namespace DevEdu
                 {
                     try
                     {
-                        using (var cmd1 = new MySqlCommand(
+                        using (var cmd1 = new SqlCommand(
                             "INSERT INTO maestros (usuario_id) VALUES (@id);", conn, tx))
-                        {
-                            cmd1.Parameters.AddWithValue("@id", usuario.Id);
-                            cmd1.ExecuteNonQuery();
-                        }
+                        { cmd1.Parameters.AddWithValue("@id", usuario.Id); cmd1.ExecuteNonQuery(); }
 
-                        using (var cmd2 = new MySqlCommand(
+                        using (var cmd2 = new SqlCommand(
                             "UPDATE usuarios SET tipo='Maestro' WHERE id=@id;", conn, tx))
-                        {
-                            cmd2.Parameters.AddWithValue("@id", usuario.Id);
-                            cmd2.ExecuteNonQuery();
-                        }
+                        { cmd2.Parameters.AddWithValue("@id", usuario.Id); cmd2.ExecuteNonQuery(); }
 
                         tx.Commit();
                     }
@@ -339,12 +318,9 @@ namespace DevEdu
                 {
                     try
                     {
-                        using (var cmd = new MySqlCommand(
+                        using (var cmd = new SqlCommand(
                             "UPDATE usuarios SET tipo='Admin' WHERE id=@id;", conn, tx))
-                        {
-                            cmd.Parameters.AddWithValue("@id", usuario.Id);
-                            cmd.ExecuteNonQuery();
-                        }
+                        { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
 
                         tx.Commit();
                     }
@@ -381,29 +357,20 @@ namespace DevEdu
                     {
                         if (usuario.Estado == "Alumno")
                         {
-                            using (var cmd = new MySqlCommand(
+                            using (var cmd = new SqlCommand(
                                 "DELETE FROM alumnos WHERE usuario_id=@id;", conn, tx))
-                            {
-                                cmd.Parameters.AddWithValue("@id", usuario.Id);
-                                cmd.ExecuteNonQuery();
-                            }
+                            { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
                         }
                         else if (usuario.Estado == "Maestro")
                         {
-                            using (var cmd = new MySqlCommand(
+                            using (var cmd = new SqlCommand(
                                 "DELETE FROM maestros WHERE usuario_id=@id;", conn, tx))
-                            {
-                                cmd.Parameters.AddWithValue("@id", usuario.Id);
-                                cmd.ExecuteNonQuery();
-                            }
+                            { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
                         }
 
-                        using (var cmd2 = new MySqlCommand(
+                        using (var cmd2 = new SqlCommand(
                             "UPDATE usuarios SET tipo=NULL WHERE id=@id;", conn, tx))
-                        {
-                            cmd2.Parameters.AddWithValue("@id", usuario.Id);
-                            cmd2.ExecuteNonQuery();
-                        }
+                        { cmd2.Parameters.AddWithValue("@id", usuario.Id); cmd2.ExecuteNonQuery(); }
 
                         tx.Commit();
                     }
@@ -425,10 +392,7 @@ namespace DevEdu
             Principal.ShowDialog();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            EliminarDato();
-        }
+        private void btnDelete_Click(object sender, EventArgs e) => EliminarDato();
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {

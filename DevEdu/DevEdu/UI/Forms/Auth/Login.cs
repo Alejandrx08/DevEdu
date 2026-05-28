@@ -1,5 +1,5 @@
 ﻿using DevEdu.Core.Models;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +33,7 @@ namespace DevEdu
 
             ConexionDB db = new ConexionDB();
 
-            using (MySqlConnection conn = db.ObtenerConexion())
+            using (SqlConnection conn = db.ObtenerConexion())
             {
                 conn.Open();
 
@@ -43,20 +43,25 @@ namespace DevEdu
                          AND contrasena = @pass
                          AND activo = 1";
 
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@correo", correo);
                 cmd.Parameters.AddWithValue("@pass", pass);
 
-                MySqlDataReader dr = cmd.ExecuteReader();
+                SqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
-                    Sesion.IdUsuario = dr.GetInt32("id");
-                    Sesion.Nombre = dr.GetString("nombre");
-                    Sesion.Rango = dr.GetString("rango");
-                    Sesion.Tipo = dr.IsDBNull(dr.GetOrdinal("tipo"))
-                                    ? null
-                                    : dr.GetString("tipo");
+                    int colId = dr.GetOrdinal("id");
+                    int colNombre = dr.GetOrdinal("nombre");
+                    int colRango = dr.GetOrdinal("rango");
+                    int colTipo = dr.GetOrdinal("tipo");
+
+                    Sesion.IdUsuario = dr.GetInt32(colId);
+                    Sesion.Nombre = dr.GetString(colNombre);
+                    Sesion.Rango = dr.GetString(colRango);
+                    Sesion.Tipo = dr.IsDBNull(colTipo)
+                                        ? null
+                                        : dr.GetString(colTipo);
 
                     MessageBox.Show("Bienvenido " + Sesion.Nombre);
 

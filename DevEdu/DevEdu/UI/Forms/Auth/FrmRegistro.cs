@@ -1,5 +1,5 @@
 ﻿using DevEdu.Core.Models;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,11 +38,10 @@ namespace DevEdu
         {
             string nombre = txtbx_nombre.Text.Trim();
             string apellido = txtbx_apellido.Text.Trim();
-            string correo = txtbx_correo.Text.Trim();  
+            string correo = txtbx_correo.Text.Trim();
             string pass = txtbx_contrasena.Text;
 
-
-            ValidacionVacio();
+            if (ValidacionVacio()) return;
 
             if (!Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
@@ -64,16 +63,16 @@ namespace DevEdu
 
             try
             {
-                using (MySqlConnection conn = db.ObtenerConexion())
+                using (SqlConnection conn = db.ObtenerConexion())
                 {
                     conn.Open();
 
-                    using (MySqlCommand checkCmd = new MySqlCommand(
+                    using (SqlCommand checkCmd = new SqlCommand(
                         "SELECT COUNT(*) FROM usuarios WHERE correo=@correo;", conn))
                     {
                         checkCmd.Parameters.AddWithValue("@correo", correo);
 
-                        long existe = (long)checkCmd.ExecuteScalar();
+                        int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
                         if (existe > 0)
                         {
                             MessageBox.Show("Ese correo ya está registrado.");
@@ -84,7 +83,7 @@ namespace DevEdu
                     string query = @"INSERT INTO usuarios (nombre, apellido, correo, contrasena, rango, tipo, activo)
                            VALUES (@nombre, @apellido, @correo, @pass, 'Regular', NULL, 1);";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@nombre", nombre);
                         cmd.Parameters.AddWithValue("@apellido", apellido);
@@ -96,7 +95,6 @@ namespace DevEdu
                         if (filas > 0)
                         {
                             MessageBox.Show("Registro exitoso. Ya puedes iniciar sesión.");
-
                             txtbx_nombre.Clear();
                             txtbx_apellido.Clear();
                             txtbx_correo.Clear();
@@ -111,9 +109,9 @@ namespace DevEdu
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Error MySQL: " + ex.Message);
+                MessageBox.Show("Error SQL: " + ex.Message);
             }
             catch (Exception ex)
             {
@@ -123,50 +121,38 @@ namespace DevEdu
 
         private void btn_Registrar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(char.IsControl(e.KeyChar))
-                return;
-
-            if(!char.IsLetter(e.KeyChar))
-                e.Handled = true;
+            if (char.IsControl(e.KeyChar)) return;
+            if (!char.IsLetter(e.KeyChar)) e.Handled = true;
         }
+
         private void txtbx_nombre_TextChanged(object sender, EventArgs e)
         {
             var tb = (TextBox)sender;
-            int SelectionStart = tb.SelectionStart;
+            int selectionStart = tb.SelectionStart;
             string cleaned = new string(tb.Text.Where(c => char.IsLetter(c) || char.IsControl(c)).ToArray());
-
             if (tb.Text != cleaned)
             {
                 tb.Text = cleaned;
-                tb.SelectionStart = Math.Min(SelectionStart, tb.Text.Length);
+                tb.SelectionStart = Math.Min(selectionStart, tb.Text.Length);
             }
         }
 
         private void txtbx_apellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                e.Handled = true;
-                txtbx_correo.Focus();
-            }
-
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (!char.IsLetter(e.KeyChar))
-                e.Handled = true;
+            if (e.KeyChar == (char)Keys.Enter) { e.Handled = true; txtbx_correo.Focus(); return; }
+            if (char.IsControl(e.KeyChar)) return;
+            if (!char.IsLetter(e.KeyChar)) e.Handled = true;
         }
 
         private void txtbx_apellido_TextChanged(object sender, EventArgs e)
         {
             var tb = (TextBox)sender;
-            int SelectionStart = tb.SelectionStart;
+            int selectionStart = tb.SelectionStart;
             string cleaned = new string(tb.Text.Where(c => char.IsLetter(c) || char.IsControl(c)).ToArray());
-
             if (tb.Text != cleaned)
             {
                 tb.Text = cleaned;
-                tb.SelectionStart = Math.Min(SelectionStart, tb.Text.Length);
+                tb.SelectionStart = Math.Min(selectionStart, tb.Text.Length);
             }
         }
 
@@ -180,47 +166,25 @@ namespace DevEdu
 
         private void txtbx_nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                e.Handled = true;
-                txtbx_apellido.Focus();
-            }
+            if (e.KeyChar == (char)Keys.Enter) { e.Handled = true; txtbx_apellido.Focus(); }
         }
 
         private void txtbx_correo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                e.Handled = true;
-                txtbx_contrasena.Focus();
-            }
+            if (e.KeyChar == (char)Keys.Enter) { e.Handled = true; txtbx_contrasena.Focus(); }
         }
 
         private void txtbx_contrasena_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                e.Handled = true;
-                txtbx_confirmacion.Focus();
-            }
+            if (e.KeyChar == (char)Keys.Enter) { e.Handled = true; txtbx_confirmacion.Focus(); }
         }
 
         private void txtbx_confirmacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                e.Handled = true;
-                btn_Registrar_Click(sender, e);
-            }
+            if (e.KeyChar == (char)Keys.Enter) { e.Handled = true; btn_Registrar_Click(sender, e); }
         }
 
-        private void txtbx_correo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void txtbx_correo_TextChanged(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
     }
 }
