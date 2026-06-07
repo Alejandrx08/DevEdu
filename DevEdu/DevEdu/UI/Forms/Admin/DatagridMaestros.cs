@@ -1,14 +1,10 @@
 ﻿using DevEdu.Core.Models;
+using DevEdu.Core.Services.Query;
 using DevEdu.Models;
 using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -42,19 +38,19 @@ namespace DevEdu
             };
         }
 
-        ConexionDB db = new ConexionDB();
-
         private void UsuariosCount()
         {
-            using (SqlConnection conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-                using (SqlCommand checkCmd = new SqlCommand(
-                    "SELECT COUNT(*) FROM maestros;", conn))
+                using (SELECT select = new SELECT())
                 {
-                    int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
-                    txtCount.Text = "Usuarios: " + existe.ToString();
+                    object result = select.ExecuteScalar("SELECT COUNT(*) FROM maestros;");
+                    txtCount.Text = "Usuarios: " + Convert.ToInt32(result).ToString();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -80,13 +76,9 @@ namespace DevEdu
 
         private void CargarDatos()
         {
-            using (SqlConnection conn = db.ObtenerConexion())
+            try
             {
-                try
-                {
-                    conn.Open();
-
-                    string query = @"SELECT 
+                string query = @"SELECT 
                                 u.id       AS ID,
                                 u.nombre   AS Nombre,
                                 u.apellido AS Apellido,
@@ -96,19 +88,18 @@ namespace DevEdu
                              INNER JOIN maestros m ON m.usuario_id = u.id
                              WHERE u.activo = 1";
 
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
+                using (SELECT select = new SELECT())
+                {
+                    DataTable dt = select.ExecuteSelect(query);
                     DataGrid.DataSource = dt;
                     DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                }
 
-                    UsuariosCount();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
+                UsuariosCount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -174,18 +165,24 @@ namespace DevEdu
 
         private bool CorreoDisponible(Maestro usuario)
         {
-            using (var conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-                using (var cmd = new SqlCommand(
-                    "SELECT COUNT(*) FROM usuarios WHERE correo=@c AND id<>@id;", conn))
+                using (SELECT select = new SELECT())
                 {
-                    cmd.Parameters.AddWithValue("@c", usuario.Correo);
-                    cmd.Parameters.AddWithValue("@id", usuario.Id);
-
-                    int existe = Convert.ToInt32(cmd.ExecuteScalar());
-                    return existe == 0;
+                    object result = select.ExecuteScalar(
+                        "SELECT COUNT(*) FROM usuarios WHERE correo=@c AND id<>@id;",
+                        new[]
+                        {
+                            new SqlParameter("@c", usuario.Correo),
+                            new SqlParameter("@id", usuario.Id)
+                        });
+                    return Convert.ToInt32(result) == 0;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
             }
         }
 
@@ -205,36 +202,29 @@ namespace DevEdu
 
             if (r == DialogResult.No) return;
 
-            using (SqlConnection conx = db.ObtenerConexion())
+            try
             {
-                try
+                using (DELETE delete = new DELETE())
                 {
-                    conx.Open();
-                    using (var tx = conx.BeginTransaction())
-                    {
-                        var cmd1 = new SqlCommand(
-                            "DELETE FROM maestros WHERE usuario_id=@id;", conx, tx);
-                        cmd1.Parameters.AddWithValue("@id", txtbox_ID.Text);
-                        int filas = cmd1.ExecuteNonQuery();
-
-                        var cmd2 = new SqlCommand(
-                            "UPDATE usuarios SET tipo=NULL WHERE id=@id;", conx, tx);
-                        cmd2.Parameters.AddWithValue("@id", txtbox_ID.Text);
-                        cmd2.ExecuteNonQuery();
-
-                        tx.Commit();
-
-                        if (filas > 0) MessageBox.Show("Rol maestro removido (ahora es pendiente).");
-                        else MessageBox.Show("Ese ID no está asignado como maestro.");
-                    }
-
-                    LimpiarCampos();
-                    CargarDatos();
+                    delete.ExecuteDelete(
+                        "DELETE FROM maestros WHERE usuario_id=@id;",
+                        new[] { new SqlParameter("@id", txtbox_ID.Text) });
                 }
-                catch (Exception ex)
+
+                using (UPDATE update = new UPDATE())
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    update.ExecuteUpdate(
+                        "UPDATE usuarios SET tipo=NULL WHERE id=@id;",
+                        new[] { new SqlParameter("@id", txtbox_ID.Text) });
                 }
+
+                MessageBox.Show("Rol maestro removido (ahora es pendiente).");
+                LimpiarCampos();
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -251,38 +241,32 @@ namespace DevEdu
                 return;
             }
 
-            using (SqlConnection conx = db.ObtenerConexion())
+            try
             {
-                try
+                using (UPDATE update = new UPDATE())
                 {
-                    conx.Open();
-
-                    string query = @"UPDATE usuarios
-                     SET nombre=@nombre,
-                         apellido=@apellido,
-                         correo=@correo
-                     WHERE id=@id";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conx))
-                    {
-                        cmd.Parameters.AddWithValue("@id", usuario.Id);
-                        cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
-                        cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
-                        cmd.Parameters.AddWithValue("@correo", usuario.Correo);
-
-                        int filas = cmd.ExecuteNonQuery();
-
-                        if (filas > 0) MessageBox.Show("Dato actualizado correctamente");
-                        else MessageBox.Show("No se encontró el maestro");
-                    }
-
-                    LimpiarCampos();
-                    CargarDatos();
+                    update.ExecuteUpdate(
+                        @"UPDATE usuarios
+                          SET nombre=@nombre,
+                              apellido=@apellido,
+                              correo=@correo
+                          WHERE id=@id",
+                        new[]
+                        {
+                            new SqlParameter("@id", usuario.Id),
+                            new SqlParameter("@nombre", usuario.Nombre),
+                            new SqlParameter("@apellido", usuario.Apellido),
+                            new SqlParameter("@correo", usuario.Correo)
+                        });
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
+
+                MessageBox.Show("Dato actualizado correctamente");
+                LimpiarCampos();
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

@@ -1,15 +1,9 @@
 ﻿using DevEdu.Core.Models;
+using DevEdu.Core.Services.Query;
 using DevEdu.Models;
 using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -20,8 +14,6 @@ namespace DevEdu
         {
             InitializeComponent();
         }
-
-        ConexionDB db = new ConexionDB();
 
         private void DataDridGeneral_Load(object sender, EventArgs e)
         {
@@ -70,15 +62,10 @@ namespace DevEdu
 
         private void UsuariosCount()
         {
-            using (SqlConnection conn = db.ObtenerConexion())
+            using (SELECT select = new SELECT())
             {
-                conn.Open();
-                using (SqlCommand checkCmd = new SqlCommand(
-                    "SELECT COUNT(*) FROM usuarios;", conn))
-                {
-                    int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
-                    txtCount.Text = "Usuarios: " + existe.ToString();
-                }
+                object result = select.ExecuteScalar("SELECT COUNT(*) FROM usuarios;");
+                txtCount.Text = "Usuarios: " + Convert.ToInt32(result).ToString();
             }
         }
 
@@ -94,15 +81,10 @@ namespace DevEdu
                       u.activo
                    FROM usuarios u";
 
-            using (var conn = db.ObtenerConexion())
+            using (SELECT select = new SELECT())
             {
-                conn.Open();
-                using (var da = new SqlDataAdapter(query, conn))
-                {
-                    dtUsuarios = new DataTable();
-                    da.Fill(dtUsuarios);
-                    DgvGeneral.DataSource = dtUsuarios;
-                }
+                dtUsuarios = select.ExecuteSelect(query);
+                DgvGeneral.DataSource = dtUsuarios;
             }
 
             DgvGeneral.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -130,42 +112,36 @@ namespace DevEdu
 
             if (r != DialogResult.Yes) return;
 
-            using (var conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-                using (var tx = conn.BeginTransaction())
+                using (DELETE delete = new DELETE())
                 {
-                    try
-                    {
-                        using (var cmd = new SqlCommand("DELETE FROM alumnos WHERE usuario_id=@id;", conn, tx))
-                        { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
-
-                        using (var cmd = new SqlCommand("DELETE FROM maestros WHERE usuario_id=@id;", conn, tx))
-                        { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
-
-                        int filas;
-                        using (var cmd = new SqlCommand("DELETE FROM usuarios WHERE id=@id;", conn, tx))
-                        { cmd.Parameters.AddWithValue("@id", usuario.Id); filas = cmd.ExecuteNonQuery(); }
-
-                        tx.Commit();
-
-                        if (filas > 0)
-                        {
-                            MessageBox.Show("Usuario eliminado con éxito.");
-                            UsuariosCount();
-                            CargarUsuariosGeneral();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se encontró el usuario (posiblemente ya fue eliminado).");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        try { tx.Rollback(); } catch { }
-                        MessageBox.Show("Error al eliminar: " + ex.Message);
-                    }
+                    delete.ExecuteDelete(
+                        "DELETE FROM alumnos WHERE usuario_id=@id;",
+                        new[] { new SqlParameter("@id", usuario.Id) });
                 }
+
+                using (DELETE delete = new DELETE())
+                {
+                    delete.ExecuteDelete(
+                        "DELETE FROM maestros WHERE usuario_id=@id;",
+                        new[] { new SqlParameter("@id", usuario.Id) });
+                }
+
+                using (DELETE delete = new DELETE())
+                {
+                    delete.ExecuteDelete(
+                        "DELETE FROM usuarios WHERE id=@id;",
+                        new[] { new SqlParameter("@id", usuario.Id) });
+                }
+
+                MessageBox.Show("Usuario eliminado con éxito.");
+                UsuariosCount();
+                CargarUsuariosGeneral();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
             }
         }
 
@@ -175,46 +151,53 @@ namespace DevEdu
 
             Persona usuario = ObtenerUsuarioSeleccionado();
 
-            using (var conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-
-                using (var check = new SqlCommand(
-                    "SELECT COUNT(*) FROM usuarios WHERE correo=@correo AND id<>@id;", conn))
+                using (SELECT select = new SELECT())
                 {
-                    check.Parameters.AddWithValue("@correo", usuario.Correo);
-                    check.Parameters.AddWithValue("@id", usuario.Id);
+                    object result = select.ExecuteScalar(
+                        "SELECT COUNT(*) FROM usuarios WHERE correo=@correo AND id<>@id;",
+                        new[]
+                        {
+                            new SqlParameter("@correo", usuario.Correo),
+                            new SqlParameter("@id", usuario.Id)
+                        });
 
-                    int existe = Convert.ToInt32(check.ExecuteScalar());
-                    if (existe > 0)
+                    if (Convert.ToInt32(result) > 0)
                     {
                         MessageBox.Show("Ese correo ya existe en otro usuario.");
                         return;
                     }
                 }
 
-                string query = @"UPDATE usuarios 
-                SET nombre=@nombre,
-                    apellido=@apellido,
-                    correo=@correo,
-                    rango=@rango,
-                    activo=@activo
-                WHERE id=@id";
-
-                using (var cmd = new SqlCommand(query, conn))
+                using (UPDATE update = new UPDATE())
                 {
-                    cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
-                    cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
-                    cmd.Parameters.AddWithValue("@correo", usuario.Correo);
-                    cmd.Parameters.AddWithValue("@rango", usuario.Rango);
-                    cmd.Parameters.AddWithValue("@activo", usuario.Activo);
-                    cmd.Parameters.AddWithValue("@id", usuario.Id);
-                    cmd.ExecuteNonQuery();
+                    update.ExecuteUpdate(
+                        @"UPDATE usuarios 
+                          SET nombre=@nombre,
+                              apellido=@apellido,
+                              correo=@correo,
+                              rango=@rango,
+                              activo=@activo
+                          WHERE id=@id",
+                        new[]
+                        {
+                            new SqlParameter("@nombre", usuario.Nombre),
+                            new SqlParameter("@apellido", usuario.Apellido),
+                            new SqlParameter("@correo", usuario.Correo),
+                            new SqlParameter("@rango", usuario.Rango),
+                            new SqlParameter("@activo", usuario.Activo),
+                            new SqlParameter("@id", usuario.Id)
+                        });
                 }
-            }
 
-            MessageBox.Show("Cambios guardados.");
-            CargarUsuariosGeneral();
+                MessageBox.Show("Cambios guardados.");
+                CargarUsuariosGeneral();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message);
+            }
         }
 
         private void btnAsignarAlumnos_Click(object sender, EventArgs e)
@@ -229,33 +212,28 @@ namespace DevEdu
                 return;
             }
 
-            using (var conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-                using (var tx = conn.BeginTransaction())
+                using (INSERT insert = new INSERT())
                 {
-                    try
-                    {
-                        using (var cmd1 = new SqlCommand(
-                            "INSERT INTO alumnos (usuario_id) VALUES (@id);", conn, tx))
-                        { cmd1.Parameters.AddWithValue("@id", usuario.Id); cmd1.ExecuteNonQuery(); }
-
-                        using (var cmd2 = new SqlCommand(
-                            "UPDATE usuarios SET tipo='Alumno' WHERE id=@id;", conn, tx))
-                        { cmd2.Parameters.AddWithValue("@id", usuario.Id); cmd2.ExecuteNonQuery(); }
-
-                        tx.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tx.Rollback();
-                        MessageBox.Show("Error: " + ex.Message);
-                        return;
-                    }
+                    insert.ExecuteInsert(
+                        "INSERT INTO alumnos (usuario_id) VALUES (@id);",
+                        new[] { new SqlParameter("@id", usuario.Id) });
                 }
-            }
 
-            CargarUsuariosGeneral();
+                using (UPDATE update = new UPDATE())
+                {
+                    update.ExecuteUpdate(
+                        "UPDATE usuarios SET tipo='Alumno' WHERE id=@id;",
+                        new[] { new SqlParameter("@id", usuario.Id) });
+                }
+
+                CargarUsuariosGeneral();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnAsignarMaestro_Click(object sender, EventArgs e)
@@ -270,33 +248,28 @@ namespace DevEdu
                 return;
             }
 
-            using (var conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-                using (var tx = conn.BeginTransaction())
+                using (INSERT insert = new INSERT())
                 {
-                    try
-                    {
-                        using (var cmd1 = new SqlCommand(
-                            "INSERT INTO maestros (usuario_id) VALUES (@id);", conn, tx))
-                        { cmd1.Parameters.AddWithValue("@id", usuario.Id); cmd1.ExecuteNonQuery(); }
-
-                        using (var cmd2 = new SqlCommand(
-                            "UPDATE usuarios SET tipo='Maestro' WHERE id=@id;", conn, tx))
-                        { cmd2.Parameters.AddWithValue("@id", usuario.Id); cmd2.ExecuteNonQuery(); }
-
-                        tx.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tx.Rollback();
-                        MessageBox.Show("Error: " + ex.Message);
-                        return;
-                    }
+                    insert.ExecuteInsert(
+                        "INSERT INTO maestros (usuario_id) VALUES (@id);",
+                        new[] { new SqlParameter("@id", usuario.Id) });
                 }
-            }
 
-            CargarUsuariosGeneral();
+                using (UPDATE update = new UPDATE())
+                {
+                    update.ExecuteUpdate(
+                        "UPDATE usuarios SET tipo='Maestro' WHERE id=@id;",
+                        new[] { new SqlParameter("@id", usuario.Id) });
+                }
+
+                CargarUsuariosGeneral();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnAsignarAdmin_Click(object sender, EventArgs e)
@@ -311,29 +284,21 @@ namespace DevEdu
                 return;
             }
 
-            using (var conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-                using (var tx = conn.BeginTransaction())
+                using (UPDATE update = new UPDATE())
                 {
-                    try
-                    {
-                        using (var cmd = new SqlCommand(
-                            "UPDATE usuarios SET tipo='Admin' WHERE id=@id;", conn, tx))
-                        { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
-
-                        tx.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tx.Rollback();
-                        MessageBox.Show("Error: " + ex.Message);
-                        return;
-                    }
+                    update.ExecuteUpdate(
+                        "UPDATE usuarios SET tipo='Admin' WHERE id=@id;",
+                        new[] { new SqlParameter("@id", usuario.Id) });
                 }
-            }
 
-            CargarUsuariosGeneral();
+                CargarUsuariosGeneral();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnQuitarRol_Click(object sender, EventArgs e)
@@ -348,42 +313,40 @@ namespace DevEdu
                 return;
             }
 
-            using (var conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-                using (var tx = conn.BeginTransaction())
+                if (usuario.Estado == "Alumno")
                 {
-                    try
+                    using (DELETE delete = new DELETE())
                     {
-                        if (usuario.Estado == "Alumno")
-                        {
-                            using (var cmd = new SqlCommand(
-                                "DELETE FROM alumnos WHERE usuario_id=@id;", conn, tx))
-                            { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
-                        }
-                        else if (usuario.Estado == "Maestro")
-                        {
-                            using (var cmd = new SqlCommand(
-                                "DELETE FROM maestros WHERE usuario_id=@id;", conn, tx))
-                            { cmd.Parameters.AddWithValue("@id", usuario.Id); cmd.ExecuteNonQuery(); }
-                        }
-
-                        using (var cmd2 = new SqlCommand(
-                            "UPDATE usuarios SET tipo=NULL WHERE id=@id;", conn, tx))
-                        { cmd2.Parameters.AddWithValue("@id", usuario.Id); cmd2.ExecuteNonQuery(); }
-
-                        tx.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tx.Rollback();
-                        MessageBox.Show("Error: " + ex.Message);
-                        return;
+                        delete.ExecuteDelete(
+                            "DELETE FROM alumnos WHERE usuario_id=@id;",
+                            new[] { new SqlParameter("@id", usuario.Id) });
                     }
                 }
-            }
+                else if (usuario.Estado == "Maestro")
+                {
+                    using (DELETE delete = new DELETE())
+                    {
+                        delete.ExecuteDelete(
+                            "DELETE FROM maestros WHERE usuario_id=@id;",
+                            new[] { new SqlParameter("@id", usuario.Id) });
+                    }
+                }
 
-            CargarUsuariosGeneral();
+                using (UPDATE update = new UPDATE())
+                {
+                    update.ExecuteUpdate(
+                        "UPDATE usuarios SET tipo=NULL WHERE id=@id;",
+                        new[] { new SqlParameter("@id", usuario.Id) });
+                }
+
+                CargarUsuariosGeneral();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

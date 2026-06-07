@@ -1,14 +1,7 @@
-﻿using DevEdu.Core.Models;
+﻿using DevEdu.Core.Services.Query;
 using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -20,11 +13,7 @@ namespace DevEdu
             InitializeComponent();
         }
 
-        ConexionDB db = new ConexionDB();
-
-        private void DgvGeneralAdd_Load(object sender, EventArgs e)
-        {
-        }
+        private void DgvGeneralAdd_Load(object sender, EventArgs e) { }
 
         private bool ValidacionVacio()
         {
@@ -73,54 +62,46 @@ namespace DevEdu
 
             try
             {
-                using (SqlConnection conn = db.ObtenerConexion())
+                using (SELECT select = new SELECT())
                 {
-                    conn.Open();
+                    object existe = select.ExecuteScalar(
+                        "SELECT COUNT(*) FROM usuarios WHERE correo=@correo;",
+                        new[] { new SqlParameter("@correo", correo) });
 
-                    using (SqlCommand checkCmd = new SqlCommand(
-                        "SELECT COUNT(*) FROM usuarios WHERE correo=@correo;", conn))
+                    if (Convert.ToInt32(existe) > 0)
                     {
-                        checkCmd.Parameters.AddWithValue("@correo", correo);
-
-                        int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
-                        if (existe > 0)
-                        {
-                            MessageBox.Show("Ese correo ya está registrado.");
-                            return;
-                        }
-                    }
-
-                    string query = @"INSERT INTO usuarios (nombre, apellido, correo, contrasena, rango, tipo, activo)
-                           VALUES (@nombre, @apellido, @correo, @pass, 'Regular', NULL, 1);";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@nombre", nombre);
-                        cmd.Parameters.AddWithValue("@apellido", apellido);
-                        cmd.Parameters.AddWithValue("@correo", correo);
-                        cmd.Parameters.AddWithValue("@pass", pass);
-
-                        int filas = cmd.ExecuteNonQuery();
-
-                        if (filas > 0)
-                        {
-                            MessageBox.Show("Usuario agregado con éxito.");
-                            txtbx_nombre.Clear();
-                            txtbx_apellido.Clear();
-                            txtbx_correo.Clear();
-                            txtbx_contrasena.Clear();
-                            txtbx_nombre.Focus();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se pudo registrar. Intenta de nuevo.");
-                        }
+                        MessageBox.Show("Ese correo ya está registrado.");
+                        return;
                     }
                 }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Error SQL: " + ex.Message);
+
+                using (INSERT insert = new INSERT())
+                {
+                    int filas = insert.ExecuteInsert(
+                        @"INSERT INTO usuarios (nombre, apellido, correo, contrasena, rango, tipo, activo)
+                          VALUES (@nombre, @apellido, @correo, @pass, 'Regular', NULL, 1);",
+                        new[]
+                        {
+                            new SqlParameter("@nombre", nombre),
+                            new SqlParameter("@apellido", apellido),
+                            new SqlParameter("@correo", correo),
+                            new SqlParameter("@pass", pass)
+                        });
+
+                    if (filas > 0)
+                    {
+                        MessageBox.Show("Usuario agregado con éxito.");
+                        txtbx_nombre.Clear();
+                        txtbx_apellido.Clear();
+                        txtbx_correo.Clear();
+                        txtbx_contrasena.Clear();
+                        txtbx_nombre.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo registrar. Intenta de nuevo.");
+                    }
+                }
             }
             catch (Exception ex)
             {

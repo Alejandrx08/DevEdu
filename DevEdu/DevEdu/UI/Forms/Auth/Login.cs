@@ -1,14 +1,8 @@
 ﻿using DevEdu.Core.Models;
+using DevEdu.Core.Services.Query;
 using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -31,49 +25,51 @@ namespace DevEdu
                 return;
             }
 
-            ConexionDB db = new ConexionDB();
-
-            using (SqlConnection conn = db.ObtenerConexion())
+            try
             {
-                conn.Open();
-
                 string query = @"SELECT id, nombre, rango, tipo
-                       FROM usuarios
-                       WHERE correo = @correo
-                         AND contrasena = @pass
-                         AND activo = 1";
+                                 FROM usuarios
+                                 WHERE correo = @correo
+                                   AND contrasena = @pass
+                                   AND activo = 1";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@correo", correo);
-                cmd.Parameters.AddWithValue("@pass", pass);
-
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                SqlParameter[] parametros =
                 {
-                    int colId = dr.GetOrdinal("id");
-                    int colNombre = dr.GetOrdinal("nombre");
-                    int colRango = dr.GetOrdinal("rango");
-                    int colTipo = dr.GetOrdinal("tipo");
+                    new SqlParameter("@correo", correo),
+                    new SqlParameter("@pass", pass)
+                };
 
-                    Sesion.IdUsuario = dr.GetInt32(colId);
-                    Sesion.Nombre = dr.GetString(colNombre);
-                    Sesion.Rango = dr.GetString(colRango);
-                    Sesion.Tipo = dr.IsDBNull(colTipo)
+                using (SELECT select = new SELECT())
+                {
+                    DataTable result = select.ExecuteSelect(query, parametros);
+
+                    if (result.Rows.Count > 0)
+                    {
+                        DataRow row = result.Rows[0];
+
+                        Sesion.IdUsuario = Convert.ToInt32(row["id"]);
+                        Sesion.Nombre = row["nombre"].ToString();
+                        Sesion.Rango = row["rango"].ToString();
+                        Sesion.Tipo = row["tipo"] == DBNull.Value
                                         ? null
-                                        : dr.GetString(colTipo);
+                                        : row["tipo"].ToString();
 
-                    MessageBox.Show("Bienvenido " + Sesion.Nombre);
+                        MessageBox.Show("Bienvenido " + Sesion.Nombre);
 
-                    this.Hide();
-                    FrmMainMenu Principal = new FrmMainMenu();
-                    Principal.ShowDialog();
-                    this.Close();
+                        this.Hide();
+                        FrmMainMenu Principal = new FrmMainMenu();
+                        Principal.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Correo o contraseña incorrectos");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Correo o contraseña incorrectos");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al iniciar sesión: " + ex.Message);
             }
         }
 
@@ -103,24 +99,10 @@ namespace DevEdu
             }
         }
 
-        private void txt_Password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
-        }
+        private void txt_Password_TextChanged(object sender, EventArgs e) { }
+        private void Login_Load(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
     }
 }
