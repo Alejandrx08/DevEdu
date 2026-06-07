@@ -215,7 +215,7 @@ Example:
 
 ## Current Status
 
-🚧 Active Development
+Active Development
 
 DevEdu is currently under active development and continues to evolve from an academic project into a complete educational software platform.
 
