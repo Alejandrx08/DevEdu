@@ -2,64 +2,107 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-Pre--Alpha-red)
+![Version](https://img.shields.io/badge/Version-v0.2.0-orange)
 
 # DevEdu
 
-**DevEdu** is a Windows Forms desktop application built in C# designed to teach software development through an intuitive, interactive, and visual learning environment.
+**DevEdu** is a Windows Forms desktop application developed in C# that aims to teach software development through an intuitive, interactive, and visual learning environment.
 
-Originally developed as a university project, DevEdu has evolved into a modular educational system that integrates programming practice, user management, and interactive learning tools.
+Originally created as a university project, DevEdu has evolved into a modular educational platform that integrates user management, programming practice, learning modules, and database-driven functionality.
 
 ---
 
 ## Overview
 
-DevEdu provides a structured environment where students can learn programming concepts through visualization, exercises, and interactive modules. The project focuses on usability, modular design, and real database integration.
+DevEdu provides a structured environment where students can learn programming concepts through visualization, exercises, interactive modules, and educational tools.
+
+The project focuses on modular architecture, scalability, usability, and real-world software engineering practices.
 
 ---
 
 ## Features
 
-* User authentication system (Login / Register)
-* Role-based user management
-* Full CRUD operations with MySQL
-* Educational modules for programming concepts
-* Interactive exercises and quizzes
-* DevBot (AI-assisted learning module)
-* DevHub (social / interactive section)
-* Modular architecture structure
-* Real database persistence
-* Multi-form UI navigation
-* Session handling
+### Authentication & Users
+- User registration
+- Login system
+- Role-based access control
+- Session management
+
+### Administration
+- Student management
+- Teacher management
+- User administration
+- Full CRUD operations
+
+### Educational Modules
+- DevBot (AI-assisted learning)
+- DevHub (interactive community module)
+- DevTrivia
+- DevVis
+- DevEx
+- Learning content visualization
+
+### Database Integration
+- SQL Server integration
+- Database abstraction layer
+- CRUD service architecture
+- Secure connection management using configuration files
 
 ---
 
 ## Architecture
 
-The project follows a modular layered structure:
+The project follows a modular layered architecture based on Separation of Concerns (SoC).
 
-- Separation of concerns
-- Modular design
-- Reusable components
-- Database abstraction
-- Session-based state management
+### Architectural Principles
+
+- Separation of Concerns
+- Database Abstraction
+- Service-Oriented Data Access
+- Modular Design
+- Reusable Components
+- Session-Based State Management
+
+### Data Access Layer
+
+DevEdu implements a dedicated database access layer composed of:
+
+- DatabaseConnection
+- SELECT Service
+- INSERT Service
+- UPDATE Service
+- DELETE Service
+
+This architecture centralizes connection management and promotes code reuse while reducing duplication throughout the application.
 
 ---
 
 ## Technologies Used
 
-* C# (.NET Framework / Windows Forms)
-* MySQL
-* ADO.NET
-* Git / GitHub
-* Visual Studio
+- C# (.NET 8)
+- Windows Forms
+- Microsoft SQL Server 2022
+- Microsoft.Data.SqlClient
+- ADO.NET
+- Git
+- GitHub
+- Visual Studio 2022
 
 ---
 
 ## Project Structure
 
-```
+```text
 DevEdu/
+│
+├── Core/
+│   ├── Services/
+│   │   ├── DatabaseConnection.cs
+│   │   └── query/
+│   │       ├── SELECT.cs
+│   │       ├── INSERT.cs
+│   │       ├── UPDATE.cs
+│   │       └── DELETE.cs
 │
 ├── UI/
 │   ├── Forms/
@@ -72,13 +115,36 @@ DevEdu/
 │   │   ├── DevVis/
 │   │   └── Main/
 │
-├── Infrastructure/
-│   └── DB/
-│
-├── Resources/
-├── Session.cs
-└── Program.cs
+├── appsettings.json
+├── Program.cs
+└── DevEdu.csproj
 ```
+
+---
+
+## Database
+
+The application uses Microsoft SQL Server as its primary database management system.
+
+### Main Entities
+
+- Users
+- Students
+- Teachers
+- Courses
+- Classes
+- Tasks
+- Student-Course Relationships
+- Teacher-Course Relationships
+- Learning Progress
+
+### Features
+
+- Relational database model
+- Foreign key relationships
+- Normalized structure
+- Real-time persistence
+- Query abstraction layer
 
 ---
 
@@ -86,36 +152,80 @@ DevEdu/
 
 ### Requirements
 
-* Windows OS
-* Visual Studio
-* MySQL Server
-* .NET Framework compatible with project
+- Windows 10/11
+- Visual Studio 2022
+- .NET 8 SDK
+- SQL Server 2022
+- SQL Server Management Studio (SSMS)
 
-### Setup
+### Installation
 
 1. Clone the repository
-2. Configure your MySQL connection in `DbConfig.cs`
-3. Create the required database structure
-4. Build and run the project
+
+```bash
+git clone https://github.com/Alejandrx08/DevEdu.git
+```
+
+2. Open the solution in Visual Studio.
+
+3. Create an `appsettings.json` file.
+
+4. Configure your SQL Server connection string.
+
+Example:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=DevEdu;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}
+```
+
+5. Execute the database creation script.
+
+6. Build and run the application.
 
 ---
 
 ## Roadmap
 
-* Improve architecture (Service Layer)
-* Enhance DevHub with real-time interaction
-* Improve UI consistency
-* Add progress tracking system
-* Expand educational modules
-* Improve DevBot AI capabilities
-* Add secure configuration management
-* Add versioning & releases
+### Short Term
+
+- Improve DevHub functionality
+- Expand educational modules
+- Improve UI consistency
+- Add advanced search features
+
+### Medium Term
+
+- Stored Procedures
+- Reporting System
+- Progress Analytics
+- User Activity Tracking
+
+### Long Term
+
+- AI-powered tutoring improvements
+- API Integration
+- Cloud Synchronization
+- Mobile Companion Application
 
 ---
 
-## Status
+## Current Status
 
-Active development – evolving from university project to structured educational system.
+🚧 Active Development
+
+DevEdu is currently under active development and continues to evolve from an academic project into a complete educational software platform.
+
+---
+
+## Contributing
+
+Contributions, ideas, and improvements are welcome.
+
+Feel free to fork the repository and submit pull requests.
 
 ---
 
@@ -127,16 +237,13 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Developed by **Alejandro Ibarra**
+**Alejandro Ibarra**
 
----
-
-## Contributing
-
-Contributions, suggestions, and improvements are welcome.
+GitHub:
+https://github.com/Alejandrx08
 
 ---
 
 ## Future Vision
 
-DevEdu aims to become a complete interactive learning platform focused on teaching software development through visualization, practice, and intelligent assistance.
+DevEdu aims to become a complete educational ecosystem focused on teaching software development through visualization, interaction, practice, and intelligent assistance.
