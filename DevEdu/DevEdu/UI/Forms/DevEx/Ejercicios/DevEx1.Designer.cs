@@ -2,7 +2,7 @@
 
 namespace DevEdu
 {
-    partial class DevEx
+    partial class DevEx1
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace DevEdu
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevEx));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevEx1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MoreInfo = new System.Windows.Forms.Label();

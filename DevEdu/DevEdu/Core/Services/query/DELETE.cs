@@ -36,5 +36,28 @@ namespace DevEdu.Core.Services.Query
                 CloseConn();
             }
         }
+
+        public int ExecuteDeleteOptional(string query, SqlParameter[] parameters = null)
+        {
+            try
+            {
+                OpenConn();
+                _command = new SqlCommand(query, _connection);
+                _command.CommandType = CommandType.Text;
+
+                if (parameters != null)
+                    _command.Parameters.AddRange(parameters);
+
+                return _command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error SQL al ejecutar DELETE: " + ex.Message, ex);
+            }
+            finally
+            {
+                CloseConn();
+            }
+        }
     }
 }

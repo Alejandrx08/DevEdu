@@ -60,7 +60,7 @@ namespace DevEdu
         private void devex()
         {
             this.Hide();
-            DevEx Principal = new DevEx();
+            DevEx1 Principal = new DevEx1();
             Principal.ShowDialog();
             this.Close();
         }

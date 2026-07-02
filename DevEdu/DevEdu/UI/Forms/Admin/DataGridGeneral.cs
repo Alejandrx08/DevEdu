@@ -115,25 +115,19 @@ namespace DevEdu
             try
             {
                 using (DELETE delete = new DELETE())
-                {
-                    delete.ExecuteDelete(
+                    delete.ExecuteDeleteOptional(
                         "DELETE FROM alumnos WHERE usuario_id=@id;",
                         new[] { new SqlParameter("@id", usuario.Id) });
-                }
 
                 using (DELETE delete = new DELETE())
-                {
-                    delete.ExecuteDelete(
+                    delete.ExecuteDeleteOptional(
                         "DELETE FROM maestros WHERE usuario_id=@id;",
                         new[] { new SqlParameter("@id", usuario.Id) });
-                }
 
                 using (DELETE delete = new DELETE())
-                {
                     delete.ExecuteDelete(
                         "DELETE FROM usuarios WHERE id=@id;",
                         new[] { new SqlParameter("@id", usuario.Id) });
-                }
 
                 MessageBox.Show("Usuario eliminado con éxito.");
                 UsuariosCount();

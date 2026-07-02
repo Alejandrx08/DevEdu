@@ -255,22 +255,22 @@
     <Compile Include="UI\Forms\DevBot\DevbotChat.Designer.cs">
       <DependentUpon>DevbotChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevEx\DevEx.cs">
+    <Compile Include="UI\Forms\DevEx\Ejercicios\DevEx1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevEx\DevEx.Designer.cs">
-      <DependentUpon>DevEx.cs</DependentUpon>
+    <Compile Include="UI\Forms\DevEx\Ejercicios\DevEx1.Designer.cs">
+      <DependentUpon>DevEx1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevEx\DevEx2.cs">
+    <Compile Include="UI\Forms\DevEx\Ejercicios\DevEx2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevEx\DevEx2.Designer.cs">
+    <Compile Include="UI\Forms\DevEx\Ejercicios\DevEx2.Designer.cs">
       <DependentUpon>DevEx2.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevEx\DevEx_1_Exp.cs">
+    <Compile Include="UI\Forms\DevEx\Explicaiones\DevEx_1_Exp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevEx\DevEx_1_Exp.Designer.cs">
+    <Compile Include="UI\Forms\DevEx\Explicaiones\DevEx_1_Exp.Designer.cs">
       <DependentUpon>DevEx_1_Exp.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\DevHub\DevHubMenu.cs">
@@ -279,22 +279,22 @@
     <Compile Include="UI\Forms\DevHub\DevHubMenu.Designer.cs">
       <DependentUpon>DevHubMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTriviaDificil_1.cs">
+    <Compile Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaDificil_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTriviaDificil_1.Designer.cs">
+    <Compile Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaDificil_1.Designer.cs">
       <DependentUpon>DevTriviaDificil_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTriviaFacil_1.cs">
+    <Compile Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaFacil_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTriviaFacil_1.Designer.cs">
+    <Compile Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaFacil_1.Designer.cs">
       <DependentUpon>DevTriviaFacil_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTriviaMedio_1.cs">
+    <Compile Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaMedio_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTriviaMedio_1.Designer.cs">
+    <Compile Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaMedio_1.Designer.cs">
       <DependentUpon>DevTriviaMedio_1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\DevTrivia\DevTriviaMenu.cs">
@@ -303,22 +303,22 @@
     <Compile Include="UI\Forms\DevTrivia\DevTriviaMenu.Designer.cs">
       <DependentUpon>DevTriviaMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTrivia_D_Ex1.cs">
+    <Compile Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_D_Ex1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTrivia_D_Ex1.Designer.cs">
+    <Compile Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_D_Ex1.Designer.cs">
       <DependentUpon>DevTrivia_D_Ex1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.cs">
+    <Compile Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_F_Ex1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.Designer.cs">
+    <Compile Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_F_Ex1.Designer.cs">
       <DependentUpon>DevTrivia_F_Ex1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTrivia_M_Ex1.cs">
+    <Compile Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_M_Ex1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\DevTrivia\DevTrivia_M_Ex1.Designer.cs">
+    <Compile Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_M_Ex1.Designer.cs">
       <DependentUpon>DevTrivia_M_Ex1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\DevVis\DevVisMenu.cs">
@@ -390,37 +390,37 @@
     <EmbeddedResource Include="UI\Forms\DevBot\DevbotChat.resx">
       <DependentUpon>DevbotChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevEx\DevEx.resx">
-      <DependentUpon>DevEx.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Forms\DevEx\Ejercicios\DevEx1.resx">
+      <DependentUpon>DevEx1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevEx\DevEx2.resx">
+    <EmbeddedResource Include="UI\Forms\DevEx\Ejercicios\DevEx2.resx">
       <DependentUpon>DevEx2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevEx\DevEx_1_Exp.resx">
+    <EmbeddedResource Include="UI\Forms\DevEx\Explicaiones\DevEx_1_Exp.resx">
       <DependentUpon>DevEx_1_Exp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\DevHub\DevHubMenu.resx">
       <DependentUpon>DevHubMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaDificil_1.resx">
+    <EmbeddedResource Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaDificil_1.resx">
       <DependentUpon>DevTriviaDificil_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaFacil_1.resx">
+    <EmbeddedResource Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaFacil_1.resx">
       <DependentUpon>DevTriviaFacil_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaMedio_1.resx">
+    <EmbeddedResource Include="UI\Forms\DevTrivia\Ejercicios\DevTriviaMedio_1.resx">
       <DependentUpon>DevTriviaMedio_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\DevTrivia\DevTriviaMenu.resx">
       <DependentUpon>DevTriviaMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTrivia_D_Ex1.resx">
+    <EmbeddedResource Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_D_Ex1.resx">
       <DependentUpon>DevTrivia_D_Ex1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTrivia_F_Ex1.resx">
+    <EmbeddedResource Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_F_Ex1.resx">
       <DependentUpon>DevTrivia_F_Ex1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\DevTrivia\DevTrivia_M_Ex1.resx">
+    <EmbeddedResource Include="UI\Forms\DevTrivia\Explicaciones\DevTrivia_M_Ex1.resx">
       <DependentUpon>DevTrivia_M_Ex1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\DevVis\DevVisMenu.resx">

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace DevEdu
 {
-    public partial class DevEx : Form
+    public partial class DevEx1 : Form
     {
-        public DevEx()
+        public DevEx1()
         {
             InitializeComponent();
             toolTip1.SetToolTip(MoreInfo, "Sera redirigido a un video explicativo.");
