@@ -1,31 +1,18 @@
-﻿using DevEdu.Core.Services.Query;
-using Microsoft.Data.SqlClient;
+﻿using DevEdu.Core.Services;
+using DevEdu.Core.Validation;
 using System;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace DevEdu
 {
     public partial class FrmRegistro : Form
     {
+        private readonly UsuarioService _usuarioService = new UsuarioService();
+
         public FrmRegistro()
         {
             InitializeComponent();
-        }
-
-        private bool ValidacionVacio()
-        {
-            if (string.IsNullOrWhiteSpace(txtbx_nombre.Text) ||
-                string.IsNullOrWhiteSpace(txtbx_apellido.Text) ||
-                string.IsNullOrWhiteSpace(txtbx_correo.Text) ||
-                string.IsNullOrWhiteSpace(txtbx_contrasena.Text) ||
-                string.IsNullOrWhiteSpace(txtbx_confirmacion.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos.");
-                return true;
-            }
-            return false;
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)
@@ -34,72 +21,29 @@ namespace DevEdu
             string apellido = txtbx_apellido.Text.Trim();
             string correo = txtbx_correo.Text.Trim();
             string pass = txtbx_contrasena.Text;
+            string confirmacion = txtbx_confirmacion.Text;
 
-            if (ValidacionVacio()) return;
-
-            if (!Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if (!UsuarioValidator.EsValido(nombre, apellido, correo, pass, confirmacion, out string mensajeError))
             {
-                MessageBox.Show("Correo inválido.");
-                return;
-            }
-            if (pass.Length < 6)
-            {
-                MessageBox.Show("La contraseña debe tener al menos 6 caracteres.");
-                return;
-            }
-            if (pass != txtbx_confirmacion.Text)
-            {
-                MessageBox.Show("Las contraseñas no coinciden.");
+                MessageBox.Show(mensajeError);
                 return;
             }
 
             try
             {
-                using (SELECT select = new SELECT())
-                {
-                    object existe = select.ExecuteScalar(
-                        "SELECT COUNT(*) FROM usuarios WHERE correo=@correo;",
-                        new[] { new SqlParameter("@correo", correo) });
+                _usuarioService.Registrar(nombre, apellido, correo, pass);
 
-                    if (Convert.ToInt32(existe) > 0)
-                    {
-                        MessageBox.Show("Ese correo ya está registrado.");
-                        return;
-                    }
-                }
-
-                using (INSERT insert = new INSERT())
-                {
-                    int filas = insert.ExecuteInsert(
-                        @"INSERT INTO usuarios (nombre, apellido, correo, contrasena, rango, tipo, activo)
-                          VALUES (@nombre, @apellido, @correo, @pass, 'Regular', NULL, 1);",
-                        new[]
-                        {
-                            new SqlParameter("@nombre", nombre),
-                            new SqlParameter("@apellido", apellido),
-                            new SqlParameter("@correo", correo),
-                            new SqlParameter("@pass", pass)
-                        });
-
-                    if (filas > 0)
-                    {
-                        MessageBox.Show("Registro exitoso. Ya puedes iniciar sesión.");
-                        txtbx_nombre.Clear();
-                        txtbx_apellido.Clear();
-                        txtbx_correo.Clear();
-                        txtbx_contrasena.Clear();
-                        txtbx_confirmacion.Clear();
-                        txtbx_nombre.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo registrar. Intenta de nuevo.");
-                    }
-                }
+                MessageBox.Show("Registro exitoso. Ya puedes iniciar sesión.");
+                txtbx_nombre.Clear();
+                txtbx_apellido.Clear();
+                txtbx_correo.Clear();
+                txtbx_contrasena.Clear();
+                txtbx_confirmacion.Clear();
+                txtbx_nombre.Focus();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -111,7 +55,16 @@ namespace DevEdu
 
         private void txtbx_nombre_TextChanged(object sender, EventArgs e)
         {
-            var tb = (TextBox)sender;
+            FiltrarSoloLetras((TextBox)sender);
+        }
+
+        private void txtbx_apellido_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarSoloLetras((TextBox)sender);
+        }
+
+        private void FiltrarSoloLetras(TextBox tb)
+        {
             int selectionStart = tb.SelectionStart;
             string cleaned = new string(tb.Text.Where(c => char.IsLetter(c) || char.IsControl(c)).ToArray());
             if (tb.Text != cleaned)
@@ -126,18 +79,6 @@ namespace DevEdu
             if (e.KeyChar == (char)Keys.Enter) { e.Handled = true; txtbx_correo.Focus(); return; }
             if (char.IsControl(e.KeyChar)) return;
             if (!char.IsLetter(e.KeyChar)) e.Handled = true;
-        }
-
-        private void txtbx_apellido_TextChanged(object sender, EventArgs e)
-        {
-            var tb = (TextBox)sender;
-            int selectionStart = tb.SelectionStart;
-            string cleaned = new string(tb.Text.Where(c => char.IsLetter(c) || char.IsControl(c)).ToArray());
-            if (tb.Text != cleaned)
-            {
-                tb.Text = cleaned;
-                tb.SelectionStart = Math.Min(selectionStart, tb.Text.Length);
-            }
         }
 
         private void Link_Login_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

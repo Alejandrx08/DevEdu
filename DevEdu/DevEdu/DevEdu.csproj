@@ -9,6 +9,7 @@
     <RootNamespace>DevEdu</RootNamespace>
     <AssemblyName>DevEdu</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -226,11 +227,16 @@
     <Compile Include="Core\Models\Curso.cs" />
     <Compile Include="Core\Models\Maestro.cs" />
     <Compile Include="Core\Models\Persona.cs" />
+    <Compile Include="Core\Models\UsuarioAutenticado.cs" />
+    <Compile Include="Core\Services\AuthService.cs" />
     <Compile Include="Core\Services\DatabaseConnection.cs" />
     <Compile Include="Core\Services\query\DELETE.cs" />
     <Compile Include="Core\Services\query\INSERT.cs" />
     <Compile Include="Core\Services\query\SELECT.cs" />
     <Compile Include="Core\Services\query\UPDATE.cs" />
+    <Compile Include="Core\Services\UsuarioService.cs" />
+    <Compile Include="Core\Validations\LoginValidator.cs" />
+    <Compile Include="Core\Validations\UsuarioValidator.cs" />
     <Compile Include="UI\Forms\Admin\DataGridGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -461,7 +467,7 @@
       <DependentUpon>Welcome Splash.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

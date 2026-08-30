@@ -1,14 +1,15 @@
 ﻿using DevEdu.Core.Models;
-using DevEdu.Core.Services.Query;
-using Microsoft.Data.SqlClient;
+using DevEdu.Core.Services;
+using DevEdu.Core.Validation;
 using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace DevEdu
 {
     public partial class Login : Form
     {
+        private readonly AuthService _authService = new AuthService();
+
         public Login()
         {
             InitializeComponent();
@@ -19,53 +20,33 @@ namespace DevEdu
             string correo = txt_username.Text.Trim();
             string pass = txt_Password.Text;
 
-            if (correo == "" || pass == "")
+            if (!LoginValidator.EsValido(correo, pass, out string mensajeError))
             {
-                MessageBox.Show("Ingresa correo y contraseña");
+                MessageBox.Show(mensajeError);
                 return;
             }
 
             try
             {
-                string query = @"SELECT id, nombre, rango, tipo
-                                 FROM usuarios
-                                 WHERE correo = @correo
-                                   AND contrasena = @pass
-                                   AND activo = 1";
+                UsuarioAutenticado usuario = _authService.IniciarSesion(correo, pass);
 
-                SqlParameter[] parametros =
+                if (usuario == null)
                 {
-                    new SqlParameter("@correo", correo),
-                    new SqlParameter("@pass", pass)
-                };
-
-                using (SELECT select = new SELECT())
-                {
-                    DataTable result = select.ExecuteSelect(query, parametros);
-
-                    if (result.Rows.Count > 0)
-                    {
-                        DataRow row = result.Rows[0];
-
-                        Sesion.IdUsuario = Convert.ToInt32(row["id"]);
-                        Sesion.Nombre = row["nombre"].ToString();
-                        Sesion.Rango = row["rango"].ToString();
-                        Sesion.Tipo = row["tipo"] == DBNull.Value
-                                        ? null
-                                        : row["tipo"].ToString();
-
-                        MessageBox.Show("Bienvenido " + Sesion.Nombre);
-
-                        this.Hide();
-                        FrmMainMenu Principal = new FrmMainMenu();
-                        Principal.ShowDialog();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Correo o contraseña incorrectos");
-                    }
+                    MessageBox.Show("Correo o contraseña incorrectos");
+                    return;
                 }
+
+                Sesion.IdUsuario = usuario.Id;
+                Sesion.Nombre = usuario.Nombre;
+                Sesion.Rango = usuario.Rango;
+                Sesion.Tipo = usuario.Tipo;
+
+                MessageBox.Show("Bienvenido " + Sesion.Nombre);
+
+                this.Hide();
+                FrmMainMenu Principal = new FrmMainMenu();
+                Principal.ShowDialog();
+                this.Close();
             }
             catch (Exception ex)
             {

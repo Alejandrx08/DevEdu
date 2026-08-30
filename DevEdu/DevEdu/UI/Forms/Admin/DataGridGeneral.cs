@@ -1,7 +1,6 @@
 ﻿using DevEdu.Core.Models;
-using DevEdu.Core.Services.Query;
+using DevEdu.Core.Services;
 using DevEdu.Models;
-using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -10,6 +9,9 @@ namespace DevEdu
 {
     public partial class DataGridGeneral : Form
     {
+        private readonly UsuarioService _usuarioService = new UsuarioService();
+        private DataTable dtUsuarios;
+
         public DataGridGeneral()
         {
             InitializeComponent();
@@ -26,72 +28,35 @@ namespace DevEdu
 
             DgvGeneral.EnableHeadersVisualStyles = false;
             txtCount.Enabled = false;
-            UsuariosCount();
-            CargarUsuariosGeneral();
+            ActualizarVista();
         }
 
-        private DataTable dtUsuarios;
-
-        private Persona ObtenerUsuarioSeleccionado()
+        private void ActualizarVista()
         {
-            Persona usuario = new Persona();
+            txtCount.Text = "Usuarios: " + _usuarioService.ContarUsuarios();
 
-            usuario.Id = Convert.ToInt32(
-                DgvGeneral.CurrentRow.Cells["id"].Value);
-
-            usuario.Nombre =
-                DgvGeneral.CurrentRow.Cells["nombre"].Value?.ToString() ?? "";
-
-            usuario.Apellido =
-                DgvGeneral.CurrentRow.Cells["apellido"].Value?.ToString() ?? "";
-
-            usuario.Correo =
-                DgvGeneral.CurrentRow.Cells["correo"].Value?.ToString() ?? "";
-
-            usuario.Rango =
-                DgvGeneral.CurrentRow.Cells["rango"].Value?.ToString() ?? "";
-
-            usuario.Estado =
-                DgvGeneral.CurrentRow.Cells["estado"].Value?.ToString() ?? "";
-
-            usuario.Activo = Convert.ToBoolean(
-                DgvGeneral.CurrentRow.Cells["activo"].Value);
-
-            return usuario;
-        }
-
-        private void UsuariosCount()
-        {
-            using (SELECT select = new SELECT())
-            {
-                object result = select.ExecuteScalar("SELECT COUNT(*) FROM usuarios;");
-                txtCount.Text = "Usuarios: " + Convert.ToInt32(result).ToString();
-            }
-        }
-
-        private void CargarUsuariosGeneral()
-        {
-            string query = @"SELECT 
-                      u.id,
-                      u.nombre,
-                      u.apellido,
-                      u.correo,
-                      u.rango,
-                      ISNULL(u.tipo, 'pendiente') AS estado,
-                      u.activo
-                   FROM usuarios u";
-
-            using (SELECT select = new SELECT())
-            {
-                dtUsuarios = select.ExecuteSelect(query);
-                DgvGeneral.DataSource = dtUsuarios;
-            }
+            dtUsuarios = _usuarioService.ObtenerUsuariosGeneral();
+            DgvGeneral.DataSource = dtUsuarios;
 
             DgvGeneral.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DgvGeneral.MultiSelect = false;
             DgvGeneral.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgvGeneral.Columns["estado"].ReadOnly = true;
             DgvGeneral.Columns["id"].ReadOnly = true;
+        }
+
+        private Persona ObtenerUsuarioSeleccionado()
+        {
+            return new Persona
+            {
+                Id = Convert.ToInt32(DgvGeneral.CurrentRow.Cells["id"].Value),
+                Nombre = DgvGeneral.CurrentRow.Cells["nombre"].Value?.ToString() ?? "",
+                Apellido = DgvGeneral.CurrentRow.Cells["apellido"].Value?.ToString() ?? "",
+                Correo = DgvGeneral.CurrentRow.Cells["correo"].Value?.ToString() ?? "",
+                Rango = DgvGeneral.CurrentRow.Cells["rango"].Value?.ToString() ?? "",
+                Estado = DgvGeneral.CurrentRow.Cells["estado"].Value?.ToString() ?? "",
+                Activo = Convert.ToBoolean(DgvGeneral.CurrentRow.Cells["activo"].Value)
+            };
         }
 
         private void EliminarDato()
@@ -114,24 +79,9 @@ namespace DevEdu
 
             try
             {
-                using (DELETE delete = new DELETE())
-                    delete.ExecuteDeleteOptional(
-                        "DELETE FROM alumnos WHERE usuario_id=@id;",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-
-                using (DELETE delete = new DELETE())
-                    delete.ExecuteDeleteOptional(
-                        "DELETE FROM maestros WHERE usuario_id=@id;",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-
-                using (DELETE delete = new DELETE())
-                    delete.ExecuteDelete(
-                        "DELETE FROM usuarios WHERE id=@id;",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-
+                _usuarioService.EliminarUsuario(usuario.Id);
                 MessageBox.Show("Usuario eliminado con éxito.");
-                UsuariosCount();
-                CargarUsuariosGeneral();
+                ActualizarVista();
             }
             catch (Exception ex)
             {
@@ -147,54 +97,17 @@ namespace DevEdu
 
             try
             {
-                using (SELECT select = new SELECT())
-                {
-                    object result = select.ExecuteScalar(
-                        "SELECT COUNT(*) FROM usuarios WHERE correo=@correo AND id<>@id;",
-                        new[]
-                        {
-                            new SqlParameter("@correo", usuario.Correo),
-                            new SqlParameter("@id", usuario.Id)
-                        });
-
-                    if (Convert.ToInt32(result) > 0)
-                    {
-                        MessageBox.Show("Ese correo ya existe en otro usuario.");
-                        return;
-                    }
-                }
-
-                using (UPDATE update = new UPDATE())
-                {
-                    update.ExecuteUpdate(
-                        @"UPDATE usuarios 
-                          SET nombre=@nombre,
-                              apellido=@apellido,
-                              correo=@correo,
-                              rango=@rango,
-                              activo=@activo
-                          WHERE id=@id",
-                        new[]
-                        {
-                            new SqlParameter("@nombre", usuario.Nombre),
-                            new SqlParameter("@apellido", usuario.Apellido),
-                            new SqlParameter("@correo", usuario.Correo),
-                            new SqlParameter("@rango", usuario.Rango),
-                            new SqlParameter("@activo", usuario.Activo),
-                            new SqlParameter("@id", usuario.Id)
-                        });
-                }
-
+                _usuarioService.ActualizarUsuario(usuario);
                 MessageBox.Show("Cambios guardados.");
-                CargarUsuariosGeneral();
+                ActualizarVista();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void btnAsignarAlumnos_Click(object sender, EventArgs e)
+        private void AsignarRolSeleccionado(string rol)
         {
             if (DgvGeneral.CurrentRow == null) return;
 
@@ -208,21 +121,8 @@ namespace DevEdu
 
             try
             {
-                using (INSERT insert = new INSERT())
-                {
-                    insert.ExecuteInsert(
-                        "INSERT INTO alumnos (usuario_id) VALUES (@id);",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-                }
-
-                using (UPDATE update = new UPDATE())
-                {
-                    update.ExecuteUpdate(
-                        "UPDATE usuarios SET tipo='Alumno' WHERE id=@id;",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-                }
-
-                CargarUsuariosGeneral();
+                _usuarioService.AsignarRol(usuario.Id, rol);
+                ActualizarVista();
             }
             catch (Exception ex)
             {
@@ -230,70 +130,9 @@ namespace DevEdu
             }
         }
 
-        private void btnAsignarMaestro_Click(object sender, EventArgs e)
-        {
-            if (DgvGeneral.CurrentRow == null) return;
-
-            Persona usuario = ObtenerUsuarioSeleccionado();
-
-            if (usuario.Estado != "pendiente")
-            {
-                MessageBox.Show("Ya tiene rol: " + usuario.Estado);
-                return;
-            }
-
-            try
-            {
-                using (INSERT insert = new INSERT())
-                {
-                    insert.ExecuteInsert(
-                        "INSERT INTO maestros (usuario_id) VALUES (@id);",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-                }
-
-                using (UPDATE update = new UPDATE())
-                {
-                    update.ExecuteUpdate(
-                        "UPDATE usuarios SET tipo='Maestro' WHERE id=@id;",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-                }
-
-                CargarUsuariosGeneral();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-
-        private void btnAsignarAdmin_Click(object sender, EventArgs e)
-        {
-            if (DgvGeneral.CurrentRow == null) return;
-
-            Persona usuario = ObtenerUsuarioSeleccionado();
-
-            if (usuario.Estado != "pendiente")
-            {
-                MessageBox.Show("Ya tiene rol: " + usuario.Estado);
-                return;
-            }
-
-            try
-            {
-                using (UPDATE update = new UPDATE())
-                {
-                    update.ExecuteUpdate(
-                        "UPDATE usuarios SET tipo='Admin' WHERE id=@id;",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-                }
-
-                CargarUsuariosGeneral();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
+        private void btnAsignarAlumnos_Click(object sender, EventArgs e) => AsignarRolSeleccionado("Alumno");
+        private void btnAsignarMaestro_Click(object sender, EventArgs e) => AsignarRolSeleccionado("Maestro");
+        private void btnAsignarAdmin_Click(object sender, EventArgs e) => AsignarRolSeleccionado("Admin");
 
         private void btnQuitarRol_Click(object sender, EventArgs e)
         {
@@ -309,33 +148,8 @@ namespace DevEdu
 
             try
             {
-                if (usuario.Estado == "Alumno")
-                {
-                    using (DELETE delete = new DELETE())
-                    {
-                        delete.ExecuteDelete(
-                            "DELETE FROM alumnos WHERE usuario_id=@id;",
-                            new[] { new SqlParameter("@id", usuario.Id) });
-                    }
-                }
-                else if (usuario.Estado == "Maestro")
-                {
-                    using (DELETE delete = new DELETE())
-                    {
-                        delete.ExecuteDelete(
-                            "DELETE FROM maestros WHERE usuario_id=@id;",
-                            new[] { new SqlParameter("@id", usuario.Id) });
-                    }
-                }
-
-                using (UPDATE update = new UPDATE())
-                {
-                    update.ExecuteUpdate(
-                        "UPDATE usuarios SET tipo=NULL WHERE id=@id;",
-                        new[] { new SqlParameter("@id", usuario.Id) });
-                }
-
-                CargarUsuariosGeneral();
+                _usuarioService.QuitarRol(usuario.Id, usuario.Estado);
+                ActualizarVista();
             }
             catch (Exception ex)
             {
@@ -351,10 +165,6 @@ namespace DevEdu
 
         private void btnDelete_Click(object sender, EventArgs e) => EliminarDato();
 
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            UsuariosCount();
-            CargarUsuariosGeneral();
-        }
+        private void btnActualizar_Click(object sender, EventArgs e) => ActualizarVista();
     }
 }
