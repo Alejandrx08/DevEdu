@@ -1,8 +1,8 @@
-![C#](https://img.shields.io/badge/C%23-.NET-blue)
+![C#](https://img.shields.io/badge/C%23-.NET%20Framework%204.7.2-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-v0.2.0-orange)
+![Version](https://img.shields.io/badge/Version-v0.3.0-orange)
 
 # DevEdu
 
@@ -16,49 +16,57 @@ Originally created as a university project, DevEdu has evolved into a modular ed
 
 DevEdu provides a structured environment where students can learn programming concepts through visualization, exercises, interactive modules, and educational tools.
 
-The project focuses on modular architecture, scalability, usability, and real-world software engineering practices.
+The project focuses on modular architecture, scalability, usability, and the application of real-world software engineering practices.
 
 ---
 
 ## Features
 
 ### Authentication & Users
+
 - User registration
 - Login system
 - Role-based access control
 - Session management
 
 ### Administration
+
 - Student management
 - Teacher management
 - User administration
-- Full CRUD operations
+- CRUD operations
 
 ### Educational Modules
-- DevBot (AI-assisted learning)
-- DevHub (interactive community module)
+
+- DevBot
+- DevHub
 - DevTrivia
 - DevVis
 - DevEx
 - Learning content visualization
 
 ### Database Integration
+
 - SQL Server integration
 - Database abstraction layer
-- CRUD service architecture
+- Centralized CRUD operations
+- Service-oriented business logic
 - Secure connection management using configuration files
 
 ---
 
 ## Architecture
 
-The project follows a modular layered architecture based on Separation of Concerns (SoC).
+The project follows a modular layered architecture based on the **Separation of Concerns (SoC)** principle.
+
+The architecture separates responsibilities between the user interface, validation logic, business services, models, and database access.
 
 ### Architectural Principles
 
 - Separation of Concerns
 - Database Abstraction
-- Service-Oriented Data Access
+- Business Logic Separation
+- Validation Layer
 - Modular Design
 - Reusable Components
 - Session-Based State Management
@@ -67,19 +75,47 @@ The project follows a modular layered architecture based on Separation of Concer
 
 DevEdu implements a dedicated database access layer composed of:
 
-- DatabaseConnection
-- SELECT Service
-- INSERT Service
-- UPDATE Service
-- DELETE Service
+- `DatabaseConnection`
+- `SELECT`
+- `INSERT`
+- `UPDATE`
+- `DELETE`
 
-This architecture centralizes connection management and promotes code reuse while reducing duplication throughout the application.
+This layer centralizes database connection management and common data operations, promoting code reuse and reducing duplication throughout the application.
+
+### Business Logic Layer
+
+DevEdu separates business rules and validation from the user interface through dedicated services and validators.
+
+#### Validators
+
+Located in `Core/Validations/`, validators contain pure validation rules such as:
+
+- Empty field validation
+- Email format validation
+- Password length validation
+- Input validation
+
+Validators do not directly access the database.
+
+#### Services
+
+Located in `Core/Services/`, services orchestrate business operations and communicate with the data access layer when necessary.
+
+Examples include:
+
+- `UsuarioService`
+- `AuthService`
+
+These services handle operations related to user management, authentication, and business rules.
+
+This architecture ensures that the Windows Forms layer remains focused on user interface events while validation, business logic, and persistence operations are delegated to their corresponding layers.
 
 ---
 
 ## Technologies Used
 
-- C# (.NET 8)
+- C# (.NET Framework 4.7.2)
 - Windows Forms
 - Microsoft SQL Server 2022
 - Microsoft.Data.SqlClient
@@ -96,154 +132,38 @@ This architecture centralizes connection management and promotes code reuse whil
 DevEdu/
 │
 ├── Core/
+│   │
+│   ├── Models/
+│   │   ├── Persona.cs
+│   │   └── UsuarioAutenticado.cs
+│   │
 │   ├── Services/
 │   │   ├── DatabaseConnection.cs
+│   │   ├── AuthService.cs
+│   │   ├── UsuarioService.cs
+│   │   │
 │   │   └── query/
 │   │       ├── SELECT.cs
 │   │       ├── INSERT.cs
 │   │       ├── UPDATE.cs
 │   │       └── DELETE.cs
+│   │
+│   └── Validations/
+│       ├── LoginValidator.cs
+│       └── UsuarioValidator.cs
 │
 ├── UI/
-│   ├── Forms/
-│   │   ├── Auth/
-│   │   ├── Admin/
-│   │   ├── DevBot/
-│   │   ├── DevHub/
-│   │   ├── DevEx/
-│   │   ├── DevTrivia/
-│   │   ├── DevVis/
-│   │   └── Main/
+│   │
+│   └── Forms/
+│       ├── Auth/
+│       ├── Admin/
+│       ├── DevBot/
+│       ├── DevHub/
+│       ├── DevEx/
+│       ├── DevTrivia/
+│       ├── DevVis/
+│       └── Main/
 │
 ├── appsettings.json
 ├── Program.cs
 └── DevEdu.csproj
-```
-
----
-
-## Database
-
-The application uses Microsoft SQL Server as its primary database management system.
-
-### Main Entities
-
-- Users
-- Students
-- Teachers
-- Courses
-- Classes
-- Tasks
-- Student-Course Relationships
-- Teacher-Course Relationships
-- Learning Progress
-
-### Features
-
-- Relational database model
-- Foreign key relationships
-- Normalized structure
-- Real-time persistence
-- Query abstraction layer
-
----
-
-## Getting Started
-
-### Requirements
-
-- Windows 10/11
-- Visual Studio 2022
-- .NET 8 SDK
-- SQL Server 2022
-- SQL Server Management Studio (SSMS)
-
-### Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/Alejandrx08/DevEdu.git
-```
-
-2. Open the solution in Visual Studio.
-
-3. Create an `appsettings.json` file.
-
-4. Configure your SQL Server connection string.
-
-Example:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=DevEdu;Trusted_Connection=True;TrustServerCertificate=True;"
-  }
-}
-```
-
-5. Execute the database creation script.
-
-6. Build and run the application.
-
----
-
-## Roadmap
-
-### Short Term
-
-- Improve DevHub functionality
-- Expand educational modules
-- Improve UI consistency
-- Add advanced search features
-
-### Medium Term
-
-- Stored Procedures
-- Reporting System
-- Progress Analytics
-- User Activity Tracking
-
-### Long Term
-
-- AI-powered tutoring improvements
-- API Integration
-- Cloud Synchronization
-- Mobile Companion Application
-
----
-
-## Current Status
-
-Active Development
-
-DevEdu is currently under active development and continues to evolve from an academic project into a complete educational software platform.
-
----
-
-## Contributing
-
-Contributions, ideas, and improvements are welcome.
-
-Feel free to fork the repository and submit pull requests.
-
----
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-## Author
-
-**Alejandro Ibarra**
-
-GitHub:
-https://github.com/Alejandrx08
-
----
-
-## Future Vision
-
-DevEdu aims to become a complete educational ecosystem focused on teaching software development through visualization, interaction, practice, and intelligent assistance.
