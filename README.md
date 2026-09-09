@@ -1,4 +1,4 @@
-![C#](https://img.shields.io/badge/C%23-.NET%20Framework%204.7.2-blue)
+![C#](https://img.shields.io/badge/C%23-.NET%208-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -115,7 +115,7 @@ This architecture ensures that the Windows Forms layer remains focused on user i
 
 ## Technologies Used
 
-- C# (.NET Framework 4.7.2)
+- C# (.NET 8)
 - Windows Forms
 - Microsoft SQL Server 2022
 - Microsoft.Data.SqlClient
