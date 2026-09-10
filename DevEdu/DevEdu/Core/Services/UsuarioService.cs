@@ -4,6 +4,7 @@ using DevEdu.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
+using BCrypt.Net;
 
 namespace DevEdu.Core.Services
 {
@@ -14,20 +15,21 @@ namespace DevEdu.Core.Services
             if (CorreoExiste(correo))
                 throw new InvalidOperationException("Ese correo ya está registrado.");
 
+            string hash = BCrypt.Net.BCrypt.HashPassword(pass);
+
             using (INSERT insert = new INSERT())
             {
                 int filas = insert.ExecuteInsert(
-                    @"INSERT INTO usuarios (nombre, apellido, correo, contrasena, rango, tipo, activo)
-                      VALUES (@nombre, @apellido, @correo, @pass, 'Regular', NULL, 1);",
-                    new[]
+                    "INSERT INTO usuarios (nombre, apellido, correo, contrasena) VALUES (@nombre, @apellido, @correo, @contrasena);",
+                    new SqlParameter[]
                     {
-                        new SqlParameter("@nombre", nombre),
-                        new SqlParameter("@apellido", apellido),
-                        new SqlParameter("@correo", correo),
-                        new SqlParameter("@pass", pass)
+                new SqlParameter("@nombre", nombre),
+                new SqlParameter("@apellido", apellido),
+                new SqlParameter("@correo", correo),
+                new SqlParameter("@contrasena", hash)
                     });
 
-                if (filas == 0)
+                if (filas <= 0)
                     throw new InvalidOperationException("No se pudo registrar. Intenta de nuevo.");
             }
         }
@@ -139,7 +141,7 @@ namespace DevEdu.Core.Services
             else if (rol == "Maestro")
                 tabla = "maestros";
             else if (rol == "Admin")
-                tabla = null; // Admin no tiene tabla propia
+                tabla = null;
             else
                 throw new ArgumentException("Rol no reconocido: " + rol);
 

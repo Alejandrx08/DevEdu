@@ -1,50 +1,44 @@
-﻿using DevEdu.Core.Services;
-using DevEdu.Core.Validation;
+﻿using DevEdu.Core.Interfaces;
+using DevEdu.Core.Presenters;
+using DevEdu.Core.Services;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace DevEdu
 {
-    public partial class FrmRegistro : Form
+    public partial class FrmRegistro : Form, IRegistroView
     {
-        private readonly UsuarioService _usuarioService = new UsuarioService();
+        private readonly RegistroPresenter _presenter;
 
         public FrmRegistro()
         {
             InitializeComponent();
+            _presenter = new RegistroPresenter(this, new UsuarioService());
+        }
+
+        public string Nombre => txtbx_nombre.Text.Trim();
+        public string Apellido => txtbx_apellido.Text.Trim();
+        public string Correo => txtbx_correo.Text.Trim();
+        public string Password => txtbx_contrasena.Text;
+        public string Confirmacion => txtbx_confirmacion.Text;
+
+        public void MostrarError(string mensaje) => MessageBox.Show(mensaje);
+        public void MostrarExito(string mensaje) => MessageBox.Show(mensaje);
+
+        public void LimpiarCampos()
+        {
+            txtbx_nombre.Clear();
+            txtbx_apellido.Clear();
+            txtbx_correo.Clear();
+            txtbx_contrasena.Clear();
+            txtbx_confirmacion.Clear();
+            txtbx_nombre.Focus();
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
-            string nombre = txtbx_nombre.Text.Trim();
-            string apellido = txtbx_apellido.Text.Trim();
-            string correo = txtbx_correo.Text.Trim();
-            string pass = txtbx_contrasena.Text;
-            string confirmacion = txtbx_confirmacion.Text;
-
-            if (!UsuarioValidator.EsValido(nombre, apellido, correo, pass, confirmacion, out string mensajeError))
-            {
-                MessageBox.Show(mensajeError);
-                return;
-            }
-
-            try
-            {
-                _usuarioService.Registrar(nombre, apellido, correo, pass);
-
-                MessageBox.Show("Registro exitoso. Ya puedes iniciar sesión.");
-                txtbx_nombre.Clear();
-                txtbx_apellido.Clear();
-                txtbx_correo.Clear();
-                txtbx_contrasena.Clear();
-                txtbx_confirmacion.Clear();
-                txtbx_nombre.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            _presenter.Registrar();
         }
 
         private void btn_Registrar_KeyPress(object sender, KeyPressEventArgs e)

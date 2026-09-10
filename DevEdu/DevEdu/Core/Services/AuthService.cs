@@ -3,6 +3,7 @@ using DevEdu.Core.Services.Query;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
+using BCrypt.Net;
 
 namespace DevEdu.Core.Services
 {
@@ -10,17 +11,8 @@ namespace DevEdu.Core.Services
     {
         public UsuarioAutenticado IniciarSesion(string correo, string password)
         {
-            string query = @"SELECT id, nombre, rango, tipo
-                              FROM usuarios
-                              WHERE correo = @correo
-                                AND contrasena = @pass
-                                AND activo = 1";
-
-            SqlParameter[] parametros =
-            {
-                new SqlParameter("@correo", correo),
-                new SqlParameter("@pass", password)
-            };
+            string query = "SELECT id, nombre, rango, tipo, contrasena FROM usuarios WHERE correo = @correo;";
+            SqlParameter[] parametros = new[] { new SqlParameter("@correo", correo) };
 
             using (SELECT select = new SELECT())
             {
@@ -30,6 +22,10 @@ namespace DevEdu.Core.Services
                     return null;
 
                 DataRow row = result.Rows[0];
+                string hashAlmacenado = row["contrasena"].ToString();
+
+                if (!BCrypt.Net.BCrypt.Verify(password, hashAlmacenado))
+                    return null;
 
                 return new UsuarioAutenticado
                 {
