@@ -1,8 +1,10 @@
-﻿using DevEdu.Core.Interfaces;
+﻿
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Models;
 using DevEdu.Core.Services;
 using DevEdu.Core.Validation;
 using System;
+using System.Threading.Tasks;
 
 namespace DevEdu.Core.Presenters
 {
@@ -11,18 +13,23 @@ namespace DevEdu.Core.Presenters
         private readonly ILoginView _view;
         private readonly AuthService _authService;
 
-        public LoginPresenter(ILoginView view, AuthService authService)
+        public LoginPresenter(
+            ILoginView view,
+            AuthService authService)
         {
             _view = view;
             _authService = authService;
         }
 
-        public void IniciarSesion()
+        public async Task IniciarSesionAsync()
         {
             string correo = _view.Correo;
             string pass = _view.Password;
 
-            if (!LoginValidator.EsValido(correo, pass, out string mensajeError))
+            if (!LoginValidator.EsValido(
+                correo,
+                pass,
+                out string mensajeError))
             {
                 _view.MostrarError(mensajeError);
                 return;
@@ -30,11 +37,15 @@ namespace DevEdu.Core.Presenters
 
             try
             {
-                UsuarioAutenticado usuario = _authService.IniciarSesion(correo, pass);
+                UsuarioAutenticado usuario =
+                    await _authService.IniciarSesionAsync(
+                        correo,
+                        pass);
 
                 if (usuario == null)
                 {
-                    _view.MostrarError("Correo o contraseña incorrectos");
+                    _view.MostrarError(
+                        "Correo o contraseña incorrectos");
                     return;
                 }
 
@@ -45,7 +56,8 @@ namespace DevEdu.Core.Presenters
             }
             catch (Exception ex)
             {
-                _view.MostrarError("Error al iniciar sesión: " + ex.Message);
+                _view.MostrarError(
+                    "Error al iniciar sesión: " + ex.Message);
             }
         }
     }
