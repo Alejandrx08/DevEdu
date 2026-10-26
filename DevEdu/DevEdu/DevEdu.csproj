@@ -28,9 +28,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Infrastructure\DB\Db.cs" />
-    <Compile Remove="Infrastructure\DB\DbConfig.cs" />
-  </ItemGroup>
-
 </Project>
