@@ -1,10 +1,11 @@
-﻿using DevEdu.Core.Interfaces;
+﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Services;
 using DevEdu.Models;
 using System;
-using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 
 namespace DevEdu.Core.Presenters
 {
@@ -19,11 +20,12 @@ namespace DevEdu.Core.Presenters
             _service = new AlumnoService();
         }
 
+
         public void CargarDatos()
         {
             try
             {
-                DataTable datos = _service.ObtenerAlumnos();
+                var datos = _service.ObtenerAlumnos();
 
                 _view.MostrarDatos(datos);
             }
@@ -32,6 +34,7 @@ namespace DevEdu.Core.Presenters
                 _view.MostrarError("Error: " + ex.Message);
             }
         }
+
 
         public void CargarCantidad()
         {

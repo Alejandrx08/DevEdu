@@ -3,6 +3,8 @@ using DevEdu.Core.Presenters;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using DevEdu.Core.DTOs;
+using System.Collections.Generic;
 
 namespace DevEdu
 {
@@ -75,7 +77,7 @@ namespace DevEdu
 
             txtbx_ID.Text =
                 dataGridViewAlumnos.Rows[e.RowIndex]
-                .Cells["ID"]
+                .Cells["Id"]
                 .Value?
                 .ToString();
 
@@ -98,10 +100,18 @@ namespace DevEdu
                 .ToString();
         }
 
-        public void MostrarDatos(DataTable datos)
+
+        public void MostrarDatos(List<AlumnoDto> datos)
         {
+            dataGridViewAlumnos.DataSource = null;
             dataGridViewAlumnos.DataSource = datos;
+
+            if (dataGridViewAlumnos.Columns["Id"] != null)
+            {
+                dataGridViewAlumnos.Columns["Id"].HeaderText = "ID";
+            }
         }
+
 
         public void MostrarCantidad(int cantidad)
         {

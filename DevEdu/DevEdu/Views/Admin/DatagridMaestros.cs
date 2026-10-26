@@ -1,6 +1,8 @@
-﻿using DevEdu.Core.Interfaces;
+﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Presenters;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -27,12 +29,18 @@ namespace DevEdu
 
         public string Correo => txtbox_Correo.Text;
 
-        public void MostrarDatos(DataTable datos)
+        public void MostrarDatos(List<MaestroDto> datos)
         {
+            DataGrid.DataSource = null;
             DataGrid.DataSource = datos;
 
             DataGrid.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (DataGrid.Columns["Id"] != null)
+            {
+                DataGrid.Columns["Id"].HeaderText = "ID";
+            }
         }
 
         public void MostrarMensaje(string mensaje)
@@ -142,7 +150,7 @@ namespace DevEdu
                 DataGrid.Rows[e.RowIndex];
 
             txtbox_ID.Text =
-                fila.Cells["ID"].Value?.ToString();
+                fila.Cells["Id"].Value?.ToString();
 
             txtbox_Nombre.Text =
                 fila.Cells["Nombre"].Value?.ToString();

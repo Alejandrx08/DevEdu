@@ -1,6 +1,7 @@
-﻿using DevEdu.Core.Models;
+﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.Models;
 using DevEdu.Models;
-using System.Data;
+using System.Collections.Generic;
 
 namespace DevEdu.Core.Interfaces
 {
@@ -8,7 +9,7 @@ namespace DevEdu.Core.Interfaces
     {
         Persona UsuarioSeleccionado { get; }
 
-        void MostrarDatos(DataTable datos);
+        void MostrarDatos(List<UsuarioDto> datos);
         void MostrarCantidad(int cantidad);
 
         void MostrarMensaje(string mensaje);

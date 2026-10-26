@@ -1,10 +1,11 @@
-﻿using DevEdu.Core.Interfaces;
+﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Services;
 using DevEdu.Models;
 using System;
-using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 
 namespace DevEdu.Core.Presenters
 {
@@ -29,7 +30,8 @@ namespace DevEdu.Core.Presenters
         {
             try
             {
-                DataTable datos = _service.ObtenerMaestros();
+                var datos = _service.ObtenerMaestros();
+
                 _view.MostrarDatos(datos);
             }
             catch (Exception ex)
@@ -37,6 +39,7 @@ namespace DevEdu.Core.Presenters
                 _view.MostrarError("Error: " + ex.Message);
             }
         }
+
 
         public void CargarCantidad()
         {

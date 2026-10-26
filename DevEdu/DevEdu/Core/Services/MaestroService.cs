@@ -1,32 +1,53 @@
-﻿using DevEdu.Core.Services.Query;
+﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.Services.Query;
 using DevEdu.Models;
 using Microsoft.Data.SqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace DevEdu.Core.Services
 {
     public class MaestroService
     {
-        public DataTable ObtenerMaestros()
+
+        public List<MaestroDto> ObtenerMaestros()
         {
             string query = @"
-                SELECT
-                    u.id AS ID,
-                    u.nombre AS Nombre,
-                    u.apellido AS Apellido,
-                    u.correo AS Correo,
-                    u.rango AS Rango
-                FROM usuarios u
-                INNER JOIN maestros m
-                    ON m.usuario_id = u.id
-                WHERE u.activo = 1;";
+        SELECT
+            u.id AS ID,
+            u.nombre AS Nombre,
+            u.apellido AS Apellido,
+            u.correo AS Correo,
+            u.rango AS Rango
+        FROM usuarios u
+        INNER JOIN maestros m
+            ON m.usuario_id = u.id
+        WHERE u.activo = 1;";
 
             using (SELECT select = new SELECT())
             {
-                return select.ExecuteSelect(query);
+                DataTable tabla = select.ExecuteSelect(query);
+                List<MaestroDto> maestros = new List<MaestroDto>();
+
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    maestros.Add(new MaestroDto
+                    {
+                        Id = Convert.ToInt32(fila["ID"]),
+                        Nombre = fila["Nombre"]?.ToString() ?? string.Empty,
+                        Apellido = fila["Apellido"]?.ToString() ?? string.Empty,
+                        Correo = fila["Correo"]?.ToString() ?? string.Empty,
+                        Rango = fila["Rango"] == DBNull.Value
+                            ? string.Empty
+                            : fila["Rango"].ToString() ?? string.Empty
+                    });
+                }
+
+                return maestros;
             }
         }
+
 
         public int ObtenerCantidad()
         {

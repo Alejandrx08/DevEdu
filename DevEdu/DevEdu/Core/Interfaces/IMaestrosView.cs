@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿
+using DevEdu.Core.DTOs;
+using System.Collections.Generic;
 
 namespace DevEdu.Core.Interfaces
 {
@@ -9,7 +11,7 @@ namespace DevEdu.Core.Interfaces
         string Apellido { get; }
         string Correo { get; }
 
-        void MostrarDatos(DataTable datos);
+        void MostrarDatos(List<MaestroDto> datos);
         void MostrarMensaje(string mensaje);
         void MostrarError(string mensaje);
         bool Confirmar(string mensaje);

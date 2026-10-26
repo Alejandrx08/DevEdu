@@ -1,6 +1,8 @@
 ﻿using DevEdu.Core.Interfaces;
 using DevEdu.Core.Services;
 using System;
+using DevEdu.Core.DTOs;
+using System.Collections.Generic;
 
 namespace DevEdu.Core.Presenters
 {
@@ -33,7 +35,7 @@ namespace DevEdu.Core.Presenters
                 var datos = _service.ObtenerBitacora();
 
                 _view.MostrarDatos(datos);
-                _view.MostrarCantidad(datos.Rows.Count);
+                _view.MostrarCantidad(datos.Count);
             }
             catch (Exception ex)
             {

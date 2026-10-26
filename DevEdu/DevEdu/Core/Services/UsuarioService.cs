@@ -5,6 +5,8 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
 using BCrypt.Net;
+using DevEdu.Core.DTOs;
+using System.Collections.Generic;
 
 namespace DevEdu.Core.Services
 {
@@ -55,21 +57,44 @@ namespace DevEdu.Core.Services
             }
         }
 
-        public DataTable ObtenerUsuariosGeneral()
+
+        public List<UsuarioDto> ObtenerUsuariosGeneral()
         {
-            string query = @"SELECT 
-                      u.id,
-                      u.nombre,
-                      u.apellido,
-                      u.correo,
-                      u.rango,
-                      ISNULL(u.tipo, 'pendiente') AS estado,
-                      u.activo
-                   FROM usuarios u";
+            string query = @"SELECT
+                         u.id,
+                         u.nombre,
+                         u.apellido,
+                         u.correo,
+                         u.rango,
+                         ISNULL(u.tipo, 'pendiente') AS estado,
+                         u.activo
+                     FROM usuarios u";
 
             using (SELECT select = new SELECT())
-                return select.ExecuteSelect(query);
+            {
+                DataTable tabla = select.ExecuteSelect(query);
+                List<UsuarioDto> usuarios = new List<UsuarioDto>();
+
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    usuarios.Add(new UsuarioDto
+                    {
+                        Id = Convert.ToInt32(fila["id"]),
+                        Nombre = fila["nombre"]?.ToString() ?? string.Empty,
+                        Apellido = fila["apellido"]?.ToString() ?? string.Empty,
+                        Correo = fila["correo"]?.ToString() ?? string.Empty,
+                        Rango = fila["rango"] == DBNull.Value
+                            ? string.Empty
+                            : fila["rango"].ToString() ?? string.Empty,
+                        Estado = fila["estado"]?.ToString() ?? "pendiente",
+                        Activo = Convert.ToBoolean(fila["activo"])
+                    });
+                }
+
+                return usuarios;
+            }
         }
+
 
         public bool CorreoPerteneceAOtroUsuario(string correo, int id)
         {

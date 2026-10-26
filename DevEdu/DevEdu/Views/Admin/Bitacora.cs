@@ -1,6 +1,7 @@
-﻿using DevEdu.Core.Interfaces;
+﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Presenters;
-using System.Data;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DevEdu.Views.Admin
@@ -18,7 +19,7 @@ namespace DevEdu.Views.Admin
             Load += Bitacora_Load;
         }
 
-        public void MostrarDatos(DataTable datos)
+        public void MostrarDatos(List<BitacoraDto> datos)
         {
             DgvBitacora.DataSource = datos;
         }

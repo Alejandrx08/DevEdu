@@ -3,26 +3,48 @@ using DevEdu.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
+using DevEdu.Core.DTOs;
+using System.Collections.Generic;
+
 
 namespace DevEdu.Core.Services
 {
     public class AlumnoService
     {
-        public DataTable ObtenerAlumnos()
+
+
+        public List<AlumnoDto> ObtenerAlumnos()
         {
-            string query = @"SELECT 
-                                u.id       AS ID,
-                                u.nombre   AS Nombre,
-                                u.apellido AS Apellido,
-                                u.correo   AS Correo,
-                                u.rango    AS Rango
-                             FROM usuarios u
-                             INNER JOIN alumnos a ON a.usuario_id = u.id
-                             WHERE u.activo = 1";
+            string query = @"SELECT
+                        u.id       AS ID,
+                        u.nombre   AS Nombre,
+                        u.apellido AS Apellido,
+                        u.correo   AS Correo,
+                        u.rango    AS Rango
+                     FROM usuarios u
+                     INNER JOIN alumnos a ON a.usuario_id = u.id
+                     WHERE u.activo = 1";
 
             using (SELECT select = new SELECT())
             {
-                return select.ExecuteSelect(query);
+                DataTable tabla = select.ExecuteSelect(query);
+                List<AlumnoDto> alumnos = new List<AlumnoDto>();
+
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    alumnos.Add(new AlumnoDto
+                    {
+                        Id = Convert.ToInt32(fila["ID"]),
+                        Nombre = Convert.ToString(fila["Nombre"]) ?? string.Empty,
+                        Apellido = Convert.ToString(fila["Apellido"]) ?? string.Empty,
+                        Correo = Convert.ToString(fila["Correo"]) ?? string.Empty,
+                        Rango = fila["Rango"] == DBNull.Value
+                            ? string.Empty
+                            : Convert.ToString(fila["Rango"]) ?? string.Empty
+                    });
+                }
+
+                return alumnos;
             }
         }
 

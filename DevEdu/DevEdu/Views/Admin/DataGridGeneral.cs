@@ -1,9 +1,10 @@
-﻿using DevEdu.Core.Interfaces;
+﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Models;
 using DevEdu.Core.Presenters;
 using DevEdu.Models;
 using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -34,35 +35,35 @@ namespace DevEdu
                 return new Persona
                 {
                     Id = Convert.ToInt32(
-                        DgvGeneral.CurrentRow.Cells["id"].Value),
+                        DgvGeneral.CurrentRow.Cells["Id"].Value),
 
                     Nombre =
-                        DgvGeneral.CurrentRow.Cells["nombre"]
+                        DgvGeneral.CurrentRow.Cells["Nombre"]
                         .Value?.ToString() ?? "",
 
                     Apellido =
-                        DgvGeneral.CurrentRow.Cells["apellido"]
+                        DgvGeneral.CurrentRow.Cells["Apellido"]
                         .Value?.ToString() ?? "",
 
                     Correo =
-                        DgvGeneral.CurrentRow.Cells["correo"]
+                        DgvGeneral.CurrentRow.Cells["Correo"]
                         .Value?.ToString() ?? "",
 
                     Rango =
-                        DgvGeneral.CurrentRow.Cells["rango"]
+                        DgvGeneral.CurrentRow.Cells["Rango"]
                         .Value?.ToString() ?? "",
 
                     Estado =
-                        DgvGeneral.CurrentRow.Cells["estado"]
+                        DgvGeneral.CurrentRow.Cells["Estado"]
                         .Value?.ToString() ?? "",
 
                     Activo = Convert.ToBoolean(
-                        DgvGeneral.CurrentRow.Cells["activo"].Value)
+                        DgvGeneral.CurrentRow.Cells["Activo"].Value)
                 };
             }
         }
 
-        public void MostrarDatos(DataTable datos)
+        public void MostrarDatos(List<UsuarioDto> datos)
         {
             DgvGeneral.DataSource = datos;
         }
