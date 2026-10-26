@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System;
-using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DevEdu.Core.Services
 {
@@ -28,6 +30,20 @@ namespace DevEdu.Core.Services
 
             if (_connection.State == ConnectionState.Closed)
                 _connection.Open();
+        }
+
+        protected async Task OpenConnAsync(CancellationToken cancellationToken = default)
+        {
+            if (_connection == null)
+            {
+                throw new InvalidOperationException(
+                    "La conexión no ha sido inicializada.");
+            }
+
+            if (_connection.State == ConnectionState.Closed)
+            {
+                await _connection.OpenAsync(cancellationToken);
+            }
         }
 
         protected void CloseConn()
@@ -57,6 +73,27 @@ namespace DevEdu.Core.Services
             {
                 OpenConn();
                 return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                CloseConn();
+            }
+        }
+
+        public async Task<bool> TestConnectionAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                await OpenConnAsync(cancellationToken);
+                return true;
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
             }
             catch
             {

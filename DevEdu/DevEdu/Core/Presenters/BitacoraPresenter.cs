@@ -3,6 +3,8 @@ using DevEdu.Core.Services;
 using System;
 using DevEdu.Core.DTOs;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DevEdu.Core.Presenters
 {
@@ -28,6 +30,16 @@ namespace DevEdu.Core.Presenters
             CargarDatos();
         }
 
+        public async Task IniciarAsync(CancellationToken cancellationToken = default)
+        {
+            if (!_permisosPresenter.ValidarSoloAdmin())
+                return;
+
+            _view.ConfigurarGrid();
+
+            await CargarDatosAsync(cancellationToken);
+        }
+
         public void CargarDatos()
         {
             try
@@ -36,6 +48,30 @@ namespace DevEdu.Core.Presenters
 
                 _view.MostrarDatos(datos);
                 _view.MostrarCantidad(datos.Count);
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarError(
+                    "Error al cargar la bitácora: " + ex.Message);
+            }
+        }
+
+        public async Task CargarDatosAsync(
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var datos = await _service.ObtenerBitacoraAsync(
+                    cancellationToken);
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                _view.MostrarDatos(datos);
+                _view.MostrarCantidad(datos.Count);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
             }
             catch (Exception ex)
             {

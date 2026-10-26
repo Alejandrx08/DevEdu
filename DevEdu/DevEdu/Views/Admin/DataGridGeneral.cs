@@ -1,10 +1,11 @@
-﻿using DevEdu.Core.DTOs;
+﻿
+using DevEdu.Core.DTOs;
 using DevEdu.Core.Interfaces;
-using DevEdu.Core.Models;
 using DevEdu.Core.Presenters;
 using DevEdu.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -13,6 +14,7 @@ namespace DevEdu
     {
         private readonly PermisosPresenter _permisos;
         private readonly GeneralPresenter _presenter;
+        private bool _operacionEnCurso;
 
         public DataGridGeneral()
         {
@@ -37,25 +39,20 @@ namespace DevEdu
                     Id = Convert.ToInt32(
                         DgvGeneral.CurrentRow.Cells["Id"].Value),
 
-                    Nombre =
-                        DgvGeneral.CurrentRow.Cells["Nombre"]
-                        .Value?.ToString() ?? "",
+                    Nombre = DgvGeneral.CurrentRow
+                        .Cells["Nombre"].Value?.ToString() ?? "",
 
-                    Apellido =
-                        DgvGeneral.CurrentRow.Cells["Apellido"]
-                        .Value?.ToString() ?? "",
+                    Apellido = DgvGeneral.CurrentRow
+                        .Cells["Apellido"].Value?.ToString() ?? "",
 
-                    Correo =
-                        DgvGeneral.CurrentRow.Cells["Correo"]
-                        .Value?.ToString() ?? "",
+                    Correo = DgvGeneral.CurrentRow
+                        .Cells["Correo"].Value?.ToString() ?? "",
 
-                    Rango =
-                        DgvGeneral.CurrentRow.Cells["Rango"]
-                        .Value?.ToString() ?? "",
+                    Rango = DgvGeneral.CurrentRow
+                        .Cells["Rango"].Value?.ToString() ?? "",
 
-                    Estado =
-                        DgvGeneral.CurrentRow.Cells["Estado"]
-                        .Value?.ToString() ?? "",
+                    Estado = DgvGeneral.CurrentRow
+                        .Cells["Estado"].Value?.ToString() ?? "",
 
                     Activo = Convert.ToBoolean(
                         DgvGeneral.CurrentRow.Cells["Activo"].Value)
@@ -111,8 +108,10 @@ namespace DevEdu
 
         public void AbrirAgregarUsuario()
         {
-            DgvGeneralAdd principal = new DgvGeneralAdd();
-            principal.ShowDialog();
+            using (DgvGeneralAdd formulario = new DgvGeneralAdd())
+            {
+                formulario.ShowDialog(this);
+            }
         }
 
         public void AccesoDenegado()
@@ -126,7 +125,54 @@ namespace DevEdu
             Close();
         }
 
-        private void DataDridGeneral_Load(
+        private async Task EjecutarOperacionAsync(
+            Func<Task> operacion)
+        {
+            if (_operacionEnCurso || IsDisposed)
+                return;
+
+            _operacionEnCurso = true;
+            CambiarEstadoBotones(false);
+
+            try
+            {
+                await operacion();
+            }
+            catch (OperationCanceledException)
+            {
+                // La operación fue cancelada.
+            }
+            catch (Exception ex)
+            {
+                if (!IsDisposed)
+                {
+                    MostrarError(
+                        "Ocurrió un error inesperado: " + ex.Message);
+                }
+            }
+            finally
+            {
+                _operacionEnCurso = false;
+
+                if (!IsDisposed)
+                    CambiarEstadoBotones(true);
+            }
+        }
+
+        private void CambiarEstadoBotones(bool habilitados)
+        {
+            btnSave.Enabled = habilitados;
+            btnDelete.Enabled = habilitados;
+            btnAsignarAlumnos.Enabled = habilitados;
+            btnAsignarMaestro.Enabled = habilitados;
+            btnAsignarAdmin.Enabled = habilitados;
+            btnQuitarRol.Enabled = habilitados;
+            btnActualizar.Enabled = habilitados;
+            btnAgregar.Enabled = habilitados;
+            DgvGeneral.Enabled = habilitados;
+        }
+
+        private async void DataDridGeneral_Load(
             object sender,
             EventArgs e)
         {
@@ -135,63 +181,77 @@ namespace DevEdu
 
             txtCount.Enabled = false;
 
-            _presenter.Iniciar();
+            await EjecutarOperacionAsync(
+                () => _presenter.IniciarAsync());
         }
 
-        private void btnSave_Click(
+        private async void btnSave_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.GuardarCambios();
+            await EjecutarOperacionAsync(
+                () => _presenter.GuardarCambiosAsync());
         }
 
-        private void btnAsignarAlumnos_Click(
+        private async void btnAsignarAlumnos_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.AsignarAlumno();
+            await EjecutarOperacionAsync(
+                () => _presenter.AsignarAlumnoAsync());
         }
 
-        private void btnAsignarMaestro_Click(
+        private async void btnAsignarMaestro_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.AsignarMaestro();
+            await EjecutarOperacionAsync(
+                () => _presenter.AsignarMaestroAsync());
         }
 
-        private void btnAsignarAdmin_Click(
+        private async void btnAsignarAdmin_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.AsignarAdmin();
+            await EjecutarOperacionAsync(
+                () => _presenter.AsignarAdminAsync());
         }
 
-        private void btnQuitarRol_Click(
+        private async void btnQuitarRol_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.QuitarRol();
+            await EjecutarOperacionAsync(
+                () => _presenter.QuitarRolAsync());
         }
 
-        private void btnAgregar_Click(
+        private async void btnAgregar_Click(
             object sender,
             EventArgs e)
         {
+            if (_operacionEnCurso)
+                return;
+
             _presenter.AgregarUsuario();
+
+            await EjecutarOperacionAsync(
+                () => _presenter.ActualizarVistaAsync());
         }
 
-        private void btnDelete_Click(
+        private async void btnDelete_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.EliminarUsuario();
+            await EjecutarOperacionAsync(
+                () => _presenter.EliminarUsuarioAsync());
         }
 
-        private void btnActualizar_Click(
+        private async void btnActualizar_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.ActualizarVista();
+            await EjecutarOperacionAsync(
+                () => _presenter.ActualizarVistaAsync());
         }
     }
 }

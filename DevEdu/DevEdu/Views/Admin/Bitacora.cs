@@ -67,11 +67,11 @@ namespace DevEdu.Views.Admin
             Close();
         }
 
-        private void Bitacora_Load(
+        private async void Bitacora_Load(
             object sender,
             System.EventArgs e)
         {
-            _presenter.Iniciar();
+            await _presenter.IniciarAsync();
         }
 
         private void DgvBitacora_CellContentClick(

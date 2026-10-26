@@ -102,7 +102,7 @@ namespace DevEdu
             Close();
         }
 
-        private void DatagripMaestros_Load(
+        private async void DatagripMaestros_Load(
             object sender,
             EventArgs e)
         {
@@ -114,29 +114,26 @@ namespace DevEdu
 
             DataGrid.EnableHeadersVisualStyles = false;
 
-            _presenter.Iniciar();
+            await _presenter.IniciarAsync();
         }
 
-        private void btn_Editar_Click(
+        private async void btn_Editar_Click(object sender, EventArgs e)
+        {
+            await _presenter.EditarDatosAsync();
+        }
+
+        private async void btn_eliminar_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.EditarDatos();
+            await _presenter.EliminarDatosAsync();
         }
 
-        private void btn_eliminar_Click(
+        private async void btn_Mostrar_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.EliminarDatos();
-        }
-
-        private void btn_Mostrar_Click(
-            object sender,
-            EventArgs e)
-        {
-            _presenter.CargarDatos();
-            _presenter.CargarCantidad();
+            await _presenter.IniciarAsync();
         }
 
         private void DataGrid_CellClick(

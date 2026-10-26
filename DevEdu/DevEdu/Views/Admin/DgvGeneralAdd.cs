@@ -1,6 +1,7 @@
 ﻿using DevEdu.Core.Interfaces;
 using DevEdu.Core.Presenters;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -8,6 +9,7 @@ namespace DevEdu
     public partial class DgvGeneralAdd : Form, IGeneralAddView
     {
         private readonly GeneralAddPresenter _presenter;
+        private bool _operacionEnCurso;
 
         public DgvGeneralAdd()
         {
@@ -26,7 +28,11 @@ namespace DevEdu
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            MessageBox.Show(
+                mensaje,
+                "DevEdu",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         public void MostrarError(string mensaje)
@@ -60,13 +66,42 @@ namespace DevEdu
             object sender,
             EventArgs e)
         {
+            EnfocarNombre();
         }
 
-        private void btnAgregar_Click(
+        private async void btnAgregar_Click(
             object sender,
             EventArgs e)
         {
-            _presenter.AgregarUsuario();
+            if (_operacionEnCurso || IsDisposed)
+                return;
+
+            _operacionEnCurso = true;
+            btnAgregar.Enabled = false;
+
+            try
+            {
+                await _presenter.AgregarUsuarioAsync();
+            }
+            catch (OperationCanceledException)
+            {
+
+            }
+            catch (Exception ex)
+            {
+                if (!IsDisposed)
+                {
+                    MostrarError(
+                        "Error inesperado al registrar: " + ex.Message);
+                }
+            }
+            finally
+            {
+                _operacionEnCurso = false;
+
+                if (!IsDisposed)
+                    btnAgregar.Enabled = true;
+            }
         }
     }
 }

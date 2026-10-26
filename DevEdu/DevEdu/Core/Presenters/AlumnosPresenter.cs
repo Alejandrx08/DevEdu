@@ -1,11 +1,11 @@
-﻿using DevEdu.Core.DTOs;
-using DevEdu.Core.Interfaces;
+﻿using DevEdu.Core.Interfaces;
 using DevEdu.Core.Services;
 using DevEdu.Models;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DevEdu.Core.Presenters
 {
@@ -16,50 +16,107 @@ namespace DevEdu.Core.Presenters
 
         public AlumnosPresenter(IAlumnosView view)
         {
-            _view = view;
+            _view = view
+                ?? throw new ArgumentNullException(nameof(view));
+
             _service = new AlumnoService();
         }
 
+        public void Iniciar()
+        {
+            CargarDatos();
+            CargarCantidad();
+        }
+
+        public async Task IniciarAsync(
+            CancellationToken cancellationToken = default)
+        {
+            await CargarDatosAsync(cancellationToken);
+            await CargarCantidadAsync(cancellationToken);
+        }
 
         public void CargarDatos()
         {
             try
             {
                 var datos = _service.ObtenerAlumnos();
-
                 _view.MostrarDatos(datos);
             }
             catch (Exception ex)
             {
-                _view.MostrarError("Error: " + ex.Message);
+                _view.MostrarError(
+                    "Error al cargar alumnos: " + ex.Message);
             }
         }
 
+        public async Task CargarDatosAsync(
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var datos = await _service.ObtenerAlumnosAsync(
+                    cancellationToken);
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                _view.MostrarDatos(datos);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarError(
+                    "Error al cargar alumnos: " + ex.Message);
+            }
+        }
 
         public void CargarCantidad()
         {
             try
             {
                 int cantidad = _service.ObtenerCantidad();
-
                 _view.MostrarCantidad(cantidad);
             }
             catch (Exception ex)
             {
-                _view.MostrarError("Error: " + ex.Message);
+                _view.MostrarError(
+                    "Error al contar alumnos: " + ex.Message);
+            }
+        }
+
+        public async Task CargarCantidadAsync(
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                int cantidad = await _service.ObtenerCantidadAsync(
+                    cancellationToken);
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                _view.MostrarCantidad(cantidad);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarError(
+                    "Error al contar alumnos: " + ex.Message);
             }
         }
 
         public void EditarDatos()
         {
-            if (!ValidarID())
+            if (!ValidarID() ||
+                !ValidarDatos() ||
+                !ValidarCorreo())
+            {
                 return;
-
-            if (!ValidarDatos())
-                return;
-
-            if (!ValidarCorreo())
-                return;
+            }
 
             Alumno alumno = ObtenerAlumno();
 
@@ -67,27 +124,87 @@ namespace DevEdu.Core.Presenters
             {
                 if (!_service.CorreoDisponible(alumno))
                 {
-                    _view.MostrarMensaje(
-                        "Ese correo ya está registrado en otro usuario.");
-
-                    _view.EnfocarCorreo();
-
+                    MostrarCorreoDuplicado();
                     return;
                 }
 
                 _service.ActualizarAlumno(alumno);
 
                 _view.MostrarMensaje(
-                    "Dato actualizado correctamente");
+                    "Alumno actualizado correctamente.");
 
                 _view.LimpiarCampos();
 
                 CargarDatos();
+                CargarCantidad();
             }
             catch (Exception ex)
             {
-                _view.MostrarError("Error: " + ex.Message);
+                _view.MostrarError(
+                    "Error al actualizar alumno: " + ex.Message);
             }
+        }
+
+        public async Task EditarDatosAsync(
+            CancellationToken cancellationToken = default)
+        {
+            if (!ValidarID() ||
+                !ValidarDatos() ||
+                !ValidarCorreo())
+            {
+                return;
+            }
+
+            try
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                Alumno alumno = ObtenerAlumno();
+
+                bool correoDisponible =
+                    await _service.CorreoDisponibleAsync(
+                        alumno,
+                        cancellationToken);
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                if (!correoDisponible)
+                {
+                    MostrarCorreoDuplicado();
+                    return;
+                }
+
+                await _service.ActualizarAlumnoAsync(
+                    alumno,
+                    cancellationToken);
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                _view.MostrarMensaje(
+                    "Alumno actualizado correctamente.");
+
+                _view.LimpiarCampos();
+
+                await CargarDatosAsync(cancellationToken);
+                await CargarCantidadAsync(cancellationToken);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarError(
+                    "Error al actualizar alumno: " + ex.Message);
+            }
+        }
+
+        private void MostrarCorreoDuplicado()
+        {
+            _view.MostrarMensaje(
+                "Ese correo ya está registrado en otro usuario.");
+
+            _view.EnfocarCorreo();
         }
 
         public void EliminarDatos()
@@ -96,7 +213,7 @@ namespace DevEdu.Core.Presenters
                 return;
 
             if (!_view.Confirmar(
-                "¿Deseas quitar el rol a este usuario?"))
+                "¿Deseas quitar el rol de alumno a este usuario?"))
             {
                 return;
             }
@@ -108,7 +225,8 @@ namespace DevEdu.Core.Presenters
                 _service.EliminarAlumno(id);
 
                 _view.MostrarMensaje(
-                    "Rol alumno removido (ahora es pendiente).");
+                    "Rol de alumno retirado correctamente. " +
+                    "El usuario ahora está pendiente.");
 
                 _view.LimpiarCampos();
 
@@ -117,7 +235,52 @@ namespace DevEdu.Core.Presenters
             }
             catch (Exception ex)
             {
-                _view.MostrarError("Error: " + ex.Message);
+                _view.MostrarError(
+                    "Error al retirar el rol: " + ex.Message);
+            }
+        }
+
+        public async Task EliminarDatosAsync(
+            CancellationToken cancellationToken = default)
+        {
+            if (!ValidarID())
+                return;
+
+            if (!_view.Confirmar(
+                "¿Deseas quitar el rol de alumno a este usuario?"))
+            {
+                return;
+            }
+
+            try
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                int id = int.Parse(_view.Id);
+
+                await _service.EliminarAlumnoAsync(
+                    id,
+                    cancellationToken);
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                _view.MostrarMensaje(
+                    "Rol de alumno retirado correctamente. " +
+                    "El usuario ahora está pendiente.");
+
+                _view.LimpiarCampos();
+
+                await CargarDatosAsync(cancellationToken);
+                await CargarCantidadAsync(cancellationToken);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarError(
+                    "Error al retirar el rol: " + ex.Message);
             }
         }
 
@@ -125,17 +288,17 @@ namespace DevEdu.Core.Presenters
         {
             if (string.IsNullOrWhiteSpace(_view.Id))
             {
-                _view.MostrarMensaje("El ID es obligatorio");
+                _view.MostrarMensaje("El ID es obligatorio.");
                 _view.EnfocarId();
-
                 return false;
             }
 
-            if (!int.TryParse(_view.Id, out _))
+            if (!int.TryParse(_view.Id, out int id) || id <= 0)
             {
-                _view.MostrarMensaje("El ID debe ser numérico");
-                _view.EnfocarId();
+                _view.MostrarMensaje(
+                    "El ID debe ser un número entero positivo.");
 
+                _view.EnfocarId();
                 return false;
             }
 
@@ -144,13 +307,13 @@ namespace DevEdu.Core.Presenters
 
         private bool ValidarDatos()
         {
-            string nombre = _view.Nombre.Trim();
-            string apellido = _view.Apellido.Trim();
+            string nombre = _view.Nombre?.Trim() ?? string.Empty;
+            string apellido = _view.Apellido?.Trim() ?? string.Empty;
 
             if (string.IsNullOrWhiteSpace(nombre))
             {
                 _view.MostrarMensaje(
-                    "El Campo 'Nombre' no puede estar vacio");
+                    "El campo Nombre no puede estar vacío.");
 
                 return false;
             }
@@ -158,7 +321,7 @@ namespace DevEdu.Core.Presenters
             if (string.IsNullOrWhiteSpace(apellido))
             {
                 _view.MostrarMensaje(
-                    "El campo 'Apellido' no puede estar vacio");
+                    "El campo Apellido no puede estar vacío.");
 
                 return false;
             }
@@ -174,7 +337,7 @@ namespace DevEdu.Core.Presenters
             if (!apellido.All(char.IsLetter))
             {
                 _view.MostrarMensaje(
-                    "El Apellido solo puede contener letras.");
+                    "El apellido solo puede contener letras.");
 
                 return false;
             }
@@ -184,15 +347,12 @@ namespace DevEdu.Core.Presenters
 
         private bool ValidarCorreo()
         {
-            string correo = _view.Correo.Trim();
+            string correo = _view.Correo?.Trim() ?? string.Empty;
 
             if (string.IsNullOrWhiteSpace(correo))
             {
-                _view.MostrarMensaje(
-                    "El correo es obligatorio");
-
+                _view.MostrarMensaje("El correo es obligatorio.");
                 _view.EnfocarCorreo();
-
                 return false;
             }
 
@@ -200,11 +360,8 @@ namespace DevEdu.Core.Presenters
                 correo,
                 @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                _view.MostrarMensaje(
-                    "Correo inválido");
-
+                _view.MostrarMensaje("El correo no es válido.");
                 _view.EnfocarCorreo();
-
                 return false;
             }
 
