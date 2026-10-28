@@ -1,3 +1,4 @@
+
 ![C#](https://img.shields.io/badge/C%23-.NET%208-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
 ![Status](https://img.shields.io/badge/Status-Active-success)
@@ -6,35 +7,31 @@
 
 # DevEdu
 
-**DevEdu** is a Windows Forms desktop application developed in C# that aims to teach software development through an intuitive, interactive, and visual learning environment.
+**DevEdu** is a Windows Forms desktop application developed in C# as a university project. It provides an interactive environment for learning software development through educational modules, exercises, and visual learning tools.
 
-Originally created as a university project, DevEdu has evolved into a modular educational platform that integrates user management, programming practice, learning modules, and database-driven functionality.
+The project uses a modular architecture to separate user interface responsibilities, validation, business logic, and data access.
 
 ---
 
 ## Overview
 
-DevEdu provides a structured environment where students can learn programming concepts through visualization, exercises, interactive modules, and educational tools.
-
-The project focuses on modular architecture, scalability, usability, and the application of real-world software engineering practices.
-
----
+DevEdu brings together user management, authentication, administration, and educational modules in a desktop application. The project emphasizes separation of responsibilities, reusable components, and maintainable code.
 
 ## Features
 
-### Authentication & Users
+### Authentication and User Management
 
-- User registration
-- Login system
-- Role-based access control
-- Session management
+- User registration and login.
+- Session management and role-based access where implemented.
+- Offline user registration when a recognized SQL Server connectivity failure prevents registration.
+- Automatic background synchronization of queued registrations when SQL Server becomes available again.
+- Duplicate-email conflict detection during synchronization.
 
 ### Administration
 
-- Student management
-- Teacher management
-- User administration
-- CRUD operations
+- Student and teacher management.
+- User administration.
+- CRUD operations for supported entities.
 
 ### Educational Modules
 
@@ -43,37 +40,70 @@ The project focuses on modular architecture, scalability, usability, and the app
 - DevTrivia
 - DevVis
 - DevEx
-- Learning content visualization
+- Educational content and visualization tools.
 
 ### Database Integration
 
-- SQL Server integration
-- Database abstraction layer
-- Centralized CRUD operations
-- Service-oriented business logic
-- Secure connection management using configuration files
+- Microsoft SQL Server 2022 for central application data.
+- SQLite for the local queue of pending offline registration operations.
+- ADO.NET and `Microsoft.Data.SqlClient`.
+- Parameterized SQL commands.
+- Reusable data-access components.
+
+---
+
+## Offline Registration and Synchronization
+
+DevEdu supports queuing registration operations locally when a recognized SQL Server connectivity failure prevents registration.
+
+### How It Works
+
+1. The registration service attempts to register the user in SQL Server.
+2. If a recognized SQL connectivity failure occurs, the registration operation is saved in a local SQLite database.
+3. The queued payload is protected using Windows Data Protection API (DPAPI) for the current Windows user.
+4. A background worker checks for pending operations every 30 seconds.
+5. When SQL Server becomes available, the synchronization service processes pending registrations.
+6. Successful operations are marked as completed. Duplicate email addresses and operation-type mismatches are recorded as conflicts.
+7. Synchronization errors are written to a local log without including exception messages or registration payloads.
+
+### Local Runtime Files
+
+The module stores local data under `%LOCALAPPDATA%\DevEdu`.
+
+| Purpose | Location |
+|---|---|
+| SQLite operation queue | `%LOCALAPPDATA%\DevEdu\Offline\devedu-sync.db` |
+| Synchronization log | `%LOCALAPPDATA%\DevEdu\Logs\offline-sync.log` |
+
+The SQL Server database includes the `dbo.operaciones_sincronizadas` table to track processed operation IDs and support idempotent synchronization.
+
+**Important:** SQLite is used as a local queue for offline registration. It does not replace SQL Server as the central database. The local SQLite database and log are runtime files and should not be committed to the repository.
 
 ---
 
 ## Architecture
 
-The project follows a modular layered architecture based on the **Separation of Concerns (SoC)** principle.
+DevEdu follows a modular architecture based on **Separation of Concerns (SoC)**. The **Model–View–Presenter (MVP)** pattern is used where appropriate to separate user interface events from application logic.
 
-The architecture separates responsibilities between the user interface, validation logic, business services, models, and database access.
+The main responsibility flow is:
 
-### Architectural Principles
+```text
+View → Presenter → Services → Data Access → SQL Server
+                         ↘ SQLite offline queue
+```
 
-- Separation of Concerns
-- Database Abstraction
-- Business Logic Separation
-- Validation Layer
-- Modular Design
-- Reusable Components
-- Session-Based State Management
+### Main Layers
 
-### Data Access Layer
+- **Views:** Windows Forms screens and user interaction.
+- **Presenters:** coordinate view events and application actions where MVP is used.
+- **Services:** coordinate operations such as registration, authentication, and synchronization.
+- **Validation:** contains input-validation rules independently of database access.
+- **Data Access:** handles database communication and common SQL operations.
+- **Offline Queue:** stores pending registration operations locally until synchronization is possible.
 
-DevEdu implements a dedicated database access layer composed of:
+### Data Access
+
+The data-access layer includes reusable components for common database operations, such as:
 
 - `DatabaseConnection`
 - `SELECT`
@@ -81,89 +111,119 @@ DevEdu implements a dedicated database access layer composed of:
 - `UPDATE`
 - `DELETE`
 
-This layer centralizes database connection management and common data operations, promoting code reuse and reducing duplication throughout the application.
+The offline registration repository applies queued operations to SQL Server and records their processing status.
 
-### Business Logic Layer
+### Offline Synchronization Components
 
-DevEdu separates business rules and validation from the user interface through dedicated services and validators.
-
-#### Validators
-
-Located in `Core/Validations/`, validators contain pure validation rules such as:
-
-- Empty field validation
-- Email format validation
-- Password length validation
-- Input validation
-
-Validators do not directly access the database.
-
-#### Services
-
-Located in `Core/Services/`, services orchestrate business operations and communicate with the data access layer when necessary.
-
-Examples include:
-
-- `UsuarioService`
-- `AuthService`
-
-These services handle operations related to user management, authentication, and business rules.
-
-This architecture ensures that the Windows Forms layer remains focused on user interface events while validation, business logic, and persistence operations are delegated to their corresponding layers.
+- `OfflineOperationQueue`: manages pending operations in SQLite.
+- `OfflineRegistrationRepository`: applies queued registrations to SQL Server.
+- `OfflineSyncService`: coordinates the synchronization process.
+- `OfflineSyncWorker`: runs periodic synchronization.
+- `OfflineSyncLogger`: records synchronization errors.
 
 ---
 
-## Technologies Used
+## Technologies
 
-- C# (.NET 8)
+- C#
+- .NET 8
 - Windows Forms
 - Microsoft SQL Server 2022
-- Microsoft.Data.SqlClient
+- SQLite
 - ADO.NET
-- Git
-- GitHub
+- `Microsoft.Data.SqlClient`
+- BCrypt for password hashing
+- Windows DPAPI for protecting locally queued payloads
 - Visual Studio 2022
+- Git and GitHub
 
 ---
 
 ## Project Structure
 
+The following is a simplified overview of the project structure. Additional files and folders may exist in the repository.
+
 ```text
 DevEdu/
-│
 ├── Core/
-│   │
 │   ├── Models/
-│   │   ├── Persona.cs
-│   │   └── UsuarioAutenticado.cs
-│   │
+│   ├── Presenters/
 │   ├── Services/
-│   │   ├── DatabaseConnection.cs
-│   │   ├── AuthService.cs
-│   │   ├── UsuarioService.cs
-│   │   │
-│   │   └── query/
-│   │       ├── SELECT.cs
-│   │       ├── INSERT.cs
-│   │       ├── UPDATE.cs
-│   │       └── DELETE.cs
-│   │
-│   └── Validations/
-│       ├── LoginValidator.cs
-│       └── UsuarioValidator.cs
-│
+│   │   ├── query/
+│   │   └── Offline/
+│   │       ├── OfflineOperationQueue.cs
+│   │       ├── OfflineRegistrationRepository.cs
+│   │       ├── OfflineSyncService.cs
+│   │       ├── OfflineSyncWorker.cs
+│   │       └── OfflineSyncLogger.cs
+│   └── Validation/
+├── Resources/
+│   ├── DB_SCHEMA/
+│   │   └── devedu_database.sql
+│   ├── ico/
+│   │   └── DevEdu Blue.ico
 ├── UI/
-│   │
 │   └── Forms/
-│       ├── Auth/
-│       ├── Admin/
-│       ├── DevBot/
-│       ├── DevHub/
-│       ├── DevEx/
-│       ├── DevTrivia/
-│       ├── DevVis/
-│       └── Main/
-│
-├── appsettings.json
+├── Properties/
+│   └── Resources.resx
 ├── Program.cs
 └── DevEdu.csproj
+```
+
+---
+
+## Database Setup
+
+1. Ensure that Microsoft SQL Server 2022 is installed or accessible.
+2. Open `Resources/DB_SCHEMA/devedu_database.sql` in SQL Server Management Studio or another compatible SQL client.
+3. Execute the script against the intended development database.
+4. Configure the application's connection settings for your local SQL Server instance.
+5. Restore NuGet packages and build the solution in Visual Studio 2022.
+6. Run the application on Windows.
+
+The database script includes `dbo.operaciones_sincronizadas`, which is required by the offline registration synchronization module.
+
+**Security note:** do not commit real database credentials, passwords, API keys, or other secrets.
+
+---
+
+## Manual Verification of Offline Synchronization
+
+The following scenarios have been manually verified during development:
+
+- The application starts while SQL Server is unavailable.
+- Registration operations can be queued locally in SQLite.
+- Pending registrations synchronize after SQL Server becomes available again.
+- The background worker periodically checks for pending operations.
+- A registration using an email that already exists is marked as a conflict.
+- Passwords are stored as BCrypt hashes rather than plain text.
+- Synchronization errors are recorded in `offline-sync.log`.
+
+These are manual development checks and do not imply that a formal automated test suite exists.
+
+---
+
+## Security and Development Notes
+
+- Keep database credentials and secrets out of source control.
+- Do not commit local SQLite databases, log files, or other user-specific runtime data.
+- Use parameterized SQL commands instead of concatenating user input into queries.
+- DPAPI protection is tied to the Windows user context; queued payloads are not intended to be transferred between Windows user profiles.
+- Synchronization conflicts are recorded for review. A dedicated conflict-resolution interface can be considered if required by the project scope.
+
+---
+
+## Getting Started
+
+1. Clone the repository.
+2. Open the solution in Visual Studio 2022.
+3. Configure the SQL Server connection settings for your environment.
+4. Execute `Resources/DB_SCHEMA/devedu_database.sql`.
+5. Restore NuGet packages.
+6. Build and run DevEdu on Windows.
+
+---
+
+## License
+
+This repository displays an MIT License badge. Ensure that a `LICENSE` file containing the corresponding terms exists in the repository before distributing the project under that license.
