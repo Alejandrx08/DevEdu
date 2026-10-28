@@ -1,5 +1,7 @@
-﻿using DevEdu.Core.Services.Query;
+﻿using DevEdu.Core.Services.Offline;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -12,22 +14,34 @@ namespace DevEdu
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using (SELECT testConn = new SELECT())
+            using var cancellationTokenSource =
+                new CancellationTokenSource();
+
+            var worker = new OfflineSyncWorker();
+
+            Task syncTask = Task.CompletedTask;
+
+            try
             {
-                if (!testConn.TestConnection())
+                syncTask = Task.Run(
+                    () => worker.RunAsync(
+                        cancellationTokenSource.Token));
+
+                Application.Run(new Welcome_Splash());
+            }
+            finally
+            {
+                cancellationTokenSource.Cancel();
+
+                try
                 {
-                    MessageBox.Show(
-                        "No se pudo conectar a SQL Server.\nVerifica la cadena de conexión en appsettings.json.",
-                        "Error de conexión",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return;
+                    syncTask.GetAwaiter().GetResult();
+                }
+                catch (OperationCanceledException)
+                {
+                    // Cierre normal del trabajador.
                 }
             }
-
-            Application.Run(new Welcome_Splash());
         }
     }
 }
-
-// This proyect was created by an student for a university project (learning purposes only).

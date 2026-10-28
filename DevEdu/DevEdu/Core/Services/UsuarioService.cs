@@ -7,11 +7,16 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
+using DevEdu.Core.Services.Offline;
+using System.Text.Json;
 
 namespace DevEdu.Core.Services
 {
     public class UsuarioService
     {
+        private readonly OfflineOperationQueue _offlineQueue =
+    new OfflineOperationQueue();
+
         public void Registrar(
             string nombre,
             string apellido,
@@ -599,6 +604,7 @@ namespace DevEdu.Core.Services
             }
         }
 
+
         public async Task RegistrarAsync(
             string nombre,
             string apellido,
@@ -608,45 +614,115 @@ namespace DevEdu.Core.Services
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            bool correoExiste = await CorreoExisteAsync(
-                correo,
-                cancellationToken);
-
-            cancellationToken.ThrowIfCancellationRequested();
-
-            if (correoExiste)
-            {
-                throw new InvalidOperationException(
-                    "Ese correo ya está registrado.");
-            }
-
             string hash = BCrypt.Net.BCrypt.HashPassword(pass);
 
-            cancellationToken.ThrowIfCancellationRequested();
-
-            using (INSERT insert = new INSERT())
+            try
             {
-                int filas = await insert.ExecuteInsertAsync(
-                    @"INSERT INTO usuarios
-              (nombre, apellido, correo, contrasena)
-              VALUES
-              (@nombre, @apellido, @correo, @contrasena);",
-                    new[]
-                    {
-                new SqlParameter("@nombre", nombre),
-                new SqlParameter("@apellido", apellido),
-                new SqlParameter("@correo", correo),
-                new SqlParameter("@contrasena", hash)
-                    },
+                bool correoExiste = await CorreoExisteAsync(
+                    correo,
                     cancellationToken);
 
-                if (filas <= 0)
+                cancellationToken.ThrowIfCancellationRequested();
+
+                if (correoExiste)
                 {
                     throw new InvalidOperationException(
-                        "No se pudo registrar el usuario.");
+                        "Ese correo ya está registrado.");
+                }
+
+                using (INSERT insert = new INSERT())
+                {
+                    int filas = await insert.ExecuteInsertAsync(
+                        @"INSERT INTO usuarios
+                  (nombre, apellido, correo, contrasena)
+                  VALUES
+                  (@nombre, @apellido, @correo, @contrasena);",
+                        new[]
+                        {
+                    new SqlParameter("@nombre", nombre),
+                    new SqlParameter("@apellido", apellido),
+                    new SqlParameter("@correo", correo),
+                    new SqlParameter("@contrasena", hash)
+                        },
+                        cancellationToken);
+
+                    if (filas <= 0)
+                    {
+                        throw new InvalidOperationException(
+                            "No se pudo registrar el usuario.");
+                    }
                 }
             }
+            catch (Exception ex) when (EsFalloConexionSql(ex))
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                try
+                {
+                    await _offlineQueue.InitializeAsync(cancellationToken);
+
+                    string payload = JsonSerializer.Serialize(new
+                    {
+                        nombre,
+                        apellido,
+                        correo,
+                        contrasenaHash = hash
+                    });
+
+                    await _offlineQueue.EnqueueAsync(
+                        "UserRegistration",
+                        payload,
+                        cancellationToken);
+                }
+                catch (OperationCanceledException)
+                {
+                    throw;
+                }
+                catch (Exception)
+                {
+                    // No exponer detalles de almacenamiento al usuario.
+                    throw new InvalidOperationException(
+                        "No se pudo conectar con el servidor. " +
+                        "Inténtalo nuevamente más tarde.");
+                }
+
+                throw new InvalidOperationException(
+                    "No se pudo conectar con el servidor. " +
+                    "Inténtalo nuevamente más tarde.");
+            }
         }
+
+        private static bool EsFalloConexionSql(Exception exception)
+        {
+            while (exception != null)
+            {
+                if (exception is SqlException sqlException)
+                {
+                    foreach (SqlError error in sqlException.Errors)
+                    {
+                        switch (error.Number)
+                        {
+                            case -2:      // Tiempo de espera agotado
+                            case 2:       // Servidor o instancia no encontrada
+                            case 17:      // Servidor SQL no disponible
+                            case 40:      // No se pudo abrir conexión
+                            case 53:      // Ruta de red no encontrada
+                            case 121:     // Tiempo de espera de dispositivo/red
+                            case 10054:   // Conexión restablecida
+                            case 10060:   // Tiempo de conexión agotado
+                            case 10061:   // Conexión rechazada
+                            case 11001:   // No se pudo resolver el host
+                                return true;
+                        }
+                    }
+                }
+
+                exception = exception.InnerException;
+            }
+
+            return false;
+        }
+
 
         private async Task<bool> CorreoExisteAsync(
             string correo,
