@@ -150,12 +150,12 @@ DevEdu/
 │   ├── Presenters/
 │   ├── Services/
 │   │   ├── query/
-│   │   └── Offline/
-│   │       ├── OfflineOperationQueue.cs
-│   │       ├── OfflineRegistrationRepository.cs
-│   │       ├── OfflineSyncService.cs
-│   │       ├── OfflineSyncWorker.cs
-│   │       └── OfflineSyncLogger.cs
+│   │   └── SQLite/
+│   │       ├── SQLiteOperationQueue.cs
+│   │       ├── SQLiteRegistrationRepository.cs
+│   │       ├── SQLiteSyncService.cs
+│   │       ├── SQLiteSyncWorker.cs
+│   │       └── SQLiteSyncLogger.cs
 │   └── Validation/
 ├── Resources/
 │   ├── DB_SCHEMA/
