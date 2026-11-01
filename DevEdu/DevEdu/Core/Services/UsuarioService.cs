@@ -7,15 +7,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using DevEdu.Core.Services.Offline;
+using DevEdu.Core.Services.SQLite;
 using System.Text.Json;
 
 namespace DevEdu.Core.Services
 {
     public class UsuarioService
     {
-        private readonly OfflineOperationQueue _offlineQueue =
-    new OfflineOperationQueue();
+        private readonly SQLiteOperationQueue _offlineQueue =
+    new SQLiteOperationQueue();
 
         public void Registrar(
             string nombre,

@@ -1,26 +1,27 @@
-﻿using System;
+﻿using DevEdu.Core.Services.Offline;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DevEdu.Core.Services.Offline
+namespace DevEdu.Core.Services.SQLite
 {
-    public sealed class OfflineSyncWorker
+    public sealed class SQLiteSyncWorker
     {
-        private readonly OfflineSyncService _syncService;
-        private readonly OfflineSyncLogger _logger;
+        private readonly SQLiteSyncService _syncService;
+        private readonly SQLiteSyncLogger _logger;
         private readonly TimeSpan _interval;
 
-        public OfflineSyncWorker()
+        public SQLiteSyncWorker()
             : this(
-                new OfflineSyncService(),
-                new OfflineSyncLogger(),
+                new SQLiteSyncService(),
+                new SQLiteSyncLogger(),
                 TimeSpan.FromSeconds(30))
         {
         }
 
-        public OfflineSyncWorker(
-            OfflineSyncService syncService,
-            OfflineSyncLogger logger,
+        public SQLiteSyncWorker(
+            SQLiteSyncService syncService,
+            SQLiteSyncLogger logger,
             TimeSpan interval)
         {
             _syncService = syncService
@@ -91,7 +92,7 @@ namespace DevEdu.Core.Services.Offline
             catch (OperationCanceledException)
                 when (cancellationToken.IsCancellationRequested)
             {
-                // La cancelación del cierre es normal.
+                // La cancelación durante el cierre es normal.
             }
             catch (Exception)
             {

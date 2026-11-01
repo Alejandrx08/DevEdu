@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DevEdu.Core.Services.Offline
 {
-    public sealed class OfflineSyncLogger
+    public sealed class SQLiteSyncLogger
     {
         private static readonly SemaphoreSlim FileLock = new(1, 1);
 
         private readonly string _logPath;
 
-        public OfflineSyncLogger()
+        public SQLiteSyncLogger()
         {
             string directory = Path.Combine(
                 Environment.GetFolderPath(

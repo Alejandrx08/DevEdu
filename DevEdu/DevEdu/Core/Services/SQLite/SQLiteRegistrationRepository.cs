@@ -15,7 +15,7 @@ namespace DevEdu.Core.Services.Offline
         OperationTypeMismatch
     }
 
-    public sealed class OfflineRegistrationRepository
+    public sealed class SQLiteRegistrationRepository
         : DatabaseConnection
     {
         public async Task<RegistrationSyncResult>

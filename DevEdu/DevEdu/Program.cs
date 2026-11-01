@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Services.Offline;
+﻿using DevEdu.Core.Services.SQLite;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +17,7 @@ namespace DevEdu
             using var cancellationTokenSource =
                 new CancellationTokenSource();
 
-            var worker = new OfflineSyncWorker();
+            var worker = new SQLiteSyncWorker();
 
             Task syncTask = Task.CompletedTask;
 
