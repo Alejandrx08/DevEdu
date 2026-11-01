@@ -143,7 +143,7 @@ namespace DevEdu.UI.Forms.DevTrivia
             this.lblKeyPoint.Location = new System.Drawing.Point(72, 628);
             this.lblKeyPoint.Size = new System.Drawing.Size(704, 52);
             this.lblKeyPoint.AutoSize = false;
-            this.lblKeyPoint.Text = "CLAVE  ·  Comprueba si una referencia puede ser null antes de usar el objeto.";
+            this.lblKeyPoint.Text = "CLAVE  ·  Leer una propiedad de una referencia null lanza NullReferenceException.";
             this.lblKeyPoint.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.lblKeyPoint.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
             this.lblKeyPoint.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
@@ -154,7 +154,7 @@ namespace DevEdu.UI.Forms.DevTrivia
             this.lblExampleTitle.Location = new System.Drawing.Point(570, 210);
             this.lblExampleTitle.Size = new System.Drawing.Size(458, 48);
             this.lblExampleTitle.AutoSize = false;
-            this.lblExampleTitle.Text = "COMPROBACIÓN DE null";
+            this.lblExampleTitle.Text = "ACCESO A UNA REFERENCIA null";
             this.lblExampleTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblExampleTitle.ForeColor = System.Drawing.Color.White;
             this.lblExampleTitle.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
@@ -165,7 +165,7 @@ namespace DevEdu.UI.Forms.DevTrivia
             this.lblExample.Location = new System.Drawing.Point(570, 258);
             this.lblExample.Size = new System.Drawing.Size(458, 342);
             this.lblExample.AutoSize = false;
-            this.lblExample.Text = "string nombre = null;\r\n\r\nif (nombre is null)\r\n{\r\n    // no hay cadena\r\n}";
+            this.lblExample.Text = "string nombre = null;\r\nint longitud = nombre.Length; // NullReferenceException";
             this.lblExample.Font = new System.Drawing.Font("Consolas", 13F, System.Drawing.FontStyle.Regular);
             this.lblExample.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
             this.lblExample.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);

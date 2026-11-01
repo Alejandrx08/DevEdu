@@ -29,267 +29,293 @@ namespace DevEdu
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevTriviaMedio_1));
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DevEdu_txt = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Btn_GO = new System.Windows.Forms.Button();
-            this.Btn_Phyton = new System.Windows.Forms.Button();
-            this.Btn_Cplpl = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.Btn_CShp = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.SuspendLayout();
+            button2 = new System.Windows.Forms.Button();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            DevEdu_txt = new System.Windows.Forms.Label();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            Btn_GO = new System.Windows.Forms.Button();
+            Btn_Phyton = new System.Windows.Forms.Button();
+            Btn_Cplpl = new System.Windows.Forms.Button();
+            pictureBox6 = new System.Windows.Forms.PictureBox();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
+            Btn_CShp = new System.Windows.Forms.Button();
+            lblAnswerHint = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            SuspendLayout();
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Return";
-            this.button2.UseVisualStyleBackColor = false;
+            button2.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
+            button2.ForeColor = System.Drawing.Color.White;
+            button2.Location = new System.Drawing.Point(944, 20);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(120, 42);
+            button2.TabIndex = 10;
+            button2.Text = "← Niveles";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(807, 67);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            pictureBox1.Location = new System.Drawing.Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(1100, 86);
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
             // 
             // DevEdu_txt
             // 
-            this.DevEdu_txt.AutoSize = true;
-            this.DevEdu_txt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.DevEdu_txt.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DevEdu_txt.ForeColor = System.Drawing.Color.White;
-            this.DevEdu_txt.Location = new System.Drawing.Point(349, 9);
-            this.DevEdu_txt.Name = "DevEdu_txt";
-            this.DevEdu_txt.Size = new System.Drawing.Size(117, 40);
-            this.DevEdu_txt.TabIndex = 12;
-            this.DevEdu_txt.Text = "DevEdu";
+            DevEdu_txt.AutoSize = true;
+            DevEdu_txt.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            DevEdu_txt.Font = new System.Drawing.Font("Segoe UI Semibold", 23F, System.Drawing.FontStyle.Bold);
+            DevEdu_txt.ForeColor = System.Drawing.Color.White;
+            DevEdu_txt.Location = new System.Drawing.Point(34, 17);
+            DevEdu_txt.Name = "DevEdu_txt";
+            DevEdu_txt.Size = new System.Drawing.Size(145, 42);
+            DevEdu_txt.TabIndex = 12;
+            DevEdu_txt.Text = "DevTrivia";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(33, 75);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(735, 355);
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.BackColor = System.Drawing.Color.White;
+            pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox2.Location = new System.Drawing.Point(36, 108);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(1028, 612);
+            pictureBox2.TabIndex = 27;
+            pictureBox2.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox4.Location = new System.Drawing.Point(33, 82);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(735, 355);
-            this.pictureBox4.TabIndex = 29;
-            this.pictureBox4.TabStop = false;
+            pictureBox4.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            pictureBox4.Location = new System.Drawing.Point(-400, -400);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(1, 1);
+            pictureBox4.TabIndex = 29;
+            pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Navy;
-            this.pictureBox3.Location = new System.Drawing.Point(62, 172);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(5, 76);
-            this.pictureBox3.TabIndex = 31;
-            this.pictureBox3.TabStop = false;
+            pictureBox3.BackColor = System.Drawing.Color.Navy;
+            pictureBox3.Location = new System.Drawing.Point(-400, -400);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(1, 1);
+            pictureBox3.TabIndex = 31;
+            pictureBox3.TabStop = false;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(337, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 40);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "DevTrivia";
+            label2.BackColor = System.Drawing.Color.White;
+            label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            label2.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            label2.Location = new System.Drawing.Point(72, 135);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(956, 30);
+            label2.TabIndex = 32;
+            label2.Text = "NIVEL MEDIO  ·  RETO DE PROGRAMACIÓN";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(64, 172);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(686, 76);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "¿Cuál se usa comúnmente en desarrollo de videojuegos con Unreal Engine?";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.White;
+            label1.Location = new System.Drawing.Point(72, 184);
+            label1.Name = "label1";
+            label1.Padding = new System.Windows.Forms.Padding(24);
+            label1.Size = new System.Drawing.Size(956, 142);
+            label1.TabIndex = 33;
+            label1.Text = "¿Que lenguaje de programacion se usa comúnmente en desarrollo de videojuegos con Unreal Engine?";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Click += label1_Click_1;
             // 
             // Btn_GO
             // 
-            this.Btn_GO.BackColor = System.Drawing.Color.White;
-            this.Btn_GO.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_GO.ForeColor = System.Drawing.Color.Navy;
-            this.Btn_GO.Location = new System.Drawing.Point(118, 267);
-            this.Btn_GO.Name = "Btn_GO";
-            this.Btn_GO.Size = new System.Drawing.Size(162, 60);
-            this.Btn_GO.TabIndex = 34;
-            this.Btn_GO.Text = "GO";
-            this.Btn_GO.UseVisualStyleBackColor = false;
-            this.Btn_GO.Click += new System.EventHandler(this.Btn_GO_Click);
+            Btn_GO.BackColor = System.Drawing.Color.White;
+            Btn_GO.Cursor = System.Windows.Forms.Cursors.Hand;
+            Btn_GO.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_GO.FlatAppearance.BorderSize = 2;
+            Btn_GO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            Btn_GO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_GO.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            Btn_GO.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_GO.Location = new System.Drawing.Point(72, 360);
+            Btn_GO.Name = "Btn_GO";
+            Btn_GO.Padding = new System.Windows.Forms.Padding(24, 0, 16, 0);
+            Btn_GO.Size = new System.Drawing.Size(458, 96);
+            Btn_GO.TabIndex = 34;
+            Btn_GO.Text = "A  ·  Go";
+            Btn_GO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Btn_GO.UseVisualStyleBackColor = false;
+            Btn_GO.Click += Btn_GO_Click;
             // 
             // Btn_Phyton
             // 
-            this.Btn_Phyton.BackColor = System.Drawing.Color.White;
-            this.Btn_Phyton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Phyton.ForeColor = System.Drawing.Color.Navy;
-            this.Btn_Phyton.Location = new System.Drawing.Point(522, 267);
-            this.Btn_Phyton.Name = "Btn_Phyton";
-            this.Btn_Phyton.Size = new System.Drawing.Size(162, 60);
-            this.Btn_Phyton.TabIndex = 36;
-            this.Btn_Phyton.Text = "PHYTON";
-            this.Btn_Phyton.UseVisualStyleBackColor = false;
-            this.Btn_Phyton.Click += new System.EventHandler(this.Btn_Phyton_Click);
+            Btn_Phyton.BackColor = System.Drawing.Color.White;
+            Btn_Phyton.Cursor = System.Windows.Forms.Cursors.Hand;
+            Btn_Phyton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Phyton.FlatAppearance.BorderSize = 2;
+            Btn_Phyton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            Btn_Phyton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_Phyton.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            Btn_Phyton.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Phyton.Location = new System.Drawing.Point(570, 360);
+            Btn_Phyton.Name = "Btn_Phyton";
+            Btn_Phyton.Padding = new System.Windows.Forms.Padding(24, 0, 16, 0);
+            Btn_Phyton.Size = new System.Drawing.Size(458, 96);
+            Btn_Phyton.TabIndex = 36;
+            Btn_Phyton.Text = "B  ·  Python";
+            Btn_Phyton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Btn_Phyton.UseVisualStyleBackColor = false;
+            Btn_Phyton.Click += Btn_Phyton_Click;
             // 
             // Btn_Cplpl
             // 
-            this.Btn_Cplpl.BackColor = System.Drawing.Color.White;
-            this.Btn_Cplpl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Cplpl.ForeColor = System.Drawing.Color.Navy;
-            this.Btn_Cplpl.Location = new System.Drawing.Point(118, 343);
-            this.Btn_Cplpl.Name = "Btn_Cplpl";
-            this.Btn_Cplpl.Size = new System.Drawing.Size(162, 60);
-            this.Btn_Cplpl.TabIndex = 38;
-            this.Btn_Cplpl.Text = "C++";
-            this.Btn_Cplpl.UseVisualStyleBackColor = false;
-            this.Btn_Cplpl.Click += new System.EventHandler(this.Btn_Cplpl_Click);
+            Btn_Cplpl.BackColor = System.Drawing.Color.White;
+            Btn_Cplpl.Cursor = System.Windows.Forms.Cursors.Hand;
+            Btn_Cplpl.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Cplpl.FlatAppearance.BorderSize = 2;
+            Btn_Cplpl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            Btn_Cplpl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_Cplpl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            Btn_Cplpl.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Cplpl.Location = new System.Drawing.Point(72, 470);
+            Btn_Cplpl.Name = "Btn_Cplpl";
+            Btn_Cplpl.Padding = new System.Windows.Forms.Padding(24, 0, 16, 0);
+            Btn_Cplpl.Size = new System.Drawing.Size(458, 96);
+            Btn_Cplpl.TabIndex = 38;
+            Btn_Cplpl.Text = "C  ·  C++";
+            Btn_Cplpl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Btn_Cplpl.UseVisualStyleBackColor = false;
+            Btn_Cplpl.Click += Btn_Cplpl_Click;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Black;
-            this.pictureBox6.Location = new System.Drawing.Point(116, 341);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(166, 64);
-            this.pictureBox6.TabIndex = 39;
-            this.pictureBox6.TabStop = false;
+            pictureBox6.BackColor = System.Drawing.Color.Black;
+            pictureBox6.Location = new System.Drawing.Point(-400, -400);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new System.Drawing.Size(1, 1);
+            pictureBox6.TabIndex = 39;
+            pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Black;
-            this.pictureBox5.Location = new System.Drawing.Point(520, 341);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(166, 64);
-            this.pictureBox5.TabIndex = 40;
-            this.pictureBox5.TabStop = false;
+            pictureBox5.BackColor = System.Drawing.Color.Black;
+            pictureBox5.Location = new System.Drawing.Point(-400, -400);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(1, 1);
+            pictureBox5.TabIndex = 40;
+            pictureBox5.TabStop = false;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Black;
-            this.pictureBox7.Location = new System.Drawing.Point(520, 265);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(166, 64);
-            this.pictureBox7.TabIndex = 41;
-            this.pictureBox7.TabStop = false;
+            pictureBox7.BackColor = System.Drawing.Color.Black;
+            pictureBox7.Location = new System.Drawing.Point(-400, -400);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(1, 1);
+            pictureBox7.TabIndex = 41;
+            pictureBox7.TabStop = false;
             // 
             // pictureBox8
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Black;
-            this.pictureBox8.Location = new System.Drawing.Point(116, 265);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(166, 64);
-            this.pictureBox8.TabIndex = 42;
-            this.pictureBox8.TabStop = false;
+            pictureBox8.BackColor = System.Drawing.Color.Black;
+            pictureBox8.Location = new System.Drawing.Point(-400, -400);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(1, 1);
+            pictureBox8.TabIndex = 42;
+            pictureBox8.TabStop = false;
             // 
             // Btn_CShp
             // 
-            this.Btn_CShp.BackColor = System.Drawing.Color.White;
-            this.Btn_CShp.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_CShp.ForeColor = System.Drawing.Color.Navy;
-            this.Btn_CShp.Location = new System.Drawing.Point(522, 343);
-            this.Btn_CShp.Name = "Btn_CShp";
-            this.Btn_CShp.Size = new System.Drawing.Size(162, 60);
-            this.Btn_CShp.TabIndex = 43;
-            this.Btn_CShp.Text = "C#";
-            this.Btn_CShp.UseVisualStyleBackColor = false;
-            this.Btn_CShp.Click += new System.EventHandler(this.Btn_CShp_Click);
+            Btn_CShp.BackColor = System.Drawing.Color.White;
+            Btn_CShp.Cursor = System.Windows.Forms.Cursors.Hand;
+            Btn_CShp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_CShp.FlatAppearance.BorderSize = 2;
+            Btn_CShp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            Btn_CShp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_CShp.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            Btn_CShp.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_CShp.Location = new System.Drawing.Point(570, 470);
+            Btn_CShp.Name = "Btn_CShp";
+            Btn_CShp.Padding = new System.Windows.Forms.Padding(24, 0, 16, 0);
+            Btn_CShp.Size = new System.Drawing.Size(458, 96);
+            Btn_CShp.TabIndex = 43;
+            Btn_CShp.Text = "D  ·  C#";
+            Btn_CShp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Btn_CShp.UseVisualStyleBackColor = false;
+            Btn_CShp.Click += Btn_CShp_Click;
             // 
-            // DevTriviaMedio
+            // lblAnswerHint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Btn_CShp);
-            this.Controls.Add(this.Btn_GO);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.Btn_Phyton);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.Btn_Cplpl);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.DevEdu_txt);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox4);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DevTriviaMedio";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DevEdu";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.ClientSize = new System.Drawing.Size(1100,760);
-            this.MinimumSize = new System.Drawing.Size(0, 0);
-            this.MaximumSize = new System.Drawing.Size(0, 0);
-            this.BackColor = System.Drawing.Color.FromArgb(245,247,251);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            this.Text = "DevTrivia | NIVEL MEDIO  ·  RETO DE PROGRAMACIÓN";
-            this.pictureBox1.Location = new System.Drawing.Point(0,0); this.pictureBox1.Size = new System.Drawing.Size(1100,86); this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0,31,84);
-            this.pictureBox2.Location = new System.Drawing.Point(36,108); this.pictureBox2.Size = new System.Drawing.Size(1028,612); this.pictureBox2.BackColor = System.Drawing.Color.White; this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(-400,-400); this.pictureBox3.Size = new System.Drawing.Size(1,1);
-            this.pictureBox4.Location = new System.Drawing.Point(-400,-400); this.pictureBox4.Size = new System.Drawing.Size(1,1);
-            this.pictureBox5.Location = new System.Drawing.Point(-400,-400); this.pictureBox5.Size = new System.Drawing.Size(1,1);
-            this.pictureBox6.Location = new System.Drawing.Point(-400,-400); this.pictureBox6.Size = new System.Drawing.Size(1,1);
-            this.pictureBox7.Location = new System.Drawing.Point(-400,-400); this.pictureBox7.Size = new System.Drawing.Size(1,1);
-            this.pictureBox8.Location = new System.Drawing.Point(-400,-400); this.pictureBox8.Size = new System.Drawing.Size(1,1);
-            this.DevEdu_txt.Text = "DevTrivia"; this.DevEdu_txt.Location = new System.Drawing.Point(34,17); this.DevEdu_txt.Size = new System.Drawing.Size(280,48); this.DevEdu_txt.Font = new System.Drawing.Font("Segoe UI Semibold",23F,System.Drawing.FontStyle.Bold); this.DevEdu_txt.ForeColor = System.Drawing.Color.White; this.DevEdu_txt.BackColor = System.Drawing.Color.FromArgb(0,31,84);
-            this.label2.Text = "NIVEL MEDIO  ·  RETO DE PROGRAMACIÓN"; this.label2.Location = new System.Drawing.Point(72,135); this.label2.Size = new System.Drawing.Size(956,30); this.label2.AutoSize = false; this.label2.Font = new System.Drawing.Font("Segoe UI Semibold",10F,System.Drawing.FontStyle.Bold); this.label2.ForeColor = System.Drawing.Color.FromArgb(71,85,105); this.label2.BackColor = System.Drawing.Color.White; this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(72,184); this.label1.Size = new System.Drawing.Size(956,142); this.label1.AutoSize = false; this.label1.Font = new System.Drawing.Font("Segoe UI Semibold",20F,System.Drawing.FontStyle.Bold); this.label1.ForeColor = System.Drawing.Color.White; this.label1.BackColor = System.Drawing.Color.FromArgb(0,31,84); this.label1.Padding = new System.Windows.Forms.Padding(24); this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_GO.Text = "A  ·  Go"; this.Btn_GO.Location = new System.Drawing.Point(72,360); this.Btn_GO.Size = new System.Drawing.Size(458,96); this.Btn_GO.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_GO.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_GO.BackColor = System.Drawing.Color.White; this.Btn_GO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_GO.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_GO.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_GO.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_GO.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_GO.FlatAppearance.BorderSize = 2; this.Btn_GO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
-            this.Btn_Phyton.Text = "B  ·  Python"; this.Btn_Phyton.Location = new System.Drawing.Point(570,360); this.Btn_Phyton.Size = new System.Drawing.Size(458,96); this.Btn_Phyton.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_Phyton.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Phyton.BackColor = System.Drawing.Color.White; this.Btn_Phyton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_Phyton.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_Phyton.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_Phyton.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_Phyton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Phyton.FlatAppearance.BorderSize = 2; this.Btn_Phyton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
-            this.Btn_Cplpl.Text = "C  ·  C++"; this.Btn_Cplpl.Location = new System.Drawing.Point(72,470); this.Btn_Cplpl.Size = new System.Drawing.Size(458,96); this.Btn_Cplpl.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_Cplpl.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Cplpl.BackColor = System.Drawing.Color.White; this.Btn_Cplpl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_Cplpl.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_Cplpl.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_Cplpl.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_Cplpl.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Cplpl.FlatAppearance.BorderSize = 2; this.Btn_Cplpl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
-            this.Btn_CShp.Text = "D  ·  C#"; this.Btn_CShp.Location = new System.Drawing.Point(570,470); this.Btn_CShp.Size = new System.Drawing.Size(458,96); this.Btn_CShp.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_CShp.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_CShp.BackColor = System.Drawing.Color.White; this.Btn_CShp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_CShp.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_CShp.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_CShp.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_CShp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_CShp.FlatAppearance.BorderSize = 2; this.Btn_CShp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
-            this.button2.Text = "← Niveles"; this.button2.Location = new System.Drawing.Point(944,20); this.button2.Size = new System.Drawing.Size(120,42); this.button2.Font = new System.Drawing.Font("Segoe UI Semibold",9.5F,System.Drawing.FontStyle.Bold); this.button2.BackColor = System.Drawing.Color.FromArgb(20,52,101); this.button2.ForeColor = System.Drawing.Color.White; this.button2.Cursor = System.Windows.Forms.Cursors.Hand; this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.button2.FlatAppearance.BorderSize = 0;
-            this.lblAnswerHint = new System.Windows.Forms.Label();
-            this.lblAnswerHint.Name = "lblAnswerHint"; this.lblAnswerHint.Location = new System.Drawing.Point(72,600); this.lblAnswerHint.Size = new System.Drawing.Size(956,56); this.lblAnswerHint.AutoSize = false; this.lblAnswerHint.Text = "Elige una respuesta  ·  Si no aciertas, puedes intentarlo otra vez."; this.lblAnswerHint.Font = new System.Drawing.Font("Segoe UI",10F); this.lblAnswerHint.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.lblAnswerHint.BackColor = System.Drawing.Color.FromArgb(226,235,248); this.lblAnswerHint.Padding = new System.Windows.Forms.Padding(14,0,0,0); this.lblAnswerHint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Controls.Add(this.lblAnswerHint);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblAnswerHint.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            lblAnswerHint.Font = new System.Drawing.Font("Segoe UI", 10F);
+            lblAnswerHint.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            lblAnswerHint.Location = new System.Drawing.Point(72, 600);
+            lblAnswerHint.Name = "lblAnswerHint";
+            lblAnswerHint.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            lblAnswerHint.Size = new System.Drawing.Size(956, 56);
+            lblAnswerHint.TabIndex = 44;
+            lblAnswerHint.Text = "Elige una respuesta  ·  Si no aciertas, puedes intentarlo otra vez.";
+            lblAnswerHint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // DevTriviaMedio_1
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            ClientSize = new System.Drawing.Size(1100, 760);
+            Controls.Add(Btn_CShp);
+            Controls.Add(Btn_GO);
+            Controls.Add(pictureBox8);
+            Controls.Add(Btn_Phyton);
+            Controls.Add(pictureBox7);
+            Controls.Add(pictureBox5);
+            Controls.Add(Btn_Cplpl);
+            Controls.Add(pictureBox6);
+            Controls.Add(pictureBox3);
+            Controls.Add(label1);
+            Controls.Add(label2);
+            Controls.Add(pictureBox2);
+            Controls.Add(DevEdu_txt);
+            Controls.Add(button2);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox4);
+            Controls.Add(lblAnswerHint);
+            Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "DevTriviaMedio_1";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "DevTrivia | NIVEL MEDIO  ·  RETO DE PROGRAMACIÓN";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -24,6 +24,8 @@ namespace DevEdu
 
             _permisos = new PermisosPresenter(this);
             _presenter = new AlumnosPresenter(this);
+            txtFiltroAlumnos.TextChanged += (_, _) =>
+                _presenter.Filtrar(txtFiltroAlumnos.Text);
         }
 
         public string Id => txtbx_ID.Text;
@@ -108,15 +110,7 @@ namespace DevEdu
         public void MostrarDatos(List<AlumnoDto> datos)
         {
             dataGridViewAlumnos.DataSource = null;
-            dataGridViewAlumnos.DataSource = datos;
-
-            dataGridViewAlumnos.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-
-            if (dataGridViewAlumnos.Columns["Id"] != null)
-            {
-                dataGridViewAlumnos.Columns["Id"].HeaderText = "ID";
-            }
+            dataGridViewAlumnos.DataSource = datos ?? new List<AlumnoDto>();
         }
 
         public void MostrarCantidad(int cantidad)

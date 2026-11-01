@@ -142,13 +142,7 @@ namespace DevEdu
             }
         }
 
-        private void btn_return_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DevVisMenu Principal = new DevVisMenu();
-            Principal.ShowDialog();
-            this.Close();
-        }
+        private void btn_return_Click(object sender, EventArgs e) => Close();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -180,10 +174,10 @@ namespace DevEdu
 
         private void btn_siguiente_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DevVis_ESTDTS_ej2 Principal = new DevVis_ESTDTS_ej2();
-            Principal.ShowDialog();
-            this.Close();
+            Hide();
+            using (var siguiente = new DevVis_ESTDTS_ej2())
+                siguiente.ShowDialog(this);
+            Close();
         }
     }
 }

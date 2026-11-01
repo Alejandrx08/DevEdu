@@ -79,13 +79,7 @@ namespace DevEdu
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DevVisMenu principal = new DevVisMenu();
-            principal.ShowDialog();
-            this.Close();
-        }
+        private void button3_Click(object sender, EventArgs e) => Close();
 
         private void MoreInfo_Click(object sender, EventArgs e)
         {

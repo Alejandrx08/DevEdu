@@ -20,19 +20,12 @@ namespace DevEdu
         private void Btn_BucleFor_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Respuesta Correcta", "DevTrivia");
-            this.Hide();
-            DevTrivia_F_Ex1 Principal = new DevTrivia_F_Ex1();
-            Principal.ShowDialog();
-            this.Close();
+            using (var explicacion = new DevTrivia_F_Ex1())
+                explicacion.ShowDialog(this);
+            Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DevTriviaMenu menu = new DevTriviaMenu();
-            menu.ShowDialog();
-            this.Close();
-        }
+        private void button2_Click(object sender, EventArgs e) => Close();
 
         private void message()
         {

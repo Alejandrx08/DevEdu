@@ -29,355 +29,271 @@ namespace DevEdu
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevVisMenu));
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_DevTrivia = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btn_estructurasDTS = new System.Windows.Forms.Button();
-            this.btn_bucles = new System.Windows.Forms.Button();
-            this.picbx_EstDts = new System.Windows.Forms.PictureBox();
-            this.picbx_algoritmo = new System.Windows.Forms.PictureBox();
-            this.picbx_bucles = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_EstDts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_algoritmo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_bucles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            btn_DevTrivia = new System.Windows.Forms.Button();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            button3 = new System.Windows.Forms.Button();
+            btn_estructurasDTS = new System.Windows.Forms.Button();
+            btn_bucles = new System.Windows.Forms.Button();
+            picbx_EstDts = new System.Windows.Forms.PictureBox();
+            picbx_algoritmo = new System.Windows.Forms.PictureBox();
+            picbx_bucles = new System.Windows.Forms.PictureBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            pictureBox6 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picbx_EstDts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbx_algoritmo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbx_bucles).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(350, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 40);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "DevVis";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label1.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.White;
+            label1.Location = new System.Drawing.Point(34, 14);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(119, 45);
+            label1.TabIndex = 8;
+            label1.Text = "DevVis";
+            label1.Click += label1_Click;
             // 
             // btn_DevTrivia
             // 
-            this.btn_DevTrivia.BackColor = System.Drawing.Color.White;
-            this.btn_DevTrivia.Font = new System.Drawing.Font("Segoe UI Semibold", 22.2F, System.Drawing.FontStyle.Bold);
-            this.btn_DevTrivia.ForeColor = System.Drawing.Color.Navy;
-            this.btn_DevTrivia.Location = new System.Drawing.Point(16, 85);
-            this.btn_DevTrivia.Name = "btn_DevTrivia";
-            this.btn_DevTrivia.Size = new System.Drawing.Size(230, 281);
-            this.btn_DevTrivia.TabIndex = 9;
-            this.btn_DevTrivia.Text = "Algoritmos";
-            this.btn_DevTrivia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_DevTrivia.UseVisualStyleBackColor = false;
-            this.btn_DevTrivia.Click += new System.EventHandler(this.btn_DevTrivia_Click);
+            btn_DevTrivia.BackColor = System.Drawing.Color.White;
+            btn_DevTrivia.Font = new System.Drawing.Font("Segoe UI Semibold", 22.2F, System.Drawing.FontStyle.Bold);
+            btn_DevTrivia.ForeColor = System.Drawing.Color.Navy;
+            btn_DevTrivia.Location = new System.Drawing.Point(-300, -300);
+            btn_DevTrivia.Name = "btn_DevTrivia";
+            btn_DevTrivia.Size = new System.Drawing.Size(1, 1);
+            btn_DevTrivia.TabIndex = 9;
+            btn_DevTrivia.Text = "Algoritmos";
+            btn_DevTrivia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            btn_DevTrivia.UseVisualStyleBackColor = false;
+            btn_DevTrivia.Visible = false;
+            btn_DevTrivia.Click += btn_DevTrivia_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(42, 301);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 51);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Observa cómo los pasos de \r\nun algoritmo se ejecutan\r\nuno a uno en tiempo real.";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.White;
+            label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label2.Location = new System.Drawing.Point(-300, -300);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(177, 51);
+            label2.TabIndex = 12;
+            label2.Text = "Observa cómo los pasos de \r\nun algoritmo se ejecutan\r\nuno a uno en tiempo real.";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label2.Visible = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(315, 292);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 68);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Observa cómo los pasos de \r\nVisualiza cómo funcionan\r\npilas, colas y listas enlaz" +
-    "adas\r\n con ejemplos interactivos.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            label3.BackColor = System.Drawing.Color.White;
+            label3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            label3.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            label3.Location = new System.Drawing.Point(568, 355);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(360, 76);
+            label3.TabIndex = 13;
+            label3.Text = "Explora cómo se conectan y organizan los datos en listas y árboles interactivos.";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label3.Click += label3_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(577, 301);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 51);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Comprende cómo los bucles \r\niteran sobre datos y controlan \r\nel flujo del program" +
-    "a.\r\n";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label4.BackColor = System.Drawing.Color.White;
+            label4.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            label4.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            label4.Location = new System.Drawing.Point(88, 355);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(360, 76);
+            label4.TabIndex = 14;
+            label4.Text = "Observa cómo un ciclo repite instrucciones y transforma los valores en cada iteración.";
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(238, 420);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(342, 21);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "© 2025 DevEdu. Todos los derechos reservados.";
+            label5.AutoSize = true;
+            label5.BackColor = System.Drawing.SystemColors.Control;
+            label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            label5.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            label5.Location = new System.Drawing.Point(12, 676);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(175, 15);
+            label5.TabIndex = 18;
+            label5.Text = "DevEdu  ·  Aprende visualizando";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "return";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button3.ForeColor = System.Drawing.Color.White;
+            button3.Location = new System.Drawing.Point(890, 20);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(120, 40);
+            button3.TabIndex = 25;
+            button3.Text = "← Volver";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // btn_estructurasDTS
             // 
-            this.btn_estructurasDTS.BackColor = System.Drawing.Color.White;
-            this.btn_estructurasDTS.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_estructurasDTS.ForeColor = System.Drawing.Color.Navy;
-            this.btn_estructurasDTS.Location = new System.Drawing.Point(287, 85);
-            this.btn_estructurasDTS.Name = "btn_estructurasDTS";
-            this.btn_estructurasDTS.Size = new System.Drawing.Size(230, 281);
-            this.btn_estructurasDTS.TabIndex = 26;
-            this.btn_estructurasDTS.Text = "Estructuras de datos";
-            this.btn_estructurasDTS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_estructurasDTS.UseVisualStyleBackColor = false;
-            this.btn_estructurasDTS.Click += new System.EventHandler(this.btn_estructurasDTS_Click);
+            btn_estructurasDTS.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            btn_estructurasDTS.FlatAppearance.BorderSize = 0;
+            btn_estructurasDTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_estructurasDTS.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            btn_estructurasDTS.ForeColor = System.Drawing.Color.White;
+            btn_estructurasDTS.Location = new System.Drawing.Point(560, 455);
+            btn_estructurasDTS.Name = "btn_estructurasDTS";
+            btn_estructurasDTS.Size = new System.Drawing.Size(376, 56);
+            btn_estructurasDTS.TabIndex = 26;
+            btn_estructurasDTS.Text = "Abrir estructuras de datos";
+            btn_estructurasDTS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            btn_estructurasDTS.UseVisualStyleBackColor = false;
+            btn_estructurasDTS.Click += btn_estructurasDTS_Click;
             // 
             // btn_bucles
             // 
-            this.btn_bucles.BackColor = System.Drawing.Color.White;
-            this.btn_bucles.Font = new System.Drawing.Font("Segoe UI Semibold", 22.2F, System.Drawing.FontStyle.Bold);
-            this.btn_bucles.ForeColor = System.Drawing.Color.Navy;
-            this.btn_bucles.Location = new System.Drawing.Point(554, 85);
-            this.btn_bucles.Name = "btn_bucles";
-            this.btn_bucles.Size = new System.Drawing.Size(230, 281);
-            this.btn_bucles.TabIndex = 27;
-            this.btn_bucles.Text = "Bucles";
-            this.btn_bucles.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_bucles.UseVisualStyleBackColor = false;
-            this.btn_bucles.Click += new System.EventHandler(this.btn_bucles_Click);
+            btn_bucles.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            btn_bucles.FlatAppearance.BorderSize = 0;
+            btn_bucles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_bucles.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            btn_bucles.ForeColor = System.Drawing.Color.White;
+            btn_bucles.Location = new System.Drawing.Point(80, 455);
+            btn_bucles.Name = "btn_bucles";
+            btn_bucles.Size = new System.Drawing.Size(376, 56);
+            btn_bucles.TabIndex = 27;
+            btn_bucles.Text = "Abrir visualización de bucles";
+            btn_bucles.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            btn_bucles.UseVisualStyleBackColor = false;
+            btn_bucles.Click += btn_bucles_Click;
             // 
             // picbx_EstDts
             // 
-            this.picbx_EstDts.Image = global::DevEdu.Properties.Resources.picEstDts;
-            this.picbx_EstDts.Location = new System.Drawing.Point(330, 136);
-            this.picbx_EstDts.Name = "picbx_EstDts";
-            this.picbx_EstDts.Size = new System.Drawing.Size(150, 150);
-            this.picbx_EstDts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picbx_EstDts.TabIndex = 30;
-            this.picbx_EstDts.TabStop = false;
-            this.picbx_EstDts.Click += new System.EventHandler(this.picbx_EstDts_Click);
+            picbx_EstDts.BackColor = System.Drawing.Color.White;
+            picbx_EstDts.Image = Properties.Resources.picEstDts;
+            picbx_EstDts.Location = new System.Drawing.Point(670, 205);
+            picbx_EstDts.Name = "picbx_EstDts";
+            picbx_EstDts.Size = new System.Drawing.Size(150, 130);
+            picbx_EstDts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picbx_EstDts.TabIndex = 30;
+            picbx_EstDts.TabStop = false;
+            picbx_EstDts.Click += picbx_EstDts_Click;
             // 
             // picbx_algoritmo
             // 
-            this.picbx_algoritmo.Image = global::DevEdu.Properties.Resources.algoritmoimg;
-            this.picbx_algoritmo.Location = new System.Drawing.Point(56, 136);
-            this.picbx_algoritmo.Name = "picbx_algoritmo";
-            this.picbx_algoritmo.Size = new System.Drawing.Size(150, 150);
-            this.picbx_algoritmo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picbx_algoritmo.TabIndex = 29;
-            this.picbx_algoritmo.TabStop = false;
+            picbx_algoritmo.Image = Properties.Resources.algoritmoimg;
+            picbx_algoritmo.Location = new System.Drawing.Point(-300, -300);
+            picbx_algoritmo.Name = "picbx_algoritmo";
+            picbx_algoritmo.Size = new System.Drawing.Size(1, 1);
+            picbx_algoritmo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            picbx_algoritmo.TabIndex = 29;
+            picbx_algoritmo.TabStop = false;
+            picbx_algoritmo.Visible = false;
             // 
             // picbx_bucles
             // 
-            this.picbx_bucles.Image = global::DevEdu.Properties.Resources.Blucleimg;
-            this.picbx_bucles.Location = new System.Drawing.Point(596, 136);
-            this.picbx_bucles.Name = "picbx_bucles";
-            this.picbx_bucles.Size = new System.Drawing.Size(150, 150);
-            this.picbx_bucles.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picbx_bucles.TabIndex = 28;
-            this.picbx_bucles.TabStop = false;
-            this.picbx_bucles.Click += new System.EventHandler(this.picbx_bucles_Click);
+            picbx_bucles.BackColor = System.Drawing.Color.White;
+            picbx_bucles.Image = Properties.Resources.Blucleimg;
+            picbx_bucles.Location = new System.Drawing.Point(190, 205);
+            picbx_bucles.Name = "picbx_bucles";
+            picbx_bucles.Size = new System.Drawing.Size(150, 130);
+            picbx_bucles.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picbx_bucles.TabIndex = 28;
+            picbx_bucles.TabStop = false;
+            picbx_bucles.Click += picbx_bucles_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-7, -3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(813, 50);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            pictureBox1.Location = new System.Drawing.Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(1040, 82);
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox7.Location = new System.Drawing.Point(554, 256);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(230, 115);
-            this.pictureBox7.TabIndex = 24;
-            this.pictureBox7.TabStop = false;
+            pictureBox7.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            pictureBox7.Location = new System.Drawing.Point(-300, -300);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(1, 1);
+            pictureBox7.TabIndex = 24;
+            pictureBox7.TabStop = false;
+            pictureBox7.Visible = false;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox5.Location = new System.Drawing.Point(16, 256);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(230, 115);
-            this.pictureBox5.TabIndex = 22;
-            this.pictureBox5.TabStop = false;
+            pictureBox5.BackColor = System.Drawing.Color.White;
+            pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox5.Location = new System.Drawing.Point(48, 170);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(440, 390);
+            pictureBox5.TabIndex = 22;
+            pictureBox5.TabStop = false;
+            pictureBox5.Visible = false;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox6.Location = new System.Drawing.Point(287, 256);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(230, 115);
-            this.pictureBox6.TabIndex = 23;
-            this.pictureBox6.TabStop = false;
+            pictureBox6.BackColor = System.Drawing.Color.White;
+            pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox6.Location = new System.Drawing.Point(528, 170);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new System.Drawing.Size(440, 390);
+            pictureBox6.TabIndex = 23;
+            pictureBox6.TabStop = false;
+            pictureBox6.Visible = false;
             // 
             // DevVisMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.picbx_EstDts);
-            this.Controls.Add(this.picbx_algoritmo);
-            this.Controls.Add(this.picbx_bucles);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btn_bucles);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_DevTrivia);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.btn_estructurasDTS);
-            this.Controls.Add(this.pictureBox6);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DevVisMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DevEdu";
-            this.Load += new System.EventHandler(this.DevVisMenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_EstDts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_algoritmo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_bucles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-                        this.ClientSize = new System.Drawing.Size(1040, 700);
-            this.MinimumSize = new System.Drawing.Size(1040, 700);
-            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(1040, 82);
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label1.Text = "DevVis";
-            this.label1.Location = new System.Drawing.Point(34, 14);
-            this.label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
-            this.button3.Text = "← Volver";
-            this.button3.Location = new System.Drawing.Point(890, 20);
-            this.button3.Size = new System.Drawing.Size(120, 40);
-            this.button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.pictureBox5.Visible = false;
-            this.pictureBox6.Visible = false;
-            this.pictureBox7.Visible = false;
-            this.btn_DevTrivia.Visible = false;
-            this.picbx_algoritmo.Visible = false;
-            this.label2.Visible = false;
-            this.picbx_bucles.Location = new System.Drawing.Point(190, 220);
-            this.picbx_bucles.Size = new System.Drawing.Size(150, 130);
-            this.picbx_bucles.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbx_bucles.BackColor = System.Drawing.Color.White;
-            this.picbx_EstDts.Location = new System.Drawing.Point(690, 220);
-            this.picbx_EstDts.Size = new System.Drawing.Size(150, 130);
-            this.picbx_EstDts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbx_EstDts.BackColor = System.Drawing.Color.White;
-            this.btn_bucles.Text = "Abrir visualización de bucles";
-            this.btn_bucles.Location = new System.Drawing.Point(110, 430);
-            this.btn_bucles.Size = new System.Drawing.Size(360, 58);
-            this.btn_bucles.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.btn_bucles.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.btn_bucles.ForeColor = System.Drawing.Color.White;
-            this.btn_bucles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_bucles.FlatAppearance.BorderSize = 0;
-            this.btn_estructurasDTS.Text = "Abrir estructuras de datos";
-            this.btn_estructurasDTS.Location = new System.Drawing.Point(570, 430);
-            this.btn_estructurasDTS.Size = new System.Drawing.Size(360, 58);
-            this.btn_estructurasDTS.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.btn_estructurasDTS.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.btn_estructurasDTS.ForeColor = System.Drawing.Color.White;
-            this.btn_estructurasDTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_estructurasDTS.FlatAppearance.BorderSize = 0;
-            this.label4.Location = new System.Drawing.Point(110, 360);
-            this.label4.Size = new System.Drawing.Size(360, 55);
-            this.label4.AutoSize = false;
-            this.label4.Text = "Observa cómo un ciclo repite instrucciones y transforma los valores en cada iteración.";
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(570, 360);
-            this.label3.Size = new System.Drawing.Size(360, 55);
-            this.label3.AutoSize = false;
-            this.label3.Text = "Explora cómo se conectan y organizan los datos en listas y árboles interactivos.";
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label5.Text = "DevEdu  ·  Aprende visualizando";
-            this.label5.Location = new System.Drawing.Point(0, 642);
-            this.label5.Size = new System.Drawing.Size(1040, 24);
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.label5.BackColor = this.BackColor;
-            this.pictureBox5.Location = new System.Drawing.Point(48, 170);
-            this.pictureBox5.Size = new System.Drawing.Size(440, 390);
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Location = new System.Drawing.Point(528, 170);
-            this.pictureBox6.Size = new System.Drawing.Size(440, 390);
-            this.pictureBox6.BackColor = System.Drawing.Color.White;
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Location = new System.Drawing.Point(-300, -300);
-            this.pictureBox7.Size = new System.Drawing.Size(1, 1);
-            this.btn_DevTrivia.Location = new System.Drawing.Point(-300, -300);
-            this.btn_DevTrivia.Size = new System.Drawing.Size(1, 1);
-            this.picbx_algoritmo.Location = new System.Drawing.Point(-300, -300);
-            this.picbx_algoritmo.Size = new System.Drawing.Size(1, 1);
-            this.label2.Location = new System.Drawing.Point(-300, -300);
-            this.label2.Size = new System.Drawing.Size(1, 1);
-            this.picbx_bucles.Location = new System.Drawing.Point(190, 205);
-            this.picbx_bucles.Size = new System.Drawing.Size(150, 130);
-            this.picbx_EstDts.Location = new System.Drawing.Point(670, 205);
-            this.picbx_EstDts.Size = new System.Drawing.Size(150, 130);
-            this.btn_bucles.Location = new System.Drawing.Point(80, 455);
-            this.btn_bucles.Size = new System.Drawing.Size(376, 56);
-            this.btn_estructurasDTS.Location = new System.Drawing.Point(560, 455);
-            this.btn_estructurasDTS.Size = new System.Drawing.Size(376, 56);
-            this.label4.Location = new System.Drawing.Point(88, 355);
-            this.label4.Size = new System.Drawing.Size(360, 76);
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Location = new System.Drawing.Point(568, 355);
-            this.label3.Size = new System.Drawing.Size(360, 76);
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            ClientSize = new System.Drawing.Size(1040, 700);
+            Controls.Add(picbx_EstDts);
+            Controls.Add(picbx_algoritmo);
+            Controls.Add(picbx_bucles);
+            Controls.Add(label4);
+            Controls.Add(btn_bucles);
+            Controls.Add(label3);
+            Controls.Add(button3);
+            Controls.Add(label5);
+            Controls.Add(label2);
+            Controls.Add(btn_DevTrivia);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox7);
+            Controls.Add(pictureBox5);
+            Controls.Add(btn_estructurasDTS);
+            Controls.Add(pictureBox6);
+            Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new System.Drawing.Size(1040, 700);
+            Name = "DevVisMenu";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "DevEdu";
+            Load += DevVisMenu_Load;
+            ((System.ComponentModel.ISupportInitialize)picbx_EstDts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbx_algoritmo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbx_bucles).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

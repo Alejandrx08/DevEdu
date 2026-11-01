@@ -223,9 +223,9 @@ namespace DevEdu
             this.label1.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
-            this.btn_Facil.Text = "01  ·  NIVEL FÁCIL\r\n\r\nCONCEPTOS BÁSICOS\r\n\r\nEmpieza con los fundamentos y practica ciclos.\r\n\r\nJUGAR  →";
+            this.btn_Facil.Text = "01  ·  NIVEL FÁCIL\r\n\r\nCONCEPTOS BÁSICOS\r\n\r\nEmpieza con los fundamentos y practica ciclos.\r\n\r\nPARTE 1  ·  JUGAR  →";
             this.btn_Facil.Location = new System.Drawing.Point(40, 236);
-            this.btn_Facil.Size = new System.Drawing.Size(320, 420);
+            this.btn_Facil.Size = new System.Drawing.Size(320, 350);
             this.btn_Facil.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btn_Facil.ForeColor = System.Drawing.Color.White;
             this.btn_Facil.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
@@ -237,9 +237,9 @@ namespace DevEdu
             this.btn_Facil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(20, 52, 101);
             this.btn_Facil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
             this.btn_Facil.FlatAppearance.BorderSize = 1;
-            this.btn_Medio.Text = "02  ·  NIVEL MEDIO\r\n\r\nLENGUAJES Y HERRAMIENTAS\r\n\r\nResuelve preguntas sobre tecnologías de desarrollo.\r\n\r\nJUGAR  →";
+            this.btn_Medio.Text = "02  ·  NIVEL MEDIO\r\n\r\nLENGUAJES Y HERRAMIENTAS\r\n\r\nResuelve preguntas sobre tecnologías de desarrollo.\r\n\r\nPARTE 1  ·  JUGAR  →";
             this.btn_Medio.Location = new System.Drawing.Point(390, 236);
-            this.btn_Medio.Size = new System.Drawing.Size(320, 420);
+            this.btn_Medio.Size = new System.Drawing.Size(320, 350);
             this.btn_Medio.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btn_Medio.ForeColor = System.Drawing.Color.White;
             this.btn_Medio.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
@@ -251,9 +251,9 @@ namespace DevEdu
             this.btn_Medio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
             this.btn_Medio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
             this.btn_Medio.FlatAppearance.BorderSize = 1;
-            this.btn_Dificil.Text = "03  ·  NIVEL DIFÍCIL\r\n\r\nLÓGICA AVANZADA\r\n\r\nDemuestra tu dominio de conceptos de programación.\r\n\r\nJUGAR  →";
+            this.btn_Dificil.Text = "03  ·  NIVEL DIFÍCIL\r\n\r\nLÓGICA AVANZADA\r\n\r\nDemuestra tu dominio de conceptos de programación.\r\n\r\nPARTE 1  ·  JUGAR  →";
             this.btn_Dificil.Location = new System.Drawing.Point(740, 236);
-            this.btn_Dificil.Size = new System.Drawing.Size(320, 420);
+            this.btn_Dificil.Size = new System.Drawing.Size(320, 350);
             this.btn_Dificil.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btn_Dificil.ForeColor = System.Drawing.Color.White;
             this.btn_Dificil.BackColor = System.Drawing.Color.FromArgb(36, 74, 130);

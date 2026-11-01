@@ -35,13 +35,7 @@ namespace DevEdu
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmMainMenu principal = new FrmMainMenu();
-            principal.ShowDialog();
-            this.Close();
-        }
+        private void button3_Click(object sender, EventArgs e) => Close();
 
         private void Btn_Enviar_Click(object sender, EventArgs e)
         {

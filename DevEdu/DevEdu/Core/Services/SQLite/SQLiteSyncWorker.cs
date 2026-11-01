@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Services.Offline;
+using DevEdu.Core.Services.Offline;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ namespace DevEdu.Core.Services.SQLite
             : this(
                 new SQLiteSyncService(),
                 new SQLiteSyncLogger(),
-                TimeSpan.FromSeconds(30))
+                TimeSpan.FromMinutes(1))
         {
         }
 

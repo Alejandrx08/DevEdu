@@ -33,75 +33,72 @@ namespace DevEdu
         public void AbrirDevTrivia()
         {
             Hide();
-
-            DevTriviaMenu principal = new DevTriviaMenu();
-            principal.ShowDialog();
-
-            Close();
+            using (var modulo = new DevTriviaMenu())
+                modulo.ShowDialog(this);
+            Show();
+            Activate();
         }
 
         public void AbrirDevVis()
         {
             Hide();
-
-            DevVisMenu principal = new DevVisMenu();
-            principal.ShowDialog();
-
-            Close();
+            using (var modulo = new DevVisMenu())
+                modulo.ShowDialog(this);
+            Show();
+            Activate();
         }
 
         public void AbrirDevEx()
         {
             Hide();
-
-            DevEx1 principal = new DevEx1();
-            principal.ShowDialog();
-
-            Close();
+            using (var menu = new DevExMenu())
+            {
+                menu.ShowDialog(this);
+            }
+            Show();
+            Activate();
         }
 
         public void AbrirDevBot()
         {
             Hide();
-
-            DevbotChat principal = new DevbotChat();
-            principal.ShowDialog();
-
-            Close();
+            using (var modulo = new DevbotChat())
+                modulo.ShowDialog(this);
+            Show();
+            Activate();
         }
 
         public void AbrirDevHub()
         {
             Hide();
-
-            DevHubMenu principal = new DevHubMenu();
-            principal.ShowDialog();
-
-            Close();
+            using (var modulo = new DevHubMenu())
+                modulo.ShowDialog(this);
+            Show();
+            Activate();
         }
 
         public void AbrirAlumnos()
         {
-            DatagridAlumnos principal = new DatagridAlumnos();
-            principal.ShowDialog();
+            using (var formulario = new DatagridAlumnos())
+                formulario.ShowDialog(this);
         }
 
         public void AbrirMaestros()
         {
-            DatagridMaestros principal = new DatagridMaestros();
-            principal.ShowDialog();
+            using (var formulario = new DatagridMaestros())
+                formulario.ShowDialog(this);
         }
 
         public void AbrirGeneral()
         {
-            DataGridGeneral principal = new DataGridGeneral();
-            principal.ShowDialog();
+            using (var formulario = new DataGridGeneral())
+                formulario.ShowDialog(this);
         }
 
         public void AbrirBitacora()
         {
-            Bitacora principal = new Bitacora();
-            principal.ShowDialog();
+            using (var formulario = new Bitacora())
+                formulario.ShowDialog(this);
         }
 
         public bool ConfirmarCerrarSesion()
@@ -122,8 +119,9 @@ namespace DevEdu
 
         public void AbrirLogin()
         {
-            Login login = new Login();
-            login.ShowDialog();
+            using (var login = new Login())
+                login.ShowDialog(this);
+            Close();
         }
 
         private void FrmMainMenu_Load(object sender, EventArgs e)

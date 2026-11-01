@@ -17,12 +17,6 @@ namespace DevEdu.UI.Forms.DevTrivia
             InitializeComponent();
         }
 
-        private void Btn_Ok_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmMainMenu Principal = new FrmMainMenu();
-            Principal.ShowDialog();
-            this.Close();
-        }
+        private void Btn_Ok_Click(object sender, EventArgs e) => Close();
     }
 }

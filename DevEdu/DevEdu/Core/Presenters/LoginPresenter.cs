@@ -1,8 +1,9 @@
-﻿
+
 using DevEdu.Core.Interfaces;
 using DevEdu.Core.Models;
 using DevEdu.Core.Services;
 using DevEdu.Core.Validation;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Threading.Tasks;
 
@@ -56,9 +57,23 @@ namespace DevEdu.Core.Presenters
             }
             catch (Exception ex)
             {
-                _view.MostrarError(
-                    "Error al iniciar sesión: " + ex.Message);
+                string mensaje = ContieneErrorSql(ex)
+                    ? "No pudimos conectar con el servicio de DevEdu. Revisa tu conexión a la red y vuelve a intentarlo."
+                    : "No se pudo iniciar sesión en este momento. Inténtalo de nuevo más tarde.";
+
+                _view.MostrarError(mensaje);
             }
+        }
+
+        private static bool ContieneErrorSql(Exception excepcion)
+        {
+            for (Exception actual = excepcion; actual != null; actual = actual.InnerException)
+            {
+                if (actual is SqlException)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

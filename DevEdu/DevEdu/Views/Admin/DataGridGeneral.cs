@@ -22,6 +22,8 @@ namespace DevEdu
 
             _permisos = new PermisosPresenter(this);
             _presenter = new GeneralPresenter(this);
+            txtFiltroUsuarios.TextChanged += (_, _) =>
+                _presenter.Filtrar(txtFiltroUsuarios.Text);
         }
 
         public Persona UsuarioSeleccionado
@@ -62,7 +64,7 @@ namespace DevEdu
 
         public void MostrarDatos(List<UsuarioDto> datos)
         {
-            DgvGeneral.DataSource = datos;
+            DgvGeneral.DataSource = datos ?? new List<UsuarioDto>();
         }
 
         public void MostrarCantidad(int cantidad)

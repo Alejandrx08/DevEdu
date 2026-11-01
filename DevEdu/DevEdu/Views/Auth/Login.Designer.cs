@@ -212,7 +212,7 @@ namespace DevEdu
             Link_registro.AutoSize = true;
             Link_registro.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             Link_registro.LinkColor = System.Drawing.Color.Navy;
-            Link_registro.Location = new System.Drawing.Point(220, 453);
+            Link_registro.Location = new System.Drawing.Point(213, 455);
             Link_registro.Name = "Link_registro";
             Link_registro.Size = new System.Drawing.Size(65, 15);
             Link_registro.TabIndex = 3;

@@ -119,6 +119,8 @@ namespace DevEdu
             // txtbx_valornodo
             // 
             txtbx_valornodo.BackColor = System.Drawing.Color.White;
+            txtbx_valornodo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtbx_valornodo.Font = new System.Drawing.Font("Segoe UI", 10F);
             txtbx_valornodo.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
             txtbx_valornodo.Location = new System.Drawing.Point(45, 420);
             txtbx_valornodo.Name = "txtbx_valornodo";
@@ -166,7 +168,7 @@ namespace DevEdu
             // 
             // btn_restart
             // 
-            btn_restart.BackColor = System.Drawing.Color.White;
+            btn_restart.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
             btn_restart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 218, 236);
             btn_restart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn_restart.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
@@ -181,16 +183,20 @@ namespace DevEdu
             // 
             // label7
             // 
-            label7.AutoSize = true;
+            label7.AutoSize = false;
             label7.BackColor = System.Drawing.Color.White;
             label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             label7.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            label7.Location = new System.Drawing.Point(365, 535);
+            label7.Location = new System.Drawing.Point(365, 530);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(341, 20);
+            label7.Size = new System.Drawing.Size(620, 40);
             label7.TabIndex = 16;
             label7.Text = "Cada selección muestra la ruta única desde la raíz.";
-            label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            label7.Padding = new System.Windows.Forms.Padding(14, 0, 10, 0);
+            label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            label7.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
             // 
             // groupBox1
             // 
@@ -302,7 +308,8 @@ namespace DevEdu
             pictureBox2.Size = new System.Drawing.Size(710, 470);
             pictureBox2.TabIndex = 31;
             pictureBox2.TabStop = false;
-            pictureBox2.Visible = false;
+            pictureBox2.Visible = true;
+            pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             // 
             // bx2
             // 
@@ -402,7 +409,10 @@ namespace DevEdu
             btn_return.ForeColor = System.Drawing.Color.White;
             btn_return.Location = new System.Drawing.Point(950, 18);
             btn_return.Name = "btn_return";
-            btn_return.Size = new System.Drawing.Size(120, 38);
+            btn_return.Size = new System.Drawing.Size(132, 40);
+            btn_return.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
+            btn_return.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
+            btn_return.Cursor = System.Windows.Forms.Cursors.Hand;
             btn_return.TabIndex = 54;
             btn_return.Text = "← Volver";
             btn_return.UseVisualStyleBackColor = false;
@@ -449,9 +459,13 @@ namespace DevEdu
             Controls.Add(flecha5);
             Controls.Add(pictureBox2);
             Controls.Add(groupBox1);
+            groupBox1.SendToBack();
+            pictureBox2.SendToBack();
+            pictureBox1.SendToBack();
             Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new System.Drawing.Size(1100, 760);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "DevVis_ESTDTS_ej2";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "DevEdu";

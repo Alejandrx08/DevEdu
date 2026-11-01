@@ -128,13 +128,7 @@ namespace DevEdu
             SeleccionarNodo(7);
         }
 
-        private void btn_return_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DevVisMenu Principal = new DevVisMenu();
-            Principal.ShowDialog();
-            this.Close();
-        }
+        private void btn_return_Click(object sender, EventArgs e) => Close();
 
         private void btn_insertar_Click(object sender, EventArgs e)
         {

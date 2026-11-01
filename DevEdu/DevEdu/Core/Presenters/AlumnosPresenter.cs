@@ -1,7 +1,9 @@
-﻿using DevEdu.Core.Interfaces;
+using DevEdu.Core.DTOs;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Services;
 using DevEdu.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -13,6 +15,8 @@ namespace DevEdu.Core.Presenters
     {
         private readonly IAlumnosView _view;
         private readonly AlumnoService _service;
+        private List<AlumnoDto> _alumnos = new List<AlumnoDto>();
+        private string _criterioBusqueda = string.Empty;
 
         public AlumnosPresenter(IAlumnosView view)
         {
@@ -40,7 +44,8 @@ namespace DevEdu.Core.Presenters
             try
             {
                 var datos = _service.ObtenerAlumnos();
-                _view.MostrarDatos(datos);
+                _alumnos = datos ?? new List<AlumnoDto>();
+                MostrarDatosFiltrados();
             }
             catch (Exception ex)
             {
@@ -59,7 +64,8 @@ namespace DevEdu.Core.Presenters
 
                 cancellationToken.ThrowIfCancellationRequested();
 
-                _view.MostrarDatos(datos);
+                _alumnos = datos ?? new List<AlumnoDto>();
+                MostrarDatosFiltrados();
             }
             catch (OperationCanceledException)
             {
@@ -72,6 +78,26 @@ namespace DevEdu.Core.Presenters
             }
         }
 
+        public void Filtrar(string criterio)
+        {
+            _criterioBusqueda = (criterio ?? string.Empty).Trim();
+            MostrarDatosFiltrados();
+        }
+
+        private void MostrarDatosFiltrados()
+        {
+            string criterio = _criterioBusqueda;
+            var resultados = _alumnos.Where(alumno =>
+                string.IsNullOrEmpty(criterio)
+                || alumno.Id.ToString().IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (alumno.Nombre ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (alumno.Apellido ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (alumno.Correo ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (alumno.Rango ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+            ).ToList();
+
+            _view.MostrarDatos(resultados);
+        }
         public void CargarCantidad()
         {
             try

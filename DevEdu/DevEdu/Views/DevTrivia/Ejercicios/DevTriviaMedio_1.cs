@@ -25,10 +25,9 @@ namespace DevEdu
         private void Btn_Cplpl_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Respuesta Correcta", "DevTrivia");
-            this.Hide();
-            DevTrivia_M_Ex1 Principal = new DevTrivia_M_Ex1();
-            Principal.ShowDialog();
-            this.Close();
+            using (var explicacion = new DevTrivia_M_Ex1())
+                explicacion.ShowDialog(this);
+            Close();
         }
 
         private void Btn_CShp_Click(object sender, EventArgs e)
@@ -50,5 +49,7 @@ namespace DevEdu
         {
 
         }
+        private void button2_Click(object sender, EventArgs e) => Close();
+
     }
 }

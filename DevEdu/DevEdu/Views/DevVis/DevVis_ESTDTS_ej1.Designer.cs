@@ -60,6 +60,7 @@ namespace DevEdu
             // pictureBox1
             // 
             pictureBox1.BackColor = System.Drawing.Color.White;
+            pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox1.Location = new System.Drawing.Point(325, 125);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(710, 470);
@@ -69,16 +70,20 @@ namespace DevEdu
             // pictureBox2
             // 
             pictureBox2.BackColor = System.Drawing.Color.White;
+            pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox2.Location = new System.Drawing.Point(26, 125);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(270, 500);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
-            pictureBox2.Visible = false;
+            pictureBox2.Visible = true;
             // 
             // txtbx1
             // 
             txtbx1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            txtbx1.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            txtbx1.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            txtbx1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             txtbx1.Location = new System.Drawing.Point(360, 285);
             txtbx1.Name = "txtbx1";
             txtbx1.Size = new System.Drawing.Size(100, 43);
@@ -89,6 +94,9 @@ namespace DevEdu
             // txtbx2
             // 
             txtbx2.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            txtbx2.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            txtbx2.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            txtbx2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             txtbx2.Location = new System.Drawing.Point(530, 285);
             txtbx2.Name = "txtbx2";
             txtbx2.Size = new System.Drawing.Size(100, 43);
@@ -99,6 +107,9 @@ namespace DevEdu
             // txtbx3
             // 
             txtbx3.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            txtbx3.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            txtbx3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            txtbx3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             txtbx3.Location = new System.Drawing.Point(700, 285);
             txtbx3.Name = "txtbx3";
             txtbx3.Size = new System.Drawing.Size(100, 43);
@@ -109,6 +120,9 @@ namespace DevEdu
             // txtbx4
             // 
             txtbx4.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            txtbx4.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            txtbx4.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            txtbx4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             txtbx4.Location = new System.Drawing.Point(870, 285);
             txtbx4.Name = "txtbx4";
             txtbx4.Size = new System.Drawing.Size(100, 43);
@@ -126,7 +140,7 @@ namespace DevEdu
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(650, 42);
             label1.TabIndex = 7;
-            label1.Text = "Lista enlazada";
+            label1.Text = "Visualización del recorrido";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_recorrer
@@ -189,11 +203,12 @@ namespace DevEdu
             // 
             // btn_insertar
             // 
-            btn_insertar.BackColor = System.Drawing.Color.White;
-            btn_insertar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 218, 236);
+            btn_insertar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            btn_insertar.FlatAppearance.BorderSize = 0;
+            btn_insertar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(20, 52, 101);
             btn_insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn_insertar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            btn_insertar.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            btn_insertar.ForeColor = System.Drawing.Color.White;
             btn_insertar.Location = new System.Drawing.Point(48, 325);
             btn_insertar.Name = "btn_insertar";
             btn_insertar.Size = new System.Drawing.Size(220, 42);
@@ -205,7 +220,7 @@ namespace DevEdu
             // flecha1
             // 
             flecha1.AutoSize = true;
-            flecha1.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            flecha1.BackColor = System.Drawing.Color.White;
             flecha1.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
             flecha1.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
             flecha1.Location = new System.Drawing.Point(475, 285);
@@ -217,7 +232,7 @@ namespace DevEdu
             // flecha3
             // 
             flecha3.AutoSize = true;
-            flecha3.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            flecha3.BackColor = System.Drawing.Color.White;
             flecha3.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
             flecha3.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
             flecha3.Location = new System.Drawing.Point(815, 285);
@@ -229,7 +244,7 @@ namespace DevEdu
             // flecha2
             // 
             flecha2.AutoSize = true;
-            flecha2.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            flecha2.BackColor = System.Drawing.Color.White;
             flecha2.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
             flecha2.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
             flecha2.Location = new System.Drawing.Point(645, 285);
@@ -246,15 +261,17 @@ namespace DevEdu
             btn_return.ForeColor = System.Drawing.Color.White;
             btn_return.Location = new System.Drawing.Point(950, 18);
             btn_return.Name = "btn_return";
-            btn_return.Size = new System.Drawing.Size(120, 38);
+            btn_return.Size = new System.Drawing.Size(132, 40);
+            btn_return.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
+            btn_return.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
             btn_return.TabIndex = 53;
-            btn_return.Text = "← Volver";
+            btn_return.Text = "← Niveles";
             btn_return.UseVisualStyleBackColor = false;
             btn_return.Click += btn_return_Click;
             // 
             // btn_restaurar
             // 
-            btn_restaurar.BackColor = System.Drawing.Color.White;
+            btn_restaurar.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
             btn_restaurar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(205, 218, 236);
             btn_restaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn_restaurar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
@@ -281,13 +298,14 @@ namespace DevEdu
             // 
             // label5
             // 
-            label5.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            label5.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
             label5.Font = new System.Drawing.Font("Segoe UI", 10F);
             label5.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
             label5.Location = new System.Drawing.Point(355, 420);
             label5.Name = "label5";
             label5.Padding = new System.Windows.Forms.Padding(16);
             label5.Size = new System.Drawing.Size(650, 90);
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label5.TabIndex = 56;
             label5.Text = "Recorrido lineal\r\nLa flecha de cada nodo indica cuál es el siguiente elemento de la lista.";
             // 
@@ -299,6 +317,9 @@ namespace DevEdu
             btn_color.Location = new System.Drawing.Point(48, 490);
             btn_color.Name = "btn_color";
             btn_color.Size = new System.Drawing.Size(220, 40);
+            btn_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_color.FlatAppearance.BorderSize = 0;
+            btn_color.Cursor = System.Windows.Forms.Cursors.Hand;
             btn_color.TabIndex = 57;
             btn_color.Text = "Color: verde";
             btn_color.UseVisualStyleBackColor = false;
@@ -307,6 +328,10 @@ namespace DevEdu
             // btn_siguiente
             // 
             btn_siguiente.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            btn_siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_siguiente.FlatAppearance.BorderSize = 0;
+            btn_siguiente.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            btn_siguiente.Cursor = System.Windows.Forms.Cursors.Hand;
             btn_siguiente.ForeColor = System.Drawing.Color.White;
             btn_siguiente.Location = new System.Drawing.Point(870, 650);
             btn_siguiente.Name = "btn_siguiente";
@@ -354,9 +379,13 @@ namespace DevEdu
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox3);
+            pictureBox2.SendToBack();
+            pictureBox1.SendToBack();
+            pictureBox3.SendToBack();
             Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new System.Drawing.Size(1100, 760);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "DevVis_ESTDTS_ej1";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "DevEdu";

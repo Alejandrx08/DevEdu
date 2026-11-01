@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -410,6 +410,7 @@ namespace DevEdu.Core.Services.SQLite
             command.CommandText = @"
                 UPDATE pending_operations
                 SET status = 'Conflict',
+                    payload = X'',
                     last_attempt_utc = $attemptedAt,
                     last_error = $errorCode
                 WHERE operation_id = $operationId

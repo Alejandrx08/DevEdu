@@ -29,166 +29,167 @@ namespace DevEdu
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevbotChat));
-            this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.TxtBox_DevBot = new System.Windows.Forms.TextBox();
-            this.Btn_Enviar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            button3 = new System.Windows.Forms.Button();
+            TxtBox_DevBot = new System.Windows.Forms.TextBox();
+            Btn_Enviar = new System.Windows.Forms.Button();
+            label2 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox6 = new System.Windows.Forms.PictureBox();
+            label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(346, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 40);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "DevBot";
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label1.Font = new System.Drawing.Font("Segoe UI Semibold", 23F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.White;
+            label1.Location = new System.Drawing.Point(32, 15);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(121, 42);
+            label1.TabIndex = 9;
+            label1.Text = "DevBot";
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "return";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(168, 190, 220);
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            button3.ForeColor = System.Drawing.Color.White;
+            button3.Location = new System.Drawing.Point(970, 20);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(120, 40);
+            button3.TabIndex = 26;
+            button3.Text = "← Volver";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // TxtBox_DevBot
             // 
-            this.TxtBox_DevBot.BackColor = System.Drawing.Color.White;
-            this.TxtBox_DevBot.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBox_DevBot.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBox_DevBot.Location = new System.Drawing.Point(19, 362);
-            this.TxtBox_DevBot.Name = "TxtBox_DevBot";
-            this.TxtBox_DevBot.Size = new System.Drawing.Size(671, 35);
-            this.TxtBox_DevBot.TabIndex = 27;
+            TxtBox_DevBot.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            TxtBox_DevBot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            TxtBox_DevBot.Font = new System.Drawing.Font("Segoe UI", 12F);
+            TxtBox_DevBot.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtBox_DevBot.Location = new System.Drawing.Point(56, 734);
+            TxtBox_DevBot.Name = "TxtBox_DevBot";
+            TxtBox_DevBot.Size = new System.Drawing.Size(850, 29);
+            TxtBox_DevBot.TabIndex = 27;
             // 
             // Btn_Enviar
             // 
-            this.Btn_Enviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.Btn_Enviar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Enviar.Location = new System.Drawing.Point(696, 363);
-            this.Btn_Enviar.Name = "Btn_Enviar";
-            this.Btn_Enviar.Size = new System.Drawing.Size(92, 35);
-            this.Btn_Enviar.TabIndex = 28;
-            this.Btn_Enviar.Text = "Enviar";
-            this.Btn_Enviar.UseVisualStyleBackColor = false;
-            this.Btn_Enviar.Click += new System.EventHandler(this.Btn_Enviar_Click);
+            Btn_Enviar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Enviar.FlatAppearance.BorderSize = 0;
+            Btn_Enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_Enviar.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            Btn_Enviar.ForeColor = System.Drawing.Color.White;
+            Btn_Enviar.Location = new System.Drawing.Point(918, 734);
+            Btn_Enviar.Name = "Btn_Enviar";
+            Btn_Enviar.Size = new System.Drawing.Size(146, 46);
+            Btn_Enviar.TabIndex = 28;
+            Btn_Enviar.Text = "Enviar  →";
+            Btn_Enviar.UseVisualStyleBackColor = false;
+            Btn_Enviar.Click += Btn_Enviar_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(16, 343);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(772, 13);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "_________________________________________________________________________________" +
-    "________________________________________________________________________";
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            label2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            label2.Location = new System.Drawing.Point(68, 128);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(183, 15);
+            label2.TabIndex = 30;
+            label2.Text = "ASISTENTE DE PROGRAMACIÓN";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(229, 423);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(342, 21);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "© 2025 DevEdu. Todos los derechos reservados.";
+            label5.AutoSize = true;
+            label5.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            label5.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            label5.Location = new System.Drawing.Point(12, 796);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(218, 15);
+            label5.TabIndex = 31;
+            label5.Text = "DevEdu  ·  Aprende, practica y comparte";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-7, -2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(813, 50);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            pictureBox1.Location = new System.Drawing.Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(1120, 82);
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 69);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(776, 339);
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.BackColor = System.Drawing.Color.White;
+            pictureBox2.Location = new System.Drawing.Point(-300, -300);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(1, 1);
+            pictureBox2.TabIndex = 29;
+            pictureBox2.TabStop = false;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox6.Location = new System.Drawing.Point(12, 300);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(776, 115);
-            this.pictureBox6.TabIndex = 32;
-            this.pictureBox6.TabStop = false;
+            pictureBox6.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            pictureBox6.Location = new System.Drawing.Point(-300, -300);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new System.Drawing.Size(1, 1);
+            pictureBox6.TabIndex = 32;
+            pictureBox6.TabStop = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label3.Location = new System.Drawing.Point(24, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(364, 21);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "🤖 Hola, soy DevBot. ¿En qué puedo ayudarte hoy?";
+            label3.BackColor = System.Drawing.Color.FromArgb(232, 239, 249);
+            label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
+            label3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label3.Location = new System.Drawing.Point(68, 193);
+            label3.Name = "label3";
+            label3.Padding = new System.Windows.Forms.Padding(24);
+            label3.Size = new System.Drawing.Size(880, 150);
+            label3.TabIndex = 33;
+            label3.Text = "Hola, soy DevBot. ¿En qué puedo ayudarte hoy?\r\n\r\nPuedes preguntarme sobre conceptos, código o errores de programación.";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DevbotChat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.Btn_Enviar);
-            this.Controls.Add(this.TxtBox_DevBot);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox6);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DevbotChat";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DevEdu";
-            this.Load += new System.EventHandler(this.DevbotChat_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.ClientSize = new System.Drawing.Size(1120, 820); this.MinimumSize = new System.Drawing.Size(1120, 820); this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251); this.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0); this.pictureBox1.Size = new System.Drawing.Size(1120, 82); this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.pictureBox2.Location = new System.Drawing.Point(-300, -300); this.pictureBox2.Size = new System.Drawing.Size(1, 1); this.pictureBox6.Location = new System.Drawing.Point(-300, -300); this.pictureBox6.Size = new System.Drawing.Size(1, 1);
-            this.label1.Text = "DevBot"; this.label1.Location = new System.Drawing.Point(32, 15); this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 23F, System.Drawing.FontStyle.Bold); this.label1.ForeColor = System.Drawing.Color.White; this.label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.button3.Text = "← Volver"; this.button3.Location = new System.Drawing.Point(970, 20); this.button3.Size = new System.Drawing.Size(120, 40); this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold); this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.button3.FlatAppearance.BorderSize = 1; this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(168, 190, 220); this.button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101); this.button3.ForeColor = System.Drawing.Color.White;
-            this.label2.Text = "ASISTENTE DE PROGRAMACIÓN"; this.label2.Location = new System.Drawing.Point(68, 128); this.label2.Size = new System.Drawing.Size(960, 32); this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold); this.label2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139); this.label2.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
-            this.label3.Text = "Hola, soy DevBot. ¿En qué puedo ayudarte hoy?\r\n\r\nPuedes preguntarme sobre conceptos, código o errores de programación."; this.label3.Location = new System.Drawing.Point(82, 194); this.label3.Size = new System.Drawing.Size(880, 150); this.label3.AutoSize = false; this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold); this.label3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84); this.label3.BackColor = System.Drawing.Color.FromArgb(232, 239, 249); this.label3.Padding = new System.Windows.Forms.Padding(24); this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TxtBox_DevBot.Location = new System.Drawing.Point(56, 734); this.TxtBox_DevBot.Size = new System.Drawing.Size(850, 46); this.TxtBox_DevBot.Font = new System.Drawing.Font("Segoe UI", 12F); this.TxtBox_DevBot.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55); this.TxtBox_DevBot.BackColor = System.Drawing.Color.FromArgb(249, 250, 252); this.TxtBox_DevBot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Btn_Enviar.Text = "Enviar  →"; this.Btn_Enviar.Location = new System.Drawing.Point(918, 734); this.Btn_Enviar.Size = new System.Drawing.Size(146, 46); this.Btn_Enviar.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold); this.Btn_Enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_Enviar.FlatAppearance.BorderSize = 0; this.Btn_Enviar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84); this.Btn_Enviar.ForeColor = System.Drawing.Color.White;
-            this.label5.Text = "DevEdu  ·  Aprende, practica y comparte"; this.label5.Location = new System.Drawing.Point(0, 790); this.label5.Size = new System.Drawing.Size(1120, 22); this.label5.Font = new System.Drawing.Font("Segoe UI", 9F); this.label5.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139); this.label5.BackColor = System.Drawing.Color.FromArgb(245, 247, 251); this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            ClientSize = new System.Drawing.Size(1120, 820);
+            Controls.Add(label3);
+            Controls.Add(label5);
+            Controls.Add(label2);
+            Controls.Add(Btn_Enviar);
+            Controls.Add(TxtBox_DevBot);
+            Controls.Add(button3);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox6);
+            Font = new System.Drawing.Font("Segoe UI", 10F);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new System.Drawing.Size(1120, 820);
+            Name = "DevbotChat";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "DevEdu";
+            Load += DevbotChat_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

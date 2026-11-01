@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Interfaces;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Services;
 using System;
 using System.Threading.Tasks;
@@ -73,10 +73,10 @@ namespace DevEdu.Core.Presenters
                 return;
             }
 
-            if (nueva.Length < 8)
+            if (nueva.Length < 6)
             {
                 _view.MostrarError(
-                    "La contraseña debe tener al menos 8 caracteres.");
+                    "La contraseña debe tener al menos 6 caracteres.");
                 return;
             }
 

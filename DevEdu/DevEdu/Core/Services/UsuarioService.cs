@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.DTOs;
+using DevEdu.Core.DTOs;
 using DevEdu.Core.Services.Query;
 using DevEdu.Models;
 using Microsoft.Data.SqlClient;
@@ -708,6 +708,7 @@ namespace DevEdu.Core.Services
                             case 40:      // No se pudo abrir conexión
                             case 53:      // Ruta de red no encontrada
                             case 121:     // Tiempo de espera de dispositivo/red
+                            case 258:     // Timeout de conexión informado por Windows
                             case 10054:   // Conexión restablecida
                             case 10060:   // Tiempo de conexión agotado
                             case 10061:   // Conexión rechazada

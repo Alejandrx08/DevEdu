@@ -51,6 +51,7 @@ namespace DevEdu
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtCount = new System.Windows.Forms.TextBox();
+            this.txtFiltroMaestros = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -298,6 +299,7 @@ namespace DevEdu
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.DataGrid);
+            this.Controls.Add(this.txtFiltroMaestros);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -339,6 +341,12 @@ namespace DevEdu
             this.btn_eliminar.Text = "Eliminar rol de maestro"; this.btn_eliminar.Location = new System.Drawing.Point(20,510); this.btn_eliminar.Size = new System.Drawing.Size(286,42); this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(254,226,226); this.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(185,28,28); this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.btn_eliminar.FlatAppearance.BorderSize = 0;
             this.txtCount.Location = new System.Drawing.Point(388,119); this.txtCount.Size = new System.Drawing.Size(280,25); this.txtCount.Font = new System.Drawing.Font("Segoe UI",10F); this.txtCount.BackColor = System.Drawing.Color.FromArgb(245,247,251);
             this.DataGrid.Location = new System.Drawing.Point(382,154); this.DataGrid.Size = new System.Drawing.Size(824,572); this.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None; this.DataGrid.BackgroundColor = System.Drawing.Color.White; this.DataGrid.GridColor = System.Drawing.Color.FromArgb(229,234,242); this.DataGrid.EnableHeadersVisualStyles = false; this.DataGrid.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0,31,84); this.DataGrid.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White; this.DataGrid.ColumnHeadersHeight = 42; this.DataGrid.RowTemplate.Height = 34;
+             this.txtFiltroMaestros.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+             this.txtFiltroMaestros.Location = new System.Drawing.Point(700, 116);
+             this.txtFiltroMaestros.Name = "txtFiltroMaestros";
+             this.txtFiltroMaestros.PlaceholderText = "Filtrar por ID, nombre, apellido, correo o rango";
+             this.txtFiltroMaestros.Size = new System.Drawing.Size(506, 22);
+             this.txtFiltroMaestros.TabIndex = 23;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,6 +370,7 @@ namespace DevEdu
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.TextBox txtFiltroMaestros;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

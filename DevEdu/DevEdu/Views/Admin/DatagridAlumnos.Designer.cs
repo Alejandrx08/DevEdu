@@ -51,6 +51,7 @@ namespace DevEdu
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCount = new System.Windows.Forms.TextBox();
+            this.txtFiltroAlumnos = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -299,6 +300,7 @@ namespace DevEdu
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.dataGridViewAlumnos);
+            this.Controls.Add(this.txtFiltroAlumnos);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
@@ -342,6 +344,12 @@ namespace DevEdu
             this.btnDel.Text = "Eliminar rol de alumno"; this.btnDel.Location = new System.Drawing.Point(20,510); this.btnDel.Size = new System.Drawing.Size(286,42); this.btnDel.BackColor = System.Drawing.Color.FromArgb(254,226,226); this.btnDel.ForeColor = System.Drawing.Color.FromArgb(185,28,28); this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.btnDel.FlatAppearance.BorderSize = 0;
             this.txtCount.Location = new System.Drawing.Point(388,119); this.txtCount.Size = new System.Drawing.Size(280,25); this.txtCount.Font = new System.Drawing.Font("Segoe UI",10F); this.txtCount.BackColor = System.Drawing.Color.FromArgb(245,247,251);
             this.dataGridViewAlumnos.Location = new System.Drawing.Point(382,154); this.dataGridViewAlumnos.Size = new System.Drawing.Size(824,572); this.dataGridViewAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None; this.dataGridViewAlumnos.BackgroundColor = System.Drawing.Color.White; this.dataGridViewAlumnos.GridColor = System.Drawing.Color.FromArgb(229,234,242); this.dataGridViewAlumnos.EnableHeadersVisualStyles = false; this.dataGridViewAlumnos.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0,31,84); this.dataGridViewAlumnos.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White; this.dataGridViewAlumnos.ColumnHeadersHeight = 42; this.dataGridViewAlumnos.RowTemplate.Height = 34;
+             this.txtFiltroAlumnos.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+             this.txtFiltroAlumnos.Location = new System.Drawing.Point(700, 116);
+             this.txtFiltroAlumnos.Name = "txtFiltroAlumnos";
+             this.txtFiltroAlumnos.PlaceholderText = "Filtrar por ID, nombre, apellido, correo o rango";
+             this.txtFiltroAlumnos.Size = new System.Drawing.Size(506, 22);
+             this.txtFiltroAlumnos.TabIndex = 23;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,5 +377,6 @@ namespace DevEdu
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.TextBox txtFiltroAlumnos;
     }
 }

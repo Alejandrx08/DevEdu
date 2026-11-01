@@ -29,781 +29,592 @@ namespace DevEdu
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevHubMenu));
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtBox_subir_Name = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtBox_subir_Desc = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TxtBox_Comentar = new System.Windows.Forms.TextBox();
-            this.Btn_Comentar = new System.Windows.Forms.Button();
-            this.Btn_Opinar = new System.Windows.Forms.Button();
-            this.TxtBox_Opinar = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TxtBox_Respuesta = new System.Windows.Forms.TextBox();
-            this.TxtBox_Comenta = new System.Windows.Forms.TextBox();
-            this.Btn_Comentar2 = new System.Windows.Forms.Button();
-            this.Btn_Responder = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            TxtBox_subir_Name = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            TxtBox_subir_Desc = new System.Windows.Forms.TextBox();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            button1 = new System.Windows.Forms.Button();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            TxtBox_Comentar = new System.Windows.Forms.TextBox();
+            Btn_Comentar = new System.Windows.Forms.Button();
+            Btn_Opinar = new System.Windows.Forms.Button();
+            TxtBox_Opinar = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            TxtBox_Respuesta = new System.Windows.Forms.TextBox();
+            TxtBox_Comenta = new System.Windows.Forms.TextBox();
+            Btn_Comentar2 = new System.Windows.Forms.Button();
+            Btn_Responder = new System.Windows.Forms.Button();
+            label12 = new System.Windows.Forms.Label();
+            button3 = new System.Windows.Forms.Button();
+            pictureBox14 = new System.Windows.Forms.PictureBox();
+            pictureBox16 = new System.Windows.Forms.PictureBox();
+            pictureBox13 = new System.Windows.Forms.PictureBox();
+            pictureBox15 = new System.Windows.Forms.PictureBox();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox12 = new System.Windows.Forms.PictureBox();
+            pictureBox11 = new System.Windows.Forms.PictureBox();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            pictureBox9 = new System.Windows.Forms.PictureBox();
+            pictureBox10 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox16).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(348, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 40);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "DevHub";
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label1.Font = new System.Drawing.Font("Segoe UI Semibold", 23F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.White;
+            label1.Location = new System.Drawing.Point(32, 17);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(132, 42);
+            label1.TabIndex = 9;
+            label1.Text = "DevHub";
             // 
             // TxtBox_subir_Name
             // 
-            this.TxtBox_subir_Name.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBox_subir_Name.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBox_subir_Name.Location = new System.Drawing.Point(32, 103);
-            this.TxtBox_subir_Name.Name = "TxtBox_subir_Name";
-            this.TxtBox_subir_Name.Size = new System.Drawing.Size(273, 33);
-            this.TxtBox_subir_Name.TabIndex = 13;
-            this.TxtBox_subir_Name.Text = "Nombre del proyecto...";
+            TxtBox_subir_Name.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            TxtBox_subir_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            TxtBox_subir_Name.Font = new System.Drawing.Font("Segoe UI", 10F);
+            TxtBox_subir_Name.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtBox_subir_Name.Location = new System.Drawing.Point(55, 174);
+            TxtBox_subir_Name.Name = "TxtBox_subir_Name";
+            TxtBox_subir_Name.Size = new System.Drawing.Size(280, 25);
+            TxtBox_subir_Name.TabIndex = 13;
+            TxtBox_subir_Name.Text = "Nombre del proyecto...";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(27, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 25);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Subir proyecto";
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.White;
+            label2.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            label2.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label2.Location = new System.Drawing.Point(55, 130);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(233, 30);
+            label2.TabIndex = 15;
+            label2.Text = "Comparte tu proyecto";
             // 
             // TxtBox_subir_Desc
             // 
-            this.TxtBox_subir_Desc.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBox_subir_Desc.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBox_subir_Desc.Location = new System.Drawing.Point(32, 142);
-            this.TxtBox_subir_Desc.Multiline = true;
-            this.TxtBox_subir_Desc.Name = "TxtBox_subir_Desc";
-            this.TxtBox_subir_Desc.Size = new System.Drawing.Size(273, 62);
-            this.TxtBox_subir_Desc.TabIndex = 17;
-            this.TxtBox_subir_Desc.Text = "Describe tu proyecto aqui...";
+            TxtBox_subir_Desc.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            TxtBox_subir_Desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            TxtBox_subir_Desc.Font = new System.Drawing.Font("Segoe UI", 10F);
+            TxtBox_subir_Desc.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtBox_subir_Desc.Location = new System.Drawing.Point(55, 220);
+            TxtBox_subir_Desc.Multiline = true;
+            TxtBox_subir_Desc.Name = "TxtBox_subir_Desc";
+            TxtBox_subir_Desc.Size = new System.Drawing.Size(280, 88);
+            TxtBox_subir_Desc.TabIndex = 17;
+            TxtBox_subir_Desc.Text = "Describe tu proyecto aqui...";
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(321, 100);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(75, 75);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Adjutar";
+            groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            groupBox1.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            groupBox1.Location = new System.Drawing.Point(55, 326);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(132, 56);
+            groupBox1.TabIndex = 18;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Adjuntar archivo";
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(321, 181);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Subir";
-            this.button1.UseVisualStyleBackColor = false;
+            button1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            button1.ForeColor = System.Drawing.Color.White;
+            button1.Location = new System.Drawing.Point(203, 330);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(132, 48);
+            button1.TabIndex = 19;
+            button1.Text = "Subir proyecto";
+            button1.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(27, 239);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 17);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "💼 Portafolio Web";
+            label3.AutoSize = true;
+            label3.BackColor = System.Drawing.Color.White;
+            label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            label3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label3.Location = new System.Drawing.Point(55, 442);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(120, 21);
+            label3.TabIndex = 33;
+            label3.Text = "Portafolio Web";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(220, 239);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 17);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "🧠 Chatbot con IA";
+            label4.AutoSize = true;
+            label4.BackColor = System.Drawing.Color.White;
+            label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            label4.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label4.Location = new System.Drawing.Point(55, 596);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(120, 21);
+            label4.TabIndex = 34;
+            label4.Text = "Chatbot con IA";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(29, 258);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 51);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Un sitio responsive con \r\nanimaciones usando\r\nHTML, CSS y JavaScript.";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label5.AutoSize = true;
+            label5.BackColor = System.Drawing.Color.White;
+            label5.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            label5.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            label5.Location = new System.Drawing.Point(55, 470);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(148, 51);
+            label5.TabIndex = 35;
+            label5.Text = "Un sitio responsive con \r\nanimaciones usando\r\nHTML, CSS y JavaScript.";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(220, 258);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(169, 68);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Un Chat con un bot \r\nUltilizando la IA DeepSeak \r\ncon el leguaje de Node.js\r\n(Jav" +
-    "aScript).";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.AutoSize = true;
+            label6.BackColor = System.Drawing.Color.White;
+            label6.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            label6.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            label6.Location = new System.Drawing.Point(55, 624);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(164, 68);
+            label6.TabIndex = 36;
+            label6.Text = "Un Chat con un bot \r\nUltilizando la IA DeepSeak \r\ncon el leguaje de Node.js\r\n(JavaScript).";
+            label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TxtBox_Comentar
             // 
-            this.TxtBox_Comentar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBox_Comentar.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBox_Comentar.Location = new System.Drawing.Point(32, 335);
-            this.TxtBox_Comentar.Name = "TxtBox_Comentar";
-            this.TxtBox_Comentar.Size = new System.Drawing.Size(162, 25);
-            this.TxtBox_Comentar.TabIndex = 37;
-            this.TxtBox_Comentar.Text = "Escribe un comentario...\r\n";
+            TxtBox_Comentar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            TxtBox_Comentar.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtBox_Comentar.Location = new System.Drawing.Point(55, 520);
+            TxtBox_Comentar.Name = "TxtBox_Comentar";
+            TxtBox_Comentar.Size = new System.Drawing.Size(174, 23);
+            TxtBox_Comentar.TabIndex = 37;
+            TxtBox_Comentar.Text = "Escribe un comentario...\r\n";
             // 
             // Btn_Comentar
             // 
-            this.Btn_Comentar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.Btn_Comentar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Comentar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Comentar.Location = new System.Drawing.Point(119, 367);
-            this.Btn_Comentar.Name = "Btn_Comentar";
-            this.Btn_Comentar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Comentar.TabIndex = 38;
-            this.Btn_Comentar.Text = "Comentar";
-            this.Btn_Comentar.UseVisualStyleBackColor = false;
+            Btn_Comentar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Comentar.FlatAppearance.BorderSize = 0;
+            Btn_Comentar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_Comentar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Bold);
+            Btn_Comentar.ForeColor = System.Drawing.Color.White;
+            Btn_Comentar.Location = new System.Drawing.Point(239, 520);
+            Btn_Comentar.Name = "Btn_Comentar";
+            Btn_Comentar.Size = new System.Drawing.Size(96, 32);
+            Btn_Comentar.TabIndex = 38;
+            Btn_Comentar.Text = "Comentar";
+            Btn_Comentar.UseVisualStyleBackColor = false;
             // 
             // Btn_Opinar
             // 
-            this.Btn_Opinar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.Btn_Opinar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Opinar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Opinar.Location = new System.Drawing.Point(312, 367);
-            this.Btn_Opinar.Name = "Btn_Opinar";
-            this.Btn_Opinar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Opinar.TabIndex = 39;
-            this.Btn_Opinar.Text = "Opinar";
-            this.Btn_Opinar.UseVisualStyleBackColor = false;
+            Btn_Opinar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Opinar.FlatAppearance.BorderSize = 0;
+            Btn_Opinar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_Opinar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Bold);
+            Btn_Opinar.ForeColor = System.Drawing.Color.White;
+            Btn_Opinar.Location = new System.Drawing.Point(239, 674);
+            Btn_Opinar.Name = "Btn_Opinar";
+            Btn_Opinar.Size = new System.Drawing.Size(96, 32);
+            Btn_Opinar.TabIndex = 39;
+            Btn_Opinar.Text = "Opinar";
+            Btn_Opinar.UseVisualStyleBackColor = false;
             // 
             // TxtBox_Opinar
             // 
-            this.TxtBox_Opinar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBox_Opinar.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBox_Opinar.Location = new System.Drawing.Point(225, 335);
-            this.TxtBox_Opinar.Name = "TxtBox_Opinar";
-            this.TxtBox_Opinar.Size = new System.Drawing.Size(162, 25);
-            this.TxtBox_Opinar.TabIndex = 40;
-            this.TxtBox_Opinar.Text = "Que te parece?\r\n";
+            TxtBox_Opinar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            TxtBox_Opinar.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtBox_Opinar.Location = new System.Drawing.Point(55, 674);
+            TxtBox_Opinar.Name = "TxtBox_Opinar";
+            TxtBox_Opinar.Size = new System.Drawing.Size(174, 23);
+            TxtBox_Opinar.TabIndex = 40;
+            TxtBox_Opinar.Text = "Que te parece?\r\n";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Navy;
-            this.label7.Location = new System.Drawing.Point(426, 75);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(199, 25);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "💬 Foros de Discusión";
+            label7.AutoSize = true;
+            label7.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            label7.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            label7.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label7.Location = new System.Drawing.Point(390, 112);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(338, 30);
+            label7.TabIndex = 41;
+            label7.Text = "Conversaciones de la comunidad";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(425, 114);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 25);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "¿Qué stack usas?";
+            label8.AutoSize = true;
+            label8.BackColor = System.Drawing.Color.White;
+            label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            label8.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label8.Location = new System.Drawing.Point(420, 180);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(154, 25);
+            label8.TabIndex = 42;
+            label8.Text = "¿Qué stack usas?";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(425, 264);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(264, 25);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "Mejores prácticas para debug";
+            label9.AutoSize = true;
+            label9.BackColor = System.Drawing.Color.White;
+            label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            label9.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            label9.Location = new System.Drawing.Point(420, 440);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(264, 25);
+            label9.TabIndex = 43;
+            label9.Text = "Mejores prácticas para debug";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Navy;
-            this.label11.Location = new System.Drawing.Point(424, 142);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(323, 42);
-            this.label11.TabIndex = 45;
-            this.label11.Text = "Comparte tu stack actual para desarrollo web\r\no backend.";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label11.AutoSize = true;
+            label11.BackColor = System.Drawing.Color.White;
+            label11.Font = new System.Drawing.Font("Segoe UI", 10F);
+            label11.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            label11.Location = new System.Drawing.Point(420, 220);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(286, 38);
+            label11.TabIndex = 45;
+            label11.Text = "Comparte tu stack actual para desarrollo web\r\no backend.";
+            label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Navy;
-            this.label10.Location = new System.Drawing.Point(424, 291);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(318, 42);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "¿Qué herramientas o técnicas te han salvado\r\nde bugs?";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label10.AutoSize = true;
+            label10.BackColor = System.Drawing.Color.White;
+            label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            label10.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            label10.Location = new System.Drawing.Point(420, 480);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(282, 38);
+            label10.TabIndex = 46;
+            label10.Text = "¿Qué herramientas o técnicas te han salvado\r\nde bugs?";
+            label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TxtBox_Respuesta
             // 
-            this.TxtBox_Respuesta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBox_Respuesta.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBox_Respuesta.Location = new System.Drawing.Point(428, 185);
-            this.TxtBox_Respuesta.Name = "TxtBox_Respuesta";
-            this.TxtBox_Respuesta.Size = new System.Drawing.Size(273, 29);
-            this.TxtBox_Respuesta.TabIndex = 47;
-            this.TxtBox_Respuesta.Text = "Tu respuesta...";
+            TxtBox_Respuesta.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            TxtBox_Respuesta.Font = new System.Drawing.Font("Segoe UI", 10F);
+            TxtBox_Respuesta.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtBox_Respuesta.Location = new System.Drawing.Point(420, 278);
+            TxtBox_Respuesta.Name = "TxtBox_Respuesta";
+            TxtBox_Respuesta.Size = new System.Drawing.Size(614, 25);
+            TxtBox_Respuesta.TabIndex = 47;
+            TxtBox_Respuesta.Text = "Tu respuesta...";
             // 
             // TxtBox_Comenta
             // 
-            this.TxtBox_Comenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBox_Comenta.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBox_Comenta.Location = new System.Drawing.Point(428, 336);
-            this.TxtBox_Comenta.Name = "TxtBox_Comenta";
-            this.TxtBox_Comenta.Size = new System.Drawing.Size(273, 29);
-            this.TxtBox_Comenta.TabIndex = 48;
-            this.TxtBox_Comenta.Text = "Comenta aqui...";
+            TxtBox_Comenta.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            TxtBox_Comenta.Font = new System.Drawing.Font("Segoe UI", 10F);
+            TxtBox_Comenta.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtBox_Comenta.Location = new System.Drawing.Point(420, 538);
+            TxtBox_Comenta.Name = "TxtBox_Comenta";
+            TxtBox_Comenta.Size = new System.Drawing.Size(614, 25);
+            TxtBox_Comenta.TabIndex = 48;
+            TxtBox_Comenta.Text = "Comenta aqui...";
             // 
             // Btn_Comentar2
             // 
-            this.Btn_Comentar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.Btn_Comentar2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Comentar2.ForeColor = System.Drawing.Color.White;
-            this.Btn_Comentar2.Location = new System.Drawing.Point(703, 340);
-            this.Btn_Comentar2.Name = "Btn_Comentar2";
-            this.Btn_Comentar2.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Comentar2.TabIndex = 49;
-            this.Btn_Comentar2.Text = "Comentar";
-            this.Btn_Comentar2.UseVisualStyleBackColor = false;
+            Btn_Comentar2.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Comentar2.FlatAppearance.BorderSize = 0;
+            Btn_Comentar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_Comentar2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            Btn_Comentar2.ForeColor = System.Drawing.Color.White;
+            Btn_Comentar2.Location = new System.Drawing.Point(420, 586);
+            Btn_Comentar2.Name = "Btn_Comentar2";
+            Btn_Comentar2.Size = new System.Drawing.Size(614, 46);
+            Btn_Comentar2.TabIndex = 49;
+            Btn_Comentar2.Text = "Comentar";
+            Btn_Comentar2.UseVisualStyleBackColor = false;
             // 
             // Btn_Responder
             // 
-            this.Btn_Responder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.Btn_Responder.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Responder.ForeColor = System.Drawing.Color.White;
-            this.Btn_Responder.Location = new System.Drawing.Point(703, 189);
-            this.Btn_Responder.Name = "Btn_Responder";
-            this.Btn_Responder.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Responder.TabIndex = 50;
-            this.Btn_Responder.Text = "Responder";
-            this.Btn_Responder.UseVisualStyleBackColor = false;
+            Btn_Responder.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            Btn_Responder.FlatAppearance.BorderSize = 0;
+            Btn_Responder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Btn_Responder.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            Btn_Responder.ForeColor = System.Drawing.Color.White;
+            Btn_Responder.Location = new System.Drawing.Point(420, 326);
+            Btn_Responder.Name = "Btn_Responder";
+            Btn_Responder.Size = new System.Drawing.Size(614, 46);
+            Btn_Responder.TabIndex = 50;
+            Btn_Responder.Text = "Responder";
+            Btn_Responder.UseVisualStyleBackColor = false;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.SystemColors.Control;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(237, 426);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(342, 21);
-            this.label12.TabIndex = 51;
-            this.label12.Text = "© 2025 DevEdu. Todos los derechos reservados.";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+            label12.AutoSize = true;
+            label12.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            label12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            label12.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            label12.Location = new System.Drawing.Point(12, 736);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(308, 15);
+            label12.TabIndex = 51;
+            label12.Text = "DevEdu  ·  Comparte, aprende y construye en comunidad";
+            label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label12.Click += label12_Click;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 52;
-            this.button3.Text = "return";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            button3.ForeColor = System.Drawing.Color.White;
+            button3.Location = new System.Drawing.Point(944, 20);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(120, 44);
+            button3.TabIndex = 52;
+            button3.Text = "← Volver";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // pictureBox14
             // 
-            this.pictureBox14.BackColor = System.Drawing.Color.White;
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox14.Location = new System.Drawing.Point(216, 236);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(180, 158);
-            this.pictureBox14.TabIndex = 30;
-            this.pictureBox14.TabStop = false;
+            pictureBox14.BackColor = System.Drawing.Color.White;
+            pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox14.Location = new System.Drawing.Point(-400, -400);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new System.Drawing.Size(1, 1);
+            pictureBox14.TabIndex = 30;
+            pictureBox14.TabStop = false;
             // 
             // pictureBox16
             // 
-            this.pictureBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox16.Location = new System.Drawing.Point(216, 329);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(180, 72);
-            this.pictureBox16.TabIndex = 32;
-            this.pictureBox16.TabStop = false;
+            pictureBox16.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            pictureBox16.Location = new System.Drawing.Point(-400, -400);
+            pictureBox16.Name = "pictureBox16";
+            pictureBox16.Size = new System.Drawing.Size(1, 1);
+            pictureBox16.TabIndex = 32;
+            pictureBox16.TabStop = false;
             // 
             // pictureBox13
             // 
-            this.pictureBox13.BackColor = System.Drawing.Color.White;
-            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox13.Location = new System.Drawing.Point(23, 236);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(180, 158);
-            this.pictureBox13.TabIndex = 29;
-            this.pictureBox13.TabStop = false;
+            pictureBox13.BackColor = System.Drawing.Color.White;
+            pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox13.Location = new System.Drawing.Point(30, 582);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new System.Drawing.Size(330, 138);
+            pictureBox13.TabIndex = 29;
+            pictureBox13.TabStop = false;
             // 
             // pictureBox15
             // 
-            this.pictureBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox15.Location = new System.Drawing.Point(23, 329);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(180, 72);
-            this.pictureBox15.TabIndex = 31;
-            this.pictureBox15.TabStop = false;
+            pictureBox15.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            pictureBox15.Location = new System.Drawing.Point(36, 588);
+            pictureBox15.Name = "pictureBox15";
+            pictureBox15.Size = new System.Drawing.Size(330, 138);
+            pictureBox15.TabIndex = 31;
+            pictureBox15.TabStop = false;
             // 
             // pictureBox8
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox8.Location = new System.Drawing.Point(420, 259);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(360, 120);
-            this.pictureBox8.TabIndex = 26;
-            this.pictureBox8.TabStop = false;
+            pictureBox8.BackColor = System.Drawing.Color.White;
+            pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox8.Location = new System.Drawing.Point(390, 418);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(674, 245);
+            pictureBox8.TabIndex = 26;
+            pictureBox8.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(420, 109);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(360, 120);
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            pictureBox2.BackColor = System.Drawing.Color.White;
+            pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox2.Location = new System.Drawing.Point(390, 158);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(674, 245);
+            pictureBox2.TabIndex = 25;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox12
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox12.Location = new System.Drawing.Point(420, 132);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(360, 104);
-            this.pictureBox12.TabIndex = 28;
-            this.pictureBox12.TabStop = false;
+            pictureBox12.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            pictureBox12.Location = new System.Drawing.Point(396, 164);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new System.Drawing.Size(674, 245);
+            pictureBox12.TabIndex = 28;
+            pictureBox12.TabStop = false;
             // 
             // pictureBox11
             // 
-            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox11.Location = new System.Drawing.Point(420, 283);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(360, 104);
-            this.pictureBox11.TabIndex = 27;
-            this.pictureBox11.TabStop = false;
+            pictureBox11.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            pictureBox11.Location = new System.Drawing.Point(396, 424);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new System.Drawing.Size(674, 245);
+            pictureBox11.TabIndex = 27;
+            pictureBox11.TabStop = false;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Location = new System.Drawing.Point(12, 227);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(395, 185);
-            this.pictureBox5.TabIndex = 12;
-            this.pictureBox5.TabStop = false;
+            pictureBox5.BackColor = System.Drawing.Color.White;
+            pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox5.Location = new System.Drawing.Point(30, 428);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(330, 138);
+            pictureBox5.TabIndex = 12;
+            pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(413, 68);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(375, 344);
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
+            pictureBox4.BackColor = System.Drawing.Color.White;
+            pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox4.Location = new System.Drawing.Point(-400, -400);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(1, 1);
+            pictureBox4.TabIndex = 11;
+            pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(84)))));
-            this.pictureBox3.Location = new System.Drawing.Point(-6, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(813, 50);
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            pictureBox3.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            pictureBox3.Location = new System.Drawing.Point(0, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(1100, 86);
+            pictureBox3.TabIndex = 8;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 68);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(395, 146);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            pictureBox1.BackColor = System.Drawing.Color.White;
+            pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox1.Location = new System.Drawing.Point(30, 112);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(330, 300);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox7.Location = new System.Drawing.Point(12, 106);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(395, 115);
-            this.pictureBox7.TabIndex = 21;
-            this.pictureBox7.TabStop = false;
+            pictureBox7.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            pictureBox7.Location = new System.Drawing.Point(36, 118);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(330, 300);
+            pictureBox7.TabIndex = 21;
+            pictureBox7.TabStop = false;
             // 
             // pictureBox9
             // 
-            this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox9.Location = new System.Drawing.Point(12, 312);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(395, 107);
-            this.pictureBox9.TabIndex = 23;
-            this.pictureBox9.TabStop = false;
+            pictureBox9.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            pictureBox9.Location = new System.Drawing.Point(36, 434);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new System.Drawing.Size(330, 138);
+            pictureBox9.TabIndex = 23;
+            pictureBox9.TabStop = false;
             // 
             // pictureBox10
             // 
-            this.pictureBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox10.Location = new System.Drawing.Point(413, 315);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(375, 104);
-            this.pictureBox10.TabIndex = 24;
-            this.pictureBox10.TabStop = false;
+            pictureBox10.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            pictureBox10.Location = new System.Drawing.Point(-400, -400);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new System.Drawing.Size(1, 1);
+            pictureBox10.TabIndex = 24;
+            pictureBox10.TabStop = false;
             // 
             // DevHubMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.Btn_Responder);
-            this.Controls.Add(this.Btn_Comentar2);
-            this.Controls.Add(this.TxtBox_Comenta);
-            this.Controls.Add(this.TxtBox_Respuesta);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.TxtBox_Opinar);
-            this.Controls.Add(this.Btn_Opinar);
-            this.Controls.Add(this.Btn_Comentar);
-            this.Controls.Add(this.TxtBox_Comentar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox14);
-            this.Controls.Add(this.pictureBox16);
-            this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.pictureBox15);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox12);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.TxtBox_subir_Desc);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.TxtBox_subir_Name);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox10);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DevHubMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DevEdu";
-            this.Load += new System.EventHandler(this.DevHubMenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1100, 760);
-            this.MinimumSize = new System.Drawing.Size(0, 0);
-            this.MaximumSize = new System.Drawing.Size(0, 0);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.Text = "DevHub | Comunidad de proyectos";
-
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Size = new System.Drawing.Size(1100, 86);
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-
-            this.pictureBox1.Location = new System.Drawing.Point(30, 112);
-            this.pictureBox1.Size = new System.Drawing.Size(330, 300);
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Location = new System.Drawing.Point(36, 118);
-            this.pictureBox7.Size = new System.Drawing.Size(330, 300);
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
-
-            this.pictureBox2.Location = new System.Drawing.Point(390, 158);
-            this.pictureBox2.Size = new System.Drawing.Size(674, 245);
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox12.Location = new System.Drawing.Point(396, 164);
-            this.pictureBox12.Size = new System.Drawing.Size(674, 245);
-            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
-
-            this.pictureBox8.Location = new System.Drawing.Point(390, 418);
-            this.pictureBox8.Size = new System.Drawing.Size(674, 245);
-            this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox11.Location = new System.Drawing.Point(396, 424);
-            this.pictureBox11.Size = new System.Drawing.Size(674, 245);
-            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
-
-            this.pictureBox5.Location = new System.Drawing.Point(30, 428);
-            this.pictureBox5.Size = new System.Drawing.Size(330, 138);
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox9.Location = new System.Drawing.Point(36, 434);
-            this.pictureBox9.Size = new System.Drawing.Size(330, 138);
-            this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
-            this.pictureBox13.Location = new System.Drawing.Point(30, 582);
-            this.pictureBox13.Size = new System.Drawing.Size(330, 138);
-            this.pictureBox13.BackColor = System.Drawing.Color.White;
-            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox15.Location = new System.Drawing.Point(36, 588);
-            this.pictureBox15.Size = new System.Drawing.Size(330, 138);
-            this.pictureBox15.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
-
-            this.pictureBox4.Location = new System.Drawing.Point(-400, -400); this.pictureBox4.Size = new System.Drawing.Size(1, 1);
-            this.pictureBox10.Location = new System.Drawing.Point(-400, -400); this.pictureBox10.Size = new System.Drawing.Size(1, 1);
-            this.pictureBox14.Location = new System.Drawing.Point(-400, -400); this.pictureBox14.Size = new System.Drawing.Size(1, 1);
-            this.pictureBox16.Location = new System.Drawing.Point(-400, -400); this.pictureBox16.Size = new System.Drawing.Size(1, 1);
-
-            this.label1.Text = "DevHub";
-            this.label1.Location = new System.Drawing.Point(32, 17);
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 23F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.button3.Text = "← Volver";
-            this.button3.Location = new System.Drawing.Point(944, 20);
-            this.button3.Size = new System.Drawing.Size(120, 44);
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.FlatAppearance.BorderSize = 0;
-
-            this.label2.Text = "Comparte tu proyecto";
-            this.label2.Location = new System.Drawing.Point(55, 130);
-            this.label2.Size = new System.Drawing.Size(280, 30);
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.TxtBox_subir_Name.Location = new System.Drawing.Point(55, 174);
-            this.TxtBox_subir_Name.Size = new System.Drawing.Size(280, 36);
-            this.TxtBox_subir_Name.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtBox_subir_Name.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.TxtBox_subir_Name.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
-            this.TxtBox_subir_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtBox_subir_Desc.Location = new System.Drawing.Point(55, 220);
-            this.TxtBox_subir_Desc.Size = new System.Drawing.Size(280, 88);
-            this.TxtBox_subir_Desc.Multiline = true;
-            this.TxtBox_subir_Desc.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtBox_subir_Desc.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.TxtBox_subir_Desc.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
-            this.TxtBox_subir_Desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.groupBox1.Text = "Adjuntar archivo";
-            this.groupBox1.Location = new System.Drawing.Point(55, 326);
-            this.groupBox1.Size = new System.Drawing.Size(132, 56);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.button1.Text = "Subir proyecto";
-            this.button1.Location = new System.Drawing.Point(203, 330);
-            this.button1.Size = new System.Drawing.Size(132, 48);
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.FlatAppearance.BorderSize = 0;
-
-            this.label3.Text = "Portafolio Web";
-            this.label3.Location = new System.Drawing.Point(55, 442);
-            this.label3.Size = new System.Drawing.Size(280, 25);
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(55, 470);
-            this.label5.Size = new System.Drawing.Size(280, 42);
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.TxtBox_Comentar.Location = new System.Drawing.Point(55, 520);
-            this.TxtBox_Comentar.Size = new System.Drawing.Size(174, 32);
-            this.TxtBox_Comentar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TxtBox_Comentar.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.Btn_Comentar.Text = "Comentar";
-            this.Btn_Comentar.Location = new System.Drawing.Point(239, 520);
-            this.Btn_Comentar.Size = new System.Drawing.Size(96, 32);
-            this.Btn_Comentar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Bold);
-            this.Btn_Comentar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.Btn_Comentar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Comentar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Comentar.FlatAppearance.BorderSize = 0;
-
-            this.label4.Text = "Chatbot con IA";
-            this.label4.Location = new System.Drawing.Point(55, 596);
-            this.label4.Size = new System.Drawing.Size(280, 25);
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(55, 624);
-            this.label6.Size = new System.Drawing.Size(280, 42);
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.TxtBox_Opinar.Location = new System.Drawing.Point(55, 674);
-            this.TxtBox_Opinar.Size = new System.Drawing.Size(174, 32);
-            this.TxtBox_Opinar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TxtBox_Opinar.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.Btn_Opinar.Text = "Opinar";
-            this.Btn_Opinar.Location = new System.Drawing.Point(239, 674);
-            this.Btn_Opinar.Size = new System.Drawing.Size(96, 32);
-            this.Btn_Opinar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Bold);
-            this.Btn_Opinar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.Btn_Opinar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Opinar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Opinar.FlatAppearance.BorderSize = 0;
-
-            this.label7.Text = "Conversaciones de la comunidad";
-            this.label7.Location = new System.Drawing.Point(390, 112);
-            this.label7.Size = new System.Drawing.Size(674, 34);
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label7.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
-            this.label8.Location = new System.Drawing.Point(420, 180);
-            this.label8.Size = new System.Drawing.Size(614, 34);
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(420, 220);
-            this.label11.Size = new System.Drawing.Size(614, 48);
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.TxtBox_Respuesta.Location = new System.Drawing.Point(420, 278);
-            this.TxtBox_Respuesta.Size = new System.Drawing.Size(614, 36);
-            this.TxtBox_Respuesta.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtBox_Respuesta.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.TxtBox_Respuesta.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
-            this.Btn_Responder.Location = new System.Drawing.Point(420, 326);
-            this.Btn_Responder.Size = new System.Drawing.Size(614, 46);
-            this.Btn_Responder.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.Btn_Responder.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.Btn_Responder.ForeColor = System.Drawing.Color.White;
-            this.Btn_Responder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Responder.FlatAppearance.BorderSize = 0;
-
-            this.label9.Location = new System.Drawing.Point(420, 440);
-            this.label9.Size = new System.Drawing.Size(614, 34);
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(420, 480);
-            this.label10.Size = new System.Drawing.Size(614, 48);
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.TxtBox_Comenta.Location = new System.Drawing.Point(420, 538);
-            this.TxtBox_Comenta.Size = new System.Drawing.Size(614, 36);
-            this.TxtBox_Comenta.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.TxtBox_Comenta.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
-            this.TxtBox_Comenta.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
-            this.Btn_Comentar2.Location = new System.Drawing.Point(420, 586);
-            this.Btn_Comentar2.Size = new System.Drawing.Size(614, 46);
-            this.Btn_Comentar2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.Btn_Comentar2.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.Btn_Comentar2.ForeColor = System.Drawing.Color.White;
-            this.Btn_Comentar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Comentar2.FlatAppearance.BorderSize = 0;
-
-            this.label12.Text = "DevEdu  ·  Comparte, aprende y construye en comunidad";
-            this.label12.Location = new System.Drawing.Point(0, 730);
-            this.label12.Size = new System.Drawing.Size(1100, 24);
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.label12.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            ClientSize = new System.Drawing.Size(1100, 760);
+            Controls.Add(button3);
+            Controls.Add(label12);
+            Controls.Add(Btn_Responder);
+            Controls.Add(Btn_Comentar2);
+            Controls.Add(TxtBox_Comenta);
+            Controls.Add(TxtBox_Respuesta);
+            Controls.Add(label10);
+            Controls.Add(label11);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(TxtBox_Opinar);
+            Controls.Add(Btn_Opinar);
+            Controls.Add(Btn_Comentar);
+            Controls.Add(TxtBox_Comentar);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(pictureBox14);
+            Controls.Add(pictureBox16);
+            Controls.Add(pictureBox13);
+            Controls.Add(pictureBox15);
+            Controls.Add(pictureBox8);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox12);
+            Controls.Add(pictureBox11);
+            Controls.Add(button1);
+            Controls.Add(groupBox1);
+            Controls.Add(TxtBox_subir_Desc);
+            Controls.Add(label2);
+            Controls.Add(TxtBox_subir_Name);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
+            Controls.Add(label1);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox7);
+            Controls.Add(pictureBox9);
+            Controls.Add(pictureBox10);
+            Font = new System.Drawing.Font("Segoe UI", 10F);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "DevHubMenu";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "DevHub | Comunidad de proyectos";
+            Load += DevHubMenu_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox16).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

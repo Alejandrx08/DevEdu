@@ -118,14 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label3.Text" xml:space="preserve">
-    <value>¿QUÉ SIGNIFICA null?
-En C#, null indica que una variable no referencia ningún objeto. La variable existe, pero todavía no tiene uno asignado.
+    <value>La variable nombre tiene valor null, así que no apunta a ningún objeto string. Al leer nombre.Length, el programa intenta acceder a una propiedad inexistente y lanza NullReferenceException.
 
-NO ES LO MISMO QUE CERO
-0 es un valor numérico y false es un valor booleano. null expresa ausencia de una referencia a objeto.
-
-IDEA CLAVE
-Comprueba si una referencia puede ser null antes de usar el objeto.</value>
+La excepción ocurre durante la ejecución. null no equivale a cero ni a una cadena vacía.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

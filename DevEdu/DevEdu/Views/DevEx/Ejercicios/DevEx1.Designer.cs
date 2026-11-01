@@ -288,8 +288,7 @@ namespace DevEdu
             button2.Click += button2_Click;
             // 
             // DevEx1
-            // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            //            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
             ClientSize = new System.Drawing.Size(1040, 720);

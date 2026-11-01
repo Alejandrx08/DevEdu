@@ -25,10 +25,9 @@ namespace DevEdu.UI.Forms.DevTrivia
         private void Btn_Phyton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Felicidades, respuesta correcta.", "DevEdu");
-            this.Hide();
-            DevTrivia_D_Ex1 Principal = new DevTrivia_D_Ex1();
-            Principal.ShowDialog();
-            this.Close();
+            using (var explicacion = new DevTrivia_D_Ex1())
+                explicacion.ShowDialog(this);
+            Close();
         }
 
         private void Btn_Cplpl_Click(object sender, EventArgs e)
@@ -40,5 +39,7 @@ namespace DevEdu.UI.Forms.DevTrivia
         {
             MessageBox.Show("Respuesta incorrecta.", "DevEdu");
         }
+        private void button2_Click(object sender, EventArgs e) => Close();
+
     }
 }

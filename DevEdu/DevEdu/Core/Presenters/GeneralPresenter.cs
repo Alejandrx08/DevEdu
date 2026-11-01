@@ -1,8 +1,11 @@
-﻿using DevEdu.Core.Interfaces;
+using DevEdu.Core.DTOs;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Models;
 using DevEdu.Core.Services;
 using DevEdu.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,6 +15,8 @@ namespace DevEdu.Core.Presenters
     {
         private readonly IGeneralView _view;
         private readonly UsuarioService _service;
+        private List<UsuarioDto> _usuarios = new List<UsuarioDto>();
+        private string _criterioBusqueda = string.Empty;
 
         public GeneralPresenter(IGeneralView view)
         {
@@ -41,7 +46,8 @@ namespace DevEdu.Core.Presenters
                 var datos = _service.ObtenerUsuariosGeneral();
 
                 _view.MostrarCantidad(cantidad);
-                _view.MostrarDatos(datos);
+                _usuarios = datos ?? new List<UsuarioDto>();
+                MostrarDatosFiltrados();
             }
             catch (Exception ex)
             {
@@ -66,7 +72,8 @@ namespace DevEdu.Core.Presenters
                 cancellationToken.ThrowIfCancellationRequested();
 
                 _view.MostrarCantidad(cantidad);
-                _view.MostrarDatos(datos);
+                _usuarios = datos ?? new List<UsuarioDto>();
+                MostrarDatosFiltrados();
             }
             catch (OperationCanceledException)
             {
@@ -79,6 +86,29 @@ namespace DevEdu.Core.Presenters
             }
         }
 
+        public void Filtrar(string criterio)
+        {
+            _criterioBusqueda = (criterio ?? string.Empty).Trim();
+            MostrarDatosFiltrados();
+        }
+
+        private void MostrarDatosFiltrados()
+        {
+            string criterio = _criterioBusqueda;
+            var resultados = _usuarios.Where(usuario =>
+                string.IsNullOrEmpty(criterio)
+                || usuario.Id.ToString().IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (usuario.Nombre ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (usuario.Apellido ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (usuario.Correo ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (usuario.Rango ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (usuario.Estado ?? string.Empty).IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0
+                || (string.Equals(criterio, "activo", StringComparison.OrdinalIgnoreCase) && usuario.Activo)
+                || (string.Equals(criterio, "inactivo", StringComparison.OrdinalIgnoreCase) && !usuario.Activo)
+            ).ToList();
+
+            _view.MostrarDatos(resultados);
+        }
         public void GuardarCambios()
         {
             Persona usuario = _view.UsuarioSeleccionado;

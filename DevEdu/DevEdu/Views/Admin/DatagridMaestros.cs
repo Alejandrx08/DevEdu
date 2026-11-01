@@ -3,7 +3,6 @@ using DevEdu.Core.Interfaces;
 using DevEdu.Core.Presenters;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace DevEdu
@@ -19,6 +18,8 @@ namespace DevEdu
 
             _permisos = new PermisosPresenter(this);
             _presenter = new MaestrosPresenter(this);
+            txtFiltroMaestros.TextChanged += (_, _) =>
+                _presenter.Filtrar(txtFiltroMaestros.Text);
         }
 
         public string Id => txtbox_ID.Text;
@@ -32,7 +33,7 @@ namespace DevEdu
         public void MostrarDatos(List<MaestroDto> datos)
         {
             DataGrid.DataSource = null;
-            DataGrid.DataSource = datos;
+            DataGrid.DataSource = datos ?? new List<MaestroDto>();
 
             DataGrid.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;

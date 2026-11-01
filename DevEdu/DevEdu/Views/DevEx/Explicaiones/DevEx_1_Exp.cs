@@ -19,10 +19,7 @@ namespace DevEdu
 
         private void Btn_Ok_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmMainMenu principal = new FrmMainMenu();
-            principal.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void DevEx_1_Exp_Load(object sender, EventArgs e)

@@ -17,13 +17,7 @@ namespace DevEdu
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmMainMenu Principal = new FrmMainMenu();
-            Principal.ShowDialog();
-            this.Close();
-        }
+        private void button3_Click(object sender, EventArgs e) => Close();
 
         private void DevHubMenu_Load(object sender, EventArgs e)
         {

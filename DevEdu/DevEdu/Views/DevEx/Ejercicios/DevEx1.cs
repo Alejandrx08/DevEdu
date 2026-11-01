@@ -32,10 +32,10 @@ namespace DevEdu
             if ((TxtBox_a.Text == "1") && (TxtBox_b.Text == "6"))
             {
                 MessageBox.Show("Correcto", "DevTrivia");
-                this.Hide();
-                DevEx_1_Exp Principal = new DevEx_1_Exp();
-                Principal.ShowDialog();
-                this.Close();
+                Hide();
+                using (var explicacion = new DevEx_1_Exp())
+                    explicacion.ShowDialog(this);
+                Close();
             }
             else
             {
@@ -48,10 +48,7 @@ namespace DevEdu
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmMainMenu principal = new FrmMainMenu();
-            principal.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void Btn_ok_Click(object sender, EventArgs e)
