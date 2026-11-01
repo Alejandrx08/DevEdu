@@ -115,11 +115,11 @@ The offline registration repository applies queued operations to SQL Server and 
 
 ### Offline Synchronization Components
 
-- `OfflineOperationQueue`: manages pending operations in SQLite.
-- `OfflineRegistrationRepository`: applies queued registrations to SQL Server.
-- `OfflineSyncService`: coordinates the synchronization process.
-- `OfflineSyncWorker`: runs periodic synchronization.
-- `OfflineSyncLogger`: records synchronization errors.
+- `SQLiteOperationQueue`: manages pending operations in SQLite.
+- `SQLiteRegistrationRepository`: applies queued registrations to SQL Server.
+- `SQLiteSyncService`: coordinates the synchronization process.
+- `SQLiteSyncWorker`: runs periodic synchronization.
+- `SQLiteSyncLogger`: records synchronization errors.
 
 ---
 
