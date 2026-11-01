@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +15,9 @@ namespace DevEdu
     {
         private Timer timer;
         private int Actual = 0;
+        private int _colorRecorridoIndex = 0;
 
-        public Color colorr { get; private set; }
+        public Color colorr { get; private set; } = Color.Green;
 
         public DevVis_ESTDTS_ej1()
         {
@@ -84,7 +85,6 @@ namespace DevEdu
         private void Timer_Tick(object sender, EventArgs e)
         {
             btn_recorrer.Enabled = false;
-            colorr = btn_color.BackColor;
 
             if (Actual == 0)
             {
@@ -101,7 +101,7 @@ namespace DevEdu
             {
                 txtbx2.BackColor = colorr;
                 txtbx2.ForeColor = Color.White;
-                flecha1.ForeColor = Color.White;
+                flecha1.ForeColor = Color.FromArgb(100, 116, 139);
             }
             else if (Actual == 3)
             {
@@ -113,7 +113,7 @@ namespace DevEdu
             {
                 txtbx3.BackColor = colorr;
                 txtbx3.ForeColor = Color.White;
-                flecha2.ForeColor = Color.White;
+                flecha2.ForeColor = Color.FromArgb(100, 116, 139);
             }
             else if (Actual == 5)
             {
@@ -125,7 +125,7 @@ namespace DevEdu
             {
                 txtbx4.BackColor = colorr;
                 txtbx4.ForeColor = Color.White;
-                flecha3.ForeColor = Color.White;
+                flecha3.ForeColor = Color.FromArgb(100, 116, 139);
             }
             else if (Actual == 7)
             { 
@@ -160,19 +160,22 @@ namespace DevEdu
 
         private void btn_color_Click(object sender, EventArgs e)
         {
-            if (btn_color.BackColor == Color.Green)
+            _colorRecorridoIndex = (_colorRecorridoIndex + 1) % 3;
+            colorr = _colorRecorridoIndex switch
             {
-                btn_color.BackColor = Color.Red;
-                btn_color.Text = "Rojo";
-                colorr = Color.Red;
-            }
+                0 => Color.Green,
+                1 => Color.Blue,
+                _ => Color.Red
+            };
 
-            else if (btn_color.BackColor == Color.Red)
+            btn_color.BackColor = colorr;
+            btn_color.ForeColor = Color.White;
+            btn_color.Text = _colorRecorridoIndex switch
             {
-                btn_color.BackColor = Color.Green;
-                btn_color.Text = "verde";
-                colorr = Color.Green;
-            }
+                0 => "Color: verde",
+                1 => "Color: azul",
+                _ => "Color: rojo"
+            };
         }
 
         private void btn_siguiente_Click(object sender, EventArgs e)

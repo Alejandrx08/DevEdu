@@ -1,4 +1,4 @@
-﻿using DevEdu.UI.Forms.DevTrivia;
+using DevEdu.UI.Forms.DevTrivia;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Interfaces;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Presenters;
 using DevEdu.Views.Admin;
 using System;
@@ -20,7 +20,6 @@ namespace DevEdu
         {
             usuariosToolStripMenuItem.Visible = visible;
         }
-
         public void MostrarMensaje(string mensaje)
         {
             MessageBox.Show(mensaje);
@@ -216,3 +215,4 @@ namespace DevEdu
         }
     }
 }
+

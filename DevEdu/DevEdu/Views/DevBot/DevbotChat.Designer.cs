@@ -1,4 +1,4 @@
-﻿namespace DevEdu
+namespace DevEdu
 {
     partial class DevbotChat
     {
@@ -177,6 +177,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1120, 820); this.MinimumSize = new System.Drawing.Size(1120, 820); this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251); this.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0); this.pictureBox1.Size = new System.Drawing.Size(1120, 82); this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.pictureBox2.Location = new System.Drawing.Point(-300, -300); this.pictureBox2.Size = new System.Drawing.Size(1, 1); this.pictureBox6.Location = new System.Drawing.Point(-300, -300); this.pictureBox6.Size = new System.Drawing.Size(1, 1);
+            this.label1.Text = "DevBot"; this.label1.Location = new System.Drawing.Point(32, 15); this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 23F, System.Drawing.FontStyle.Bold); this.label1.ForeColor = System.Drawing.Color.White; this.label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.button3.Text = "← Volver"; this.button3.Location = new System.Drawing.Point(970, 20); this.button3.Size = new System.Drawing.Size(120, 40); this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold); this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.button3.FlatAppearance.BorderSize = 1; this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(168, 190, 220); this.button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101); this.button3.ForeColor = System.Drawing.Color.White;
+            this.label2.Text = "ASISTENTE DE PROGRAMACIÓN"; this.label2.Location = new System.Drawing.Point(68, 128); this.label2.Size = new System.Drawing.Size(960, 32); this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold); this.label2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139); this.label2.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            this.label3.Text = "Hola, soy DevBot. ¿En qué puedo ayudarte hoy?\r\n\r\nPuedes preguntarme sobre conceptos, código o errores de programación."; this.label3.Location = new System.Drawing.Point(82, 194); this.label3.Size = new System.Drawing.Size(880, 150); this.label3.AutoSize = false; this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold); this.label3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84); this.label3.BackColor = System.Drawing.Color.FromArgb(232, 239, 249); this.label3.Padding = new System.Windows.Forms.Padding(24); this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TxtBox_DevBot.Location = new System.Drawing.Point(56, 734); this.TxtBox_DevBot.Size = new System.Drawing.Size(850, 46); this.TxtBox_DevBot.Font = new System.Drawing.Font("Segoe UI", 12F); this.TxtBox_DevBot.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55); this.TxtBox_DevBot.BackColor = System.Drawing.Color.FromArgb(249, 250, 252); this.TxtBox_DevBot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Btn_Enviar.Text = "Enviar  →"; this.Btn_Enviar.Location = new System.Drawing.Point(918, 734); this.Btn_Enviar.Size = new System.Drawing.Size(146, 46); this.Btn_Enviar.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold); this.Btn_Enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_Enviar.FlatAppearance.BorderSize = 0; this.Btn_Enviar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84); this.Btn_Enviar.ForeColor = System.Drawing.Color.White;
+            this.label5.Text = "DevEdu  ·  Aprende, practica y comparte"; this.label5.Location = new System.Drawing.Point(0, 790); this.label5.Size = new System.Drawing.Size(1120, 22); this.label5.Font = new System.Drawing.Font("Segoe UI", 9F); this.label5.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139); this.label5.BackColor = System.Drawing.Color.FromArgb(245, 247, 251); this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ResumeLayout(false);
             this.PerformLayout();
 

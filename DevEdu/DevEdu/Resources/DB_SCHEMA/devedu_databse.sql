@@ -460,3 +460,44 @@ BEGIN
     );
 END
 GO
+
+IF OBJECT_ID('dbo.password_recovery_codes', 'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.password_recovery_codes
+    (
+        recovery_id BIGINT IDENTITY(1,1) NOT NULL
+            CONSTRAINT PK_password_recovery_codes PRIMARY KEY,
+
+        user_id INT NOT NULL,
+
+        code_hash BINARY(32) NOT NULL,
+
+        expires_at DATETIME2(0) NOT NULL,
+
+        attempts INT NOT NULL
+            CONSTRAINT DF_password_recovery_attempts DEFAULT (0),
+
+        created_at DATETIME2(0) NOT NULL
+            CONSTRAINT DF_password_recovery_created
+            DEFAULT (SYSUTCDATETIME()),
+
+        used_at DATETIME2(0) NULL,
+
+        CONSTRAINT FK_password_recovery_user
+            FOREIGN KEY (user_id)
+            REFERENCES dbo.usuarios(id)
+            ON DELETE CASCADE,
+
+        CONSTRAINT CK_password_recovery_attempts
+            CHECK (attempts >= 0)
+    );
+
+    CREATE INDEX IX_password_recovery_user_active
+        ON dbo.password_recovery_codes
+        (
+            user_id,
+            created_at DESC
+        )
+        INCLUDE (expires_at, attempts, used_at);
+END;
+GO

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,12 +37,12 @@ namespace DevEdu
             bx6.BackColor = Color.White;
             bx7.ForeColor = Color.Black;
             bx7.BackColor = Color.White;
-            flecha1.ForeColor = Color.White;
-            flecha2.ForeColor = Color.White;
-            flecha3.ForeColor = Color.White;
-            flecha4.ForeColor = Color.White;
-            flecha5.ForeColor = Color.White;
-            flecha6.ForeColor = Color.White;
+            flecha1.ForeColor = Color.FromArgb(100, 116, 139);
+            flecha2.ForeColor = Color.FromArgb(100, 116, 139);
+            flecha3.ForeColor = Color.FromArgb(100, 116, 139);
+            flecha4.ForeColor = Color.FromArgb(100, 116, 139);
+            flecha5.ForeColor = Color.FromArgb(100, 116, 139);
+            flecha6.ForeColor = Color.FromArgb(100, 116, 139);
         }
         private void bx1C()
         {
@@ -56,159 +56,76 @@ namespace DevEdu
             txtbx_valornodo.Text = "";
         }
 
-        private void bx1_Click(object sender, EventArgs e) // cuando se le da click
+        private void SeleccionarNodo(int nodo)
         {
-            if (bx1.ForeColor == Color.Black)
-            {
-                Colorr();
-                bx1C();
-                txtbx_slctnodo.Text = bx1.Text; // el texto de select nodo va a ser igual al texto de bx1 
-                indice = 1;
+            Button[] nodos = { bx1, bx2, bx3, bx4, bx5, bx6, bx7 };
+            Label[] aristas = { flecha1, flecha2, flecha3, flecha4, flecha5, flecha6 };
+            bool cancelar = indice == nodo;
+            Colorr(); clear(); indice = 0;
+            if (cancelar) return;
 
-            }
-            else
+            int[][] rutasNodos =
             {
-                clear();
-                Colorr();
-                indice = 0;
+                new[] { 1 },
+                new[] { 1, 2 },
+                new[] { 1, 3 },
+                new[] { 1, 2, 4 },
+                new[] { 1, 2, 5 },
+                new[] { 1, 3, 6 },
+                new[] { 1, 3, 7 }
+            };
+            int[][] rutasAristas =
+            {
+                Array.Empty<int>(),
+                new[] { 1 }, new[] { 2 },
+                new[] { 1, 3 }, new[] { 1, 4 },
+                new[] { 2, 5 }, new[] { 2, 6 }
+            };
+
+            foreach (int numero in rutasNodos[nodo - 1])
+            {
+                nodos[numero - 1].BackColor = Color.FromArgb(0, 128, 0);
+                nodos[numero - 1].ForeColor = Color.White;
             }
+            foreach (int numero in rutasAristas[nodo - 1])
+                aristas[numero - 1].ForeColor = Color.FromArgb(0, 128, 0);
+
+            txtbx_slctnodo.Text = nodos[nodo - 1].Text;
+            indice = nodo;
         }
+        private void bx1_Click(object sender, EventArgs e)
+        {
+            SeleccionarNodo(1);
+        }
+
         private void bx2_Click(object sender, EventArgs e)
         {
-            if (bx2.ForeColor == Color.Black)
-            {
-                Colorr();
-                bx2.ForeColor = Color.White;
-                bx2.BackColor = Color.Green;
-                bx1C();
-                flecha1.ForeColor = Color.Green;
-                txtbx_slctnodo.Text = bx2.Text;
-                indice = 2;
-            }
-            else
-            {
-                clear();
-                Colorr(); 
-                indice = 0;
-            }
+            SeleccionarNodo(2);
         }
+
         private void bx3_Click(object sender, EventArgs e)
         {
-            if (bx3.ForeColor == Color.Black)
-            {
-                Colorr();
-                bx3.ForeColor = Color.White;
-                bx3.BackColor = Color.Green;
-                bx1C();
-                flecha1.ForeColor = Color.Green;
-                flecha2.ForeColor = Color.Green;
-                txtbx_slctnodo.Text = bx3.Text;
-                indice = 3;
-
-            }
-            else
-            {
-                clear();
-                Colorr();
-                indice = 0;
-            }
+            SeleccionarNodo(3);
         }
+
         private void bx4_Click(object sender, EventArgs e)
         {
-            if (bx4.ForeColor == Color.Black)
-            {
-                Colorr();
-                bx4.ForeColor = Color.White;
-                bx4.BackColor = Color.Green;
-                bx1C();
-                bx2.ForeColor = Color.White;
-                bx2.BackColor = Color.Green;
-                flecha1.ForeColor= Color.Green;
-                flecha3.ForeColor = Color.Green;
-                txtbx_slctnodo.Text = bx4.Text;
-                indice = 4;
-            }
-            else
-            {
-                clear();
-                Colorr();
-                indice = 0;
-            }
+            SeleccionarNodo(4);
         }
+
         private void bx5_Click(object sender, EventArgs e)
         {
-            if (bx5.ForeColor == Color.Black)
-            {
-                Colorr();
-                bx5.ForeColor = Color.White;
-                bx5.BackColor = Color.Green;
-                flecha4.ForeColor = Color.Green;
-                flecha3.ForeColor = Color.Green;
-                bx2.ForeColor = Color.White;
-                bx2.BackColor = Color.Green;
-                flecha1.ForeColor = Color.Green;
-                bx1C();
-                txtbx_slctnodo.Text = bx5.Text;
-                indice = 5;
-
-            }
-            else
-            {
-                clear();
-                Colorr();
-                indice = 0;
-            }
+            SeleccionarNodo(5);
         }
+
         private void bx6_Click(object sender, EventArgs e)
         {
-            if (bx6.ForeColor == Color.Black)
-            {
-                Colorr();
-                bx6.ForeColor = Color.White;
-                bx6.BackColor = Color.Green;
-                flecha5.ForeColor = Color.Green;
-                bx3.ForeColor = Color.White;
-                bx3.BackColor = Color.Green;
-                flecha2.ForeColor = Color.Green;
-                flecha1.ForeColor = Color.Green;    
-                bx1C();
-                txtbx_slctnodo.Text = bx6.Text;
-                indice = 6;
-            }
-            else
-            {
-                clear();
-                Colorr();
-                indice = 0;
-            }
+            SeleccionarNodo(6);
         }
 
         private void bx7_Click(object sender, EventArgs e)
         {
-
-            if (bx7.ForeColor == Color.Black)
-            {
-                Colorr();
-                bx7.ForeColor = Color.White;
-                bx7.BackColor = Color.Green;
-                flecha6.ForeColor = Color.Green;
-                bx5.ForeColor = Color.White;
-                bx5.BackColor = Color.Green;
-                flecha4.ForeColor = Color.Green;
-                flecha3.ForeColor = Color.Green;
-                bx2.ForeColor = Color.White;
-                bx2.BackColor = Color.Green;
-                flecha1.ForeColor = Color.Green;
-                bx1C();
-                txtbx_slctnodo.Text = bx7.Text;
-                indice = 7;
-            }
-            else
-            {   
-                clear();
-                Colorr();
-                indice = 0;
-            }
+            SeleccionarNodo(7);
         }
 
         private void btn_return_Click(object sender, EventArgs e)

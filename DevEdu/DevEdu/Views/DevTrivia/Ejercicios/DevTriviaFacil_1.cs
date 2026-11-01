@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,8 +29,8 @@ namespace DevEdu
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmMainMenu principal = new FrmMainMenu();
-            principal.ShowDialog();
+            DevTriviaMenu menu = new DevTriviaMenu();
+            menu.ShowDialog();
             this.Close();
         }
 

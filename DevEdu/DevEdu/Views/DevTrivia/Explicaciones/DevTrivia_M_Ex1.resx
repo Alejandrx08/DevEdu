@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,15 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label3.Text" xml:space="preserve">
-    <value>//Explicacion ¿Por qué C++ en Unreal Engine?
+    <value>¿POR QUÉ C++ EN UNREAL ENGINE?
+C++ permite crear sistemas de juego que necesitan rendimiento y control preciso de memoria y CPU.
 
-- Rendimiento: C++ ofrece control total sobre memoria y CPU, esencial para juegos exigentes.
-- Acceso profundo: Unreal está escrito en C++, lo que permite modificar el motor directamente.
-- Framework de juego: Puedes crear y extender clases como AActor, APawn, y GameMode para definir el comportamiento del juego.
-- Integración con Blueprints: Puedes escribir lógica compleja en C++ y exponerla como nodos visuales para diseñadores.
-- Uso profesional: Motores como Unreal Engine y estudios AAA lo prefieren por su potencia y flexibilidad.
+TRABAJO CON EL MOTOR
+Unreal está desarrollado en C++. El lenguaje permite trabajar directamente con sus sistemas y crear clases como AActor, APawn y GameMode para definir comportamientos.
 
-</value>
+C++ Y BLUEPRINTS
+La lógica compleja puede programarse en C++ y exponerse como nodos visuales en Blueprints, para que programación y diseño colaboren sobre el mismo comportamiento.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

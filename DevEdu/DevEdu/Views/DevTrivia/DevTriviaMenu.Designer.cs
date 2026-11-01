@@ -1,4 +1,4 @@
-﻿namespace DevEdu
+namespace DevEdu
 {
     partial class DevTriviaMenu
     {
@@ -166,8 +166,8 @@
             // 
             // DevTriviaMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.copy_txt);
@@ -187,6 +187,100 @@
             this.Load += new System.EventHandler(this.DevTriviaMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1100, 760);
+            this.MinimumSize = new System.Drawing.Size(0, 0);
+            this.MaximumSize = new System.Drawing.Size(0, 0);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            this.Text = "DevTrivia | Elige tu nivel";
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(1100, 86);
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 720);
+            this.pictureBox2.Size = new System.Drawing.Size(1100, 40);
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.DevEdu_txt.Text = "DevTrivia";
+            this.DevEdu_txt.Location = new System.Drawing.Point(34, 17);
+            this.DevEdu_txt.Size = new System.Drawing.Size(240, 46);
+            this.DevEdu_txt.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
+            this.DevEdu_txt.ForeColor = System.Drawing.Color.White;
+            this.DevEdu_txt.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.DevTrivia_txt.Text = "Elige tu nivel";
+            this.DevTrivia_txt.Location = new System.Drawing.Point(70, 112);
+            this.DevTrivia_txt.Size = new System.Drawing.Size(960, 58);
+            this.DevTrivia_txt.AutoSize = false;
+            this.DevTrivia_txt.Font = new System.Drawing.Font("Segoe UI Semibold", 26F, System.Drawing.FontStyle.Bold);
+            this.DevTrivia_txt.ForeColor = System.Drawing.Color.White;
+            this.DevTrivia_txt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DevTrivia_txt.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label1.Text = "Pon a prueba tus conocimientos de programación";
+            this.label1.Location = new System.Drawing.Point(70, 170);
+            this.label1.Size = new System.Drawing.Size(960, 44);
+            this.label1.AutoSize = false;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            this.btn_Facil.Text = "01  ·  NIVEL FÁCIL\r\n\r\nCONCEPTOS BÁSICOS\r\n\r\nEmpieza con los fundamentos y practica ciclos.\r\n\r\nJUGAR  →";
+            this.btn_Facil.Location = new System.Drawing.Point(40, 236);
+            this.btn_Facil.Size = new System.Drawing.Size(320, 420);
+            this.btn_Facil.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.btn_Facil.ForeColor = System.Drawing.Color.White;
+            this.btn_Facil.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.btn_Facil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_Facil.Padding = new System.Windows.Forms.Padding(28);
+            this.btn_Facil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Facil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Facil.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.btn_Facil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            this.btn_Facil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
+            this.btn_Facil.FlatAppearance.BorderSize = 1;
+            this.btn_Medio.Text = "02  ·  NIVEL MEDIO\r\n\r\nLENGUAJES Y HERRAMIENTAS\r\n\r\nResuelve preguntas sobre tecnologías de desarrollo.\r\n\r\nJUGAR  →";
+            this.btn_Medio.Location = new System.Drawing.Point(390, 236);
+            this.btn_Medio.Size = new System.Drawing.Size(320, 420);
+            this.btn_Medio.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.btn_Medio.ForeColor = System.Drawing.Color.White;
+            this.btn_Medio.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            this.btn_Medio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_Medio.Padding = new System.Windows.Forms.Padding(28);
+            this.btn_Medio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Medio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Medio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.btn_Medio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
+            this.btn_Medio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
+            this.btn_Medio.FlatAppearance.BorderSize = 1;
+            this.btn_Dificil.Text = "03  ·  NIVEL DIFÍCIL\r\n\r\nLÓGICA AVANZADA\r\n\r\nDemuestra tu dominio de conceptos de programación.\r\n\r\nJUGAR  →";
+            this.btn_Dificil.Location = new System.Drawing.Point(740, 236);
+            this.btn_Dificil.Size = new System.Drawing.Size(320, 420);
+            this.btn_Dificil.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.btn_Dificil.ForeColor = System.Drawing.Color.White;
+            this.btn_Dificil.BackColor = System.Drawing.Color.FromArgb(36, 74, 130);
+            this.btn_Dificil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_Dificil.Padding = new System.Windows.Forms.Padding(28);
+            this.btn_Dificil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Dificil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Dificil.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.btn_Dificil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(48, 88, 146);
+            this.btn_Dificil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(36, 74, 130);
+            this.btn_Dificil.FlatAppearance.BorderSize = 1;
+            this.button2.Text = "← Volver";
+            this.button2.Location = new System.Drawing.Point(944, 20);
+            this.button2.Size = new System.Drawing.Size(120, 44);
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.copy_txt.Text = "DevEdu  ·  Aprende jugando";
+            this.copy_txt.Location = new System.Drawing.Point(0, 723);
+            this.copy_txt.Size = new System.Drawing.Size(1100, 28);
+            this.copy_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.copy_txt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.copy_txt.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.copy_txt.ForeColor = System.Drawing.Color.White;
             this.ResumeLayout(false);
             this.PerformLayout();
 

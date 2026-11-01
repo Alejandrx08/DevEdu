@@ -1,4 +1,4 @@
-﻿namespace DevEdu
+namespace DevEdu
 {
     partial class DevVis_Bucles_Ej1
     {
@@ -238,6 +238,81 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+                        this.ClientSize = new System.Drawing.Size(1100, 740);
+            this.MinimumSize = new System.Drawing.Size(1100, 740);
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            this.Text = "DevVis | Bucle For";
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(1100, 78);
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.pictureBox2.Location = new System.Drawing.Point(55, 100);
+            this.pictureBox2.Size = new System.Drawing.Size(990, 535);
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Visible = false;
+            this.label1.Text = "DevVis";
+            this.label1.Location = new System.Drawing.Point(32, 14);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold);
+            this.button3.Text = "← Volver";
+            this.button3.Location = new System.Drawing.Point(940, 18);
+            this.button3.Size = new System.Drawing.Size(125, 38);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.label3.Text = "Visualización de Bucle For";
+            this.label3.Location = new System.Drawing.Point(85, 112);
+            this.label3.Size = new System.Drawing.Size(930, 42);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 21F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Text = "Cada paso escribe en el arreglo el doble de su índice (i × 2).";
+            this.label2.Location = new System.Drawing.Point(85, 158);
+            this.label2.Size = new System.Drawing.Size(900, 34);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.TxtBox0_DevVis.Location = new System.Drawing.Point(105, 280);
+            this.TxtBox1_DevVis.Location = new System.Drawing.Point(255, 280);
+            this.TxtBox2_DevVis.Location = new System.Drawing.Point(405, 280);
+            this.TxtBox3_DevVis.Location = new System.Drawing.Point(555, 280);
+            this.TxtBox4_DevVis.Location = new System.Drawing.Point(705, 280);
+            this.TxtBox5_DevVis.Location = new System.Drawing.Point(855, 280);
+            this.TxtBox0_DevVis.Size = new System.Drawing.Size(110, 78);
+            this.TxtBox1_DevVis.Size = new System.Drawing.Size(110, 78);
+            this.TxtBox2_DevVis.Size = new System.Drawing.Size(110, 78);
+            this.TxtBox3_DevVis.Size = new System.Drawing.Size(110, 78);
+            this.TxtBox4_DevVis.Size = new System.Drawing.Size(110, 78);
+            this.TxtBox5_DevVis.Size = new System.Drawing.Size(110, 78);
+            this.TxtBox0_DevVis.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.TxtBox1_DevVis.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.TxtBox2_DevVis.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.TxtBox3_DevVis.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.TxtBox4_DevVis.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.TxtBox5_DevVis.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.TxtBox0_DevVis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBox1_DevVis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBox2_DevVis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBox3_DevVis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBox4_DevVis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBox5_DevVis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Iniciar_DevVis.Text = "▶  Iniciar recorrido";
+            this.Btn_Iniciar_DevVis.Location = new System.Drawing.Point(430, 430);
+            this.Btn_Iniciar_DevVis.Size = new System.Drawing.Size(190, 52);
+            this.Btn_Iniciar_DevVis.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.Btn_Iniciar_DevVis.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.Btn_Iniciar_DevVis.ForeColor = System.Drawing.Color.White;
+            this.Btn_Iniciar_DevVis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Iniciar_DevVis.FlatAppearance.BorderSize = 0;
+            this.MoreInfo.Text = "i";
+            this.MoreInfo.Location = new System.Drawing.Point(985, 112);
+            this.MoreInfo.Size = new System.Drawing.Size(36, 36);
+            this.MoreInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.MoreInfo.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.MoreInfo.BackColor = System.Drawing.Color.FromArgb(226, 236, 249);
+            this.MoreInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ResumeLayout(false);
             this.PerformLayout();
 

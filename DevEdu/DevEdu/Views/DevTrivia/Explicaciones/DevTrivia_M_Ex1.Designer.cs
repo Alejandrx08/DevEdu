@@ -1,4 +1,4 @@
-﻿namespace DevEdu
+namespace DevEdu
 {
     partial class DevTrivia_M_Ex1
     {
@@ -109,8 +109,8 @@
             // 
             // DevTrivia_M_Ex1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Btn_Ok);
@@ -124,6 +124,59 @@
             this.Text = "DevEdu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1100,760);
+            this.MinimumSize = new System.Drawing.Size(0, 0);
+            this.MaximumSize = new System.Drawing.Size(0, 0);
+            this.BackColor = System.Drawing.Color.FromArgb(245,247,251);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            this.Text = "DevTrivia | Explicación · Nivel MEDIO";
+            this.pictureBox1.Location = new System.Drawing.Point(0,0); this.pictureBox1.Size = new System.Drawing.Size(1100,86); this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.pictureBox4.Location = new System.Drawing.Point(36,108); this.pictureBox4.Size = new System.Drawing.Size(1028,612); this.pictureBox4.BackColor = System.Drawing.Color.White; this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Text = "DevTrivia"; this.label1.Location = new System.Drawing.Point(34,17); this.label1.Size = new System.Drawing.Size(260,48); this.label1.Font = new System.Drawing.Font("Segoe UI Semibold",23F,System.Drawing.FontStyle.Bold); this.label1.ForeColor = System.Drawing.Color.White; this.label1.BackColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.label2.Text = "EXPLICACIÓN  ·  NIVEL MEDIO"; this.label2.Location = new System.Drawing.Point(72,132); this.label2.Size = new System.Drawing.Size(956,52); this.label2.AutoSize = false; this.label2.Font = new System.Drawing.Font("Segoe UI Semibold",22F,System.Drawing.FontStyle.Bold); this.label2.ForeColor = System.Drawing.Color.White; this.label2.BackColor = System.Drawing.Color.FromArgb(0,31,84); this.label2.Padding = new System.Windows.Forms.Padding(16,0,0,0); this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(72,210); this.label3.Size = new System.Drawing.Size(468,390); this.label3.AutoSize = false; this.label3.Font = new System.Drawing.Font("Segoe UI",15F); this.label3.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.label3.BackColor = System.Drawing.Color.White; this.label3.Padding = new System.Windows.Forms.Padding(24,24,24,24); this.label3.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.Btn_Ok.Text = "Terminar y volver"; this.Btn_Ok.Location = new System.Drawing.Point(832,628); this.Btn_Ok.Size = new System.Drawing.Size(196,48); this.Btn_Ok.Font = new System.Drawing.Font("Segoe UI Semibold",10F,System.Drawing.FontStyle.Bold); this.Btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_Ok.FlatAppearance.BorderSize = 0; this.Btn_Ok.BackColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Ok.ForeColor = System.Drawing.Color.White; this.Btn_Ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblKeyPoint = new System.Windows.Forms.Label();
+            this.lblKeyPoint.Name = "lblKeyPoint";
+            this.lblKeyPoint.Location = new System.Drawing.Point(72, 628);
+            this.lblKeyPoint.Size = new System.Drawing.Size(704, 52);
+            this.lblKeyPoint.AutoSize = false;
+            this.lblKeyPoint.Text = "CLAVE  ·  C++ aporta control y rendimiento; Blueprints facilita la lógica visual.";
+            this.lblKeyPoint.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblKeyPoint.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.lblKeyPoint.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            this.lblKeyPoint.Padding = new System.Windows.Forms.Padding(14, 0, 10, 0);
+            this.lblKeyPoint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                        this.lblExampleTitle = new System.Windows.Forms.Label();
+            this.lblExampleTitle.Name = "lblExampleTitle";
+            this.lblExampleTitle.Location = new System.Drawing.Point(570, 210);
+            this.lblExampleTitle.Size = new System.Drawing.Size(458, 48);
+            this.lblExampleTitle.AutoSize = false;
+            this.lblExampleTitle.Text = "C++ + BLUEPRINTS";
+            this.lblExampleTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblExampleTitle.ForeColor = System.Drawing.Color.White;
+            this.lblExampleTitle.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.lblExampleTitle.Padding = new System.Windows.Forms.Padding(18, 0, 10, 0);
+            this.lblExampleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblExample = new System.Windows.Forms.Label();
+            this.lblExample.Name = "lblExample";
+            this.lblExample.Location = new System.Drawing.Point(570, 258);
+            this.lblExample.Size = new System.Drawing.Size(458, 342);
+            this.lblExample.AutoSize = false;
+            this.lblExample.Text = "C++\r\nAActor / APawn\r\n        ↓\r\nBlueprints\r\n\r\nLógica C++\r\nexpuesta como\r\nnodos visuales.";
+            this.lblExample.Font = new System.Drawing.Font("Consolas", 13F, System.Drawing.FontStyle.Regular);
+            this.lblExample.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.lblExample.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            this.lblExample.Padding = new System.Windows.Forms.Padding(22, 22, 18, 18);
+            this.lblExample.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.Controls.Add(this.lblKeyPoint);
+            this.Controls.Add(this.lblExampleTitle);
+            this.Controls.Add(this.lblExample);
+            this.lblKeyPoint.BringToFront();
+            this.lblExampleTitle.BringToFront();
+            this.lblExample.BringToFront();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +187,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblKeyPoint;
+        private System.Windows.Forms.Label lblExampleTitle;
+        private System.Windows.Forms.Label lblExample;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button Btn_Ok;

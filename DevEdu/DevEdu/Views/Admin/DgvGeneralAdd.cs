@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Interfaces;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Presenters;
 using System;
 using System.Threading.Tasks;

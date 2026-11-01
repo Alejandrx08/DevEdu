@@ -1,4 +1,4 @@
-﻿namespace DevEdu
+namespace DevEdu
 {
     partial class DevHubMenu
     {
@@ -589,7 +589,220 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1100, 760);
+            this.MinimumSize = new System.Drawing.Size(0, 0);
+            this.MaximumSize = new System.Drawing.Size(0, 0);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Text = "DevHub | Comunidad de proyectos";
+
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Size = new System.Drawing.Size(1100, 86);
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+
+            this.pictureBox1.Location = new System.Drawing.Point(30, 112);
+            this.pictureBox1.Size = new System.Drawing.Size(330, 300);
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox7.Location = new System.Drawing.Point(36, 118);
+            this.pictureBox7.Size = new System.Drawing.Size(330, 300);
+            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+
+            this.pictureBox2.Location = new System.Drawing.Point(390, 158);
+            this.pictureBox2.Size = new System.Drawing.Size(674, 245);
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox12.Location = new System.Drawing.Point(396, 164);
+            this.pictureBox12.Size = new System.Drawing.Size(674, 245);
+            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+
+            this.pictureBox8.Location = new System.Drawing.Point(390, 418);
+            this.pictureBox8.Size = new System.Drawing.Size(674, 245);
+            this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox11.Location = new System.Drawing.Point(396, 424);
+            this.pictureBox11.Size = new System.Drawing.Size(674, 245);
+            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+
+            this.pictureBox5.Location = new System.Drawing.Point(30, 428);
+            this.pictureBox5.Size = new System.Drawing.Size(330, 138);
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox9.Location = new System.Drawing.Point(36, 434);
+            this.pictureBox9.Size = new System.Drawing.Size(330, 138);
+            this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+            this.pictureBox13.Location = new System.Drawing.Point(30, 582);
+            this.pictureBox13.Size = new System.Drawing.Size(330, 138);
+            this.pictureBox13.BackColor = System.Drawing.Color.White;
+            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox15.Location = new System.Drawing.Point(36, 588);
+            this.pictureBox15.Size = new System.Drawing.Size(330, 138);
+            this.pictureBox15.BackColor = System.Drawing.Color.FromArgb(226, 235, 248);
+
+            this.pictureBox4.Location = new System.Drawing.Point(-400, -400); this.pictureBox4.Size = new System.Drawing.Size(1, 1);
+            this.pictureBox10.Location = new System.Drawing.Point(-400, -400); this.pictureBox10.Size = new System.Drawing.Size(1, 1);
+            this.pictureBox14.Location = new System.Drawing.Point(-400, -400); this.pictureBox14.Size = new System.Drawing.Size(1, 1);
+            this.pictureBox16.Location = new System.Drawing.Point(-400, -400); this.pictureBox16.Size = new System.Drawing.Size(1, 1);
+
+            this.label1.Text = "DevHub";
+            this.label1.Location = new System.Drawing.Point(32, 17);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 23F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.button3.Text = "← Volver";
+            this.button3.Location = new System.Drawing.Point(944, 20);
+            this.button3.Size = new System.Drawing.Size(120, 44);
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.FlatAppearance.BorderSize = 0;
+
+            this.label2.Text = "Comparte tu proyecto";
+            this.label2.Location = new System.Drawing.Point(55, 130);
+            this.label2.Size = new System.Drawing.Size(280, 30);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.TxtBox_subir_Name.Location = new System.Drawing.Point(55, 174);
+            this.TxtBox_subir_Name.Size = new System.Drawing.Size(280, 36);
+            this.TxtBox_subir_Name.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtBox_subir_Name.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.TxtBox_subir_Name.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            this.TxtBox_subir_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtBox_subir_Desc.Location = new System.Drawing.Point(55, 220);
+            this.TxtBox_subir_Desc.Size = new System.Drawing.Size(280, 88);
+            this.TxtBox_subir_Desc.Multiline = true;
+            this.TxtBox_subir_Desc.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtBox_subir_Desc.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.TxtBox_subir_Desc.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            this.TxtBox_subir_Desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.groupBox1.Text = "Adjuntar archivo";
+            this.groupBox1.Location = new System.Drawing.Point(55, 326);
+            this.groupBox1.Size = new System.Drawing.Size(132, 56);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.button1.Text = "Subir proyecto";
+            this.button1.Location = new System.Drawing.Point(203, 330);
+            this.button1.Size = new System.Drawing.Size(132, 48);
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.FlatAppearance.BorderSize = 0;
+
+            this.label3.Text = "Portafolio Web";
+            this.label3.Location = new System.Drawing.Point(55, 442);
+            this.label3.Size = new System.Drawing.Size(280, 25);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(55, 470);
+            this.label5.Size = new System.Drawing.Size(280, 42);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.TxtBox_Comentar.Location = new System.Drawing.Point(55, 520);
+            this.TxtBox_Comentar.Size = new System.Drawing.Size(174, 32);
+            this.TxtBox_Comentar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TxtBox_Comentar.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.Btn_Comentar.Text = "Comentar";
+            this.Btn_Comentar.Location = new System.Drawing.Point(239, 520);
+            this.Btn_Comentar.Size = new System.Drawing.Size(96, 32);
+            this.Btn_Comentar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Bold);
+            this.Btn_Comentar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.Btn_Comentar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Comentar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Comentar.FlatAppearance.BorderSize = 0;
+
+            this.label4.Text = "Chatbot con IA";
+            this.label4.Location = new System.Drawing.Point(55, 596);
+            this.label4.Size = new System.Drawing.Size(280, 25);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(55, 624);
+            this.label6.Size = new System.Drawing.Size(280, 42);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.TxtBox_Opinar.Location = new System.Drawing.Point(55, 674);
+            this.TxtBox_Opinar.Size = new System.Drawing.Size(174, 32);
+            this.TxtBox_Opinar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TxtBox_Opinar.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.Btn_Opinar.Text = "Opinar";
+            this.Btn_Opinar.Location = new System.Drawing.Point(239, 674);
+            this.Btn_Opinar.Size = new System.Drawing.Size(96, 32);
+            this.Btn_Opinar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Bold);
+            this.Btn_Opinar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.Btn_Opinar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Opinar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Opinar.FlatAppearance.BorderSize = 0;
+
+            this.label7.Text = "Conversaciones de la comunidad";
+            this.label7.Location = new System.Drawing.Point(390, 112);
+            this.label7.Size = new System.Drawing.Size(674, 34);
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label7.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            this.label8.Location = new System.Drawing.Point(420, 180);
+            this.label8.Size = new System.Drawing.Size(614, 34);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(420, 220);
+            this.label11.Size = new System.Drawing.Size(614, 48);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.TxtBox_Respuesta.Location = new System.Drawing.Point(420, 278);
+            this.TxtBox_Respuesta.Size = new System.Drawing.Size(614, 36);
+            this.TxtBox_Respuesta.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtBox_Respuesta.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.TxtBox_Respuesta.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            this.Btn_Responder.Location = new System.Drawing.Point(420, 326);
+            this.Btn_Responder.Size = new System.Drawing.Size(614, 46);
+            this.Btn_Responder.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.Btn_Responder.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.Btn_Responder.ForeColor = System.Drawing.Color.White;
+            this.Btn_Responder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Responder.FlatAppearance.BorderSize = 0;
+
+            this.label9.Location = new System.Drawing.Point(420, 440);
+            this.label9.Size = new System.Drawing.Size(614, 34);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(420, 480);
+            this.label10.Size = new System.Drawing.Size(614, 48);
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.TxtBox_Comenta.Location = new System.Drawing.Point(420, 538);
+            this.TxtBox_Comenta.Size = new System.Drawing.Size(614, 36);
+            this.TxtBox_Comenta.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TxtBox_Comenta.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.TxtBox_Comenta.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            this.Btn_Comentar2.Location = new System.Drawing.Point(420, 586);
+            this.Btn_Comentar2.Size = new System.Drawing.Size(614, 46);
+            this.Btn_Comentar2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.Btn_Comentar2.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            this.Btn_Comentar2.ForeColor = System.Drawing.Color.White;
+            this.Btn_Comentar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Comentar2.FlatAppearance.BorderSize = 0;
+
+            this.label12.Text = "DevEdu  ·  Comparte, aprende y construye en comunidad";
+            this.label12.Location = new System.Drawing.Point(0, 730);
+            this.label12.Size = new System.Drawing.Size(1100, 24);
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.label12.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;            this.ResumeLayout(false);
             this.PerformLayout();
 
         }

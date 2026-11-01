@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DevEdu.Core.Interfaces
 {
@@ -24,3 +24,5 @@ namespace DevEdu.Core.Interfaces
         void AbrirLogin();
     }
 }
+
+

@@ -1,250 +1,14 @@
-﻿namespace DevEdu
+namespace DevEdu
 {
     partial class FrmRegistro
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistro));
-            this.txtbx_nombre = new System.Windows.Forms.TextBox();
-            this.txtbx_apellido = new System.Windows.Forms.TextBox();
-            this.txtbx_correo = new System.Windows.Forms.TextBox();
-            this.txtbx_contrasena = new System.Windows.Forms.TextBox();
-            this.txtbx_confirmacion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btn_Registrar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Link_Login = new System.Windows.Forms.LinkLabel();
-            this.pic_profile = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_profile)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // txtbx_nombre
-            // 
-            this.txtbx_nombre.Location = new System.Drawing.Point(230, 41);
-            this.txtbx_nombre.Name = "txtbx_nombre";
-            this.txtbx_nombre.Size = new System.Drawing.Size(221, 22);
-            this.txtbx_nombre.TabIndex = 0;
-            this.txtbx_nombre.TextChanged += new System.EventHandler(this.txtbx_nombre_TextChanged);
-            this.txtbx_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_nombre_KeyPress);
-            // 
-            // txtbx_apellido
-            // 
-            this.txtbx_apellido.Location = new System.Drawing.Point(230, 73);
-            this.txtbx_apellido.Name = "txtbx_apellido";
-            this.txtbx_apellido.Size = new System.Drawing.Size(221, 22);
-            this.txtbx_apellido.TabIndex = 1;
-            this.txtbx_apellido.TextChanged += new System.EventHandler(this.txtbx_apellido_TextChanged);
-            this.txtbx_apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_apellido_KeyPress);
-            // 
-            // txtbx_correo
-            // 
-            this.txtbx_correo.Location = new System.Drawing.Point(230, 104);
-            this.txtbx_correo.Name = "txtbx_correo";
-            this.txtbx_correo.Size = new System.Drawing.Size(221, 22);
-            this.txtbx_correo.TabIndex = 2;
-            this.txtbx_correo.TextChanged += new System.EventHandler(this.txtbx_correo_TextChanged);
-            this.txtbx_correo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_correo_KeyPress);
-            // 
-            // txtbx_contrasena
-            // 
-            this.txtbx_contrasena.Location = new System.Drawing.Point(230, 137);
-            this.txtbx_contrasena.Name = "txtbx_contrasena";
-            this.txtbx_contrasena.Size = new System.Drawing.Size(221, 22);
-            this.txtbx_contrasena.TabIndex = 3;
-            this.txtbx_contrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_contrasena_KeyPress);
-            // 
-            // txtbx_confirmacion
-            // 
-            this.txtbx_confirmacion.Location = new System.Drawing.Point(230, 167);
-            this.txtbx_confirmacion.Name = "txtbx_confirmacion";
-            this.txtbx_confirmacion.Size = new System.Drawing.Size(221, 22);
-            this.txtbx_confirmacion.TabIndex = 4;
-            this.txtbx_confirmacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_confirmacion_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(7, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 21);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Nombre";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(7, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 21);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Apellido";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(6, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Correo Electronico";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(6, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 21);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Contraseña";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(7, 164);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 21);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Confirmacion ";
-            // 
-            // btn_Registrar
-            // 
-            this.btn_Registrar.BackColor = System.Drawing.Color.Navy;
-            this.btn_Registrar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Registrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Registrar.Location = new System.Drawing.Point(174, 203);
-            this.btn_Registrar.Name = "btn_Registrar";
-            this.btn_Registrar.Size = new System.Drawing.Size(100, 41);
-            this.btn_Registrar.TabIndex = 10;
-            this.btn_Registrar.Text = "Registrar";
-            this.btn_Registrar.UseVisualStyleBackColor = false;
-            this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
-            this.btn_Registrar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_Registrar_KeyPress);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btn_Registrar);
-            this.groupBox1.Controls.Add(this.txtbx_confirmacion);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtbx_nombre);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtbx_contrasena);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtbx_apellido);
-            this.groupBox1.Controls.Add(this.txtbx_correo);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(301, 94);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 250);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registro";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(308, 359);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(175, 42);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "¿Ya posees una cuenta?,\r\n\r\n";
-            // 
-            // Link_Login
-            // 
-            this.Link_Login.AutoSize = true;
-            this.Link_Login.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Link_Login.Location = new System.Drawing.Point(489, 359);
-            this.Link_Login.Name = "Link_Login";
-            this.Link_Login.Size = new System.Drawing.Size(150, 21);
-            this.Link_Login.TabIndex = 14;
-            this.Link_Login.TabStop = true;
-            this.Link_Login.Text = "Inicia session ahora!";
-            this.Link_Login.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Link_Login_LinkClicked);
-            // 
-            // pic_profile
-            // 
-            this.pic_profile.Image = global::DevEdu.Properties.Resources.profilepicgray;
-            this.pic_profile.Location = new System.Drawing.Point(12, 94);
-            this.pic_profile.Name = "pic_profile";
-            this.pic_profile.Size = new System.Drawing.Size(250, 250);
-            this.pic_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_profile.TabIndex = 15;
-            this.pic_profile.TabStop = false;
-            // 
-            // FrmRegistro
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pic_profile);
-            this.Controls.Add(this.Link_Login);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmRegistro";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DevEdu";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_profile)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
-        }
-
-        #endregion
-
+        private System.Windows.Forms.Panel panelBrand;
+        private System.Windows.Forms.Label lblBrand;
+        private System.Windows.Forms.Label lblMensajeMarca;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTituloRegistro;
+        private System.Windows.Forms.Label lblSubtituloRegistro;
         private System.Windows.Forms.TextBox txtbx_nombre;
         private System.Windows.Forms.TextBox txtbx_apellido;
         private System.Windows.Forms.TextBox txtbx_correo;
@@ -256,9 +20,314 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_Registrar;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel Link_Login;
         private System.Windows.Forms.PictureBox pic_profile;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null)
+                components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistro));
+            panelBrand = new System.Windows.Forms.Panel();
+            lblBrand = new System.Windows.Forms.Label();
+            pic_profile = new System.Windows.Forms.PictureBox();
+            lblMensajeMarca = new System.Windows.Forms.Label();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            lblTituloRegistro = new System.Windows.Forms.Label();
+            lblSubtituloRegistro = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            txtbx_nombre = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            txtbx_apellido = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            txtbx_correo = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            txtbx_contrasena = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            txtbx_confirmacion = new System.Windows.Forms.TextBox();
+            btn_Registrar = new System.Windows.Forms.Button();
+            label6 = new System.Windows.Forms.Label();
+            Link_Login = new System.Windows.Forms.LinkLabel();
+            panelBrand.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_profile).BeginInit();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panelBrand
+            // 
+            panelBrand.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            panelBrand.Controls.Add(lblBrand);
+            panelBrand.Controls.Add(pic_profile);
+            panelBrand.Controls.Add(lblMensajeMarca);
+            panelBrand.Dock = System.Windows.Forms.DockStyle.Left;
+            panelBrand.Location = new System.Drawing.Point(0, 0);
+            panelBrand.Name = "panelBrand";
+            panelBrand.Size = new System.Drawing.Size(300, 720);
+            panelBrand.TabIndex = 0;
+            // 
+            // lblBrand
+            // 
+            lblBrand.AutoSize = true;
+            lblBrand.Font = new System.Drawing.Font("Segoe UI", 27F, System.Drawing.FontStyle.Bold);
+            lblBrand.ForeColor = System.Drawing.Color.White;
+            lblBrand.Location = new System.Drawing.Point(74, 48);
+            lblBrand.Name = "lblBrand";
+            lblBrand.Size = new System.Drawing.Size(149, 48);
+            lblBrand.TabIndex = 0;
+            lblBrand.Text = "DevEdu";
+            // 
+            // pic_profile
+            // 
+            pic_profile.BackColor = System.Drawing.Color.Transparent;
+            pic_profile.Image = Properties.Resources.profilepicgray;
+            pic_profile.Location = new System.Drawing.Point(25, 188);
+            pic_profile.Name = "pic_profile";
+            pic_profile.Size = new System.Drawing.Size(250, 250);
+            pic_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pic_profile.TabIndex = 1;
+            pic_profile.TabStop = false;
+            // 
+            // lblMensajeMarca
+            // 
+            lblMensajeMarca.Font = new System.Drawing.Font("Segoe UI", 13F);
+            lblMensajeMarca.ForeColor = System.Drawing.Color.White;
+            lblMensajeMarca.Location = new System.Drawing.Point(34, 490);
+            lblMensajeMarca.Name = "lblMensajeMarca";
+            lblMensajeMarca.Size = new System.Drawing.Size(232, 76);
+            lblMensajeMarca.TabIndex = 2;
+            lblMensajeMarca.Text = "Tu próximo reto\ncomienza aquí.";
+            lblMensajeMarca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = System.Drawing.Color.White;
+            groupBox1.Controls.Add(lblTituloRegistro);
+            groupBox1.Controls.Add(lblSubtituloRegistro);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(txtbx_nombre);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(txtbx_apellido);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(txtbx_correo);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(txtbx_contrasena);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(txtbx_confirmacion);
+            groupBox1.Controls.Add(btn_Registrar);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(Link_Login);
+            groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            groupBox1.Location = new System.Drawing.Point(340, 28);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(580, 665);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            // 
+            // lblTituloRegistro
+            // 
+            lblTituloRegistro.AutoSize = true;
+            lblTituloRegistro.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
+            lblTituloRegistro.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            lblTituloRegistro.Location = new System.Drawing.Point(50, 22);
+            lblTituloRegistro.Name = "lblTituloRegistro";
+            lblTituloRegistro.Size = new System.Drawing.Size(221, 41);
+            lblTituloRegistro.TabIndex = 0;
+            lblTituloRegistro.Text = "Crea tu cuenta";
+            // 
+            // lblSubtituloRegistro
+            // 
+            lblSubtituloRegistro.Font = new System.Drawing.Font("Segoe UI", 10F);
+            lblSubtituloRegistro.ForeColor = System.Drawing.Color.DimGray;
+            lblSubtituloRegistro.Location = new System.Drawing.Point(54, 69);
+            lblSubtituloRegistro.Name = "lblSubtituloRegistro";
+            lblSubtituloRegistro.Size = new System.Drawing.Size(450, 30);
+            lblSubtituloRegistro.TabIndex = 1;
+            lblSubtituloRegistro.Text = "Completa tus datos para comenzar a aprender.";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.Navy;
+            label1.Location = new System.Drawing.Point(54, 112);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(53, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Nombre";
+            // 
+            // txtbx_nombre
+            // 
+            txtbx_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtbx_nombre.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtbx_nombre.Location = new System.Drawing.Point(55, 134);
+            txtbx_nombre.Name = "txtbx_nombre";
+            txtbx_nombre.PlaceholderText = "Tu nombre";
+            txtbx_nombre.Size = new System.Drawing.Size(470, 25);
+            txtbx_nombre.TabIndex = 0;
+            txtbx_nombre.TextChanged += txtbx_nombre_TextChanged;
+            txtbx_nombre.KeyPress += txtbx_nombre_KeyPress;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            label2.ForeColor = System.Drawing.Color.Navy;
+            label2.Location = new System.Drawing.Point(54, 192);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(52, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Apellido";
+            // 
+            // txtbx_apellido
+            // 
+            txtbx_apellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtbx_apellido.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtbx_apellido.Location = new System.Drawing.Point(55, 214);
+            txtbx_apellido.Name = "txtbx_apellido";
+            txtbx_apellido.PlaceholderText = "Tu apellido";
+            txtbx_apellido.Size = new System.Drawing.Size(470, 25);
+            txtbx_apellido.TabIndex = 1;
+            txtbx_apellido.TextChanged += txtbx_apellido_TextChanged;
+            txtbx_apellido.KeyPress += txtbx_apellido_KeyPress;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            label3.ForeColor = System.Drawing.Color.Navy;
+            label3.Location = new System.Drawing.Point(54, 272);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(111, 15);
+            label3.TabIndex = 6;
+            label3.Text = "Correo electrónico";
+            label3.Click += label3_Click;
+            // 
+            // txtbx_correo
+            // 
+            txtbx_correo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtbx_correo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtbx_correo.Location = new System.Drawing.Point(55, 294);
+            txtbx_correo.Name = "txtbx_correo";
+            txtbx_correo.PlaceholderText = "nombre@ejemplo.com";
+            txtbx_correo.Size = new System.Drawing.Size(470, 25);
+            txtbx_correo.TabIndex = 2;
+            txtbx_correo.TextChanged += txtbx_correo_TextChanged;
+            txtbx_correo.KeyPress += txtbx_correo_KeyPress;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            label4.ForeColor = System.Drawing.Color.Navy;
+            label4.Location = new System.Drawing.Point(54, 352);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(69, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Contraseña";
+            // 
+            // txtbx_contrasena
+            // 
+            txtbx_contrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtbx_contrasena.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtbx_contrasena.Location = new System.Drawing.Point(55, 374);
+            txtbx_contrasena.Name = "txtbx_contrasena";
+            txtbx_contrasena.PlaceholderText = "Crea una contraseña";
+            txtbx_contrasena.Size = new System.Drawing.Size(470, 25);
+            txtbx_contrasena.TabIndex = 3;
+            txtbx_contrasena.UseSystemPasswordChar = true;
+            txtbx_contrasena.KeyPress += txtbx_contrasena_KeyPress;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            label5.ForeColor = System.Drawing.Color.Navy;
+            label5.Location = new System.Drawing.Point(54, 432);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(127, 15);
+            label5.TabIndex = 10;
+            label5.Text = "Confirmar contraseña";
+            // 
+            // txtbx_confirmacion
+            // 
+            txtbx_confirmacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtbx_confirmacion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtbx_confirmacion.Location = new System.Drawing.Point(55, 454);
+            txtbx_confirmacion.Name = "txtbx_confirmacion";
+            txtbx_confirmacion.PlaceholderText = "Repite la contraseña";
+            txtbx_confirmacion.Size = new System.Drawing.Size(470, 25);
+            txtbx_confirmacion.TabIndex = 4;
+            txtbx_confirmacion.UseSystemPasswordChar = true;
+            txtbx_confirmacion.KeyPress += txtbx_confirmacion_KeyPress;
+            // 
+            // btn_Registrar
+            // 
+            btn_Registrar.BackColor = System.Drawing.Color.Navy;
+            btn_Registrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_Registrar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            btn_Registrar.ForeColor = System.Drawing.Color.White;
+            btn_Registrar.Location = new System.Drawing.Point(55, 515);
+            btn_Registrar.Name = "btn_Registrar";
+            btn_Registrar.Size = new System.Drawing.Size(470, 48);
+            btn_Registrar.TabIndex = 5;
+            btn_Registrar.Text = "Crear cuenta";
+            btn_Registrar.UseVisualStyleBackColor = false;
+            btn_Registrar.Click += btn_Registrar_Click;
+            btn_Registrar.KeyPress += btn_Registrar_KeyPress;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            label6.ForeColor = System.Drawing.Color.DimGray;
+            label6.Location = new System.Drawing.Point(55, 612);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(125, 15);
+            label6.TabIndex = 12;
+            label6.Text = "¿Ya tienes una cuenta?";
+            // 
+            // Link_Login
+            // 
+            Link_Login.AutoSize = true;
+            Link_Login.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            Link_Login.LinkColor = System.Drawing.Color.Navy;
+            Link_Login.Location = new System.Drawing.Point(215, 610);
+            Link_Login.Name = "Link_Login";
+            Link_Login.Size = new System.Drawing.Size(73, 15);
+            Link_Login.TabIndex = 6;
+            Link_Login.TabStop = true;
+            Link_Login.Text = "Inicia sesión";
+            Link_Login.LinkClicked += Link_Login_LinkClicked;
+            // 
+            // FrmRegistro
+            // 
+            AcceptButton = btn_Registrar;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            ClientSize = new System.Drawing.Size(960, 720);
+            Controls.Add(groupBox1);
+            Controls.Add(panelBrand);
+            Font = new System.Drawing.Font("Segoe UI", 9F);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "FrmRegistro";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "DevEdu | Crear cuenta";
+            panelBrand.ResumeLayout(false);
+            panelBrand.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_profile).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+        }
     }
 }

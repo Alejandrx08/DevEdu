@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,19 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label3.Text" xml:space="preserve">
-    <value>//En C#, null significa que una variable no apunta a ningún objeto, es decir, no tiene valor asignado.
+    <value>¿QUÉ SIGNIFICA null?
+En C#, null indica que una variable no referencia ningún objeto. La variable existe, pero todavía no tiene uno asignado.
 
--No es lo mismo que:
+NO ES LO MISMO QUE CERO
+0 es un valor numérico y false es un valor booleano. null expresa ausencia de una referencia a objeto.
 
-0 → sí es un valor numérico
-false → sí es un valor booleano
-
--Ejemplo:
-
-string nombre = null;
-
-Aquí, nombre no contiene texto, simplemente no tiene nada asignado.
-</value>
+IDEA CLAVE
+Comprueba si una referencia puede ser null antes de usar el objeto.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

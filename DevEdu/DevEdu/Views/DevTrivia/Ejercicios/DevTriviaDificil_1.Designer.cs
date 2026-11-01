@@ -1,4 +1,4 @@
-﻿namespace DevEdu.UI.Forms.DevTrivia
+namespace DevEdu.UI.Forms.DevTrivia
 {
     partial class DevTriviaDificil_1
     {
@@ -228,8 +228,8 @@
             // 
             // DevTriviaDificil_1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Btn_CShp);
             this.Controls.Add(this.Btn_GO);
@@ -260,11 +260,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1100,760);
+            this.MinimumSize = new System.Drawing.Size(0, 0);
+            this.MaximumSize = new System.Drawing.Size(0, 0);
+            this.BackColor = System.Drawing.Color.FromArgb(245,247,251);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            this.Text = "DevTrivia | NIVEL DIFÍCIL  ·  RETO DE PROGRAMACIÓN";
+            this.pictureBox1.Location = new System.Drawing.Point(0,0); this.pictureBox1.Size = new System.Drawing.Size(1100,86); this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.pictureBox2.Location = new System.Drawing.Point(36,108); this.pictureBox2.Size = new System.Drawing.Size(1028,612); this.pictureBox2.BackColor = System.Drawing.Color.White; this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(-400,-400); this.pictureBox3.Size = new System.Drawing.Size(1,1);
+            this.pictureBox4.Location = new System.Drawing.Point(-400,-400); this.pictureBox4.Size = new System.Drawing.Size(1,1);
+            this.pictureBox5.Location = new System.Drawing.Point(-400,-400); this.pictureBox5.Size = new System.Drawing.Size(1,1);
+            this.pictureBox6.Location = new System.Drawing.Point(-400,-400); this.pictureBox6.Size = new System.Drawing.Size(1,1);
+            this.pictureBox7.Location = new System.Drawing.Point(-400,-400); this.pictureBox7.Size = new System.Drawing.Size(1,1);
+            this.pictureBox8.Location = new System.Drawing.Point(-400,-400); this.pictureBox8.Size = new System.Drawing.Size(1,1);
+            this.DevEdu_txt.Text = "DevTrivia"; this.DevEdu_txt.Location = new System.Drawing.Point(34,17); this.DevEdu_txt.Size = new System.Drawing.Size(280,48); this.DevEdu_txt.Font = new System.Drawing.Font("Segoe UI Semibold",23F,System.Drawing.FontStyle.Bold); this.DevEdu_txt.ForeColor = System.Drawing.Color.White; this.DevEdu_txt.BackColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.label2.Text = "NIVEL DIFÍCIL  ·  RETO DE PROGRAMACIÓN"; this.label2.Location = new System.Drawing.Point(72,135); this.label2.Size = new System.Drawing.Size(956,30); this.label2.AutoSize = false; this.label2.Font = new System.Drawing.Font("Segoe UI Semibold",10F,System.Drawing.FontStyle.Bold); this.label2.ForeColor = System.Drawing.Color.FromArgb(71,85,105); this.label2.BackColor = System.Drawing.Color.White; this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(72,184); this.label1.Size = new System.Drawing.Size(956,142); this.label1.AutoSize = false; this.label1.Font = new System.Drawing.Font("Segoe UI Semibold",20F,System.Drawing.FontStyle.Bold); this.label1.ForeColor = System.Drawing.Color.White; this.label1.BackColor = System.Drawing.Color.FromArgb(0,31,84); this.label1.Padding = new System.Windows.Forms.Padding(24); this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_GO.Text = "A  ·  Cero"; this.Btn_GO.Location = new System.Drawing.Point(72,360); this.Btn_GO.Size = new System.Drawing.Size(458,96); this.Btn_GO.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_GO.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_GO.BackColor = System.Drawing.Color.White; this.Btn_GO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_GO.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_GO.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_GO.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_GO.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_GO.FlatAppearance.BorderSize = 2; this.Btn_GO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
+            this.Btn_Phyton.Text = "B  ·  Vacío / sin valor"; this.Btn_Phyton.Location = new System.Drawing.Point(570,360); this.Btn_Phyton.Size = new System.Drawing.Size(458,96); this.Btn_Phyton.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_Phyton.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Phyton.BackColor = System.Drawing.Color.White; this.Btn_Phyton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_Phyton.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_Phyton.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_Phyton.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_Phyton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Phyton.FlatAppearance.BorderSize = 2; this.Btn_Phyton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
+            this.Btn_Cplpl.Text = "C  ·  Falso"; this.Btn_Cplpl.Location = new System.Drawing.Point(72,470); this.Btn_Cplpl.Size = new System.Drawing.Size(458,96); this.Btn_Cplpl.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_Cplpl.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Cplpl.BackColor = System.Drawing.Color.White; this.Btn_Cplpl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_Cplpl.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_Cplpl.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_Cplpl.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_Cplpl.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_Cplpl.FlatAppearance.BorderSize = 2; this.Btn_Cplpl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
+            this.Btn_CShp.Text = "D  ·  Error"; this.Btn_CShp.Location = new System.Drawing.Point(570,470); this.Btn_CShp.Size = new System.Drawing.Size(458,96); this.Btn_CShp.Font = new System.Drawing.Font("Segoe UI Semibold",13F,System.Drawing.FontStyle.Bold); this.Btn_CShp.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_CShp.BackColor = System.Drawing.Color.White; this.Btn_CShp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft; this.Btn_CShp.Padding = new System.Windows.Forms.Padding(24,0,16,0); this.Btn_CShp.Cursor = System.Windows.Forms.Cursors.Hand; this.Btn_CShp.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.Btn_CShp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0,31,84); this.Btn_CShp.FlatAppearance.BorderSize = 2; this.Btn_CShp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(226,235,248);
+            this.button2.Text = "← Niveles"; this.button2.Location = new System.Drawing.Point(944,20); this.button2.Size = new System.Drawing.Size(120,42); this.button2.Font = new System.Drawing.Font("Segoe UI Semibold",9.5F,System.Drawing.FontStyle.Bold); this.button2.BackColor = System.Drawing.Color.FromArgb(20,52,101); this.button2.ForeColor = System.Drawing.Color.White; this.button2.Cursor = System.Windows.Forms.Cursors.Hand; this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.button2.FlatAppearance.BorderSize = 0;
+            this.lblAnswerHint = new System.Windows.Forms.Label();
+            this.lblAnswerHint.Name = "lblAnswerHint"; this.lblAnswerHint.Location = new System.Drawing.Point(72,600); this.lblAnswerHint.Size = new System.Drawing.Size(956,56); this.lblAnswerHint.AutoSize = false; this.lblAnswerHint.Text = "Elige una respuesta  ·  Si no aciertas, puedes intentarlo otra vez."; this.lblAnswerHint.Font = new System.Drawing.Font("Segoe UI",10F); this.lblAnswerHint.ForeColor = System.Drawing.Color.FromArgb(0,31,84); this.lblAnswerHint.BackColor = System.Drawing.Color.FromArgb(226,235,248); this.lblAnswerHint.Padding = new System.Windows.Forms.Padding(14,0,0,0); this.lblAnswerHint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Controls.Add(this.lblAnswerHint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
+        private System.Windows.Forms.Label lblAnswerHint;
         #endregion
 
         private System.Windows.Forms.Button Btn_CShp;

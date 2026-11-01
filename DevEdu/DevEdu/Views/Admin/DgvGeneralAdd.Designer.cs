@@ -1,4 +1,4 @@
-﻿namespace DevEdu
+namespace DevEdu
 {
     partial class DgvGeneralAdd
     {
@@ -175,6 +175,18 @@
             this.Text = "DevEdu";
             this.Load += new System.EventHandler(this.DgvGeneralAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(560,610); this.MinimumSize = new System.Drawing.Size(560,610); this.MaximumSize = new System.Drawing.Size(560,610); this.BackColor = System.Drawing.Color.FromArgb(245,247,251); this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent; this.Text = "Agregar usuario | DevEdu";
+            this.pictureBox1.Location = new System.Drawing.Point(0,0); this.pictureBox1.Size = new System.Drawing.Size(560,92); this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.label6.Text = "Agregar usuario"; this.label6.Location = new System.Drawing.Point(32,20); this.label6.Font = new System.Drawing.Font("Segoe UI Semibold",22F,System.Drawing.FontStyle.Bold); this.label6.ForeColor = System.Drawing.Color.White; this.label6.BackColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.label2.Location = new System.Drawing.Point(32,120); this.label2.Size = new System.Drawing.Size(496,24); this.label2.Font = new System.Drawing.Font("Segoe UI Semibold",10F,System.Drawing.FontStyle.Bold); this.label2.ForeColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.txtbx_nombre.Location = new System.Drawing.Point(32,150); this.txtbx_nombre.Size = new System.Drawing.Size(496,32); this.txtbx_nombre.Font = new System.Drawing.Font("Segoe UI",11F); this.txtbx_nombre.BackColor = System.Drawing.Color.White; this.txtbx_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Location = new System.Drawing.Point(32,205); this.label3.Size = new System.Drawing.Size(496,24); this.label3.Font = new System.Drawing.Font("Segoe UI Semibold",10F,System.Drawing.FontStyle.Bold); this.label3.ForeColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.txtbx_apellido.Location = new System.Drawing.Point(32,235); this.txtbx_apellido.Size = new System.Drawing.Size(496,32); this.txtbx_apellido.Font = new System.Drawing.Font("Segoe UI",11F); this.txtbx_apellido.BackColor = System.Drawing.Color.White; this.txtbx_apellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(32,290); this.label1.Size = new System.Drawing.Size(496,24); this.label1.Font = new System.Drawing.Font("Segoe UI Semibold",10F,System.Drawing.FontStyle.Bold); this.label1.ForeColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.txtbx_correo.Location = new System.Drawing.Point(32,320); this.txtbx_correo.Size = new System.Drawing.Size(496,32); this.txtbx_correo.Font = new System.Drawing.Font("Segoe UI",11F); this.txtbx_correo.BackColor = System.Drawing.Color.White; this.txtbx_correo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Location = new System.Drawing.Point(32,375); this.label4.Size = new System.Drawing.Size(496,24); this.label4.Font = new System.Drawing.Font("Segoe UI Semibold",10F,System.Drawing.FontStyle.Bold); this.label4.ForeColor = System.Drawing.Color.FromArgb(0,31,84);
+            this.txtbx_contrasena.Location = new System.Drawing.Point(32,405); this.txtbx_contrasena.Size = new System.Drawing.Size(496,32); this.txtbx_contrasena.Font = new System.Drawing.Font("Segoe UI",11F); this.txtbx_contrasena.BackColor = System.Drawing.Color.White; this.txtbx_contrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnAgregar.Text = "Agregar usuario"; this.btnAgregar.Location = new System.Drawing.Point(32,490); this.btnAgregar.Size = new System.Drawing.Size(496,48); this.btnAgregar.Font = new System.Drawing.Font("Segoe UI Semibold",11F,System.Drawing.FontStyle.Bold); this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat; this.btnAgregar.FlatAppearance.BorderSize = 0; this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(0,31,84); this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.ResumeLayout(false);
             this.PerformLayout();
 
