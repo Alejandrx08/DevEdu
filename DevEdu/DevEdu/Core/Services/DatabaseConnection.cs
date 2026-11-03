@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Data;
@@ -67,6 +67,7 @@ namespace DevEdu.Core.Services
             return connStr;
         }
 
+        // Comprueba la conexión con SQL Server y la cierra al terminar.
         public bool TestConnection()
         {
             try

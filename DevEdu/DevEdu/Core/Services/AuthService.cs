@@ -1,4 +1,4 @@
-﻿
+
 using BCrypt.Net;
 using DevEdu.Core.Models;
 using DevEdu.Core.Services.Query;
@@ -12,11 +12,13 @@ namespace DevEdu.Core.Services
 {
     public class AuthService
     {
+        ///////////////////////////////////////////////////////////////////////////
         public async Task<UsuarioAutenticado> IniciarSesionAsync(
             string correo,
             string password,
             CancellationToken cancellationToken = default)
         {
+            // Consulta la cuenta por correo y verifica la contraseña contra su hash.
             const string query = @"
                 SELECT id, nombre, rango, tipo, contrasena
                 FROM usuarios
@@ -67,5 +69,6 @@ namespace DevEdu.Core.Services
                 };
             }
         }
+        ///////////////////////////////////////////////////////////////////////////
     }
 }

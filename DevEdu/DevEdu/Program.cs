@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Services.SQLite;
+using DevEdu.Core.Services.SQLite;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +16,7 @@ namespace DevEdu
 
             using var cancellationTokenSource =
                 new CancellationTokenSource();
-
+            // Inicia la sincronización local en segundo plano junto con la aplicación.
             var worker = new SQLiteSyncWorker();
 
             Task syncTask = Task.CompletedTask;

@@ -21,6 +21,8 @@ namespace DevEdu.Core.Presenters
                 ?? throw new ArgumentNullException(nameof(service));
         }
 
+        ///////////////////////////////////////////////////////////////////////////
+        // Coordina la solicitud del código de recuperación con el servicio.
         public async Task SolicitarCodigoAsync()
         {
             string correo = (_view.Correo ?? string.Empty).Trim();
@@ -50,6 +52,8 @@ namespace DevEdu.Core.Presenters
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////
+        // Valida el código y confirma la nueva contraseña antes de actualizarla.
         public async Task RestablecerContrasenaAsync()
         {
             string correo = (_view.Correo ?? string.Empty).Trim();
@@ -120,6 +124,7 @@ namespace DevEdu.Core.Presenters
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////
         private static bool EsCodigoNumerico(string value)
         {
             foreach (char c in value)

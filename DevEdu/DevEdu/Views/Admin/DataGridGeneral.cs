@@ -21,6 +21,7 @@ namespace DevEdu
             InitializeComponent();
 
             _permisos = new PermisosPresenter(this);
+            // La vista delega el filtrado al presenter cuando cambia el texto.
             _presenter = new GeneralPresenter(this);
             txtFiltroUsuarios.TextChanged += (_, _) =>
                 _presenter.Filtrar(txtFiltroUsuarios.Text);

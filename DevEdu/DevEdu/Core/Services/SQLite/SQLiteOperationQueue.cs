@@ -45,7 +45,8 @@ namespace DevEdu.Core.Services.SQLite
                     Mode = SqliteOpenMode.ReadWriteCreate
                 }.ToString();
         }
-
+        ///////////////////////////////////////////////////////////////////////////
+        // Crea o actualiza el almacenamiento local de operaciones pendientes.
         public async Task InitializeAsync(
             CancellationToken cancellationToken = default)
         {
@@ -132,7 +133,8 @@ namespace DevEdu.Core.Services.SQLite
                 await command.ExecuteNonQueryAsync(cancellationToken);
             }
         }
-
+        ///////////////////////////////////////////////////////////////////////////
+        // Guarda cada operación local con una secuencia para mantener el orden FIFO.
         public async Task<string> EnqueueAsync(
             string operationType,
             string payloadJson,
@@ -270,6 +272,9 @@ namespace DevEdu.Core.Services.SQLite
             }
         }
 
+
+        ///////////////////////////////////////////////////////////////////////////
+        // Recupera pendientes por secuencia para conservar el orden FIFO.
         public async Task<List<PendingOperation>> GetPendingAsync(
             CancellationToken cancellationToken = default)
         {
@@ -337,7 +342,7 @@ namespace DevEdu.Core.Services.SQLite
 
             return operations;
         }
-
+        ////////////////////////////////////////////////////////////////////////////////////////
         public async Task RegisterFailedAttemptAsync(
             string operationId,
             string errorCode,

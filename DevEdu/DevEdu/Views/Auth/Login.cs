@@ -16,7 +16,7 @@ namespace DevEdu
         public Login()
         {
             InitializeComponent();
-
+            // La vista entrega eventos y datos al presenter; el servicio gestiona el acceso.
             _presenter = new LoginPresenter(this, new AuthService());
 
             var linkRecuperar = new LinkLabel

@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Interfaces;
+using DevEdu.Core.Interfaces;
 using DevEdu.Core.Presenters;
 using DevEdu.Core.Services;
 using System;
@@ -15,6 +15,7 @@ namespace DevEdu
         public FrmRegistro()
         {
             InitializeComponent();
+            // Conecta la vista de registro con el presenter y el servicio de usuarios.
             _presenter = new RegistroPresenter(
                 this,
                 new UsuarioService());

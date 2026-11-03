@@ -17,6 +17,7 @@ namespace DevEdu
             InitializeComponent();
 
             _permisos = new PermisosPresenter(this);
+            // El presenter carga y filtra los datos que esta vista muestra.
             _presenter = new MaestrosPresenter(this);
             txtFiltroMaestros.TextChanged += (_, _) =>
                 _presenter.Filtrar(txtFiltroMaestros.Text);

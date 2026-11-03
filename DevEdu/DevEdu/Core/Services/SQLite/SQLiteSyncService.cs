@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Services.Offline;
+using DevEdu.Core.Services.Offline;
 using System;
 using System.Text.Json;
 using System.Threading;
@@ -56,6 +56,8 @@ namespace DevEdu.Core.Services.SQLite
             public string contrasenaHash { get; set; }
         }
 
+        ///////////////////////////////////////////////////////////////////////////
+        // Envía los registros locales al servidor siguiendo el orden de la cola.
         public async Task SynchronizePendingAsync(
             CancellationToken cancellationToken = default)
         {
@@ -191,6 +193,7 @@ namespace DevEdu.Core.Services.SQLite
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////
         private static bool EsPayloadValido(
             UserRegistrationPayload payload)
         {

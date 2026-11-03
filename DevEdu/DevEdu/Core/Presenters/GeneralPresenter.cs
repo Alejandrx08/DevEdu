@@ -92,6 +92,8 @@ namespace DevEdu.Core.Presenters
             MostrarDatosFiltrados();
         }
 
+        ///////////////////////////////////////////////////////////////////////////
+        // Filtra usuarios por sus datos, estado y condición de actividad.
         private void MostrarDatosFiltrados()
         {
             string criterio = _criterioBusqueda;
@@ -109,6 +111,7 @@ namespace DevEdu.Core.Presenters
 
             _view.MostrarDatos(resultados);
         }
+        ///////////////////////////////////////////////////////////////////////////
         public void GuardarCambios()
         {
             Persona usuario = _view.UsuarioSeleccionado;

@@ -1,4 +1,4 @@
-﻿using DevEdu.Core.Services;
+using DevEdu.Core.Services;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
@@ -37,7 +37,7 @@ namespace DevEdu.Core.Services.Offline
             cancellationToken.ThrowIfCancellationRequested();
 
             await OpenConnAsync(cancellationToken);
-
+            // Registra la operación y el usuario en una transacción idempotente.
             using SqlTransaction transaction =
                 (SqlTransaction)await _connection.BeginTransactionAsync(
                     IsolationLevel.Serializable,

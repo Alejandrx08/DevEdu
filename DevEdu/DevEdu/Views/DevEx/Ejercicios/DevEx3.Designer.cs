@@ -11,6 +11,7 @@ namespace DevEdu
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevEx3));
             panelHeader = new System.Windows.Forms.Panel();
             lblMarca = new System.Windows.Forms.Label();
             btnVolver = new System.Windows.Forms.Button();
@@ -177,6 +178,7 @@ namespace DevEdu
             ClientSize = new System.Drawing.Size(1040, 720);
             Controls.Add(panelEjercicio);
             Controls.Add(panelHeader);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MinimumSize = new System.Drawing.Size(1040, 720);
             Name = "DevEx3";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -11,114 +11,183 @@ namespace DevEdu
 
         private void InitializeComponent()
         {
-            this.panelHeader = new System.Windows.Forms.Panel();
-            this.lblMarca = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.panelEjercicio = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblInstruccion = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblPrimeraRespuesta = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.lblSegundaRespuesta = new System.Windows.Forms.Label();
-            this.txtIteraciones = new System.Windows.Forms.TextBox();
-            this.btnComprobar = new System.Windows.Forms.Button();
-            this.panelHeader.SuspendLayout();
-            this.panelEjercicio.SuspendLayout();
-            this.SuspendLayout();
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.panelHeader.Controls.Add(this.lblMarca);
-            this.panelHeader.Controls.Add(this.btnVolver);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Size = new System.Drawing.Size(1040, 78);
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold);
-            this.lblMarca.ForeColor = System.Drawing.Color.White;
-            this.lblMarca.Location = new System.Drawing.Point(32, 14);
-            this.lblMarca.Text = "DevEx";
-            this.btnVolver.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Location = new System.Drawing.Point(845, 18);
-            this.btnVolver.Size = new System.Drawing.Size(165, 40);
-            this.btnVolver.Text = "← Volver a ejercicios";
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            this.panelEjercicio.BackColor = System.Drawing.Color.White;
-            this.panelEjercicio.Controls.Add(this.lblTitulo);
-            this.panelEjercicio.Controls.Add(this.lblInstruccion);
-            this.panelEjercicio.Controls.Add(this.lblCodigo);
-            this.panelEjercicio.Controls.Add(this.lblPrimeraRespuesta);
-            this.panelEjercicio.Controls.Add(this.txtTotal);
-            this.panelEjercicio.Controls.Add(this.lblSegundaRespuesta);
-            this.panelEjercicio.Controls.Add(this.txtIteraciones);
-            this.panelEjercicio.Controls.Add(this.btnComprobar);
-            this.panelEjercicio.Location = new System.Drawing.Point(60, 112);
-            this.panelEjercicio.Size = new System.Drawing.Size(920, 570);
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.lblTitulo.Location = new System.Drawing.Point(32, 20);
-            this.lblTitulo.Size = new System.Drawing.Size(856, 42);
-            this.lblTitulo.Text = "Ejercicio 4 · Ciclos anidados";
-            this.lblInstruccion.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblInstruccion.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
-            this.lblInstruccion.Location = new System.Drawing.Point(32, 72);
-            this.lblInstruccion.Size = new System.Drawing.Size(856, 48);
-            this.lblInstruccion.Text = "¿Cuál es el valor final de total y cuántas veces se ejecuta el ciclo interno?";
-            this.lblCodigo.BackColor = System.Drawing.Color.FromArgb(18, 37, 66);
-            this.lblCodigo.Font = new System.Drawing.Font("Consolas", 15F);
-            this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(32, 130);
-            this.lblCodigo.Padding = new System.Windows.Forms.Padding(22);
-            this.lblCodigo.Size = new System.Drawing.Size(856, 174);
-            this.lblCodigo.Text = "total = 0\r\nfor fila in range(1, 4):\r\n    for columna in range(1, 4):\r\n        total += fila * columna\r\nprint(total)";
-            this.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblPrimeraRespuesta.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblPrimeraRespuesta.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.lblPrimeraRespuesta.Location = new System.Drawing.Point(80, 330);
-            this.lblPrimeraRespuesta.Size = new System.Drawing.Size(280, 30);
-            this.lblPrimeraRespuesta.Text = "Valor final de total:";
-            this.lblPrimeraRespuesta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtTotal.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
-            this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.txtTotal.Location = new System.Drawing.Point(370, 330);
-            this.txtTotal.Size = new System.Drawing.Size(420, 31);
-            this.txtTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros_KeyPress);
-            this.lblSegundaRespuesta.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblSegundaRespuesta.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.lblSegundaRespuesta.Location = new System.Drawing.Point(80, 385);
-            this.lblSegundaRespuesta.Size = new System.Drawing.Size(280, 30);
-            this.lblSegundaRespuesta.Text = "Vueltas del ciclo interno:";
-            this.lblSegundaRespuesta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtIteraciones.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
-            this.txtIteraciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIteraciones.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.txtIteraciones.Location = new System.Drawing.Point(370, 385);
-            this.txtIteraciones.Size = new System.Drawing.Size(420, 31);
-            this.txtIteraciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros_KeyPress);
-            this.btnComprobar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
-            this.btnComprobar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComprobar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.btnComprobar.ForeColor = System.Drawing.Color.White;
-            this.btnComprobar.Location = new System.Drawing.Point(350, 475);
-            this.btnComprobar.Size = new System.Drawing.Size(220, 50);
-            this.btnComprobar.Text = "Comprobar respuesta";
-            this.btnComprobar.Click += new System.EventHandler(this.btnComprobar_Click);
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
-            this.ClientSize = new System.Drawing.Size(1040, 720);
-            this.Controls.Add(this.panelEjercicio);
-            this.Controls.Add(this.panelHeader);
-            this.MinimumSize = new System.Drawing.Size(1040, 720);
-            this.Name = "DevEx4";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DevEx | Ejercicio 4";
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
-            this.panelEjercicio.ResumeLayout(false);
-            this.panelEjercicio.PerformLayout();
-            this.ResumeLayout(false);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevEx4));
+            panelHeader = new System.Windows.Forms.Panel();
+            lblMarca = new System.Windows.Forms.Label();
+            btnVolver = new System.Windows.Forms.Button();
+            panelEjercicio = new System.Windows.Forms.Panel();
+            lblTitulo = new System.Windows.Forms.Label();
+            lblInstruccion = new System.Windows.Forms.Label();
+            lblCodigo = new System.Windows.Forms.Label();
+            lblPrimeraRespuesta = new System.Windows.Forms.Label();
+            txtTotal = new System.Windows.Forms.TextBox();
+            lblSegundaRespuesta = new System.Windows.Forms.Label();
+            txtIteraciones = new System.Windows.Forms.TextBox();
+            btnComprobar = new System.Windows.Forms.Button();
+            panelHeader.SuspendLayout();
+            panelEjercicio.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            panelHeader.Controls.Add(lblMarca);
+            panelHeader.Controls.Add(btnVolver);
+            panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            panelHeader.Location = new System.Drawing.Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new System.Drawing.Size(1040, 78);
+            panelHeader.TabIndex = 1;
+            // 
+            // lblMarca
+            // 
+            lblMarca.AutoSize = true;
+            lblMarca.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold);
+            lblMarca.ForeColor = System.Drawing.Color.White;
+            lblMarca.Location = new System.Drawing.Point(32, 14);
+            lblMarca.Name = "lblMarca";
+            lblMarca.Size = new System.Drawing.Size(102, 41);
+            lblMarca.TabIndex = 0;
+            lblMarca.Text = "DevEx";
+            // 
+            // btnVolver
+            // 
+            btnVolver.BackColor = System.Drawing.Color.FromArgb(20, 52, 101);
+            btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnVolver.ForeColor = System.Drawing.Color.White;
+            btnVolver.Location = new System.Drawing.Point(845, 18);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new System.Drawing.Size(165, 40);
+            btnVolver.TabIndex = 1;
+            btnVolver.Text = "← Volver a ejercicios";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
+            // panelEjercicio
+            // 
+            panelEjercicio.BackColor = System.Drawing.Color.White;
+            panelEjercicio.Controls.Add(lblTitulo);
+            panelEjercicio.Controls.Add(lblInstruccion);
+            panelEjercicio.Controls.Add(lblCodigo);
+            panelEjercicio.Controls.Add(lblPrimeraRespuesta);
+            panelEjercicio.Controls.Add(txtTotal);
+            panelEjercicio.Controls.Add(lblSegundaRespuesta);
+            panelEjercicio.Controls.Add(txtIteraciones);
+            panelEjercicio.Controls.Add(btnComprobar);
+            panelEjercicio.Location = new System.Drawing.Point(60, 112);
+            panelEjercicio.Name = "panelEjercicio";
+            panelEjercicio.Size = new System.Drawing.Size(920, 570);
+            panelEjercicio.TabIndex = 0;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            lblTitulo.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            lblTitulo.Location = new System.Drawing.Point(32, 20);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new System.Drawing.Size(856, 42);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Ejercicio 4 · Ciclos anidados";
+            // 
+            // lblInstruccion
+            // 
+            lblInstruccion.Font = new System.Drawing.Font("Segoe UI", 11F);
+            lblInstruccion.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            lblInstruccion.Location = new System.Drawing.Point(32, 72);
+            lblInstruccion.Name = "lblInstruccion";
+            lblInstruccion.Size = new System.Drawing.Size(856, 48);
+            lblInstruccion.TabIndex = 1;
+            lblInstruccion.Text = "¿Cuál es el valor final de total y cuántas veces se ejecuta el ciclo interno?";
+            // 
+            // lblCodigo
+            // 
+            lblCodigo.BackColor = System.Drawing.Color.FromArgb(18, 37, 66);
+            lblCodigo.Font = new System.Drawing.Font("Consolas", 15F);
+            lblCodigo.ForeColor = System.Drawing.Color.White;
+            lblCodigo.Location = new System.Drawing.Point(32, 130);
+            lblCodigo.Name = "lblCodigo";
+            lblCodigo.Padding = new System.Windows.Forms.Padding(22);
+            lblCodigo.Size = new System.Drawing.Size(856, 174);
+            lblCodigo.TabIndex = 2;
+            lblCodigo.Text = "total = 0\r\nfor fila in range(1, 4):\r\n    for columna in range(1, 4):\r\n        total += fila * columna\r\nprint(total)";
+            lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPrimeraRespuesta
+            // 
+            lblPrimeraRespuesta.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            lblPrimeraRespuesta.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            lblPrimeraRespuesta.Location = new System.Drawing.Point(80, 330);
+            lblPrimeraRespuesta.Name = "lblPrimeraRespuesta";
+            lblPrimeraRespuesta.Size = new System.Drawing.Size(280, 30);
+            lblPrimeraRespuesta.TabIndex = 3;
+            lblPrimeraRespuesta.Text = "Valor final de total:";
+            lblPrimeraRespuesta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtTotal
+            // 
+            txtTotal.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtTotal.Font = new System.Drawing.Font("Segoe UI", 13F);
+            txtTotal.Location = new System.Drawing.Point(370, 330);
+            txtTotal.Name = "txtTotal";
+            txtTotal.Size = new System.Drawing.Size(420, 31);
+            txtTotal.TabIndex = 4;
+            txtTotal.KeyPress += SoloNumeros_KeyPress;
+            // 
+            // lblSegundaRespuesta
+            // 
+            lblSegundaRespuesta.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            lblSegundaRespuesta.ForeColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            lblSegundaRespuesta.Location = new System.Drawing.Point(80, 385);
+            lblSegundaRespuesta.Name = "lblSegundaRespuesta";
+            lblSegundaRespuesta.Size = new System.Drawing.Size(280, 30);
+            lblSegundaRespuesta.TabIndex = 5;
+            lblSegundaRespuesta.Text = "Vueltas del ciclo interno:";
+            lblSegundaRespuesta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtIteraciones
+            // 
+            txtIteraciones.BackColor = System.Drawing.Color.FromArgb(249, 250, 252);
+            txtIteraciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtIteraciones.Font = new System.Drawing.Font("Segoe UI", 13F);
+            txtIteraciones.Location = new System.Drawing.Point(370, 385);
+            txtIteraciones.Name = "txtIteraciones";
+            txtIteraciones.Size = new System.Drawing.Size(420, 31);
+            txtIteraciones.TabIndex = 6;
+            txtIteraciones.KeyPress += SoloNumeros_KeyPress;
+            // 
+            // btnComprobar
+            // 
+            btnComprobar.BackColor = System.Drawing.Color.FromArgb(0, 31, 84);
+            btnComprobar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnComprobar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            btnComprobar.ForeColor = System.Drawing.Color.White;
+            btnComprobar.Location = new System.Drawing.Point(350, 475);
+            btnComprobar.Name = "btnComprobar";
+            btnComprobar.Size = new System.Drawing.Size(220, 50);
+            btnComprobar.TabIndex = 7;
+            btnComprobar.Text = "Comprobar respuesta";
+            btnComprobar.UseVisualStyleBackColor = false;
+            btnComprobar.Click += btnComprobar_Click;
+            // 
+            // DevEx4
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(245, 247, 251);
+            ClientSize = new System.Drawing.Size(1040, 720);
+            Controls.Add(panelEjercicio);
+            Controls.Add(panelHeader);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new System.Drawing.Size(1040, 720);
+            Name = "DevEx4";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "DevEx | Ejercicio 4";
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelEjercicio.ResumeLayout(false);
+            panelEjercicio.PerformLayout();
+            ResumeLayout(false);
         }
 
         private System.Windows.Forms.Panel panelHeader;

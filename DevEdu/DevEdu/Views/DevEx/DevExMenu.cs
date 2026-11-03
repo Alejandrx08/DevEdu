@@ -253,6 +253,11 @@ namespace DevEdu
             Controls.Add(tarjeta);
         }
 
+        private void InitializeComponent()
+        {
+
+        }
+
         private void Abrir(Form ejercicio)
         {
             Hide();

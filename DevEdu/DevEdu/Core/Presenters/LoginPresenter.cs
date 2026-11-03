@@ -22,6 +22,8 @@ namespace DevEdu.Core.Presenters
             _authService = authService;
         }
 
+        ///////////////////////////////////////////////////////////////////////////
+        // Valida las credenciales y coordina la autenticación con la vista.
         public async Task IniciarSesionAsync()
         {
             string correo = _view.Correo;
@@ -65,6 +67,7 @@ namespace DevEdu.Core.Presenters
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////
         private static bool ContieneErrorSql(Exception excepcion)
         {
             for (Exception actual = excepcion; actual != null; actual = actual.InnerException)

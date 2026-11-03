@@ -43,6 +43,7 @@ namespace DevEdu.Core.Services.SQLite
         public async Task RunAsync(
             CancellationToken cancellationToken)
         {
+            // Revisa periódicamente la cola y se detiene al cerrar DevEdu.
             while (!cancellationToken.IsCancellationRequested)
             {
                 try

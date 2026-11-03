@@ -23,6 +23,7 @@ namespace DevEdu
                 DataGridViewAutoSizeColumnsMode.Fill;
 
             _permisos = new PermisosPresenter(this);
+            // El presenter carga y filtra los datos que esta vista muestra.
             _presenter = new AlumnosPresenter(this);
             txtFiltroAlumnos.TextChanged += (_, _) =>
                 _presenter.Filtrar(txtFiltroAlumnos.Text);

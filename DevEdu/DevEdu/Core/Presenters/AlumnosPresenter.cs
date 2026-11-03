@@ -84,6 +84,8 @@ namespace DevEdu.Core.Presenters
             MostrarDatosFiltrados();
         }
 
+        ///////////////////////////////////////////////////////////////////////////
+        // Filtra alumnos por ID, nombre, apellido, correo o rango.
         private void MostrarDatosFiltrados()
         {
             string criterio = _criterioBusqueda;
@@ -98,6 +100,7 @@ namespace DevEdu.Core.Presenters
 
             _view.MostrarDatos(resultados);
         }
+        ///////////////////////////////////////////////////////////////////////////
         public void CargarCantidad()
         {
             try

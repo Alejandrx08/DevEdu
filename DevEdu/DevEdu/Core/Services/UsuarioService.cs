@@ -653,6 +653,8 @@ namespace DevEdu.Core.Services
                     }
                 }
             }
+            /////////////////////////////////////////////////////////////////////////
+            // Si falla la conexión, conserva localmente este registro para sincronizarlo después.
             catch (Exception ex) when (EsFalloConexionSql(ex))
             {
                 cancellationToken.ThrowIfCancellationRequested();
@@ -668,7 +670,7 @@ namespace DevEdu.Core.Services
                         correo,
                         contrasenaHash = hash
                     });
-
+                    // Solo el registro de usuario se conserva para envío posterior.
                     await _offlineQueue.EnqueueAsync(
                         "UserRegistration",
                         payload,
@@ -690,6 +692,7 @@ namespace DevEdu.Core.Services
                     "No se pudo conectar con el servidor. " +
                     "Inténtalo nuevamente más tarde.");
             }
+            /////////////////////////////////////////////////////////////////////////
         }
 
         private static bool EsFalloConexionSql(Exception exception)
